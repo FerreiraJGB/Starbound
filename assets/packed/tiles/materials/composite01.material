@@ -1,0 +1,24 @@
+{
+  "materialId" : 4,
+  "materialName" : "composite01",
+  "particleColor" : [214, 214, 214, 255],
+  "itemDrop" : "composite01material",
+  "description" : "A smooth panel made of titanium.",
+  "shortdescription" : "Titanium Panel",
+  "glitchDescription" : "Amazed. This titanium panel is almost flawlessly smooth.",
+  "floranDescription" : "Ssmooth shiny titanium panelss.",
+  "novakidDescription" : "Some shiny n' smooth titanium panels.",
+  "footstepSound" : "/sfx/blocks/footstep_composite.ogg",
+  "health" : 8,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "composite01.png",
+    "variants" : 1,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 3000
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "materialId" : 125,
+  "materialName" : "stoneplatform",
+  "collisionKind" : "platform",
+  "itemDrop" : "stoneplatform",
+  "shortdescription" : "Stone Platform",
+  "description" : "A platform carved from stone.",
+  "glitchDescription" : "Impressed. This platform has been carved from solid stone.",
+  "floranDescription" : "Sstone carved into platformss.",
+  "novakidDescription" : "Must've taken forever to carve these stone platforms.",
+  "footstepSound" : "/sfx/blocks/footstep_stone.ogg",
+  "category" : "Supports",
+
+  "renderTemplate" : "/tiles/platformtemplate.config",
+  "renderParameters" : {
+    "texture" : "stoneplatform.png",
+    "variants" : 1,
+    "lightTransparent" : true,
+    "occludesBelow" : false,
+    "multiColored" : true,
+    "zLevel" : 0
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "projectileName" : "smalliceburstexplosion",
+  "image" : "burstexplosion.png",
+  "animationCycle" : 0.2,
+  "frameNumber" : 6,
+  "speed" : 0,
+  "lightColor" : [82, 82, 160],
+  "pointLight" : true,
+  "statusEffects" : [
+    "frostslow"
+  ],
+  "damagePoly" : [ [-12, 0], [-9, -9], [0, -12], [9, -9], [12, 0], [9, 9], [0, 12], [-9, 9] ],
+  "animationLoops" : false,
+  "piercing" : true,
+  "bounces" : -1,
+  "flippable" : true,
+  "damageKind" : "iceplasma",
+  "knockback" : 10
+}

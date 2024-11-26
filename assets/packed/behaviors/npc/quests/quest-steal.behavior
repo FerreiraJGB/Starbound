@@ -1,0 +1,51 @@
+{
+  "name": "quest-steal",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/time.lua",
+    "/scripts/actions/dialog.lua",
+    "/scripts/actions/npc.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 10}
+        }
+      },
+      {
+        "title": "say",
+        "type": "action",
+        "name": "say",
+        "parameters": {
+          "content": {"value": "Don't get caught!"},
+          "tags": {"value": {}}
+        }
+      },
+      {
+        "title": "emote",
+        "type": "action",
+        "name": "emote",
+        "parameters": {
+          "emote": {"value": "laugh"}
+        }
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 10}
+        }
+      }
+    ]
+  }
+}

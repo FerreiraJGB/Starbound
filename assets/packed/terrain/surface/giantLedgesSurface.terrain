@@ -1,0 +1,50 @@
+{
+  "name" : "giantLedgesSurface",
+
+  //jaggy ledges
+  "type" : "displacement",
+  "xType" : "perlin",
+  "xOctaves" : 2,
+  "xFreq" : 0.04,
+  "xAmp" : 60,
+  "xXInfluence" : 0.25,
+  "yType" : "perlin",
+  "yOctaves" : 1,
+  "yFreq" : 0.1,
+  "yAmp" : 0,
+  "yYInfluence" : 0,
+
+  "source" : {
+    //slightly shakey mountains
+    "type" : "displacement",
+    "xType" : "perlin",
+    "xOctaves" : 1,
+    "xFreq" : 0.02,
+    "xAmp" : 0,
+    "yType" : "perlin",
+    "yOctaves" : 2,
+    "yFreq" : 0.007,
+    "yAmp" : 100,
+    "yYInfluence" : 0.05,
+
+    "source" : {
+      //base terrain height variation
+      "type" : "displacement",
+      "xType" : "perlin",
+      "xOctaves" : 1,
+      "xFreq" : 0.02,
+      "xAmp" : 0,
+      "yType" : "perlin",
+      "yOctaves" : 1,
+      "yFreq" : 0.001,
+      "yAmp" : 70,
+      "yYInfluence" : 0,
+
+      "source" : {
+        "type" : "flatSurface",
+
+        "adjustment" : 0
+      }
+    }
+  }
+}

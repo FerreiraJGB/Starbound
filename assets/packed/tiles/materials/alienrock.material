@@ -1,0 +1,24 @@
+{
+  "materialId" : 143,
+  "materialName" : "alienrock",
+  "particleColor" : [111, 94, 74, 255],
+  "itemDrop" : "alienrock",
+  "description" : "This strange rock comes from an alien world.",
+  "shortdescription" : "Alien Rock",
+  "glitchDescription" : "Amazed. This rock is of an alien origin.",
+  "floranDescription" : "Floran like sstrange rocks.",
+  "novakidDescription" : "Some kinda alien lookin' rock.",
+  "footstepSound" : "/sfx/blocks/footstep_rock.ogg",
+  "health" : 4,
+  "category" : "materials",
+  
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "alienrock.png",
+    "variants" : 15,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 1720
+  }
+}

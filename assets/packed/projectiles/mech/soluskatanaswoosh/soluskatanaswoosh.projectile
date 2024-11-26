@@ -1,0 +1,22 @@
+{
+  "projectileName" : "soluskatanaswoosh",
+  "image" : "soluskatanaswoosh.png",
+  "animationCycle" : 0.3,
+  "timeToLive" : 0.3,
+  "frameNumber" : 5,
+  "speed" : 0,
+  "orientationLocked" : true,
+  "damagePoly" : [ [-24, -36], [0, -36], [30, -28], [50, 0], [30, 28], [0, 36], [-24, 36] ],
+  "animationLoops" : true,
+  "piercing" : true,
+  "bounces" : -1,
+  "flippable" : true,
+  "damageKind" : "broadsword",
+  "emitters" : [ ],
+  "lightColor" : [177, 66, 2],
+  "fullbright" : true,
+  "statusEffects" : [],
+  "knockback" : 18,
+  "knockbackDirectional" : true,
+  "acceleration" : -140
+}

@@ -1,0 +1,369 @@
+{
+  "name": "chat",
+  "description": "",
+  "scripts": [
+    "/scripts/behavior/bgroup.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/reaction.lua",
+    "/scripts/actions/npc.lua",
+    "/scripts/actions/time.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": 1},
+          "success": {"value": -1}
+        },
+        "children": [
+          {
+            "title": "group",
+            "type": "action",
+            "name": "group",
+            "parameters": {
+              "goal": {"value": "chatfriends"},
+              "goalType": {"value": "list"},
+              "groupId": {"value": "chat"},
+              "maxMembers": {"value": 2},
+              "minMembers": {"value": 2},
+              "position": {"key": "self"}
+            }
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "dynamic",
+                "type": "composite",
+                "name": "dynamic",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "inverter",
+                    "type": "decorator",
+                    "name": "inverter",
+                    "parameters": {},
+                    "child": {
+                      "title": "entityInRange",
+                      "type": "action",
+                      "name": "entityInRange",
+                      "parameters": {
+                        "entity": {"key": "chatfriend"},
+                        "position": {"key": "self"},
+                        "xRange": {"value": 2}
+                      }
+                    }
+                  },
+                  {
+                    "title": "sequence",
+                    "type": "composite",
+                    "name": "sequence",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "entityDirection",
+                        "type": "action",
+                        "name": "entityDirection",
+                        "parameters": {
+                          "entity": {"key": "self"},
+                          "target": {"key": "chatfriend"}
+                        },
+                        "output": {
+                          "direction": "chatdirection"
+                        }
+                      },
+                      {
+                        "title": "reverseDirection",
+                        "type": "action",
+                        "name": "reverseDirection",
+                        "parameters": {
+                          "direction": {"key": "chatdirection"}
+                        },
+                        "output": {
+                          "direction": "chatdirection"
+                        }
+                      },
+                      {
+                        "title": "move",
+                        "type": "action",
+                        "name": "move",
+                        "parameters": {
+                          "direction": {"key": "chatdirection"},
+                          "run": {"value": false}
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "title": "faceEntity",
+                "type": "action",
+                "name": "faceEntity",
+                "parameters": {
+                  "entity": {"key": "chatfriend"}
+                }
+              },
+              {
+                "title": "selector",
+                "type": "composite",
+                "name": "selector",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "sequence",
+                    "type": "composite",
+                    "name": "sequence",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "getPersonality",
+                        "type": "action",
+                        "name": "getPersonality",
+                        "parameters": {
+                          "target": {"key": "self"}
+                        },
+                        "output": {
+                          "influence": "influence"
+                        }
+                      },
+                      {
+                        "title": "getPersonality",
+                        "type": "action",
+                        "name": "getPersonality",
+                        "parameters": {
+                          "target": {"key": "chatfriend"}
+                        },
+                        "output": {
+                          "influence": "influence"
+                        }
+                      },
+                      {
+                        "title": "succeeder",
+                        "type": "decorator",
+                        "name": "succeeder",
+                        "parameters": {},
+                        "child": {
+                          "title": "/behaviors/npc/reactionchat.behavior",
+                          "type": "module",
+                          "name": "reactionchat",
+                          "parameters": {}
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "title": "selector",
+                    "type": "composite",
+                    "name": "selector",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "parallel",
+                        "type": "composite",
+                        "name": "parallel",
+                        "parameters": {
+                          "fail": {"value": 1},
+                          "success": {"value": -1}
+                        },
+                        "children": [
+                          {
+                            "title": "task",
+                            "type": "action",
+                            "name": "task",
+                            "parameters": {
+                              "groupId": {"value": "chat"},
+                              "maxMembers": {"value": 1},
+                              "minMembers": {"value": 1},
+                              "taskId": {"value": "first"}
+                            }
+                          },
+                          {
+                            "title": "repeater",
+                            "type": "decorator",
+                            "name": "repeater",
+                            "parameters": {
+                              "maxLoops": {"value": 3},
+                              "untilSuccess": {"value": false}
+                            },
+                            "child": {
+                              "title": "sequence",
+                              "type": "composite",
+                              "name": "sequence",
+                              "parameters": {},
+                              "children": [
+                                {
+                                  "title": "emote",
+                                  "type": "action",
+                                  "name": "emote",
+                                  "parameters": {
+                                    "emote": {"value": "blabbering"}
+                                  }
+                                },
+                                {
+                                  "title": "timer",
+                                  "type": "action",
+                                  "name": "timer",
+                                  "parameters": {
+                                    "time": {"value": 4}
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "title": "repeater",
+                        "type": "decorator",
+                        "name": "repeater",
+                        "parameters": {
+                          "maxLoops": {"value": 3},
+                          "untilSuccess": {"value": false}
+                        },
+                        "child": {
+                          "title": "sequence",
+                          "type": "composite",
+                          "name": "sequence",
+                          "parameters": {},
+                          "children": [
+                            {
+                              "title": "timer",
+                              "type": "action",
+                              "name": "timer",
+                              "parameters": {
+                                "time": {"value": 2}
+                              }
+                            },
+                            {
+                              "title": "emote",
+                              "type": "action",
+                              "name": "emote",
+                              "parameters": {
+                                "emote": {"value": "blabbering"}
+                              }
+                            },
+                            {
+                              "title": "timer",
+                              "type": "action",
+                              "name": "timer",
+                              "parameters": {
+                                "time": {"value": 2}
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "title": "succeedGroup",
+                "type": "action",
+                "name": "succeedGroup",
+                "parameters": {
+                  "groupId": {"value": "chatfriends"}
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "succeeder",
+            "type": "decorator",
+            "name": "succeeder",
+            "parameters": {},
+            "child": {
+              "title": "selector",
+              "type": "composite",
+              "name": "selector",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "isFinalReaction",
+                  "type": "action",
+                  "name": "isFinalReaction",
+                  "parameters": {
+                    "influence": {"key": "influence"},
+                    "reaction": {"key": ""}
+                  }
+                },
+                {
+                  "title": "sequence",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "receivedInfluenceNotification",
+                      "type": "action",
+                      "name": "receivedInfluenceNotification",
+                      "parameters": {},
+                      "output": {
+                        "influence": "influence"
+                      }
+                    },
+                    {
+                      "title": "chooseReaction",
+                      "type": "action",
+                      "name": "chooseReaction",
+                      "parameters": {
+                        "influence": {"key": "influence"},
+                        "target": {"key": "reactTarget"}
+                      },
+                      "output": {
+                        "reaction": "reaction"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "title": "selector",
+            "type": "composite",
+            "name": "selector",
+            "parameters": {},
+            "children": [
+              {
+                "title": "",
+                "type": "module",
+                "name": "finalreact",
+                "parameters": {}
+              },
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": 3}
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

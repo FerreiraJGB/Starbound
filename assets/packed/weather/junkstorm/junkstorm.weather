@@ -1,0 +1,75 @@
+{
+  "name" : "junkstorm",
+
+  "particles" : [
+      {
+      "density" : 0.0001,
+      "particle" : {
+        "type" : "animated",
+        "animation" : "/animations/junkstorm/junkstorm1.animation",
+        "velocity" : [0, -5],
+        "approach" : [15, 25],
+        "fade" : 0.5,
+        "looping" : true,
+        "destructionTime" : 20,
+        "timeToLive" : 20,
+        "collidesForeground" : false,
+        "collidesLiquid" : true,
+        "ignoreWind" : false
+      }
+    },
+    {
+
+     "density" : 0.0001,
+      "particle" : {
+        "type" : "animated",
+        "animation" : "/animations/ember1/ember1.animation",
+        "velocity" : [0, -5],
+        "approach" : [15, 25],
+        "fade" : 0.5,
+        "looping" : true,
+        "destructionTime" : 20,
+        "timeToLive" : 10,
+        "collidesForeground" : false,
+        "collidesLiquid" : true,
+        "ignoreWind" : false
+      }
+    },
+    {
+      "density" : 0.005,
+      "particle" : {
+        "type" : "animated",
+        "animation" : "/animations/dust1/dust1.animation",
+        "velocity" : [0, -5],
+        "approach" : [15, 25],
+        "fade" : 0.5,
+        "looping" : true,
+        "destructionTime" : 20,
+        "timeToLive" : 20,
+        "collidesForeground" : false,
+        "collidesLiquid" : true,
+        "ignoreWind" : false
+      }
+    },
+    {
+
+      "density" : 0.0025,
+      "particle" : {
+        "type" : "textured",
+        "image" : "/particles/fog/1.png",
+        "velocity" : [0, -5],
+        "approach" : [15, 25],
+        "timeToLive" : 20,
+        "collidesForeground" : false,
+        "collidesLiquid" : true,
+        "ignoreWind" : false
+      }
+    }
+  ],
+
+  "duration" : [50, 300],
+  "maximumWind" : 15.0,
+  "weatherNoises" : [ "/sfx/weather/blizzard.ogg" ]
+
+
+}

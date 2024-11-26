@@ -1,0 +1,25 @@
+{
+  "materialId" : 100,
+  "materialName" : "chain",
+  "particleColor" : [149, 148, 145, 255],
+  "itemDrop" : "chain",
+  "description" : "Tungsten chains, and not the fun kind.",
+  "shortdescription" : "Tungsten Chain",
+  "glitchDescription" : "Impressed. These chains are remarkably strong.",
+  "floranDescription" : "Floran use chains to catch prey.",
+  "novakidDescription" : "Some chains made outta tungsten.",
+  "footstepSound" : "/sfx/blocks/footstep_treasure.ogg",
+  "health" : 8,
+  "category" : "materials",
+  "blocksLiquidFlow" : false,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "chain.png",
+    "variants" : 1,
+    "lightTransparent" : true,
+    "multiColored" : true,
+    "occludesBelow" : false,
+    "zLevel" : 530
+  }
+}

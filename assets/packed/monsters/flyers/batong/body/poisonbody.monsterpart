@@ -1,0 +1,9 @@
+{
+  "name" : "batong",
+  "category" : "poisonbatong",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "poisonbatong.png"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "projectileName" : "poisonsporeseed",
+  "physics" : "grenade",
+  "image" : "poisonsporeseed.png",
+  "frameNumber" : 1,
+  "damageKindImage" : "icon.png",
+  "pointLight" : false,
+  "actionOnReap" : [
+    {
+      "action" : "projectile",
+      "inheritDamageFactor" : 1,
+      "type" : "smallpoisoncloud",
+      "direction" : [1,0],
+      "config" : {
+        "timeToLive" : 3.0,
+        "movementSettings" : {
+          "gravityMultiplier" : 0.1
+        }
+      }
+    },
+    {
+      "action" : "config",
+      "file" : "/projectiles/explosions/smallpoisonexplosion/smallpoisonexplosion.config"
+    }
+  ],
+  "power" : 5.0,
+  "timeToLive" : 0.75,
+  "speed" : 35,
+  "orientationLocked" : true,
+  "damageKind" : "default"
+}

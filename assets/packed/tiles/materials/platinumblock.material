@@ -1,0 +1,24 @@
+{
+  "materialId" : 35,
+  "materialName" : "platinumblock",
+  "particleColor" : [191, 191, 191, 255],
+  "itemDrop" : "platinumblock",
+  "description" : "A whole block of solid platinum.",
+  "shortdescription" : "Platinum Block",
+  "glitchDescription" : "Delighted. This shimmering block is made from solid platinum.",
+  "floranDescription" : "Floran likess shiny platinum.",
+  "novakidDescription" : "I reckon this big ol' block of platinum would be worth somethin' to somebody.",
+  "footstepSound" : "/sfx/blocks/footstep_stone3.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "platinumblock.png",
+    "variants" : 1,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : false,
+    "zLevel" : 3000
+  }
+}

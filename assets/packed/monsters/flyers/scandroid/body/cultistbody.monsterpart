@@ -1,0 +1,10 @@
+{
+  "name" : "scandroid",
+  "category" : "cultistscandroid",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "cultistscandroid.png",
+    "bodynobright" : "cultistscandroidnobright.png"
+  }
+}

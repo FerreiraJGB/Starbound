@@ -1,0 +1,24 @@
+{
+  "materialId" : 110,
+  "materialName" : "blackglass",
+  "particleColor" : [25, 25, 25, 255],
+  "itemDrop" : "blackglass",
+  "description" : "A dark-tinted panel of glass.",
+  "shortdescription" : "Black Glass",
+  "glitchDescription" : "Interested. This glass has been so darkly tinted it is almost not transparent.",
+  "floranDescription" : "Floran can hide behind dark glasss.",
+  "novakidDescription" : "Glass so dark the sun'll hardly shine through.",
+  "footstepSound" : "/sfx/blocks/footstep_glass.ogg",
+  "health" : 4,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "blackglass.png",
+    "variants" : 1,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : false,
+    "zLevel" : 480
+  }
+}

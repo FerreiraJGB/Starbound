@@ -1,0 +1,25 @@
+{
+  "materialId" : 77,
+  "materialName" : "moondust",
+  "particleColor" : [112, 72, 39, 255],
+  "itemDrop" : "moondust",
+  "description" : "Moondust, the thing dreams are made of.",
+  "shortdescription" : "Moondust",
+  "glitchDescription" : "Delighted. This moondust is soft to the touch.",
+  "floranDescription" : "Floran lovess colourful moondusst.",
+  "novakidDescription" : "Looks t'me like moondust.",
+
+  "footstepSound" : "/sfx/blocks/footstep_sand.ogg",
+  "health" : 1,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "moondust.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 1770
+  }
+}

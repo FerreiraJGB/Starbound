@@ -1,0 +1,24 @@
+{
+  "materialId" : 1177,
+  "materialName" : "dermisblock",
+  "particleColor" : [111, 75, 58, 255],
+  "itemDrop" : "dermisblock",
+  "shortdescription" : "Ruin Dermis",
+  "description" : "A fleshy mass with some thick, tough looking skin.",
+  "glitchDescription" : "Impressed. The thickness of this skin makes it incredibly strong.",
+  "floranDescription" : "Sstrong skin iss good protection.",
+  "novakidDescription" : "That skin looks tougher'n a leather boot.",
+  "footstepSound" : "/sfx/blocks/footstep_brains.ogg",
+  "health" : 6,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/pipetemplate.config",
+  "renderParameters" : {
+    "texture" : "dermisblock.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : false,
+    "multiColored" : true,
+    "zLevel" : 1778
+  }
+}

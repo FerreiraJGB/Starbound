@@ -1,0 +1,22 @@
+{
+  "projectileName" : "electricsnauntshock",
+  "image" : "shock.png",
+  "physics" : "lightningbolt",
+  "movementSettings" : {
+    "gravityMultiplier" : 0.05
+  },
+  
+  "animationCycle" : 0.5,
+  "windupFrames" : 1,
+  "winddownFrames" : 4,
+  "frameNumber" : 6,
+  "power" : 10,
+  "speed" : 15,
+  "timeToLive" : 3.0,
+  "bounces" : 1,
+  "damagePoly" : [ [-9, 0], [-6, -6], [0, -9], [6, -6], [9, 0], [6, 6], [0, 9], [-6, 6] ],
+  "piercing" : true,
+  "lightColor" : [95, 186, 236],
+  "emitters" : [ "electricswoosh" ],
+  "damageKind" : "electric"
+}

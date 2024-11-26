@@ -1,0 +1,385 @@
+{
+  "name": "override-follow",
+  "description": "",
+  "scripts": [
+    "/scripts/behavior/bdata.lua",
+    "/scripts/behavior.lua",
+    "/scripts/actions/overrides.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/position.lua",
+    "/scripts/actions/math.lua",
+    "/scripts/actions/entity.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/time.lua"
+  ],
+  "parameters": {
+    "pathingTimeLimit": 2,
+    "delayBeforeTeleport": 0.5,
+    "questFollowerRunSpeed": 14,
+    "targetRange": 5
+  },
+  "root": {
+    "title": "parallel",
+    "type": "composite",
+    "name": "parallel",
+    "parameters": {
+      "fail": {"value": 1},
+      "success": {"value": -1}
+    },
+    "children": [
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "unset",
+            "type": "action",
+            "name": "unset",
+            "parameters": {
+              "key": {"value": "nearestTarget"},
+              "type": {"value": "entity"}
+            }
+          },
+          {
+            "title": "setNumber",
+            "type": "action",
+            "name": "setNumber",
+            "parameters": {
+              "number": {"value": 10000}
+            },
+            "output": {
+              "number": "bestDist"
+            }
+          },
+          {
+            "title": "repeater",
+            "type": "decorator",
+            "name": "repeater",
+            "parameters": {
+              "maxLoops": {"value": -1},
+              "untilSuccess": {"value": true}
+            },
+            "child": {
+              "title": "inverter",
+              "type": "decorator",
+              "name": "inverter",
+              "parameters": {},
+              "child": {
+                "title": "sequence",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "listPop",
+                    "type": "action",
+                    "name": "listPop",
+                    "parameters": {
+                      "list": {"key": "followOverrides"}
+                    },
+                    "output": {
+                      "list" : "followOverrides",
+                      "table": "followOverride"
+                    }
+                  },
+                  {
+                    "title": "succeeder",
+                    "type": "decorator",
+                    "name": "succeeder",
+                    "parameters": {},
+                    "child": {
+                      "title": "sequence",
+                      "type": "composite",
+                      "name": "sequence",
+                      "parameters": {},
+                      "children": [
+                        {
+                          "title": "overrideEntity",
+                          "type": "action",
+                          "name": "overrideEntity",
+                          "parameters": {
+                            "argumentName": {"value": "target"},
+                            "override": {"key": "followOverride"}
+                          },
+                          "output": {
+                            "entity": "target"
+                          }
+                        },
+                        {
+                          "title": "entityPosition",
+                          "type": "action",
+                          "name": "entityPosition",
+                          "parameters": {
+                            "entity": {"key": "target"}
+                          },
+                          "output": {
+                            "position": "targetPos"
+                          }
+                        },
+                        {
+                          "title": "distance",
+                          "type": "action",
+                          "name": "distance",
+                          "parameters": {
+                            "from": {"key": "self"},
+                            "to": {"key": "targetPos"}
+                          },
+                          "output": {
+                            "magnitude": "targetDist"
+                          }
+                        },
+                        {
+                          "title": "greaterThan",
+                          "type": "action",
+                          "name": "greaterThan",
+                          "parameters": {
+                            "first": {"key": "bestDist"},
+                            "second": {"key": "targetDist"}
+                          }
+                        },
+                        {
+                          "title": "setNumber",
+                          "type": "action",
+                          "name": "setNumber",
+                          "parameters": {
+                            "number": {"key": "targetDist"}
+                          },
+                          "output": {
+                            "number": "bestDist"
+                          }
+                        },
+                        {
+                          "title": "setEntity",
+                          "type": "action",
+                          "name": "setEntity",
+                          "parameters": {
+                            "entity": {"key": "target"}
+                          },
+                          "output": {
+                            "entity": "nearestTarget"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "title": "entityExists",
+            "type": "action",
+            "name": "entityExists",
+            "parameters": {
+              "entity": {"key": "nearestTarget"}
+            }
+          }
+        ]
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "inverter",
+            "type": "decorator",
+            "name": "inverter",
+            "parameters": {},
+            "child": {
+              "title": "isValidTarget",
+              "type": "action",
+              "name": "isValidTarget",
+              "parameters": {
+                "entity": {"key": "combatTarget"}
+              }
+            }
+          },
+          {
+            "title": "inverter",
+            "type": "decorator",
+            "name": "inverter",
+            "parameters": {},
+            "child": {
+              "title": "entityInRange",
+              "type": "action",
+              "name": "entityInRange",
+              "parameters": {
+                "entity": {"key": "nearestTarget"},
+                "position": {"key": "self"},
+                "range": {"key": "<targetRange>"}
+              }
+            }
+          },
+          {
+            "title": "parallel",
+            "type": "composite",
+            "name": "parallel",
+            "parameters": {
+              "fail": {"value": 1},
+              "success": {"value": -1}
+            },
+            "children": [
+              {
+                "title": "entityPosition",
+                "type": "action",
+                "name": "entityPosition",
+                "parameters": {
+                  "entity": {"key": "nearestTarget"}
+                },
+                "output": {
+                  "position": "targetPosition"
+                }
+              },
+              {
+                "title": "succeeder",
+                "type": "decorator",
+                "name": "succeeder",
+                "parameters": {},
+                "child": {
+                  "title": "selector",
+                  "type": "composite",
+                  "name": "selector",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "parallel",
+                      "type": "composite",
+                      "name": "parallel",
+                      "parameters": {
+                        "fail": {"value": 1},
+                        "success": {"value": 1}
+                      },
+                      "children": [
+                        {
+                          "title": "dynamic",
+                          "type": "composite",
+                          "name": "dynamic",
+                          "parameters": {},
+                          "children": [
+                            {
+                              "title": "moveToPosition",
+                              "type": "action",
+                              "name": "moveToPosition",
+                              "parameters": {
+                                "avoidLiquid": {"value": true},
+                                "groundPosition": {"value": true},
+                                "maxGround": {"value": 5},
+                                "minGround": {"value": -20},
+                                "pathOptions": {"value": {}},
+                                "position": {"key": "targetPosition"},
+                                "run": {"value": true},
+                                "runSpeed": {"key": "<questFollowerRunSpeed>"}
+                              },
+                              "output": {
+                                "pathfinding": "isPathfinding"
+                              }
+                            },
+                            {
+                              "title": "sequence",
+                              "type": "composite",
+                              "name": "sequence",
+                              "parameters": {},
+                              "children": [
+                                {
+                                  "title": "setFlag",
+                                  "type": "action",
+                                  "name": "setFlag",
+                                  "parameters": {
+                                    "name": {"value": "isPathfinding"}
+                                  }
+                                },
+                                {
+                                  "title": "runner",
+                                  "type": "action",
+                                  "name": "runner",
+                                  "parameters": {}
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "title": "failer",
+                          "type": "decorator",
+                          "name": "failer",
+                          "parameters": {},
+                          "child": {
+                            "title": "dynamic",
+                            "type": "composite",
+                            "name": "dynamic",
+                            "parameters": {},
+                            "children": [
+                              {
+                                "title": "parallel",
+                                "type": "composite",
+                                "name": "parallel",
+                                "parameters": {
+                                  "fail": {"value": 1},
+                                  "success": {"value": -1}
+                                },
+                                "children": [
+                                  {
+                                    "title": "hasFlag",
+                                    "type": "action",
+                                    "name": "hasFlag",
+                                    "parameters": {
+                                      "name": {"key": "isPathfinding"}
+                                    }
+                                  },
+                                  {
+                                    "title": "timer",
+                                    "type": "action",
+                                    "name": "timer",
+                                    "parameters": {
+                                      "time": {"value": "<pathingTimeLimit>"}
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "title": "runner",
+                                "type": "action",
+                                "name": "runner",
+                                "parameters": {}
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "title": "sequence",
+                      "type": "composite",
+                      "name": "sequence",
+                      "parameters": {},
+                      "children": [
+                        {
+                          "title": "timer",
+                          "type": "action",
+                          "name": "timer",
+                          "parameters": {
+                            "time": {"value": "<delayBeforeTeleport>"}
+                          }
+                        },
+                        {
+                          "title": "npcblink",
+                          "type": "module",
+                          "name": "npcblink",
+                          "parameters": {}
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

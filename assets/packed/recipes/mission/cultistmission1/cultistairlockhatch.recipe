@@ -1,0 +1,9 @@
+{
+  "input" : [
+    { "item" : "slopedrustypanel", "count" : 8 },
+    { "item" : "smallbattery", "count" : 1 },
+    { "item" : "purpledye", "count" : 1 }
+  ],
+  "output" : { "item" : "cultistairlockhatch", "count" : 1 },
+  "groups" : [ "craftingfurniture2", "doors", "all" ]
+}

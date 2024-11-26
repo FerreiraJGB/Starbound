@@ -1,0 +1,24 @@
+{
+  "materialId" : 154,
+  "materialName" : "pressuriseddurasteel",
+  "particleColor" : [89, 127, 52, 255],
+  "itemDrop" : "pressuriseddurasteel",
+  "description" : "A durasteel panel, specially designed to contain pressurised environments.",
+  "shortdescription" : "Pressurised Durasteel",
+  "glitchDescription" : "Interested. This durasteel panel is designed to accommodate changes in pressurisation.",
+  "floranDescription" : "Ssstrong durassteel panelling.",
+  "novakidDescription" : "A shiny lookin' durasteel panel.",
+  "footstepSound" : "/sfx/blocks/footstep_composite.ogg",
+  "health" : 20,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "pressuriseddurasteel.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 2620
+  }
+}

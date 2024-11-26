@@ -1,0 +1,20 @@
+{
+  "eventName" : "killMonster",
+  "scripts" : [ "/achievements/event.lua" ],
+
+  // Fields:
+  //  - monsterClass
+
+  "stats" : [
+    {
+      "name" : "killMonster",
+      "type" : "int",
+      "op" : "increment"
+    },
+    {
+      "name" : "kill.monsterClass.<monsterClass>",
+      "type" : "int",
+      "op" : "increment"
+    }
+  ]
+}

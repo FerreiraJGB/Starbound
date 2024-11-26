@@ -1,0 +1,9 @@
+{
+  "name" : "iguarmor",
+  "category" : "iceiguarmor",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "iceiguarmor.png"
+  }
+}

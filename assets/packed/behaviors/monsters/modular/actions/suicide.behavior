@@ -1,0 +1,31 @@
+{
+  "name": "action-suicide",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/status.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "action-windup",
+        "type": "module",
+        "name": "action-windup",
+        "parameters": {}
+      },
+      {
+        "title": "setResource",
+        "type": "action",
+        "name": "setResource",
+        "parameters": {
+          "amount": {"value": 0},
+          "resource": {"value": "health"}
+        }
+      }
+    ]
+  }
+}

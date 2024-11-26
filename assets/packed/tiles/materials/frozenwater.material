@@ -1,0 +1,25 @@
+{
+  "materialId" : 131,
+  "materialName" : "frozenwater",
+  "particleColor" : [176, 174, 168, 255],
+  "itemDrop" : "frozenwater",
+  "description" : "Some naturally smooth ice.",
+  "shortdescription" : "Smooth Ice",
+  "glitchDescription" : "Cautious. The way this ice froze has made it unusually smooth.",
+  "floranDescription" : "Ssslippy frozen water.",
+  "novakidDescription" : "This ice is mighty slick.",
+  "footstepSound" : "/sfx/blocks/footstep_ice.ogg",
+  "health" : 2,
+  "category" : "materials",
+  "damageTable" : "/tiles/flammableDamage.config",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "frozenwater.png",
+    "variants" : 5,
+    "backgroundLightTransparent" : true,
+    "multiColored" : true,
+    "occludesBelow" : false,
+    "zLevel" : 390
+  }
+}

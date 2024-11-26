@@ -1,0 +1,136 @@
+{
+  "name": "crewmember-emptyhands",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/crew.lua"
+  ],
+  "parameters": {
+    "emptyHands": true
+  },
+  "root": {
+    "title": "optional",
+    "type": "decorator",
+    "name": "optional",
+    "parameters": {
+      "shouldRun": {"key": "<emptyHands>"}
+    },
+    "child": {
+      "title": "dynamic",
+      "type": "composite",
+      "name": "dynamic",
+      "parameters": {},
+      "children": [
+        {
+          "title": "failer",
+          "type": "decorator",
+          "name": "failer",
+          "parameters": {},
+          "child": {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "hasRecruiter",
+                "type": "action",
+                "name": "hasRecruiter",
+                "parameters": {}
+              },
+              {
+                "title": "isFollowingRecruiter",
+                "type": "action",
+                "name": "isFollowingRecruiter",
+                "parameters": {}
+              },
+              {
+                "title": "selector",
+                "type": "composite",
+                "name": "selector",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "entityHoldingWeapon",
+                    "type": "action",
+                    "name": "entityHoldingWeapon",
+                    "parameters": {
+                      "entity": {"key": "self"}
+                    }
+                  },
+                  {
+                    "title": "swapItemSlots",
+                    "type": "action",
+                    "name": "swapItemSlots",
+                    "parameters": {}
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "title": "failer",
+          "type": "decorator",
+          "name": "failer",
+          "parameters": {},
+          "child": {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "inverter",
+                "type": "decorator",
+                "name": "inverter",
+                "parameters": {},
+                "child": {
+                  "title": "sequence",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "hasRecruiter",
+                      "type": "action",
+                      "name": "hasRecruiter",
+                      "parameters": {}
+                    },
+                    {
+                      "title": "isFollowingRecruiter",
+                      "type": "action",
+                      "name": "isFollowingRecruiter",
+                      "parameters": {}
+                    }
+                  ]
+                }
+              },
+              {
+                "title": "sequence",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "entityHoldingWeapon",
+                    "type": "action",
+                    "name": "entityHoldingWeapon",
+                    "parameters": {
+                      "entity": {"key": "self"}
+                    }
+                  },
+                  {
+                    "title": "swapItemSlots",
+                    "type": "action",
+                    "name": "swapItemSlots",
+                    "parameters": {}
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

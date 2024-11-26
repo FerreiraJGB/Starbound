@@ -1,0 +1,128 @@
+{
+  "name": "overrides",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/overrides.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "dynamic",
+    "type": "composite",
+    "name": "dynamic",
+    "parameters": {},
+    "children": [
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": 1},
+          "success": {"value": 2}
+        },
+        "children": [
+          {
+            "title": "matchingOverrides",
+            "type": "action",
+            "name": "matchingOverrides",
+            "parameters": {
+              "overrideName": {"value": "notification"}
+            },
+            "output": {
+              "list": "notificationOverrides"
+            }
+          },
+          {
+            "title": "override-notification",
+            "type": "module",
+            "name": "override-notification",
+            "parameters": {}
+          }
+        ]
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": 1},
+          "success": {"value": 2}
+        },
+        "children": [
+          {
+            "title": "matchingOverrides",
+            "type": "action",
+            "name": "matchingOverrides",
+            "parameters": {
+              "overrideName": {"value": "flee"}
+            },
+            "output": {
+              "list": "fleeOverrides"
+            }
+          },
+          {
+            "title": "override-flee",
+            "type": "module",
+            "name": "override-flee",
+            "parameters": {}
+          }
+        ]
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": 1},
+          "success": {"value": 2}
+        },
+        "children": [
+          {
+            "title": "matchingOverrides",
+            "type": "action",
+            "name": "matchingOverrides",
+            "parameters": {
+              "overrideName": {"value": "follow"}
+            },
+            "output": {
+              "list": "followOverrides"
+            }
+          },
+          {
+            "title": "override-follow",
+            "type": "module",
+            "name": "override-follow",
+            "parameters": {}
+          }
+        ]
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": 1},
+          "success": {"value": 2}
+        },
+        "children": [
+          {
+            "title": "matchingOverrides",
+            "type": "action",
+            "name": "matchingOverrides",
+            "parameters": {
+              "overrideName": {"value": "idle"}
+            },
+            "output": {
+              "list": "idleOverrides"
+            }
+          },
+          {
+            "title": "override-idle",
+            "type": "module",
+            "name": "override-idle",
+            "parameters": {}
+          }
+        ]
+      }
+    ]
+  }
+}

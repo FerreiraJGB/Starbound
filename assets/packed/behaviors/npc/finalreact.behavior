@@ -1,0 +1,63 @@
+{
+  "name": "finalreact",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/reaction.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "succeeder",
+    "type": "decorator",
+    "name": "succeeder",
+    "parameters": {},
+    "child": {
+      "title": "sequence",
+      "type": "composite",
+      "name": "sequence",
+      "parameters": {},
+      "children": [
+        {
+          "title": "isFinalReaction",
+          "type": "action",
+          "name": "isFinalReaction",
+          "parameters": {
+            "reaction": {"key": "reaction"}
+          }
+        },
+        {
+          "title": "selector",
+          "type": "composite",
+          "name": "selector",
+          "parameters": {},
+          "children": [
+            {
+              "title": "isReaction",
+              "type": "action",
+              "name": "isReaction",
+              "parameters": {
+                "reactionName": {"value": "quit"},
+                "reactionVar": {"value": "reaction"}
+              }
+            },
+            {
+              "title": "playSimpleReaction",
+              "type": "action",
+              "name": "playSimpleReaction",
+              "parameters": {
+                "reaction": {"key": "reaction"}
+              }
+            },
+            {
+              "title": "playBehaviorReaction",
+              "type": "action",
+              "name": "playBehaviorReaction",
+              "parameters": {
+                "reaction": {"key": "reaction"}
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "name": "castlearcher",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/npc.lua",
+    "/scripts/actions/notification.lua",
+    "/scripts/actions/math.lua",
+    "/scripts/actions/position.lua",
+    "/scripts/actions/projectiles.lua",
+    "/scripts/actions/time.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "setAimPosition",
+        "type": "action",
+        "name": "setAimPosition",
+        "parameters": {
+          "offset": {"value": [2, -2]},
+          "position": {"key": "self"}
+        }
+      },
+      {
+        "title": "Villager",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "receivedNotification",
+                "type": "action",
+                "name": "receivedNotification",
+                "parameters": {
+                  "type": {"value": "missionStarted"}
+                }
+              },
+              {
+                "title": "repeater",
+                "type": "decorator",
+                "name": "repeater",
+                "parameters": {
+                  "maxLoops": {"value": -1},
+                  "untilSuccess": {"value": false}
+                },
+                "child": {
+                  "title": "sequence",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "halt",
+                      "type": "action",
+                      "name": "halt",
+                      "parameters": {}
+                    },
+                    {
+                      "title": "random",
+                      "type": "action",
+                      "name": "random",
+                      "parameters": {
+                        "max": {"value": 40},
+                        "min": {"value": 10}
+                      },
+                      "output": {
+                        "number": "xOffset"
+                      }
+                    },
+                    {
+                      "title": "offsetPosition",
+                      "type": "action",
+                      "name": "offsetPosition",
+                      "parameters": {
+                        "offset": {"value": ["xOffset", 0]},
+                        "position": {"key": "self"}
+                      },
+                      "output": {
+                        "position": "aimPosition"
+                      }
+                    },
+                    {
+                      "title": "selector",
+                      "type": "composite",
+                      "name": "selector",
+                      "parameters": {},
+                      "children": [
+                        {
+                          "title": "projectileAimVector",
+                          "type": "action",
+                          "name": "projectileAimVector",
+                          "parameters": {
+                            "collisionCheck": {"value": false},
+                            "fromPosition": {"key": "self"},
+                            "gravityMultiplier": {"value": 1},
+                            "speed": {"value": 60},
+                            "toPosition": {"key": "aimPosition"},
+                            "useHighArc": {"value": true}
+                          },
+                          "output": {
+                            "aimVector": "aimVector"
+                          }
+                        },
+                        {
+                          "title": "projectileAimVector",
+                          "type": "action",
+                          "name": "projectileAimVector",
+                          "parameters": {
+                            "collisionCheck": {"value": false},
+                            "fromPosition": {"key": "self"},
+                            "gravityMultiplier": {"value": 1},
+                            "speed": {"value": 60},
+                            "toPosition": {"key": "aimPosition"},
+                            "useHighArc": {"value": false}
+                          },
+                          "output": {
+                            "aimVector": "aimVector"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "title": "vecMultiply",
+                      "type": "action",
+                      "name": "vecMultiply",
+                      "parameters": {
+                        "first": {"key": "aimVector"},
+                        "second": {"value": [10, 10]}
+                      },
+                      "output": {
+                        "vector": "aimOffset"
+                      }
+                    },
+                    {
+                      "title": "setAimPosition",
+                      "type": "action",
+                      "name": "setAimPosition",
+                      "parameters": {
+                        "offset": {"key": "aimOffset"},
+                        "position": {"key": "self"}
+                      }
+                    },
+                    {
+                      "title": "parallel",
+                      "type": "composite",
+                      "name": "parallel",
+                      "parameters": {
+                        "fail": {"value": 1},
+                        "success": {"value": -1}
+                      },
+                      "children": [
+                        {
+                          "title": "primaryFire",
+                          "type": "action",
+                          "name": "primaryFire",
+                          "parameters": {}
+                        },
+                        {
+                          "title": "timer",
+                          "type": "action",
+                          "name": "timer",
+                          "parameters": {
+                            "time": {"value": 1.1}
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "title": "timer",
+                      "type": "action",
+                      "name": "timer",
+                      "parameters": {
+                        "time": {"value": 0.2}
+                      }
+                    },
+                    {
+                      "title": "setAimPosition",
+                      "type": "action",
+                      "name": "setAimPosition",
+                      "parameters": {
+                        "offset": {"value": [2, -2]},
+                        "position": {"key": "self"}
+                      }
+                    },
+                    {
+                      "title": "timer",
+                      "type": "action",
+                      "name": "timer",
+                      "parameters": {
+                        "time": {"value": 1}
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "title": "runner",
+            "type": "action",
+            "name": "runner",
+            "parameters": {}
+          }
+        ]
+      }
+    ]
+  }
+}

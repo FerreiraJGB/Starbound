@@ -1,0 +1,9 @@
+{
+  "input" : [
+    { "item" : "fabric", "count" : 10 },
+    { "item" : "purpledye", "count" : 1 },
+    { "item" : "yellowdye", "count" : 1 }
+  ],
+  "output" : { "item" : "cultistbannerlarge", "count" : 1 },
+  "groups" : [ "craftingfurniture2", "decoration", "all" ]
+}

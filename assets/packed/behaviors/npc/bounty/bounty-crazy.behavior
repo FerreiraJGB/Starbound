@@ -1,0 +1,221 @@
+{
+  "name": "bounty-crazy",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/notification.lua",
+    "/scripts/actions/entity.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/npc.lua",
+    "/scripts/actions/dialog.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/status.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "limiter",
+        "type": "decorator",
+        "name": "limiter",
+        "parameters": {
+          "limit": {"value": 1}
+        },
+        "child": {
+          "title": "sequence",
+          "type": "composite",
+          "name": "sequence",
+          "parameters": {},
+          "children": [
+            {
+              "title": "receivedNotification",
+              "type": "action",
+              "name": "receivedNotification",
+              "parameters": {
+                "type": {"value": "bountyProximity"}
+              },
+              "output": {
+                "source": "fleeTarget"
+              }
+            },
+            {
+              "title": "entityInSight",
+              "type": "action",
+              "name": "entityInSight",
+              "parameters": {
+                "entity": {"key": "fleeTarget"}
+              }
+            },
+            {
+              "title": "entityInRange",
+              "type": "action",
+              "name": "entityInRange",
+              "parameters": {
+                "entity": {"key": "fleeTarget"},
+                "position": {"key": "self"},
+                "range": {"value": 20}
+              }
+            }
+          ]
+        }
+      },
+      {
+        "title": "limiter",
+        "type": "decorator",
+        "name": "limiter",
+        "parameters": {
+          "limit": {"value": 1}
+        },
+        "child": {
+          "title": "sequence",
+          "type": "composite",
+          "name": "sequence",
+          "parameters": {},
+          "children": [
+            {
+              "title": "unequipSlot",
+              "type": "action",
+              "name": "unequipSlot",
+              "parameters": {
+                "slot": {"value": "chest"}
+              }
+            },
+            {
+              "title": "unequipSlot",
+              "type": "action",
+              "name": "unequipSlot",
+              "parameters": {
+                "slot": {"value": "legs"}
+              }
+            },
+            {
+              "title": "unequipSlot",
+              "type": "action",
+              "name": "unequipSlot",
+              "parameters": {
+                "slot": {"value": "chestCosmetic"}
+              }
+            },
+            {
+              "title": "unequipSlot",
+              "type": "action",
+              "name": "unequipSlot",
+              "parameters": {
+                "slot": {"value": "legsCosmetic"}
+              }
+            },
+            {
+              "title": "sayToEntity",
+              "type": "action",
+              "name": "sayToEntity",
+              "parameters": {
+                "dialogType": {"value": "dialog.bounty.crazy"},
+                "entity": {"key": "fleeTarget"},
+                "tags": {"value": {}}
+              }
+            },
+            {
+              "title": "sequence",
+              "type": "composite",
+              "name": "sequence",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "emote",
+                  "type": "action",
+                  "name": "emote",
+                  "parameters": {
+                    "emote": {"value": "oooh"}
+                  }
+                },
+                {
+                  "title": "dance",
+                  "type": "action",
+                  "name": "dance",
+                  "parameters": {
+                    "dance": {"value": "panic"}
+                  }
+                },
+                {
+                  "title": "timer",
+                  "type": "action",
+                  "name": "timer",
+                  "parameters": {
+                    "time": {"value": 2}
+                  }
+                }
+              ]
+            },
+            {
+              "title": "dynamic",
+              "type": "composite",
+              "name": "dynamic",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "inverter",
+                  "type": "decorator",
+                  "name": "inverter",
+                  "parameters": {},
+                  "child": {
+                    "title": "resourcePercentage",
+                    "type": "action",
+                    "name": "resourcePercentage",
+                    "parameters": {
+                      "percentage": {"value": 0.99},
+                      "resource": {"value": "health"}
+                    }
+                  }
+                },
+                {
+                  "title": "repeater",
+                  "type": "decorator",
+                  "name": "repeater",
+                  "parameters": {
+                    "maxLoops": {"value": -1},
+                    "untilSuccess": {"value": false}
+                  },
+                  "child": {
+                    "title": "sequence",
+                    "type": "composite",
+                    "name": "sequence",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "emote",
+                        "type": "action",
+                        "name": "emote",
+                        "parameters": {
+                          "emote": {"value": "oooh"}
+                        }
+                      },
+                      {
+                        "title": "dance",
+                        "type": "action",
+                        "name": "dance",
+                        "parameters": {
+                          "dance": {"value": "panic"}
+                        }
+                      },
+                      {
+                        "title": "timer",
+                        "type": "action",
+                        "name": "timer",
+                        "parameters": {
+                          "time": {"value": 2}
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

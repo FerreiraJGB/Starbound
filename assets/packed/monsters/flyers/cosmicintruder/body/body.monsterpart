@@ -1,0 +1,10 @@
+{
+  "name" : "cosmicintruder",
+  "category" : "cosmicintruder",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "cosmicintruder.png",
+    "eyes" : "cosmicintrudereyes.png"
+  }
+}

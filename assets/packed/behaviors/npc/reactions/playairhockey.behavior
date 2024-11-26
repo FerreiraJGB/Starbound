@@ -1,0 +1,338 @@
+{
+  "name": "reaction-playairhockey",
+  "description": "",
+  "scripts": [
+    "/scripts/behavior.lua",
+    "/scripts/behavior/bgroup.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/position.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/npc.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "unsetFlag",
+        "type": "action",
+        "name": "unsetFlag",
+        "parameters": {
+          "name": {"value": "startedAirHockey"}
+        }
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": -1},
+          "success": {"value": 1}
+        },
+        "children": [
+          {
+            "title": "parallel",
+            "type": "composite",
+            "name": "parallel",
+            "parameters": {
+              "fail": {"value": 1},
+              "success": {"value": -1}
+            },
+            "children": [
+              {
+                "title": "group",
+                "type": "action",
+                "name": "group",
+                "parameters": {
+                  "goal": {"value": "reactTarget"},
+                  "goalType": {"value": "entity"},
+                  "groupId": {"value": "playairhockey"},
+                  "maxMembers": {"value": 2},
+                  "minMembers": {"value": 2},
+                  "position": {"key": "self"}
+                }
+              },
+              {
+                "title": "sequence",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "setFlag",
+                    "type": "action",
+                    "name": "setFlag",
+                    "parameters": {
+                      "name": {"value": "startedAirHockey"}
+                    }
+                  },
+                  {
+                    "title": "entityPosition",
+                    "type": "action",
+                    "name": "entityPosition",
+                    "parameters": {
+                      "entity": {"key": "reactTarget"}
+                    },
+                    "output": {
+                      "position": "reactTargetPos"
+                    }
+                  },
+                  {
+                    "title": "selector",
+                    "type": "composite",
+                    "name": "selector",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "parallel",
+                        "type": "composite",
+                        "name": "parallel",
+                        "parameters": {
+                          "fail": {"value": 1},
+                          "success": {"value": -1}
+                        },
+                        "children": [
+                          {
+                            "title": "task",
+                            "type": "action",
+                            "name": "task",
+                            "parameters": {
+                              "groupId": {"value": "playairhockey"},
+                              "maxMembers": {"value": 1},
+                              "minMembers": {"value": 1},
+                              "taskId": {"value": "player1"}
+                            }
+                          },
+                          {
+                            "title": "sequence",
+                            "type": "composite",
+                            "name": "sequence",
+                            "parameters": {},
+                            "children": [
+                              {
+                                "title": "offsetPosition",
+                                "type": "action",
+                                "name": "offsetPosition",
+                                "parameters": {
+                                  "offset": {"value": [-1.5, 0]},
+                                  "position": {"key": "reactTargetPos"}
+                                },
+                                "output": {
+                                  "position": "standPos"
+                                }
+                              },
+                              {
+                                "title": "timer",
+                                "type": "action",
+                                "name": "timer",
+                                "parameters": {
+                                  "time": {"value": 1}
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "title": "parallel",
+                        "type": "composite",
+                        "name": "parallel",
+                        "parameters": {
+                          "fail": {"value": 1},
+                          "success": {"value": -1}
+                        },
+                        "children": [
+                          {
+                            "title": "task",
+                            "type": "action",
+                            "name": "task",
+                            "parameters": {
+                              "groupId": {"value": "playairhockey"},
+                              "maxMembers": {"value": 1},
+                              "minMembers": {"value": 1},
+                              "taskId": {"value": "player2"}
+                            }
+                          },
+                          {
+                            "title": "sequence",
+                            "type": "composite",
+                            "name": "sequence",
+                            "parameters": {},
+                            "children": [
+                              {
+                                "title": "offsetPosition",
+                                "type": "action",
+                                "name": "offsetPosition",
+                                "parameters": {
+                                  "offset": {"value": [3, 0]},
+                                  "position": {"key": "reactTargetPos"}
+                                },
+                                "output": {
+                                  "position": "standPos"
+                                }
+                              },
+                              {
+                                "title": "timer",
+                                "type": "action",
+                                "name": "timer",
+                                "parameters": {
+                                  "time": {"value": 1}
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "title": "moveToPosition",
+                    "type": "action",
+                    "name": "moveToPosition",
+                    "parameters": {
+                      "avoidLiquid": {"value": true},
+                      "groundPosition": {"value": true},
+                      "maxGround": {"value": 5},
+                      "minGround": {"value": -5},
+                      "position": {"key": "standPos"},
+                      "run": {"value": false}
+                    },
+                    "output": {
+                      "pathfinding": "isPathfinding"
+                    }
+                  },
+                  {
+                    "title": "entityPosition",
+                    "type": "action",
+                    "name": "entityPosition",
+                    "parameters": {
+                      "entity": {"key": "self"}
+                    },
+                    "output": {
+                      "y": "selfY"
+                    }
+                  },
+                  {
+                    "title": "setPosition",
+                    "type": "action",
+                    "name": "setPosition",
+                    "parameters": {
+                      "footPosition": {"value": false},
+                      "position": {"key": "standPos"},
+                      "y": {"key": "selfY"}
+                    }
+                  },
+                  {
+                    "title": "faceEntity",
+                    "type": "action",
+                    "name": "faceEntity",
+                    "parameters": {
+                      "entity": {"key": "reactTarget"}
+                    }
+                  },
+                  {
+                    "title": "repeater",
+                    "type": "decorator",
+                    "name": "repeater",
+                    "parameters": {
+                      "maxLoops": {"value": 6},
+                      "untilSuccess": {"value": false}
+                    },
+                    "child": {
+                      "title": "sequence",
+                      "type": "composite",
+                      "name": "sequence",
+                      "parameters": {},
+                      "children": [
+                        {
+                          "title": "dance",
+                          "type": "action",
+                          "name": "dance",
+                          "parameters": {
+                            "dance": {"value": "typing"}
+                          }
+                        },
+                        {
+                          "title": "timer",
+                          "type": "action",
+                          "name": "timer",
+                          "parameters": {
+                            "time": {"value": 2}
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "title": "selector",
+                    "type": "composite",
+                    "name": "selector",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "task",
+                        "type": "action",
+                        "name": "task",
+                        "parameters": {
+                          "groupId": {"value": "playairhockey"},
+                          "maxMembers": {"value": 1},
+                          "minMembers": {"value": 1},
+                          "taskId": {"value": "winner"}
+                        }
+                      },
+                      {
+                        "title": "task",
+                        "type": "action",
+                        "name": "task",
+                        "parameters": {
+                          "groupId": {"value": "playairhockey"},
+                          "maxMembers": {"value": 1},
+                          "minMembers": {"value": 1},
+                          "taskId": {"value": "loser"}
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": 10}
+                }
+              },
+              {
+                "title": "inverter",
+                "type": "decorator",
+                "name": "inverter",
+                "parameters": {},
+                "child": {
+                  "title": "hasFlag",
+                  "type": "action",
+                  "name": "hasFlag",
+                  "parameters": {
+                    "name": {"key": "startedAirHockey"}
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

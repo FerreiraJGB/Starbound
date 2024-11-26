@@ -1,0 +1,24 @@
+{
+  "materialId" : 133,
+  "materialName" : "packeddirt",
+  "particleColor" : [143, 110, 61, 255],
+  "itemDrop" : "packeddirt",
+  "shortdescription" : "Packed Dirt",
+  "description" : "Some dirt packed into small bricks.",
+  "glitchDescription" : "Amused. These bricks are simply packed, shaped dirt.",
+  "floranDescription" : "Brickss made from packed dirt.",
+  "novakidDescription" : "Soft lookin' bricks, made from dirt.",
+  "footstepSound" : "/sfx/blocks/footstep_stone2.ogg",
+  "health" : 2,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "packeddirt.png",
+    "variants" : 2,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3000
+  }
+}

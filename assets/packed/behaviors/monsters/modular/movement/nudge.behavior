@@ -1,0 +1,54 @@
+{
+  "name": "action-nudge",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/math.lua",
+    "/scripts/actions/movement.lua"
+  ],
+  "parameters": {
+    "minX": -5,
+    "maxX": 5,
+    "minY": -5,
+    "maxY": 5
+  },
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "random",
+        "type": "action",
+        "name": "random",
+        "parameters": {
+          "max": {"key": "<maxX>"},
+          "min": {"key": "<minX>"}
+        },
+        "output": {
+          "number": "xVel"
+        }
+      },
+      {
+        "title": "random",
+        "type": "action",
+        "name": "random",
+        "parameters": {
+          "max": {"key": "<maxY>"},
+          "min": {"key": "<minY>"}
+        },
+        "output": {
+          "number": "yVel"
+        }
+      },
+      {
+        "title": "setVelocity",
+        "type": "action",
+        "name": "setVelocity",
+        "parameters": {
+          "velocity": {"value": ["xVel", "yVel"]}
+        }
+      }
+    ]
+  }
+}

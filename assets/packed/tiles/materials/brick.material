@@ -1,0 +1,24 @@
+{
+  "materialId" : 2,
+  "materialName" : "brick",
+  "particleColor" : [134, 72, 50, 255],
+  "itemDrop" : "brickmaterial",
+  "shortdescription" : "Bricks",
+  "description" : "Small but perfectly formed bricks made from clay.",
+  "glitchDescription" : "Pleased. These bricks have been carefully formed and arranged.",
+  "floranDescription" : "Ssimple bricksss.",
+  "novakidDescription" : "Nice lookin' brickwork.",
+  "footstepSound" : "/sfx/blocks/footstep_stone2.ogg",
+  "health" : 8,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "brick.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 2860
+  }
+}

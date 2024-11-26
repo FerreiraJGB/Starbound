@@ -1,0 +1,24 @@
+{
+  "materialId" : 888,
+  "materialName" : "shadowblock",
+  "particleColor" : [0, 0, 0, 255],
+  "itemDrop" : "shadowblock",
+  "description" : "A rock as pitch black as shadow.",
+  "shortdescription" : "Shadow Rock",
+  "glitchDescription" : "Facinated. This dark block seems to absorb light around it.",
+  "floranDescription" : "Shadowy black blockss.",
+  "novakidDescription" : "Mighty dark lookin' rocks.",
+  "footstepSound" : "/sfx/blocks/footstep_stone3.ogg",
+  "health" : 8,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "shadowblock.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 1921
+  }
+}

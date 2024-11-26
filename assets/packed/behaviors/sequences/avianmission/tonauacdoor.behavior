@@ -1,0 +1,368 @@
+{
+  "name": "tonauacdoor",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/position.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/query.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/entity.lua",
+    "/scripts/behavior.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/npc.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "offsetPosition",
+        "type": "action",
+        "name": "offsetPosition",
+        "parameters": {
+          "offset": {"value": [32, -32]},
+          "position": {"key": "self"}
+        },
+        "output": {
+          "position": "bossPosition"
+        }
+      },
+      {
+        "title": "cooldown",
+        "type": "decorator",
+        "name": "cooldown",
+        "parameters": {
+          "cooldown": {"value": 1},
+          "onFail": {"value": true},
+          "onSuccess": {"value": true}
+        },
+        "child": {
+          "title": "inverter",
+          "type": "decorator",
+          "name": "inverter",
+          "parameters": {},
+          "child": {
+            "title": "loadUniqueEntity",
+            "type": "action",
+            "name": "loadUniqueEntity",
+            "parameters": {
+              "uniqueId": {"value": "kluextotem"}
+            }
+          }
+        }
+      },
+      {
+        "title": "succeeder",
+        "type": "decorator",
+        "name": "succeeder",
+        "parameters": {},
+        "child": {
+          "title": "sequence",
+          "type": "composite",
+          "name": "sequence",
+          "parameters": {},
+          "children": [
+            {
+              "title": "findObject",
+              "type": "action",
+              "name": "findObject",
+              "parameters": {
+                "name": {"value": "bardoor2sideways"},
+                "orderBy": {"value": "nearest"},
+                "position": {"key": "self"},
+                "range": {"value": 10}
+              },
+              "output": {
+                "entity": "hatch"
+              }
+            },
+            {
+              "title": "succeeder",
+              "type": "decorator",
+              "name": "succeeder",
+              "parameters": {},
+              "child": {
+                "title": "callScriptedEntity",
+                "type": "action",
+                "name": "callScriptedEntity",
+                "parameters": {
+                  "entity": {"key": "hatch"},
+                  "func": {"value": "openDoor"}
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "title": "onGround",
+        "type": "action",
+        "name": "onGround",
+        "parameters": {}
+      },
+      {
+        "title": "dynamic",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "queryEntity",
+                "type": "action",
+                "name": "queryEntity",
+                "parameters": {
+                  "entityTypes": {"value": ["player"]},
+                  "orderBy": {"value": "nearest"},
+                  "position": {"key": "self"},
+                  "range": {"value": 20},
+                  "withoutEntity": {"key": "self"}
+                },
+                "output": {
+                  "list": "players"
+                }
+              },
+              {
+                "title": "filter",
+                "type": "decorator",
+                "name": "filter",
+                "parameters": {
+                  "list": {"key": "players"},
+                  "type": {"value": "entity"}
+                },
+                "child": {
+                  "title": "entityInSight",
+                  "type": "action",
+                  "name": "entityInSight",
+                  "parameters": {
+                    "entity": {"key": "filterItem"}
+                  }
+                }
+              },
+              {
+                "title": "listGet",
+                "type": "action",
+                "name": "listGet",
+                "parameters": {
+                  "list": {"key": "players"}
+                },
+                "output": {
+                  "entity": "player"
+                }
+              }
+            ]
+          },
+          {
+            "title": "runner",
+            "type": "action",
+            "name": "runner",
+            "parameters": {}
+          }
+        ]
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": 1},
+          "success": {"value": -1}
+        },
+        "children": [
+          {
+            "title": "entityExists",
+            "type": "action",
+            "name": "entityExists",
+            "parameters": {
+              "entity": {"key": "player"}
+            }
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "faceEntity",
+                "type": "action",
+                "name": "faceEntity",
+                "parameters": {
+                  "entity": {"key": "player"}
+                }
+              },
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": 0.5}
+                }
+              },
+              {
+                "title": "sequentialdialog",
+                "type": "module",
+                "name": "sequentialdialog",
+                "parameters": {
+                  "dialogWaitTime": {"value": 4},
+                  "dialogEndWait": {"value": 4},
+                  "dialogKey": {"value": "dialog.tonauac.doorGreeting"},
+                  "dialogTarget": {"key": ""}
+                }
+              },
+              {
+                "title": "inverter",
+                "type": "decorator",
+                "name": "inverter",
+                "parameters": {},
+                "child": {
+                  "title": "move",
+                  "type": "action",
+                  "name": "move",
+                  "parameters": {
+                    "direction": {"value": -1},
+                    "run": {"value": false}
+                  }
+                }
+              },
+              {
+                "title": "faceDirection",
+                "type": "action",
+                "name": "faceDirection",
+                "parameters": {
+                  "direction": {"value": -1}
+                }
+              },
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": 0.5}
+                }
+              },
+              {
+                "title": "dance",
+                "type": "action",
+                "name": "dance",
+                "parameters": {
+                  "dance": {"value": "tonauacdoorlifting"}
+                }
+              },
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": 0.5}
+                }
+              },
+              {
+                "title": "sequence",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "findObject",
+                    "type": "action",
+                    "name": "findObject",
+                    "parameters": {
+                      "name": {"value": "plantdoor2"},
+                      "orderBy": {"value": "nearest"},
+                      "position": {"key": "self"},
+                      "range": {"value": 10}
+                    },
+                    "output": {
+                      "entity": "door"
+                    }
+                  },
+                  {
+                    "title": "faceDirection",
+                    "type": "action",
+                    "name": "faceDirection",
+                    "parameters": {
+                      "direction": {"value": -1}
+                    }
+                  },
+                  {
+                    "title": "dance",
+                    "type": "action",
+                    "name": "dance",
+                    "parameters": {
+                      "dance": {"value": "tonauacdoorlifting"}
+                    }
+                  },
+                  {
+                    "title": "succeeder",
+                    "type": "decorator",
+                    "name": "succeeder",
+                    "parameters": {},
+                    "child": {
+                      "title": "callScriptedEntity",
+                      "type": "action",
+                      "name": "callScriptedEntity",
+                      "parameters": {
+                        "entity": {"key": "door"},
+                        "func": {"value": "openDoor"}
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": 0.5}
+                }
+              },
+              {
+                "title": "faceEntity",
+                "type": "action",
+                "name": "faceEntity",
+                "parameters": {
+                  "entity": {"key": "player"}
+                }
+              },
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": 0.5}
+                }
+              },
+              {
+                "title": "sequentialdialog",
+                "type": "module",
+                "name": "sequentialdialog",
+                "parameters": {
+                  "dialogWaitTime": {"value": 4},
+                  "dialogEndWait": {"value": 4},
+                  "dialogKey": {"value": "dialog.tonauac.doorOpened"},
+                  "dialogTarget": {"key": ""}
+                }
+              },
+              {
+                "title": null,
+                "type": "module",
+                "name": "beamout",
+                "parameters": {}
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

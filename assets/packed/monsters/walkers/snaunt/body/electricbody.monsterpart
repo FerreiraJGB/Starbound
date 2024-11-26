@@ -1,0 +1,9 @@
+{
+  "name" : "snaunt",
+  "category" : "electricsnaunt",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "electricsnaunt.png"
+  }
+}

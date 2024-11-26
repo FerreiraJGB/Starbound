@@ -1,0 +1,26 @@
+{
+  "materialId" : 136,
+  "materialName" : "sewage",
+  "particleColor" : [97, 92, 60, 255],
+  "itemDrop" : "sewage",
+  "description" : "A disgusting pile of sewage. Lovely.",
+  "shortdescription" : "Raw Sewage",
+  "glitchDescription" : "Repulsed. The stench from this sewage is overwhelming.",
+  "floranDescription" : "Floran disgussted by stinky ssewage.",
+  "novakidDescription" : "Looks t'me like some sorta sewage. Smells like an outhouse in the sun.",
+  "footstepSound" : "/sfx/blocks/footstep_brains.ogg",
+  "falling" : true,
+  "cascading" : true,
+  "health" : 1,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "sewage.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 1800
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "oasis",
+  "priority": 10,
+
+  "colonyTagCriteria": {
+    "light": 1,
+    "door": 1,
+    "oasis": 18
+  },
+
+  "tenants": [
+    {
+      "spawn": "npc",
+      "species": ["avian", "floran"],
+      "type": "oasis",
+      "overrides": {
+       }
+     }
+   ],
+
+  "rent": {
+    "periodRange": [900.0, 1800.0],
+    "pool": "villagerGift"
+  }
+}

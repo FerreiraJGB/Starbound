@@ -1,0 +1,15 @@
+{
+  "name" : "arresting",
+  "blockingStat" : "specialStatusImmunity",
+  "effectConfig" : {
+    "speedHalfLife" : 10,
+    "jumpHalfLife" : 12
+  },
+  "defaultDuration" : 0.5,
+
+  "scripts" : [
+    "arresting.lua"
+  ],
+
+  "animationConfig" : "arresting.animation"
+}

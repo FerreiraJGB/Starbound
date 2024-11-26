@@ -1,0 +1,815 @@
+{
+  "name": "baronstart",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/notification.lua",
+    "/scripts/actions/query.lua",
+    "/scripts/actions/entity.lua",
+    "/scripts/behavior.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/position.lua",
+    "/scripts/actions/npc.lua",
+    "/scripts/actions/status.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "dynamic",
+    "type": "composite",
+    "name": "dynamic",
+    "parameters": {},
+    "children": [
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "receivedNotification",
+            "type": "action",
+            "name": "receivedNotification",
+            "parameters": {
+              "type": {"value": "missionComplete"}
+            }
+          },
+          {
+            "title": "dynamic",
+            "type": "composite",
+            "name": "dynamic",
+            "parameters": {},
+            "children": [
+              {
+                "title": "sequence",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "sequence",
+                    "type": "composite",
+                    "name": "sequence",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "cooldown",
+                        "type": "decorator",
+                        "name": "cooldown",
+                        "parameters": {
+                          "cooldown": {"value": 0.5},
+                          "onFail": {"value": true},
+                          "onSuccess": {"value": true}
+                        },
+                        "child": {
+                          "title": "queryEntity",
+                          "type": "action",
+                          "name": "queryEntity",
+                          "parameters": {
+                            "entityTypes": {"value": ["player"]},
+                            "orderBy": {"value": "nearest"},
+                            "position": {"key": "self"},
+                            "range": {"value": 10},
+                            "withoutEntity": {"key": "self"}
+                          },
+                          "output": {
+                            "list": "players"
+                          }
+                        }
+                      },
+                      {
+                        "title": "filter",
+                        "type": "decorator",
+                        "name": "filter",
+                        "parameters": {
+                          "list": {"key": "players"},
+                          "type": {"value": "entity"}
+                        },
+                        "child": {
+                          "title": "entityInSight",
+                          "type": "action",
+                          "name": "entityInSight",
+                          "parameters": {
+                            "entity": {"key": "filterItem"}
+                          }
+                        }
+                      },
+                      {
+                        "title": "listGet",
+                        "type": "action",
+                        "name": "listGet",
+                        "parameters": {
+                          "list": {"key": "players"}
+                        },
+                        "output": {
+                          "entity": "player"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "title": "sequentialdialog",
+                    "type": "module",
+                    "name": "sequentialdialog",
+                    "parameters": {
+                      "dialogWaitTime": {"value": 6},
+                      "dialogEndWait": {"value": 4},
+                      "dialogKey": {"value": "dialog.baron.missionComplete"}
+                    }
+                  },
+                  {
+                    "title": "selector",
+                    "type": "composite",
+                    "name": "selector",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "move",
+                        "type": "action",
+                        "name": "move",
+                        "parameters": {
+                          "direction": {"value": -1},
+                          "run": {"value": false}
+                        }
+                      },
+                      {
+                        "title": "succeeder",
+                        "type": "decorator",
+                        "name": "succeeder",
+                        "parameters": {},
+                        "child": {
+                          "title": "openDoors",
+                          "type": "action",
+                          "name": "openDoors",
+                          "parameters": {
+                            "direction": {"value": -1},
+                            "distance": {"value": 1.5},
+                            "openLocked": {"value": true}
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "title": "timer",
+                    "type": "action",
+                    "name": "timer",
+                    "parameters": {
+                      "time": {"value": 0.5}
+                    }
+                  },
+                  {
+                    "title": "succeeder",
+                    "type": "decorator",
+                    "name": "succeeder",
+                    "parameters": {},
+                    "child": {
+                      "title": "move",
+                      "type": "action",
+                      "name": "move",
+                      "parameters": {
+                        "direction": {"value": -1},
+                        "run": {"value": false}
+                      }
+                    }
+                  },
+                  {
+                    "title": "sequence",
+                    "type": "composite",
+                    "name": "sequence",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "loadUniqueEntity",
+                        "type": "action",
+                        "name": "loadUniqueEntity",
+                        "parameters": {
+                          "uniqueId": {"value": "glitchartifactaltar"}
+                        },
+                        "output": {
+                          "entity": "altar"
+                        }
+                      },
+                      {
+                        "title": "sendEntityMessage",
+                        "type": "action",
+                        "name": "sendEntityMessage",
+                        "parameters": {
+                          "entity": {"key": "altar"},
+                          "message": {"value": "setInteractive"}
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "title": "faceDirection",
+                    "type": "action",
+                    "name": "faceDirection",
+                    "parameters": {
+                      "direction": {"value": 1}
+                    }
+                  },
+                  {
+                    "title": "dynamic",
+                    "type": "composite",
+                    "name": "dynamic",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "receivedNotification",
+                        "type": "action",
+                        "name": "receivedNotification",
+                        "parameters": {
+                          "type": {"value": "artifactTaken"}
+                        }
+                      },
+                      {
+                        "title": "runner",
+                        "type": "action",
+                        "name": "runner",
+                        "parameters": {}
+                      }
+                    ]
+                  },
+                  {
+                    "title": "faceDirection",
+                    "type": "action",
+                    "name": "faceDirection",
+                    "parameters": {
+                      "direction": {"value": -1}
+                    }
+                  },
+                  {
+                    "title": "timer",
+                    "type": "action",
+                    "name": "timer",
+                    "parameters": {
+                      "time": {"value": 0.5}
+                    }
+                  },
+                  {
+                    "title": "openDoors",
+                    "type": "action",
+                    "name": "openDoors",
+                    "parameters": {
+                      "direction": {"value": -1},
+                      "distance": {"value": 1.5},
+                      "openLocked": {"value": true}
+                    }
+                  },
+                  {
+                    "title": "timer",
+                    "type": "action",
+                    "name": "timer",
+                    "parameters": {
+                      "time": {"value": 0.5}
+                    }
+                  },
+                  {
+                    "title": "dynamic",
+                    "type": "composite",
+                    "name": "dynamic",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "findObject",
+                        "type": "action",
+                        "name": "findObject",
+                        "parameters": {
+                          "name": {"value": "arkteleporter"},
+                          "orderBy": {"value": "nearest"},
+                          "position": {"key": "self"},
+                          "range": {"value": 10}
+                        },
+                        "output": {
+                          "entity": "teleporter"
+                        }
+                      },
+                      {
+                        "title": "move",
+                        "type": "action",
+                        "name": "move",
+                        "parameters": {
+                          "direction": {"value": -1},
+                          "run": {"value": false}
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "title": "sequence",
+                    "type": "composite",
+                    "name": "sequence",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "entityPosition",
+                        "type": "action",
+                        "name": "entityPosition",
+                        "parameters": {
+                          "entity": {"key": "teleporter"}
+                        },
+                        "output": {
+                          "position": "teleporter"
+                        }
+                      },
+                      {
+                        "title": "offsetPosition",
+                        "type": "action",
+                        "name": "offsetPosition",
+                        "parameters": {
+                          "offset": {"value": [0, 0]},
+                          "position": {"key": "teleporter"}
+                        },
+                        "output": {
+                          "position": "teleporter"
+                        }
+                      },
+                      {
+                        "title": "moveToPosition",
+                        "type": "action",
+                        "name": "moveToPosition",
+                        "parameters": {
+                          "avoidLiquid": {"value": true},
+                          "groundPosition": {"value": true},
+                          "maxGround": {"value": 5},
+                          "minGround": {"value": -5},
+                          "position": {"key": "teleporter"},
+                          "run": {"value": false}
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "title": "dynamic",
+                    "type": "composite",
+                    "name": "dynamic",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "cooldown",
+                        "type": "decorator",
+                        "name": "cooldown",
+                        "parameters": {
+                          "cooldown": {"value": 0.5},
+                          "onFail": {"value": true},
+                          "onSuccess": {"value": true}
+                        },
+                        "child": {
+                          "title": "queryEntity",
+                          "type": "action",
+                          "name": "queryEntity",
+                          "parameters": {
+                            "entityTypes": {"value": ["player"]},
+                            "orderBy": {"value": "nearest"},
+                            "position": {"key": "self"},
+                            "range": {"value": 8},
+                            "withoutEntity": {"key": "self"}
+                          }
+                        }
+                      },
+                      {
+                        "title": "runner",
+                        "type": "action",
+                        "name": "runner",
+                        "parameters": {}
+                      }
+                    ]
+                  },
+                  {
+                    "title": "sequentialdialog",
+                    "type": "module",
+                    "name": "sequentialdialog",
+                    "parameters": {
+                      "dialogWaitTime": {"value": 2},
+                      "dialogEndWait": {"value": 1},
+                      "dialogKey": {"value": "dialog.baron.beamOut"}
+                    }
+                  },
+                  {
+                    "title": "sequence",
+                    "type": "composite",
+                    "name": "sequence",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "playersInWorld",
+                        "type": "action",
+                        "name": "playersInWorld",
+                        "parameters": {},
+                        "output": {
+                          "list": "players"
+                        }
+                      },
+                      {
+                        "title": "each",
+                        "type": "decorator",
+                        "name": "each",
+                        "parameters": {
+                          "list": {"key": "players"},
+                          "type": {"value": "entity"}
+                        },
+                        "child": {
+                          "title": "succeeder",
+                          "type": "decorator",
+                          "name": "succeeder",
+                          "parameters": {},
+                          "child": {
+                            "title": "sendEntityMessage",
+                            "type": "action",
+                            "name": "sendEntityMessage",
+                            "parameters": {
+                              "arguments": {"value": ["/cinematics/story/baronatoutpost.cinematic", true]},
+                              "entity": {"key": "eachItem"},
+                              "message": {"value": "playCinematic"}
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "title": "setDeathParticleBurst",
+                    "type": "action",
+                    "name": "setDeathParticleBurst",
+                    "parameters": {}
+                  },
+                  {
+                    "title": "addEphemeralEffect",
+                    "type": "action",
+                    "name": "addEphemeralEffect",
+                    "parameters": {
+                      "name": {"value": "beamoutanddie"}
+                    }
+                  },
+                  {
+                    "title": "runner",
+                    "type": "action",
+                    "name": "runner",
+                    "parameters": {}
+                  }
+                ]
+              },
+              {
+                "title": "baron-lounge",
+                "type": "module",
+                "name": "baron-lounge",
+                "parameters": {}
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "receivedNotification",
+            "type": "action",
+            "name": "receivedNotification",
+            "parameters": {
+              "type": {"value": "lastWaveComplete"}
+            }
+          },
+          {
+            "title": "dynamic",
+            "type": "composite",
+            "name": "dynamic",
+            "parameters": {},
+            "children": [
+              {
+                "title": "sequence",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "cooldown",
+                    "type": "decorator",
+                    "name": "cooldown",
+                    "parameters": {
+                      "cooldown": {"value": 0.5},
+                      "onFail": {"value": true},
+                      "onSuccess": {"value": true}
+                    },
+                    "child": {
+                      "title": "queryEntity",
+                      "type": "action",
+                      "name": "queryEntity",
+                      "parameters": {
+                        "entityTypes": {"value": ["player"]},
+                        "orderBy": {"value": "nearest"},
+                        "position": {"key": "self"},
+                        "range": {"value": 10},
+                        "withoutEntity": {"key": "self"}
+                      },
+                      "output": {
+                        "list": "players"
+                      }
+                    }
+                  },
+                  {
+                    "title": "filter",
+                    "type": "decorator",
+                    "name": "filter",
+                    "parameters": {
+                      "list": {"key": "players"},
+                      "type": {"value": "entity"}
+                    },
+                    "child": {
+                      "title": "entityInSight",
+                      "type": "action",
+                      "name": "entityInSight",
+                      "parameters": {
+                        "entity": {"key": "filterItem"}
+                      }
+                    }
+                  },
+                  {
+                    "title": "listGet",
+                    "type": "action",
+                    "name": "listGet",
+                    "parameters": {
+                      "list": {"key": "players"}
+                    },
+                    "output": {
+                      "entity": "player"
+                    }
+                  },
+                  {
+                    "title": "sequentialdialog",
+                    "type": "module",
+                    "name": "sequentialdialog",
+                    "parameters": {
+                      "dialogWaitTime": {"value": 6},
+                      "dialogEndWait": {"value": 0},
+                      "dialogKey": {"value": "dialog.baron.finalWaveComplete"}
+                    }
+                  },
+                  {
+                    "title": "loadUniqueEntity",
+                    "type": "action",
+                    "name": "loadUniqueEntity",
+                    "parameters": {
+                      "uniqueId": {"value": "missionmanager"}
+                    },
+                    "output": {
+                      "entity": "missionmanager"
+                    }
+                  },
+                  {
+                    "title": "sendEntityMessage",
+                    "type": "action",
+                    "name": "sendEntityMessage",
+                    "parameters": {
+                      "entity": {"key": "missionmanager"},
+                      "message": {"value": "bossWave"}
+                    }
+                  },
+                  {
+                    "title": "succeeder",
+                    "type": "decorator",
+                    "name": "succeeder",
+                    "parameters": {},
+                    "child": {
+                      "title": "broadcastNotification",
+                      "type": "action",
+                      "name": "broadcastNotification",
+                      "parameters": {
+                        "entityTypes": {"value": ["monster"]},
+                        "position": {"key": "self"},
+                        "range": {"value": 150},
+                        "type": {"value": "bossAggro"}
+                      }
+                    }
+                  },
+                  {
+                    "title": "runner",
+                    "type": "action",
+                    "name": "runner",
+                    "parameters": {}
+                  }
+                ]
+              },
+              {
+                "title": "baron-lounge",
+                "type": "module",
+                "name": "baron-lounge",
+                "parameters": {}
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "cooldown",
+                "type": "decorator",
+                "name": "cooldown",
+                "parameters": {
+                  "cooldown": {"value": 0.5},
+                  "onFail": {"value": true},
+                  "onSuccess": {"value": true}
+                },
+                "child": {
+                  "title": "queryEntity",
+                  "type": "action",
+                  "name": "queryEntity",
+                  "parameters": {
+                    "entityTypes": {"value": ["player"]},
+                    "orderBy": {"value": "nearest"},
+                    "position": {"key": "self"},
+                    "range": {"value": 10},
+                    "withoutEntity": {"key": "self"}
+                  },
+                  "output": {
+                    "list": "players"
+                  }
+                }
+              },
+              {
+                "title": "filter",
+                "type": "decorator",
+                "name": "filter",
+                "parameters": {
+                  "list": {"key": "players"},
+                  "type": {"value": "entity"}
+                },
+                "child": {
+                  "title": "entityInSight",
+                  "type": "action",
+                  "name": "entityInSight",
+                  "parameters": {
+                    "entity": {"key": "filterItem"}
+                  }
+                }
+              },
+              {
+                "title": "listGet",
+                "type": "action",
+                "name": "listGet",
+                "parameters": {
+                  "list": {"key": "players"}
+                },
+                "output": {
+                  "entity": "player"
+                }
+              }
+            ]
+          },
+          {
+            "title": "sequentialdialog",
+            "type": "module",
+            "name": "sequentialdialog",
+            "parameters": {
+              "dialogWaitTime": {"value": 6},
+              "dialogEndWait": {"value": 4},
+              "dialogKey": {"value": "dialog.baron.start"}
+            }
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "findObject",
+                "type": "action",
+                "name": "findObject",
+                "parameters": {
+                  "name": {"value": "bardoor2"},
+                  "orderBy": {"value": "nearest"},
+                  "position": {"key": "self"},
+                  "range": {"value": 20}
+                },
+                "output": {
+                  "entity": "altar"
+                }
+              },
+              {
+                "title": "entityPosition",
+                "type": "action",
+                "name": "entityPosition",
+                "parameters": {
+                  "entity": {"key": "altar"}
+                },
+                "output": {
+                  "position": "altarPosition"
+                }
+              },
+              {
+                "title": "offsetPosition",
+                "type": "action",
+                "name": "offsetPosition",
+                "parameters": {
+                  "offset": {"value": [2, 0]},
+                  "position": {"key": "altarPosition"}
+                },
+                "output": {
+                  "position": "altarPosition"
+                }
+              },
+              {
+                "title": "moveToPosition",
+                "type": "action",
+                "name": "moveToPosition",
+                "parameters": {
+                  "avoidLiquid": {"value": true},
+                  "groundPosition": {"value": true},
+                  "maxGround": {"value": 5},
+                  "minGround": {"value": -5},
+                  "pathOptions": {"value": {}},
+                  "position": {"key": "altarPosition"},
+                  "run": {"value": false}
+                }
+              }
+            ]
+          },
+          {
+            "title": "sequentialdialog",
+            "type": "module",
+            "name": "sequentialdialog",
+            "parameters": {
+              "dialogWaitTime": {"value": 6},
+              "dialogEndWait": {"value": 3},
+              "dialogKey": {"value": "dialog.baron.showRelic"}
+            }
+          },
+          {
+            "title": "faceDirection",
+            "type": "action",
+            "name": "faceDirection",
+            "parameters": {
+              "direction": {"value": 1}
+            }
+          },
+          {
+            "title": "setVelocity",
+            "type": "action",
+            "name": "setVelocity",
+            "parameters": {
+              "velocity": {"value": [0, 15]}
+            }
+          },
+          {
+            "title": "loadUniqueEntity",
+            "type": "action",
+            "name": "loadUniqueEntity",
+            "parameters": {
+              "uniqueId": {"value": "missionmanager"}
+            },
+            "output": {
+              "entity": "missionmanager"
+            }
+          },
+          {
+            "title": "sendEntityMessage",
+            "type": "action",
+            "name": "sendEntityMessage",
+            "parameters": {
+              "entity": {"key": "missionmanager"},
+              "message": {"value": "startSequence"}
+            }
+          },
+          {
+            "title": "sequentialdialog",
+            "type": "module",
+            "name": "sequentialdialog",
+            "parameters": {
+              "dialogWaitTime": {"value": 6},
+              "dialogEndWait": {"value": 4},
+              "dialogKey": {"value": "dialog.baron.alerted"}
+            }
+          },
+          {
+            "title": "runner",
+            "type": "action",
+            "name": "runner",
+            "parameters": {}
+          }
+        ]
+      },
+      {
+        "title": "baron-lounge",
+        "type": "module",
+        "name": "baron-lounge",
+        "parameters": {}
+      }
+    ]
+  }
+}

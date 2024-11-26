@@ -1,0 +1,25 @@
+{
+  "materialId" : 116,
+  "materialName" : "copperfence",
+  "particleColor" : [113, 79, 60, 255],
+  "itemDrop" : "copperfence",
+  "description" : "A sturdy copper fence.",
+  "shortdescription" : "Copper Fence",
+  "glitchDescription" : "Confident. This copper fence is much stronger than wood.",
+  "floranDescription" : "Sssturdy copper fence.",
+  "novakidDescription" : "This here fence is made outta copper.",
+  "footstepSound" : "/sfx/blocks/footstep_metallic.ogg",
+  "health" : 4,
+  "category" : "materials",
+  "blocksLiquidFlow" : false,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "copperfence.png",
+    "variants" : 5,
+    "lightTransparent" : true,
+    "multiColored" : true,
+    "occludesBelow" : false,
+    "zLevel" : 520
+  }
+}

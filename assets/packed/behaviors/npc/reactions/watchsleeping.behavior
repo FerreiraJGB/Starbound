@@ -1,0 +1,205 @@
+{
+  "name": "reaction-watchsleeping",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/query.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/behavior.lua",
+    "/scripts/actions/entity.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/time.lua"
+  ],
+  "parameters": {
+    "sleepWatchTime": 20
+  },
+  "root": {
+    "title": "cooldown",
+    "type": "decorator",
+    "name": "cooldown",
+    "parameters": {
+      "cooldown": {"value": 120},
+      "onFail": {"value": false},
+      "onSuccess": {"value": true}
+    },
+    "child": {
+      "title": "sequence",
+      "type": "composite",
+      "name": "sequence",
+      "parameters": {},
+      "children": [
+        {
+          "title": "cooldown",
+          "type": "decorator",
+          "name": "cooldown",
+          "parameters": {
+            "cooldown": {"value": 5},
+            "onFail": {"value": true},
+            "onSuccess": {"value": true}
+          },
+          "child": {
+            "title": "findLoungable",
+            "type": "action",
+            "name": "findLoungable",
+            "parameters": {
+              "orderBy": {"value": "nearest"},
+              "orientation": {"value": "lay"},
+              "position": {"key": "self"},
+              "range": {"value": 30},
+              "unoccupied": {"value": false}
+            },
+            "output": {
+              "list": "beds"
+            }
+          }
+        },
+        {
+          "title": "filter",
+          "type": "decorator",
+          "name": "filter",
+          "parameters": {
+            "list": {"key": "beds"},
+            "type": {"value": "entity"}
+          },
+          "child": {
+            "title": "loungableOccupied",
+            "type": "action",
+            "name": "loungableOccupied",
+            "parameters": {
+              "entity": {"key": "filterItem"}
+            }
+          }
+        },
+        {
+          "title": "listGet",
+          "type": "action",
+          "name": "listGet",
+          "parameters": {
+            "list": {"key": "beds"}
+          },
+          "output": {
+            "entity": "bed"
+          }
+        },
+        {
+          "title": "entityPosition",
+          "type": "action",
+          "name": "entityPosition",
+          "parameters": {
+            "entity": {"key": "bed"}
+          },
+          "output": {
+            "position": "bedPosition"
+          }
+        },
+        {
+          "title": "parallel",
+          "type": "composite",
+          "name": "parallel",
+          "parameters": {
+            "fail": {"value": 1},
+            "success": {"value": -1}
+          },
+          "children": [
+            {
+              "title": "entityExists",
+              "type": "action",
+              "name": "entityExists",
+              "parameters": {
+                "entity": {"key": "bed"}
+              }
+            },
+            {
+              "title": "loungableOccupied",
+              "type": "action",
+              "name": "loungableOccupied",
+              "parameters": {
+                "entity": {"key": "bed"}
+              }
+            },
+            {
+              "title": "dynamic",
+              "type": "composite",
+              "name": "dynamic",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "parallel",
+                  "type": "composite",
+                  "name": "parallel",
+                  "parameters": {
+                    "fail": {"value": 1},
+                    "success": {"value": -1}
+                  },
+                  "children": [
+                    {
+                      "title": "entityInRange",
+                      "type": "action",
+                      "name": "entityInRange",
+                      "parameters": {
+                        "entity": {"key": "bed"},
+                        "position": {"key": "self"},
+                        "range": {"value": 7}
+                      }
+                    },
+                    {
+                      "title": "entityInSight",
+                      "type": "action",
+                      "name": "entityInSight",
+                      "parameters": {
+                        "entity": {"key": "bed"}
+                      }
+                    },
+                    {
+                      "title": "faceEntity",
+                      "type": "action",
+                      "name": "faceEntity",
+                      "parameters": {
+                        "entity": {"key": "bed"}
+                      }
+                    },
+                    {
+                      "title": "timer",
+                      "type": "action",
+                      "name": "timer",
+                      "parameters": {
+                        "time": {"value": "<sleepWatchTime>"}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "title": "parallel",
+                  "type": "composite",
+                  "name": "parallel",
+                  "parameters": {
+                    "fail": {"value": -1},
+                    "success": {"value": -1}
+                  },
+                  "children": [
+                    {
+                      "title": "moveToPosition",
+                      "type": "action",
+                      "name": "moveToPosition",
+                      "parameters": {
+                        "avoidLiquid": {"value": true},
+                        "groundPosition": {"value": true},
+                        "maxGround": {"value": 5},
+                        "minGround": {"value": -5},
+                        "pathOptions": {"value": {"returnBest": true}},
+                        "position": {"key": "bedPosition"},
+                        "run": {"value": false}
+                      },
+                      "output": {
+                        "pathfinding": "isPathfinding"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

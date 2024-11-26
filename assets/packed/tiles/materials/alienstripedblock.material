@@ -1,0 +1,25 @@
+{
+  "materialId" : 144,
+  "materialName" : "alienstripedblock",
+  "particleColor" : [102, 73, 41, 255],
+  "itemDrop" : "alienstripedwood",
+  "description" : "A piece of alien striped wood. Stripey!",
+  "shortdescription" : "Alien Striped Wood",
+  "glitchDescription" : "Interested. It appears the stripes present in this wood are the result of materials that repel one another.",
+  "floranDescription" : "SSssstripey wood. Makess sstripey housse!",
+  "novakidDescription" : "This here wood's all covered in stripes.",
+  "footstepSound" : "/sfx/blocks/footstep_wood.ogg",
+  "health" : 2,
+  "category" : "materials",
+  "damageTable" : "/tiles/flammableDamage.config",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "alienstripedblock.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 2890
+  }
+}

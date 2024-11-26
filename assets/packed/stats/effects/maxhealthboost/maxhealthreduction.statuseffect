@@ -1,0 +1,11 @@
+{
+  "name" : "maxhealthreduction",
+  "effectConfig" : {
+  	"healthEffectiveMultiplier" : 0.25
+  },
+  "defaultDuration" : 1,
+
+  "scripts" : [
+    "maxhealthboost.lua"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name" : "narfin",
+  "category" : "icenarfin",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "icenarfin.png"
+  }
+}

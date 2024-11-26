@@ -1,0 +1,249 @@
+{
+  "name": "npcinspect",
+  "description": "",
+  "scripts": [
+    "/scripts/behavior.lua",
+    "/scripts/actions/query.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/dialog.lua",
+    "/scripts/actions/time.lua"
+  ],
+  "parameters": {
+    "inspectQueryRange": 10,
+    "inspectStandingRange": 4
+  },
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "selector",
+        "type": "composite",
+        "name": "selector",
+        "parameters": {},
+        "children": [
+          {
+            "title": "inverter",
+            "type": "decorator",
+            "name": "inverter",
+            "parameters": {},
+            "child": {
+              "title": "hasFlag",
+              "type": "action",
+              "name": "hasFlag",
+              "parameters": {
+                "name": {"key": "firstInspectionSkipped"}
+              }
+            }
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "inverter",
+                "type": "decorator",
+                "name": "inverter",
+                "parameters": {},
+                "child": {
+                  "title": "Is ship world?",
+                  "type": "action",
+                  "name": "worldProperty",
+                  "parameters": {
+                    "property": {"value": "ship.level"}
+                  }
+                }
+              },
+              {
+                "title": "succeeder",
+                "type": "decorator",
+                "name": "succeeder",
+                "parameters": {},
+                "child": {
+                  "title": "cooldown",
+                  "type": "decorator",
+                  "name": "cooldown",
+                  "parameters": {
+                    "cooldown": {"value": 30},
+                    "onFail": {"value": true},
+                    "onSuccess": {"value": true}
+                  },
+                  "child": {
+                    "title": "queryEntity",
+                    "type": "action",
+                    "name": "queryEntity",
+                    "parameters": {
+                      "entityTypes": {"value": ["object"]},
+                      "orderBy": {"value": "random"},
+                      "position": {"key": "self"},
+                      "range": {"key": "<inspectQueryRange>"},
+                      "withoutEntity": {"key": "self"}
+                    },
+                    "output": {
+                      "list": "inspectTargets"
+                    }
+                  }
+                }
+              },
+              {
+                "title": "filter",
+                "type": "decorator",
+                "name": "filter",
+                "parameters": {
+                  "list": {"key": "inspectTargets"},
+                  "type": {"value": "entity"}
+                },
+                "child": {
+                  "title": "sequence",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "hasSpeciesSpecificDescription",
+                      "type": "action",
+                      "name": "hasSpeciesSpecificDescription",
+                      "parameters": {
+                        "entity": {"key": "filterItem"}
+                      }
+                    },
+                    {
+                      "title": "entityInRange",
+                      "type": "action",
+                      "name": "entityInRange",
+                      "parameters": {
+                        "entity": {"key": "filterItem"},
+                        "position": {"key": "self"},
+                        "range": {"key": "<inspectQueryRange>"}
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "title": "listPop",
+                "type": "action",
+                "name": "listPop",
+                "parameters": {
+                  "list": {"key": "inspectTargets"}
+                },
+                "output": {
+                  "list" : "inspectTargets",
+                  "entity": "inspectTarget"
+                }
+              },
+              {
+                "title": "setEntity",
+                "type": "action",
+                "name": "setEntity",
+                "parameters": {
+                  "entity": {"key": "inspectTarget"}
+                },
+                "output": {
+                  "entity": "target"
+                }
+              },
+              {
+                "title": "parallel",
+                "type": "composite",
+                "name": "parallel",
+                "parameters": {
+                  "fail": {"value": 1},
+                  "success": {"value": -1}
+                },
+                "children": [
+                  {
+                    "title": "entityPosition",
+                    "type": "action",
+                    "name": "entityPosition",
+                    "parameters": {
+                      "entity": {"key": "target"}
+                    },
+                    "output": {
+                      "position": "position"
+                    }
+                  },
+                  {
+                    "title": "parallel",
+                    "type": "composite",
+                    "name": "parallel",
+                    "parameters": {
+                      "fail": {"value": -1},
+                      "success": {"value": 1}
+                    },
+                    "children": [
+                      {
+                        "title": "entityInRange",
+                        "type": "action",
+                        "name": "entityInRange",
+                        "parameters": {
+                          "entity": {"key": "target"},
+                          "position": {"key": "self"},
+                          "range": {"key": "<inspectStandingRange>"}
+                        }
+                      },
+                      {
+                        "title": "moveToPosition",
+                        "type": "action",
+                        "name": "moveToPosition",
+                        "parameters": {
+                          "avoidLiquid": {"value": true},
+                          "groundPosition": {"value": true},
+                          "maxGround": {"value": 5},
+                          "minGround": {"value": -5},
+                          "pathOptions": {"value": {}},
+                          "position": {"key": "position"},
+                          "run": {"value": false}
+                        },
+                        "output": {
+                          "pathfinding": "isPathfinding"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "title": "faceEntity",
+                "type": "action",
+                "name": "faceEntity",
+                "parameters": {
+                  "entity": {"key": "target"}
+                }
+              },
+              {
+                "title": "inspectEntity",
+                "type": "action",
+                "name": "inspectEntity",
+                "parameters": {
+                  "entity": {"key": "target"}
+                }
+              },
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": 4}
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "setFlag",
+        "type": "action",
+        "name": "setFlag",
+        "parameters": {
+          "name": {"value": "firstInspectionSkipped"}
+        }
+      }
+    ]
+  }
+}

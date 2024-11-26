@@ -1,0 +1,158 @@
+{
+  "name": "converse",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/math.lua",
+    "/scripts/actions/npc.lua",
+    "/scripts/actions/dialog.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/entity.lua"
+  ],
+  "parameters": {
+    "greetingChance": 0,
+    "clueChance": 0.1
+  },
+  "root": {
+    "title": "selector",
+    "type": "composite",
+    "name": "selector",
+    "parameters": {},
+    "children": [
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "chance",
+            "type": "action",
+            "name": "chance",
+            "parameters": {
+              "chance": {"key": "<clueChance>"},
+              "seedMix": {"value": "giveClues"}
+            }
+          },
+          {
+            "title": "receiveClueDialog",
+            "type": "action",
+            "name": "receiveClueDialog",
+            "parameters": {},
+            "output": {
+              "dialog": "clueDialog",
+              "source": "player"
+            }
+          },
+          {
+            "title": "sayToEntity",
+            "type": "action",
+            "name": "sayToEntity",
+            "parameters": {
+              "dialog": {"key": "clueDialog"},
+              "entity": {"key": "player"},
+              "tags": {"value": {}}
+            }
+          },
+          {
+            "title": "faceEntity",
+            "type": "action",
+            "name": "faceEntity",
+            "parameters": {
+              "entity": {"key": "player"}
+            }
+          },
+          {
+            "title": "timer",
+            "type": "action",
+            "name": "timer",
+            "parameters": {
+              "time": {"value": 2}
+            }
+          }
+        ]
+      },
+      {
+        "title": "Converse",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": null,
+            "type": "action",
+            "name": "wasInteracted",
+            "parameters": {}
+          },
+          {
+            "title": null,
+            "type": "action",
+            "name": "faceEntity",
+            "parameters": {
+              "entity": {"key": "interactionSource"}
+            }
+          },
+          {
+            "title": "selector",
+            "type": "composite",
+            "name": "selector",
+            "parameters": {},
+            "children": [
+              {
+                "title": "Converse",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "chance",
+                    "type": "action",
+                    "name": "chance",
+                    "parameters": {
+                      "chance": {"key": "<greetingChance>"},
+                      "seedMix": {"value": "converseOrGreeting"}
+                    }
+                  },
+                  {
+                    "title": "",
+                    "type": "action",
+                    "name": "sayToEntity",
+                    "parameters": {
+                      "dialogType": {"value": "dialog.greeting"},
+                      "entity": {"key": "interactionSource"}
+                    }
+                  }
+                ]
+              },
+              {
+                "title": "Converse",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "",
+                    "type": "action",
+                    "name": "sayToEntity",
+                    "parameters": {
+                      "dialogType": {"value": "dialog.converse"},
+                      "entity": {"key": "interactionSource"}
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": null,
+            "type": "action",
+            "name": "timer",
+            "parameters": {
+              "time": {"value": 1}
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

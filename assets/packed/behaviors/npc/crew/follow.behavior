@@ -1,0 +1,325 @@
+{
+  "name": "crewmember-follow",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/crew.lua",
+    "/scripts/behavior.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/position.lua",
+    "/scripts/actions/dialog.lua"
+  ],
+  "parameters": {
+    "innerFollowRange": 5,
+    "outerFollowRange": 15,
+    "pathingTimeLimit": 5,
+    "cantreachCooldown": 40
+  },
+  "root": {
+    "title": "selector",
+    "type": "composite",
+    "name": "selector",
+    "parameters": {},
+    "children": [
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": 1},
+          "success": {"value": -1}
+        },
+        "children": [
+          {
+            "title": "isFollowingRecruiter",
+            "type": "action",
+            "name": "isFollowingRecruiter",
+            "parameters": {}
+          },
+          {
+            "title": "recruiterEntity",
+            "type": "action",
+            "name": "recruiterEntity",
+            "parameters": {},
+            "output": {
+              "entity": "player"
+            }
+          },
+          {
+            "title": "selector",
+            "type": "composite",
+            "name": "selector",
+            "parameters": {},
+            "children": [
+              {
+                "title": "sequence",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "hasFlag",
+                    "type": "action",
+                    "name": "hasFlag",
+                    "parameters": {
+                      "name": {"key": "catchingUp"}
+                    }
+                  },
+                  {
+                    "title": "inverter",
+                    "type": "decorator",
+                    "name": "inverter",
+                    "parameters": {},
+                    "child": {
+                      "title": "entityInRange",
+                      "type": "action",
+                      "name": "entityInRange",
+                      "parameters": {
+                        "entity": {"key": "player"},
+                        "position": {"key": "self"},
+                        "range": {"key": "<innerFollowRange>"}
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "title": "sequence",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "inverter",
+                    "type": "decorator",
+                    "name": "inverter",
+                    "parameters": {},
+                    "child": {
+                      "title": "hasFlag",
+                      "type": "action",
+                      "name": "hasFlag",
+                      "parameters": {
+                        "name": {"key": "catchingUp"}
+                      }
+                    }
+                  },
+                  {
+                    "title": "inverter",
+                    "type": "decorator",
+                    "name": "inverter",
+                    "parameters": {},
+                    "child": {
+                      "title": "entityInRange",
+                      "type": "action",
+                      "name": "entityInRange",
+                      "parameters": {
+                        "entity": {"key": "player"},
+                        "position": {"key": "self"},
+                        "range": {"key": "<outerFollowRange>"}
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "entityPosition",
+            "type": "action",
+            "name": "entityPosition",
+            "parameters": {
+              "entity": {"key": "player"}
+            },
+            "output": {
+              "position": "playerPosition"
+            }
+          },
+          {
+            "title": "setFlag",
+            "type": "action",
+            "name": "setFlag",
+            "parameters": {
+              "name": {"value": "catchingUp"}
+            }
+          },
+          {
+            "title": "succeeder",
+            "type": "decorator",
+            "name": "succeeder",
+            "parameters": {},
+            "child": {
+              "title": "selector",
+              "type": "composite",
+              "name": "selector",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "parallel",
+                  "type": "composite",
+                  "name": "parallel",
+                  "parameters": {
+                    "fail": {"value": 1},
+                    "success": {"value": 1}
+                  },
+                  "children": [
+                    {
+                      "title": "moveToPosition",
+                      "type": "action",
+                      "name": "moveToPosition",
+                      "parameters": {
+                        "avoidLiquid": {"value": true},
+                        "groundPosition": {"value": true},
+                        "maxGround": {"value": 5},
+                        "minGround": {"value": -20},
+                        "pathOptions": {"value": {}},
+                        "position": {"key": "playerPosition"},
+                        "run": {"value": true}
+                      },
+                      "output": {
+                        "pathfinding": "isPathfinding"
+                      }
+                    },
+                    {
+                      "title": "failer",
+                      "type": "decorator",
+                      "name": "failer",
+                      "parameters": {},
+                      "child": {
+                        "title": "dynamic",
+                        "type": "composite",
+                        "name": "dynamic",
+                        "parameters": {},
+                        "children": [
+                          {
+                            "title": "parallel",
+                            "type": "composite",
+                            "name": "parallel",
+                            "parameters": {
+                              "fail": {"value": 1},
+                              "success": {"value": -1}
+                            },
+                            "children": [
+                              {
+                                "title": "hasFlag",
+                                "type": "action",
+                                "name": "hasFlag",
+                                "parameters": {
+                                  "name": {"key": "isPathfinding"}
+                                }
+                              },
+                              {
+                                "title": "timer",
+                                "type": "action",
+                                "name": "timer",
+                                "parameters": {
+                                  "time": {"value": "<pathingTimeLimit>"}
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "title": "runner",
+                            "type": "action",
+                            "name": "runner",
+                            "parameters": {}
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "title": "sequence",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "groundPosition",
+                      "type": "action",
+                      "name": "groundPosition",
+                      "parameters": {
+                        "avoidLiquid": {"value": true},
+                        "maxHeight": {"value": 5},
+                        "minHeight": {"value": -5},
+                        "position": {"key": "playerPosition"}
+                      },
+                      "output": {
+                        "position": "playerPosition"
+                      }
+                    },
+                    {
+                      "title": "cooldown",
+                      "type": "decorator",
+                      "name": "cooldown",
+                      "parameters": {
+                        "cooldown": {"key": "<cantreachCooldown>"},
+                        "onFail": {"value": true},
+                        "onSuccess": {"value": true}
+                      },
+                      "child": {
+                        "title": "sequence",
+                        "type": "composite",
+                        "name": "sequence",
+                        "parameters": {},
+                        "children": [
+                          {
+                            "title": "faceEntity",
+                            "type": "action",
+                            "name": "faceEntity",
+                            "parameters": {
+                              "entity": {"key": "player"}
+                            }
+                          },
+                          {
+                            "title": "sayToEntity",
+                            "type": "action",
+                            "name": "sayToEntity",
+                            "parameters": {
+                              "dialogType": {"value": "dialog.crewmember.cantreach"},
+                              "entity": {"key": "player"},
+                              "tags": {"value": {}}
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "title": "timer",
+                      "type": "action",
+                      "name": "timer",
+                      "parameters": {
+                        "time": {"value": 10}
+                      }
+                    },
+                    {
+                      "title": "crewmember-teleport",
+                      "type": "module",
+                      "name": "crewmember-teleport",
+                      "parameters": {}
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "title": "failer",
+        "type": "decorator",
+        "name": "failer",
+        "parameters": {},
+        "child": {
+          "title": "unsetFlag",
+          "type": "action",
+          "name": "unsetFlag",
+          "parameters": {
+            "name": {"value": "catchingUp"}
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "materialId" : 142,
+  "materialName" : "spidersilkblock",
+  "particleColor" : [255, 255, 255, 255],
+  "itemDrop" : "spidersilkblock",
+  "description" : "Webs packed tight into a solid block.",
+  "shortdescription" : "Spider Silk",
+  "glitchDescription" : "Impressed. Nature never ceases to impress, this material is entirely organic.",
+  "floranDescription" : "Ssticky sspider web. Floran thinks sspider is great hunter!",
+  "novakidDescription" : "A creepy lookin' spider web.",
+  "footstepSound" : "/sfx/blocks/footstep_ash.ogg",
+  "health" : 0.01,
+  "category" : "materials",
+  "blocksLiquidFlow" : false,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "spidersilkblock.png",
+    "variants" : 5,
+    "lightTransparent" : true,
+    "multiColored" : false,
+    "occludesBelow" : false,
+    "zLevel" : 380
+  }
+}

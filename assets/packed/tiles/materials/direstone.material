@@ -1,0 +1,24 @@
+{
+  "materialId" : 46,
+  "materialName" : "direstone",
+  "particleColor" : [100, 106, 106, 255],
+  "itemDrop" : "direstone",
+  "description" : "Little wormlike forms wriggle beneath the surface of this glassy stone.",
+  "shortdescription" : "Dire Stone",
+  "glitchDescription" : "Amazed. The worms in this stone appear to help maintain its rigidity.",
+  "floranDescription" : "Wiggly wormssstone!",
+  "novakidDescription" : "There's little wigglin' worms inside this stone.",
+  "footstepSound" : "/sfx/blocks/footstep_stone.ogg",
+  "health" : 20,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "direstone.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 1700
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name" : "hemogoblin",
+  "category" : "electrichemogoblin",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "electrichemogoblin.png"
+  }
+}

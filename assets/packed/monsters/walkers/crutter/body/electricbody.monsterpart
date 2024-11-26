@@ -1,0 +1,10 @@
+{
+  "name" : "crutter",
+  "category" : "electriccrutter",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "electriccrutter.png",
+    "bodynobright" : "electriccrutternobright.png"
+  }
+}

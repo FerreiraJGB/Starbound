@@ -1,0 +1,7 @@
+{
+  "image" : "floorsmoke.png",
+  "frameGrid" : {
+    "size" : [292, 107],
+    "dimensions" : [4, 1]
+  }
+}

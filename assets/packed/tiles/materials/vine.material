@@ -1,0 +1,26 @@
+{
+  "materialId" : 171,
+  "materialName" : "vine",
+  "particleColor" : [99, 117, 82, 255],
+  "transparent" : false,
+  "itemDrop" : "vine",
+  "shortdescription" : "Vine",
+  "description" : "A thick coil of vines. They look strong.",
+  "glitchDescription" : "Fascinated. It appears these strong vines were woven together as they were grown.",
+  "floranDescription" : "Viness grow sstrong just like Floran.",
+  "novakidDescription" : "These vines are massive lookin'.",
+  "footstepSound" : "/sfx/blocks/footstep_wetclay.ogg",
+  "health" : 4,
+  "category" : "materials",
+  "damageTable" : "/tiles/flammableDamage.config",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "vine.png",
+    "variants" : 1,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 1740
+  }
+}

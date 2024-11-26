@@ -1,0 +1,14 @@
+{
+  "modId" : 214,
+  "modName" : "undergrowth",
+  "description" : "Hardy grass growing from the ceiling.",
+  "health" : 0,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "undergrowth.png",
+    "variants" : 5,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

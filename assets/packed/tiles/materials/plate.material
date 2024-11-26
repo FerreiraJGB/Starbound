@@ -1,0 +1,24 @@
+{
+  "materialId" : 14,
+  "materialName" : "plate",
+  "particleColor" : [214, 215, 214, 255],
+  "itemDrop" : "platematerial",
+  "description" : "Reminds me of the inside of a medical centre.",
+  "shortdescription" : "Smooth Plated Block",
+  "glitchDescription" : "Intrigued. These metal plates have been carefully smoothed.",
+  "floranDescription" : "Ssmooth sshiny metal platess.",
+  "novakidDescription" : "Some smooth lookin' wall plates.",
+  "footstepSound" : "/sfx/blocks/footstep_composite.ogg",
+  "health" : 8,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "plate.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3000
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "name": "quest-return_stolen-idle",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/position.lua",
+    "/scripts/actions/overrides.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/movement.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "selector",
+        "type": "composite",
+        "name": "selector",
+        "parameters": {},
+        "children": [
+          {
+            "title": "inRange",
+            "type": "action",
+            "name": "inRange",
+            "parameters": {
+              "position": {"key": "self"},
+              "range": {"value": 10},
+              "target": {"key": "spawn"}
+            }
+          },
+          {
+            "title": "Tenant - Return Home",
+            "type": "module",
+            "name": "Tenant - Return Home",
+            "parameters": {}
+          }
+        ]
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": 1},
+          "success": {"value": 2}
+        },
+        "children": [
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "overrideEntity",
+                "type": "action",
+                "name": "overrideEntity",
+                "parameters": {
+                  "argumentName": {"value": "target"},
+                  "override": {"key": "override"}
+                },
+                "output": {
+                  "entity": "object"
+                }
+              },
+              {
+                "title": "entityPosition",
+                "type": "action",
+                "name": "entityPosition",
+                "parameters": {
+                  "entity": {"key": "object"}
+                },
+                "output": {
+                  "position": "objectPos"
+                }
+              }
+            ]
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "selector",
+                "type": "composite",
+                "name": "selector",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "inRange",
+                    "type": "action",
+                    "name": "inRange",
+                    "parameters": {
+                      "position": {"key": "self"},
+                      "range": {"value": 5},
+                      "target": {"key": "objectPos"}
+                    }
+                  },
+                  {
+                    "title": "moveToPosition",
+                    "type": "action",
+                    "name": "moveToPosition",
+                    "parameters": {
+                      "avoidLiquid": {"value": true},
+                      "groundPosition": {"value": true},
+                      "maxGround": {"value": 5},
+                      "minGround": {"value": -5},
+                      "position": {"key": "objectPos"},
+                      "run": {"value": false}
+                    },
+                    "output": {
+                      "pathfinding": "isPathfinding"
+                    }
+                  }
+                ]
+              },
+              {
+                "title": "runner",
+                "type": "action",
+                "name": "runner",
+                "parameters": {}
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

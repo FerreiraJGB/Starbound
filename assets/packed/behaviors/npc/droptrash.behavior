@@ -1,0 +1,45 @@
+{
+  "name": "reaction-droptrash",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/npc.lua",
+    "/scripts/actions/container.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "faceEntity",
+        "type": "action",
+        "name": "faceEntity",
+        "parameters": {
+          "entity": {"key": "reactTarget"}
+        }
+      },
+      {
+        "title": "dance",
+        "type": "action",
+        "name": "dance",
+        "parameters": {
+          "dance": {"value": "flipswitch"}
+        }
+      },
+      {
+        "title": "containerAddItem",
+        "type": "action",
+        "name": "containerAddItem",
+        "parameters": {
+          "amount": {"value": 1},
+          "entity": {"key": "reactTarget"},
+          "itemName": {"value": "soggypaper"},
+          "parameters": {"value": {}}
+        }
+      }
+    ]
+  }
+}

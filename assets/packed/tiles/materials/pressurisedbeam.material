@@ -1,0 +1,24 @@
+{
+  "materialId" : 152,
+  "materialName" : "pressurisedbeam",
+  "particleColor" : [89, 127, 52, 255],
+  "itemDrop" : "pressurisedbeam",
+  "description" : "A support beam made for pressurised environments.",
+  "shortdescription" : "Pressurised Beam",
+  "glitchDescription" : "Observant. This beam is specially designed for pressurised environments.",
+  "floranDescription" : "Sstrong metal beam.",
+  "novakidDescription" : "This metal beam looks mighty stong.",
+  "footstepSound" : "/sfx/blocks/footstep_composite.ogg",
+  "health" : 20,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "pressurisedbeam.png",
+    "variants" : 10,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3000
+  }
+}

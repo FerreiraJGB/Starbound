@@ -1,0 +1,10 @@
+{
+  "input" : [
+    { "item" : "peacecredit", "count" : 15 }
+  ],
+  "output" : {
+    "item" : "sportscarcontrollerred",
+    "count" : 1
+  },
+  "groups" : [ "peacekeeper3" ]
+}

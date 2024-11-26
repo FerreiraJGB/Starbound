@@ -1,0 +1,445 @@
+{
+  "name": "tonauacend",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/query.lua",
+    "/scripts/actions/entity.lua",
+    "/scripts/behavior.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/notification.lua",
+    "/scripts/actions/position.lua",
+    "/scripts/actions/status.lua",
+    "/scripts/actions/npc.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "queryEntity",
+            "type": "action",
+            "name": "queryEntity",
+            "parameters": {
+              "entityTypes": {"value": ["player"]},
+              "orderBy": {"value": "nearest"},
+              "position": {"key": "self"},
+              "range": {"value": 20},
+              "withoutEntity": {"key": "self"}
+            },
+            "output": {
+              "list": "players"
+            }
+          },
+          {
+            "title": "filter",
+            "type": "decorator",
+            "name": "filter",
+            "parameters": {
+              "list": {"key": "players"},
+              "type": {"value": "entity"}
+            },
+            "child": {
+              "title": "entityInSight",
+              "type": "action",
+              "name": "entityInSight",
+              "parameters": {
+                "entity": {"key": "filterItem"}
+              }
+            }
+          },
+          {
+            "title": "listGet",
+            "type": "action",
+            "name": "listGet",
+            "parameters": {
+              "list": {"key": "players"}
+            },
+            "output": {
+              "entity": "player"
+            }
+          }
+        ]
+      },
+      {
+        "title": "faceEntity",
+        "type": "action",
+        "name": "faceEntity",
+        "parameters": {
+          "entity": {"key": "player"}
+        }
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 0.5}
+        }
+      },
+      {
+        "title": "sequentialdialog",
+        "type": "module",
+        "name": "sequentialdialog",
+        "parameters": {
+          "dialogWaitTime": {"value": 4},
+          "dialogEndWait": {"value": 2},
+          "dialogKey": {"value": "dialog.tonauac.giveRelic"},
+          "dialogTarget": {"key": ""}
+        }
+      },
+      {
+        "title": "dynamic",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": "cooldown",
+            "type": "decorator",
+            "name": "cooldown",
+            "parameters": {
+              "cooldown": {"value": 1},
+              "onFail": {"value": true},
+              "onSuccess": {"value": true}
+            },
+            "child": {
+              "title": "sequence",
+              "type": "composite",
+              "name": "sequence",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "findObject",
+                  "type": "action",
+                  "name": "findObject",
+                  "parameters": {
+                    "name": {"value": "avianartifactaltar"},
+                    "orderBy": {"value": "nearest"},
+                    "position": {"key": "self"},
+                    "range": {"value": 20}
+                  },
+                  "output": {
+                    "entity": "altar"
+                  }
+                },
+                {
+                  "title": "sendEntityMessage",
+                  "type": "action",
+                  "name": "sendEntityMessage",
+                  "parameters": {
+                    "entity": {"key": "altar"},
+                    "message": {"value": "setInteractive"}
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "title": "runner",
+            "type": "action",
+            "name": "runner",
+            "parameters": {}
+          }
+        ]
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 0.5}
+        }
+      },
+      {
+        "title": "dynamic",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": "receivedNotification",
+            "type": "action",
+            "name": "receivedNotification",
+            "parameters": {
+              "type": {"value": "artifactTaken"}
+            }
+          },
+          {
+            "title": "runner",
+            "type": "action",
+            "name": "runner",
+            "parameters": {}
+          }
+        ]
+      },
+      {
+        "title": "inverter",
+        "type": "decorator",
+        "name": "inverter",
+        "parameters": {},
+        "child": {
+          "title": "move",
+          "type": "action",
+          "name": "move",
+          "parameters": {
+            "direction": {"value": 1},
+            "run": {"value": false}
+          }
+        }
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "findObject",
+            "type": "action",
+            "name": "findObject",
+            "parameters": {
+              "name": {"value": "bardoor3"},
+              "orderBy": {"value": "nearest"},
+              "position": {"key": "self"},
+              "range": {"value": 20}
+            },
+            "output": {
+              "entity": "bardoor"
+            }
+          },
+          {
+            "title": "succeeder",
+            "type": "decorator",
+            "name": "succeeder",
+            "parameters": {},
+            "child": {
+              "title": "callScriptedEntity",
+              "type": "action",
+              "name": "callScriptedEntity",
+              "parameters": {
+                "entity": {"key": "bardoor"},
+                "func": {"value": "openDoor"}
+              }
+            }
+          }
+        ]
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 0.5}
+        }
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": -1},
+          "success": {"value": 1}
+        },
+        "children": [
+          {
+            "title": "move",
+            "type": "action",
+            "name": "move",
+            "parameters": {
+              "direction": {"value": 1},
+              "run": {"value": false}
+            }
+          },
+          {
+            "title": "cooldown",
+            "type": "decorator",
+            "name": "cooldown",
+            "parameters": {
+              "cooldown": {"value": 0.5},
+              "onFail": {"value": true},
+              "onSuccess": {"value": true}
+            },
+            "child": {
+              "title": "findObject",
+              "type": "action",
+              "name": "findObject",
+              "parameters": {
+                "name": {"value": "arkteleporter"},
+                "orderBy": {"value": "nearest"},
+                "position": {"key": "self"},
+                "range": {"value": 15}
+              },
+              "output": {
+                "entity": "teleporter"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "entityPosition",
+            "type": "action",
+            "name": "entityPosition",
+            "parameters": {
+              "entity": {"key": "teleporter"}
+            },
+            "output": {
+              "position": "teleporter"
+            }
+          },
+          {
+            "title": "offsetPosition",
+            "type": "action",
+            "name": "offsetPosition",
+            "parameters": {
+              "offset": {"value": [0, 0]},
+              "position": {"key": "teleporter"}
+            },
+            "output": {
+              "position": "teleporter"
+            }
+          },
+          {
+            "title": "moveToPosition",
+            "type": "action",
+            "name": "moveToPosition",
+            "parameters": {
+              "avoidLiquid": {"value": true},
+              "groundPosition": {"value": true},
+              "maxGround": {"value": 5},
+              "minGround": {"value": -5},
+              "position": {"key": "teleporter"},
+              "run": {"value": false}
+            }
+          }
+        ]
+      },
+      {
+        "title": "dynamic",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": "cooldown",
+            "type": "decorator",
+            "name": "cooldown",
+            "parameters": {
+              "cooldown": {"value": 0.5},
+              "onFail": {"value": true},
+              "onSuccess": {"value": true}
+            },
+            "child": {
+              "title": "queryEntity",
+              "type": "action",
+              "name": "queryEntity",
+              "parameters": {
+                "entityTypes": {"value": ["player"]},
+                "orderBy": {"value": "nearest"},
+                "position": {"key": "self"},
+                "range": {"value": 10},
+                "withoutEntity": {"key": "self"}
+              }
+            }
+          },
+          {
+            "title": "runner",
+            "type": "action",
+            "name": "runner",
+            "parameters": {}
+          }
+        ]
+      },
+      {
+        "title": "sequentialdialog",
+        "type": "module",
+        "name": "sequentialdialog",
+        "parameters": {
+          "dialogWaitTime": {"value": 2},
+          "dialogEndWait": {"value": 1},
+          "dialogKey": {"value": "dialog.tonauac.end"},
+          "dialogTarget": {"key": ""}
+        }
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "playersInWorld",
+            "type": "action",
+            "name": "playersInWorld",
+            "parameters": {},
+            "output": {
+              "list": "players"
+            }
+          },
+          {
+            "title": "each",
+            "type": "decorator",
+            "name": "each",
+            "parameters": {
+              "list": {"key": "players"},
+              "type": {"value": "entity"}
+            },
+            "child": {
+              "title": "succeeder",
+              "type": "decorator",
+              "name": "succeeder",
+              "parameters": {},
+              "child": {
+                "title": "sendEntityMessage",
+                "type": "action",
+                "name": "sendEntityMessage",
+                "parameters": {
+                  "arguments": {"value": ["/cinematics/story/tonauacatoutpost.cinematic", true]},
+                  "entity": {"key": "eachItem"},
+                  "message": {"value": "playCinematic"}
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "title": "addEphemeralEffect",
+        "type": "action",
+        "name": "addEphemeralEffect",
+        "parameters": {
+          "name": {"value": "beamoutanddie"}
+        }
+      },
+      {
+        "title": "setDeathParticleBurst",
+        "type": "action",
+        "name": "setDeathParticleBurst",
+        "parameters": {}
+      },
+      {
+        "title": "runner",
+        "type": "action",
+        "name": "runner",
+        "parameters": {}
+      }
+    ]
+  }
+}

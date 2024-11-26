@@ -1,0 +1,72 @@
+{
+  "globalTagDefaults" : {
+    "hand" : "front"
+  },
+
+  "animatedParts" : {
+    "stateTypes" : {
+      "arrestState" : {
+        "default" : "idle",
+        "states" : {
+          "idle" : {},
+          "active" : {
+            "frames" : 2,
+            "cycle" : 0.15,
+            "mode" : "loop"
+          }
+        }
+      }
+    },
+
+    "parts" : {
+      "arrester" : {
+        "properties" : {
+          "centered" : true,
+          "offset" : [-0.375, -0.25],
+          "image" : "longarm.png:<hand>"
+        }
+      },
+      "arresterFullbright" : {
+        "properties" : {
+          "centered" : true,
+          "offset" : [-0.375, -0.25],
+          "fullbright" : true,
+          "zLevel" : 1
+        },
+
+        "partStates" : {
+          "arrestState" : {
+            "idle" : {
+              "properties" : {
+                "image" : "longarm_fullbright.png:idle"
+              }
+            },
+            "active" : {
+              "properties" : {
+                "image" : "longarm_fullbright.png:active.<frame>"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "lights" : {
+    "flashlight" : {
+      "active" : true,
+      "position" : [-1.25, -0.5],
+      "color" : [100, 150, 150],
+      "pointLight" : true,
+      "pointAngle" : 0.00,
+      "pointBeam" : 2.5
+    }
+  },
+
+  "sounds" : {
+    "beep" : ["/sfx/interface/sniper_mark_pitch1.ogg"],
+    "noTarget" : ["/sfx/interface/starving4.ogg"],
+    "arrestSuccess" : ["/sfx/interface/sniper_mark_start1.ogg"],
+    "arrestFailure" : ["/sfx/interface/starving4.ogg"]
+  }
+}

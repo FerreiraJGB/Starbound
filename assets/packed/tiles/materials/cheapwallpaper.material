@@ -1,0 +1,25 @@
+{
+  "materialId" : 104,
+  "materialName" : "cheapwallpaper",
+  "particleColor" : [214, 200, 147, 255],
+  "itemDrop" : "cheapwallpaper",
+  "description" : "Cheap, tacky wallpaper.",
+  "shortdescription" : "Tacky Wallpaper",
+  "glitchDescription" : "Unsettled. This wall paper is overwhelmingly gaudy.",
+  "floranDescription" : "Floran adore pretty wall paperss.",
+  "novakidDescription" : "Why'd anyone want to cover their walls with paper lookin' like this?",
+  "footstepSound" : "/sfx/blocks/footstep_lightwood.ogg",
+  "health" : 8,
+  "category" : "materials",
+  "damageTable" : "/tiles/flammableDamage.config",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "cheapwallpaper.png",
+    "variants" : 1,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 2650
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "materialId" : 18,
+  "materialName" : "rock03",
+  "particleColor" : [100, 106, 106, 255],
+  "itemDrop" : "cobblestonematerial",
+  "description" : "Rough, unrefined stone.",
+  "shortdescription" : "Rough Stone",
+  "glitchDescription" : "Observant. These are common rough stones.",
+  "floranDescription" : "Hard rough sstoness.",
+  "novakidDescription" : "Just a buncha rocks.",
+  "footstepSound" : "/sfx/blocks/footstep_stone.ogg",
+  "health" : 8,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "rock03.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 1600
+  }
+}

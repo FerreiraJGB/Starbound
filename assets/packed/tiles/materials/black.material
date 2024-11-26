@@ -1,0 +1,23 @@
+{
+  "materialId" : 990,
+  "materialName" : "blackblock",
+  "particleColor" : [227, 174, 47, 255],
+  "itemDrop" : "blackblock",
+  "description" : "...",
+  "shortdescription" : "...",
+  "glitchDescription" : "...",
+  "floranDescription" : "...",
+  "footstepSound" : "/sfx/blocks/footstep_stone.ogg",
+  "health" : 8,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "black.png",
+    "variants" : 1,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

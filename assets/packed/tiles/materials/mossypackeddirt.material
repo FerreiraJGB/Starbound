@@ -1,0 +1,24 @@
+{
+  "materialId" : 135,
+  "materialName" : "mossypackeddirt",
+  "particleColor" : [143, 110, 61, 255],
+  "itemDrop" : "mossypackeddirt",
+  "shortdescription" : "Mossy Packed Dirt",
+  "glitchDescription" : "Observant. This packed dirt has moss growing on it.",
+  "floranDescription" : "Packed dirt covered in growing mosss.",
+  "novakidDescription" : "This here dirt's all cover'd in moss.",
+  "description" : "Packed dirt, covered in moss.",
+  "footstepSound" : "/sfx/blocks/footstep_stone2.ogg",
+  "health" : 4,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "mossypackeddirt.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3000
+  }
+}

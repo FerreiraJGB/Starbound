@@ -1,0 +1,23 @@
+{
+  "materialId" : 195,
+  "materialName" : "outpostplatform",
+  "collisionKind" : "platform",
+  "itemDrop" : "outpostplatform",
+  "shortdescription" : "Outpost Platform",
+  "description" : "A simple light platform commonly found in remote outposts.",
+  "glitchDescription" : "Facinated. These platforms are light and favoured for their portability.",
+  "floranDescription" : "Jusst another metal platform.",
+  "novakidDescription" : "Pretty strange lookin' metal platform.",
+  "footstepSound" : "/sfx/blocks/footstep_lightmetal.ogg",
+  "category" : "Supports",
+
+  "renderTemplate" : "/tiles/platformtemplate.config",
+  "renderParameters" : {
+    "texture" : "outpostplatform.png",
+    "variants" : 1,
+    "lightTransparent" : true,
+    "occludesBelow" : false,
+    "multiColored" : true,
+    "zLevel" : 0
+  }
+}

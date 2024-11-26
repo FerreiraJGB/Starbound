@@ -1,0 +1,486 @@
+{
+  "name": "guardian-pogobeam",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/position.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/animator.lua",
+    "/scripts/actions/sensor.lua",
+    "/scripts/actions/math.lua",
+    "/scripts/actions/boss/guardian.lua"
+  ],
+  "parameters": {
+    "firstPosition": [0, 0],
+    "secondPosition": [0, 0],
+    "bounceVelocity": [25, 60],
+    "duration": 5.67
+  },
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "randomize",
+        "type": "composite",
+        "name": "randomize",
+        "parameters": {},
+        "children": [
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "offsetPosition",
+                "type": "action",
+                "name": "offsetPosition",
+                "parameters": {
+                  "offset": {"value": [0, 0]},
+                  "position": {"key": "<firstPosition>"}
+                },
+                "output": {
+                  "position": "start"
+                }
+              },
+              {
+                "title": "offsetPosition",
+                "type": "action",
+                "name": "offsetPosition",
+                "parameters": {
+                  "offset": {"value": [0, 0]},
+                  "position": {"key": "<secondPosition>"}
+                },
+                "output": {
+                  "position": "end"
+                }
+              }
+            ]
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "offsetPosition",
+                "type": "action",
+                "name": "offsetPosition",
+                "parameters": {
+                  "offset": {"value": [0, 0]},
+                  "position": {"key": "<secondPosition>"}
+                },
+                "output": {
+                  "position": "start"
+                }
+              },
+              {
+                "title": "offsetPosition",
+                "type": "action",
+                "name": "offsetPosition",
+                "parameters": {
+                  "offset": {"value": [0, 0]},
+                  "position": {"key": "<firstPosition>"}
+                },
+                "output": {
+                  "position": "end"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "flyToPosition",
+        "type": "action",
+        "name": "flyToPosition",
+        "parameters": {
+          "position": {"key": "start"},
+          "tolerance": {"value": 2}
+        }
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 0.5}
+        }
+      },
+      {
+        "title": "distance",
+        "type": "action",
+        "name": "distance",
+        "parameters": {
+          "from": {"key": "start"},
+          "to": {"key": "end"}
+        },
+        "output": {
+          "x": "dashDir"
+        }
+      },
+      {
+        "title": "setDirection",
+        "type": "action",
+        "name": "setDirection",
+        "parameters": {
+          "direction": {"key": "dashDir"}
+        },
+        "output": {
+          "direction": "dashDir"
+        }
+      },
+      {
+        "title": "faceDirection",
+        "type": "action",
+        "name": "faceDirection",
+        "parameters": {
+          "direction": {"key": "dashDir"}
+        }
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": -1},
+          "success": {"value": 1}
+        },
+        "children": [
+          {
+            "title": "animate",
+            "type": "action",
+            "name": "animate",
+            "parameters": {
+              "fallback": {"value": "deactivate"},
+              "state": {"value": "activate"},
+              "type": {"value": "body"}
+            }
+          },
+          {
+            "title": "animate",
+            "type": "action",
+            "name": "animate",
+            "parameters": {
+              "fallback": {"value": "deactivate"},
+              "state": {"value": "activate"},
+              "type": {"value": "head"}
+            }
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "playSound",
+                "type": "action",
+                "name": "playSound",
+                "parameters": {
+                  "loops": {"value": 0},
+                  "sound": {"value": "beamWindup"}
+                }
+              },
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": 0.5}
+                }
+              },
+              {
+                "title": "playSound",
+                "type": "action",
+                "name": "playSound",
+                "parameters": {
+                  "loops": {"value": 0},
+                  "sound": {"value": "beamStart"}
+                }
+              },
+              {
+                "title": "parallel",
+                "type": "composite",
+                "name": "parallel",
+                "parameters": {
+                  "fail": {"value": -1},
+                  "success": {"value": 1}
+                },
+                "children": [
+                  {
+                    "title": "loopSound",
+                    "type": "action",
+                    "name": "loopSound",
+                    "parameters": {
+                      "sound": {"value": "beamLoop"}
+                    }
+                  },
+                  {
+                    "title": "timer",
+                    "type": "action",
+                    "name": "timer",
+                    "parameters": {
+                      "time": {"value": "<duration>"}
+                    }
+                  }
+                ]
+              },
+              {
+                "title": "playSound",
+                "type": "action",
+                "name": "playSound",
+                "parameters": {
+                  "loops": {"value": 0},
+                  "sound": {"value": "beamWinddown"}
+                }
+              },
+              {
+                "title": "runner",
+                "type": "action",
+                "name": "runner",
+                "parameters": {}
+              }
+            ]
+          },
+          {
+            "title": "parallel",
+            "type": "composite",
+            "name": "parallel",
+            "parameters": {
+              "fail": {"value": -1},
+              "success": {"value": -1}
+            },
+            "children": [
+              {
+                "title": "controlParameters",
+                "type": "action",
+                "name": "controlParameters",
+                "parameters": {
+                  "parameters": {"value": {"airFriction": 0, "gravityEnabled": true}}
+                }
+              },
+              {
+                "title": "succeeder",
+                "type": "decorator",
+                "name": "succeeder",
+                "parameters": {},
+                "child": {
+                  "title": "sequence",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "boundsCollision",
+                      "type": "action",
+                      "name": "boundsCollision",
+                      "parameters": {
+                        "dirVector": {"value": ["dashDir", 0]}
+                      }
+                    },
+                    {
+                      "title": "multiply",
+                      "type": "action",
+                      "name": "multiply",
+                      "parameters": {
+                        "factor": {"value": -1},
+                        "number": {"key": "dashDir"}
+                      },
+                      "output": {
+                        "result": "dashDir"
+                      }
+                    },
+                    {
+                      "title": "faceDirection",
+                      "type": "action",
+                      "name": "faceDirection",
+                      "parameters": {
+                        "direction": {"key": "dashDir"}
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "title": "sequence",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "timer",
+                    "type": "action",
+                    "name": "timer",
+                    "parameters": {
+                      "time": {"value": 0.5}
+                    }
+                  },
+                  {
+                    "title": "repeater",
+                    "type": "decorator",
+                    "name": "repeater",
+                    "parameters": {
+                      "maxLoops": {"value": -1},
+                      "untilSuccess": {"value": false}
+                    },
+                    "child": {
+                      "title": "sequence",
+                      "type": "composite",
+                      "name": "sequence",
+                      "parameters": {},
+                      "children": [
+                        {
+                          "title": "vecMultiply",
+                          "type": "action",
+                          "name": "vecMultiply",
+                          "parameters": {
+                            "first": {"key": "<bounceVelocity>"},
+                            "second": {"value": ["dashDir", 1]}
+                          },
+                          "output": {
+                            "vector": "bounceVelocity"
+                          }
+                        },
+                        {
+                          "title": "setVelocity",
+                          "type": "action",
+                          "name": "setVelocity",
+                          "parameters": {
+                            "velocity": {"key": "bounceVelocity"}
+                          }
+                        },
+                        {
+                          "title": "timer",
+                          "type": "action",
+                          "name": "timer",
+                          "parameters": {
+                            "time": {"value": 0.1}
+                          }
+                        },
+                        {
+                          "title": "dynamic",
+                          "type": "composite",
+                          "name": "dynamic",
+                          "parameters": {},
+                          "children": [
+                            {
+                              "title": "sequence",
+                              "type": "composite",
+                              "name": "sequence",
+                              "parameters": {},
+                              "children": [
+                                {
+                                  "title": "boundsCollision",
+                                  "type": "action",
+                                  "name": "boundsCollision",
+                                  "parameters": {
+                                    "dirVector": {"value": [0, -1]}
+                                  }
+                                },
+                                {
+                                  "title": "burstParticleEmitter",
+                                  "type": "action",
+                                  "name": "burstParticleEmitter",
+                                  "parameters": {
+                                    "emitter": {"value": "groundCollision"}
+                                  }
+                                },
+                                {
+                                  "title": "playSound",
+                                  "type": "action",
+                                  "name": "playSound",
+                                  "parameters": {
+                                    "loops": {"value": 0},
+                                    "sound": {"value": "groundBounce"}
+                                  }
+                                },
+                                {
+                                  "title": "setVelocity",
+                                  "type": "action",
+                                  "name": "setVelocity",
+                                  "parameters": {
+                                    "velocity": {"value": [0, 0]}
+                                  }
+                                },
+                                {
+                                  "title": "timer",
+                                  "type": "action",
+                                  "name": "timer",
+                                  "parameters": {
+                                    "time": {"value": 0.05}
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "title": "runner",
+                              "type": "action",
+                              "name": "runner",
+                              "parameters": {}
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "title": "timer",
+                    "type": "action",
+                    "name": "timer",
+                    "parameters": {
+                      "time": {"value": 0.5}
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "guardianBeam",
+            "type": "action",
+            "name": "guardianBeam",
+            "parameters": {
+              "angle": {"value": -1.57},
+              "beamType": {"value": "damage"},
+              "bounces": {"value": 0},
+              "damagePart": {"value": "righthand"},
+              "duration": {"key": "<duration>"},
+              "handPart": {"value": "righthand"},
+              "power": {"value": 10}
+            }
+          }
+        ]
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 1}
+        }
+      },
+      {
+        "title": "flyToPosition",
+        "type": "action",
+        "name": "flyToPosition",
+        "parameters": {
+          "position": {"key": "spawn"},
+          "tolerance": {"value": 2}
+        }
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 1}
+        }
+      }
+    ]
+  }
+}

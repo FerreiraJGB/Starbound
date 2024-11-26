@@ -1,0 +1,13 @@
+{
+  "name" : "peacekeeperaugment3",
+  "effectConfig" : {
+    "protection" : 6
+  },
+  "defaultDuration" : 5,
+
+  "scripts" : [
+    "peacekeeperaugment.lua"
+  ],
+
+  "animationConfig" : "peacekeeperaugment3.animation"
+}

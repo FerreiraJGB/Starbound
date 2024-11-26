@@ -1,0 +1,23 @@
+{
+  "materialId" : 181,
+  "materialName" : "lunarbaseplatform",
+  "collisionKind" : "platform",
+  "itemDrop" : "lunarbaseplatform",
+  "shortdescription" : "Lunar Base Platform",
+  "description" : "A well-constructed metal platform.",
+  "glitchDescription" : "Confident. This metal platform can support great weight.",
+  "floranDescription" : "Floran disslike cold metal platformss.",
+  "novakidDescription" : "A shiny lookin' platform.",
+  "footstepSound" : "/sfx/blocks/footstep_lightmetal.ogg",
+  "category" : "Supports",
+
+  "renderTemplate" : "/tiles/platformtemplate.config",
+  "renderParameters" : {
+    "texture" : "lunarbaseplatform.png",
+    "variants" : 1,
+    "lightTransparent" : true,
+    "occludesBelow" : false,
+    "multiColored" : true,
+    "zLevel" : 0
+  }
+}

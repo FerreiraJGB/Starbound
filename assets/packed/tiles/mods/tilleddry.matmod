@@ -1,0 +1,31 @@
+{
+  "modId" : 32,
+  "modName" : "tilleddry",
+  "description" : "Dry tilled dirt. Looks like it could use some water.",
+  "footstepSound" : "/sfx/blocks/footstep_dirt.ogg",
+  "tilled" : true,
+  "health" : 0,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "tilleddry.png",
+    "variants" : 3,
+    "multiColored" : false,
+    "zLevel" : 0
+  },
+
+  "liquidInteractions" : [
+    {
+      "liquidId" : 1,
+      "consumeLiquid" : 0.5,
+      "transformModId" : 31,
+      "topOnly" : true
+    },
+    {
+      "liquidId" : 6,
+      "consumeLiquid" : 0.5,
+      "transformModId" : 31,
+      "topOnly" : true
+    }
+  ]
+}

@@ -1,0 +1,293 @@
+{
+  "name": "action-pairbeam",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/query.lua",
+    "/scripts/actions/entity.lua",
+    "/scripts/behavior/bdata.lua",
+    "/scripts/behavior.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/behavior/bgroup.lua",
+    "/scripts/actions/animator.lua",
+    "/scripts/actions/monster.lua",
+    "/scripts/actions/position.lua",
+    "/scripts/actions/math.lua"
+  ],
+  "parameters": {
+    "monsterType": {"type": "json", "value": null},
+    "range": {"type": "json", "value": 50}
+  },
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "findMonster",
+        "type": "action",
+        "name": "findMonster",
+        "parameters": {
+          "exclude": {"key": "self"},
+          "orderBy": {"value": "nearest"},
+          "position": {"key": "self"},
+          "range": {"key": "<range>"},
+          "type": {"key": "<monsterType>"}
+        },
+        "output": {
+          "list": "pairMonsters"
+        }
+      },
+      {
+        "title": "filter",
+        "type": "decorator",
+        "name": "filter",
+        "parameters": {
+          "list": {"key": "pairMonsters"},
+          "type": {"value": "entity"}
+        },
+        "child": {
+          "title": "entityInSight",
+          "type": "action",
+          "name": "entityInSight",
+          "parameters": {
+            "entity": {"key": "filterItem"}
+          }
+        }
+      },
+      {
+        "title": "each",
+        "type": "decorator",
+        "name": "each",
+        "parameters": {
+          "list": {"key": "pairMonsters"},
+          "type": {"value": "entity"}
+        },
+        "child": {
+          "title": "sequence",
+          "type": "composite",
+          "name": "sequence",
+          "parameters": {},
+          "children": [
+            {
+              "title": "listClear",
+              "type": "action",
+              "name": "listClear",
+              "parameters": {},
+              "output": {
+                "list": "beampair"
+              }
+            },
+            {
+              "title": "listPush",
+              "type": "action",
+              "name": "listPush",
+              "parameters": {
+                "entity": {"key": "eachItem"},
+                "list": {"key": "beampair"}
+              },
+              "output": {
+                "list": "beampair"
+              }
+            },
+            {
+              "title": "listPush",
+              "type": "action",
+              "name": "listPush",
+              "parameters": {
+                "entity": {"key": "self"},
+                "list": {"key": "beampair"}
+              },
+              "output": {
+                "list": "beampair"
+              }
+            },
+            {
+              "title": "setEntity",
+              "type": "action",
+              "name": "setEntity",
+              "parameters": {
+                "entity": {"key": "eachItem"}
+              },
+              "output": {
+                "entity": "beamfriend"
+              }
+            },
+            {
+              "title": "succeeder",
+              "type": "decorator",
+              "name": "succeeder",
+              "parameters": {},
+              "child": {
+                "title": "parallel",
+                "type": "composite",
+                "name": "parallel",
+                "parameters": {
+                  "fail": {"value": 1},
+                  "success": {"value": -1}
+                },
+                "children": [
+                  {
+                    "title": "each",
+                    "type": "decorator",
+                    "name": "each",
+                    "parameters": {
+                      "list": {"key": "beampair"},
+                      "type": {"value": "entity"}
+                    },
+                    "child": {
+                      "title": "entityExists",
+                      "type": "action",
+                      "name": "entityExists",
+                      "parameters": {
+                        "entity": {"key": "eachItem"}
+                      }
+                    }
+                  },
+                  {
+                    "title": "group",
+                    "type": "action",
+                    "name": "group",
+                    "parameters": {
+                      "goal": {"value": "beampair"},
+                      "goalType": {"value": "list"},
+                      "maxMembers": {"value": 2},
+                      "minMembers": {"value": 2},
+                      "unique": {"value": false}
+                    },
+                    "output": {
+                      "groupId": "beampair"
+                    }
+                  },
+                  {
+                    "title": "selector",
+                    "type": "composite",
+                    "name": "selector",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "parallel",
+                        "type": "composite",
+                        "name": "parallel",
+                        "parameters": {
+                          "fail": {"value": 1},
+                          "success": {"value": -1}
+                        },
+                        "children": [
+                          {
+                            "title": "task",
+                            "type": "action",
+                            "name": "task",
+                            "parameters": {
+                              "groupId": {"key": "beampair"},
+                              "maxMembers": {"value": 1},
+                              "minMembers": {"value": 1},
+                              "taskId": {"value": "beam"}
+                            }
+                          },
+                          {
+                            "title": "animate",
+                            "type": "action",
+                            "name": "animate",
+                            "parameters": {
+                              "fallback": {"value": "off"},
+                              "state": {"value": "on"},
+                              "type": {"value": "beam"}
+                            }
+                          },
+                          {
+                            "title": "setDamagePartActive",
+                            "type": "action",
+                            "name": "setDamagePartActive",
+                            "parameters": {
+                              "name": {"value": "beam"}
+                            }
+                          },
+                          {
+                            "title": "sequence",
+                            "type": "composite",
+                            "name": "sequence",
+                            "parameters": {},
+                            "children": [
+                              {
+                                "title": "entityPosition",
+                                "type": "action",
+                                "name": "entityPosition",
+                                "parameters": {
+                                  "entity": {"key": "beamfriend"}
+                                },
+                                "output": {
+                                  "position": "beamEnd"
+                                }
+                              },
+                              {
+                                "title": "distance",
+                                "type": "action",
+                                "name": "distance",
+                                "parameters": {
+                                  "from": {"key": "self"},
+                                  "to": {"key": "beamEnd"}
+                                },
+                                "output": {
+                                  "magnitude": "beamLength",
+                                  "vector": "beamVector"
+                                }
+                              },
+                              {
+                                "title": "vecAngle",
+                                "type": "action",
+                                "name": "vecAngle",
+                                "parameters": {
+                                  "vector": {"key": "beamVector"}
+                                },
+                                "output": {
+                                  "angle": "beamAngle"
+                                }
+                              },
+                              {
+                                "title": "resetTransformationGroup",
+                                "type": "action",
+                                "name": "resetTransformationGroup",
+                                "parameters": {
+                                  "transformationGroup": {"value": "beam"}
+                                }
+                              },
+                              {
+                                "title": "scaleTransformationGroup",
+                                "type": "action",
+                                "name": "scaleTransformationGroup",
+                                "parameters": {
+                                  "scale": {"value": ["beamLength", 1]},
+                                  "transformationGroup": {"value": "beam"}
+                                }
+                              },
+                              {
+                                "title": "rotateTransformationGroup",
+                                "type": "action",
+                                "name": "rotateTransformationGroup",
+                                "parameters": {
+                                  "angle": {"key": "beamAngle"},
+                                  "transformationGroup": {"value": "beam"}
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "title": "runner",
+                        "type": "action",
+                        "name": "runner",
+                        "parameters": {}
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

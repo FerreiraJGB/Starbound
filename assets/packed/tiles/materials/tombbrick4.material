@@ -1,0 +1,24 @@
+{
+  "materialId" : 63,
+  "materialName" : "tombbrick4",
+  "particleColor" : [120, 127, 154, 255],
+  "itemDrop" : "tombbrick4",
+  "shortdescription" : "Dark Tomb Brick",
+  "description" : "Dark and cold to the touch, these bricks seem to suck the heat from the room.",
+  "glitchDescription" : "Unimpressed. These large bricks are not uniform in size.",
+  "floranDescription" : "Big stone brickss are hard and cold.",
+  "novakidDescription" : "Strong lookin' stone. Feels mighty cold to the touch.",
+  "footstepSound" : "/sfx/blocks/footstep_stone.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "tombbrick4.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 2730
+  }
+}

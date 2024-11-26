@@ -1,0 +1,28 @@
+{
+  "testarenaMelee" : [
+    [1, {
+      "fill" : [
+        {"item" : [ "commonbroadsword", 1]},
+        {"item" : [ "commonspear", 1]},
+        {"item" : [ "commonshortsword", 1]},
+        {"item" : [ "commondagger", 1]},
+        {"item" : [ "commonhammer", 1]},
+        {"item" : [ "commonaxe", 1]}
+      ]
+    }]
+  ],
+
+  "testarenaRanged" : [
+    [1, {
+      "fill" : [
+        {"item" : [ "commonpistol", 1]},
+        {"item" : [ "commonmachinepistol", 1]},
+        {"item" : [ "commonrocketlauncher", 1]},
+        {"item" : [ "commonassaultrifle", 1]},
+        {"item" : [ "commongrenadelauncher", 1]},
+        {"item" : [ "commonsniperrifle", 1]},
+        {"item" : [ "commonshotgun", 1]}
+      ]
+    }]
+  ]
+}

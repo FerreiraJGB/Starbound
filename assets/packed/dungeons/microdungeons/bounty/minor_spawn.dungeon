@@ -1,0 +1,23 @@
+{
+  "metadata" : {
+    "name" : "minor_spawn",
+    "species" : "generic",
+    "rules" : [
+    ],
+    "anchor" : [ "minor_spawn" ],
+    "gravity" : 80,
+    "maxRadius" : 1000000,
+    "maxParts" : 1,
+    "protected" : true
+  },
+
+  "parts" : [
+    {
+      "name" : "minor_spawn",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "minor_spawn.json" ]
+    }
+  ]
+}

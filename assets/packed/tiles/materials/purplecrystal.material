@@ -1,0 +1,24 @@
+{
+  "materialId" : 15,
+  "materialName" : "purplecrystal",
+  "particleColor" : [191, 130, 200, 255],
+  "itemDrop" : "purplecrystalmaterial",
+  "description" : "Light seems to twist inside these purple crystals.",
+  "shortdescription" : "Purple Crystal Block",
+  "glitchDescription" : "Awestruck. Light appears to dance through this purple crystal.",
+  "floranDescription" : "Pretty purple crysstal.",
+  "novakidDescription" : "This purple crystal is purdy lookin'.",
+  "footstepSound" : "/sfx/blocks/footstep_crystal.ogg",
+  "health" : 8,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "purplecrystal.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : false,
+    "zLevel" : 1570
+  }
+}

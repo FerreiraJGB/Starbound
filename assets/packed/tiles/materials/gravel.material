@@ -1,0 +1,26 @@
+{
+  "materialId" : 11,
+  "materialName" : "gravel",
+  "particleColor" : [135, 126, 117, 255],
+  "itemDrop" : "gravelmaterial",
+  "description" : "Coarse gravel.",
+  "shortdescription" : "Gravel",
+  "glitchDescription" : "Irratated. Coarse, cascading gravel.",
+  "floranDescription" : "Crusshed gravel.",
+  "novakidDescription" : "Crushed rocks an' gravel.",
+  "footstepSound" : "/sfx/blocks/footstep_gravel.ogg",
+  "falling" : true,
+  "cascading" : true,
+  "health" : 1,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "gravel.png",
+    "variants" : 3,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 440
+  }
+}

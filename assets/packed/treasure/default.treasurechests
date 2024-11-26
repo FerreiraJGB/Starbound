@@ -1,0 +1,348 @@
+{
+  // generic
+
+  "basicChest" : [
+    {
+      "containers" : [ "podchest", "woodenchest", "ironchest" ],
+      "treasurePool" : "basicChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "weaponChest" : [
+    {
+      "containers" : [ "weaponchest" ],
+      "treasurePool" : "weaponChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "techChest" : [
+    {
+      "containers" : [ "techchest2" ],
+      "treasurePool" : "techChestTreasure",
+      "minimumLevel" : 1
+    }
+  ],
+
+  // main biomes
+
+  "gardenChest" : [
+    {
+      "containers" : [ "podchest"],
+      "treasurePool" : "gardenChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "forestChest" : [
+    {
+      "containers" : [ "podchest" ],
+      "treasurePool" : "forestChestTreasure",
+      "minimumLevel" : 1
+    }
+  ],
+
+  "desertChest" : [
+    {
+      "containers" : [ "podchest", "chestavian2" ],
+      "treasurePool" : "desertChestTreasure",
+      "minimumLevel" : 1
+    }
+  ],
+
+  "savannahChest" : [
+    {
+      "containers" : [ "podchest" ],
+      "treasurePool" : "savannahChestTreasure",
+      "minimumLevel" : 1
+    }
+  ],
+
+  "snowChest" : [
+    {
+      "containers" : [ "podchest" ],
+      "treasurePool" : "snowChestTreasure",
+      "minimumLevel" : 1
+    }
+  ],
+
+  "oceanChest" : [
+    {
+      "containers" : [ "podchest", "chestavian2" ],
+      "treasurePool" : "oceanChestTreasure",
+      "minimumLevel" : 1
+    }
+  ],
+
+  "oceanFloorChest" : [
+    {
+      "containers" : [ "chestavian2" ],
+      "treasurePool" : "oceanFloorChestTreasure",
+      "minimumLevel" : 1
+    }
+  ],
+
+  "jungleChest" : [
+    {
+      "containers" : [ "chestavian2" ],
+      "treasurePool" : "jungleChestTreasure",
+      "minimumLevel" : 1
+    }
+  ],
+
+  "alienChest" : [
+    {
+      "containers" : [ "alienchest" ],
+      "treasurePool" : "alienChestTreasure",
+      "minimumLevel" : 1
+    }
+  ],
+
+  "toxicChest" : [
+    {
+      "containers" : [ "toxicchest" ],
+      "treasurePool" : "toxicChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  // detached biomes
+
+  "mushroomChest" : [
+    {
+      "containers" : [ "shroomchest" ],
+      "treasurePool" : "mushroomChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "springChest" : [
+    {
+      "containers" : [ "springchest" ],
+      "treasurePool" : "springChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "tarChest" : [
+    {
+      "containers" : [ "tarpitchest" ],
+      "treasurePool" : "tarChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "oasisChest" : [
+    {
+      "containers" : [ "reedchest" ],
+      "treasurePool" : "oasisChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "boneChest" : [
+    {
+      "containers" : [ "bonechest" ],
+      "treasurePool" : "boneChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "alpineChest" : [
+    {
+      "containers" : [ "stonechest" ],
+      "treasurePool" : "alpineChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "bioluminescenceChest" : [
+    {
+      "containers" : [ "glowchest" ],
+      "treasurePool" : "bioluminescenceChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "giantflowerChest" : [
+    {
+      "containers" : [ "giantflowerchest" ],
+      "treasurePool" : "giantflowerChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "swampChest" : [
+    {
+      "containers" : [ "chestfloran1" ],
+      "treasurePool" : "swampChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "eyeChest" : [
+    {
+      "containers" : [ "eyechest" ],
+      "treasurePool" : "eyeChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "iceChest" : [
+    {
+      "containers" : [ "icechest" ],
+      "treasurePool" : "iceChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "foundryChest" : [
+    {
+      "containers" : [ "volcanicchest" ],
+      "treasurePool" : "foundryChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "geodeChest" : [
+    {
+      "containers" : [ "ironchest" ],
+      "treasurePool" : "geodeChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "crystalChest" : [
+    {
+      "containers" : [ "crystalchest" ],
+      "treasurePool" : "crystalChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "scorchedcityChest" : [
+    {
+      "containers" : [ "scorchedcitychest" ],
+      "treasurePool" : "scorchedcityChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  // underground detached biomes
+
+  "mushroomUndergroundChest" : [
+    {
+      "containers" : [ "shroomchest" ],
+      "treasurePool" : "mushroomUndergroundChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "wildernessChest" : [
+    {
+      "containers" : [ "junglechest" ],
+      "treasurePool" : "wildernessChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "tarUndergroundChest" : [
+    {
+      "containers" : [ "tarpitchest" ],
+      "treasurePool" : "tarUndergroundChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "boneCaveChest" : [
+    {
+      "containers" : [ "bonechest" ],
+      "treasurePool" : "boneCaveChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "iceCaveChest" : [
+    {
+      "containers" : [ "icechest" ],
+      "treasurePool" : "iceCaveChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "stoneCaveChest" : [
+    {
+      "containers" : [ "cavechest" ],
+      "treasurePool" : "stoneCaveChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "luminousCaveChest" : [
+    {
+      "containers" : [ "glowchest" ],
+      "treasurePool" : "luminousCaveChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "cellChest" : [
+    {
+      "containers" : [ "cellchest" ],
+      "treasurePool" : "cellChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "fleshChest" : [
+    {
+      "containers" : [ "fleshchest" ],
+      "treasurePool" : "fleshChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "slimeUndergroundChest" : [
+    {
+      "containers" : [ "slimehide" ],
+      "treasurePool" : "slimeChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  // v v v v older stuff v v v v
+
+  "barrelChest" : [
+    {
+      "containers" : [ "barrel" ],
+      "treasurePool" : "mineTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "rainbowChest" : [
+    {
+      "containers" : [ "rainbowchest" ],
+      "treasurePool" : "rainbowChestTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "sandstoneChest" : [
+    {
+      "containers" : [ "sandstonechest" ],
+      "treasurePool" : "sandstoneTreasure",
+      "minimumLevel" : 0
+    }
+  ],
+
+  "hiveChest" : [
+    {
+      "containers" : [ "hivechest" ],
+      "treasurePool" : "hiveTreasure",
+      "minimumLevel" : 0
+    }
+  ]
+
+}

@@ -1,0 +1,24 @@
+{
+  "materialId" : 79,
+  "materialName" : "moonstone",
+  "particleColor" : [112, 72, 39, 255],
+  "itemDrop" : "moonstone",
+  "description" : "Beautiful, smooth moonstone.",
+  "shortdescription" : "Moonstone",
+  "glitchDescription" : "Interested. This unique stone is sometimes found on moons.",
+  "floranDescription" : "Ssmooth moonsstone.",
+  "novakidDescription" : "Looks t'be some moonstone.",
+  "footstepSound" : "/sfx/blocks/footstep_rock.ogg",
+  "health" : 2,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "moonstone.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 1890
+  }
+}

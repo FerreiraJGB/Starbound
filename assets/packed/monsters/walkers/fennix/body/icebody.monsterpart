@@ -1,0 +1,9 @@
+{
+  "name" : "fennix",
+  "category" : "icefennix",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "icefennix.png"
+  }
+}

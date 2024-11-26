@@ -1,0 +1,622 @@
+{
+  "name": "wander",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/crew.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/position.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/math.lua",
+    "/scripts/actions/sensor.lua"
+  ],
+  "parameters": {
+    "idleTime": [2, 10],
+    "alwaysRun": false,
+    "wanderTime": 4,
+    "outerHomeRange": 50,
+    "innerHomeRange": 45
+  },
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "Wander",
+        "type": "composite",
+        "name": "selector",
+        "parameters": {},
+        "children": [
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "selector",
+                "type": "composite",
+                "name": "selector",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "sequence",
+                    "type": "composite",
+                    "name": "sequence",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "hasRecruiter",
+                        "type": "action",
+                        "name": "hasRecruiter",
+                        "parameters": {}
+                      },
+                      {
+                        "title": "isFollowingRecruiter",
+                        "type": "action",
+                        "name": "isFollowingRecruiter",
+                        "parameters": {}
+                      },
+                      {
+                        "title": "recruiterEntity",
+                        "type": "action",
+                        "name": "recruiterEntity",
+                        "parameters": {},
+                        "output": {
+                          "entity": "player"
+                        }
+                      },
+                      {
+                        "title": "entityPosition",
+                        "type": "action",
+                        "name": "entityPosition",
+                        "parameters": {
+                          "entity": {"key": "player"}
+                        },
+                        "output": {
+                          "position": "home"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "title": "offsetPosition",
+                    "type": "action",
+                    "name": "offsetPosition",
+                    "parameters": {
+                      "offset": {"value": [0, 0]},
+                      "position": {"key": "spawn"}
+                    },
+                    "output": {
+                      "position": "home"
+                    }
+                  }
+                ]
+              },
+              {
+                "title": "inverter",
+                "type": "decorator",
+                "name": "inverter",
+                "parameters": {},
+                "child": {
+                  "title": "inRange",
+                  "type": "action",
+                  "name": "inRange",
+                  "parameters": {
+                    "position": {"key": "self"},
+                    "range": {"key": "<outerHomeRange>"},
+                    "target": {"key": "home"}
+                  }
+                }
+              },
+              {
+                "title": "parallel",
+                "type": "composite",
+                "name": "parallel",
+                "parameters": {
+                  "fail": {"value": -1},
+                  "success": {"value": 1}
+                },
+                "children": [
+                  {
+                    "title": "selector",
+                    "type": "composite",
+                    "name": "selector",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "",
+                        "type": "action",
+                        "name": "moveToPosition",
+                        "parameters": {
+                          "pathOptions": {"value": {"returnBest": true}},
+                          "position": {"key": "home"},
+                          "run": {"key": "<alwaysRun>"}
+                        }
+                      },
+                      {
+                        "title": "parallel",
+                        "type": "composite",
+                        "name": "parallel",
+                        "parameters": {
+                          "fail": {"value": 2},
+                          "success": {"value": 2}
+                        },
+                        "children": [
+                          {
+                            "title": "distance",
+                            "type": "action",
+                            "name": "distance",
+                            "parameters": {
+                              "from": {"key": "self"},
+                              "to": {"key": "home"}
+                            },
+                            "output": {
+                              "x": "homeX"
+                            }
+                          },
+                          {
+                            "title": "inRange",
+                            "type": "action",
+                            "name": "inRange",
+                            "parameters": {
+                              "position": {"key": "self"},
+                              "range": {"key": "<innerHomeRange>"},
+                              "target": {"key": "home"}
+                            }
+                          },
+                          {
+                            "title": "move",
+                            "type": "action",
+                            "name": "move",
+                            "parameters": {
+                              "direction": {"key": "homeX"},
+                              "run": {"value": false}
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "title": "inRange",
+                    "type": "action",
+                    "name": "inRange",
+                    "parameters": {
+                      "position": {"key": "self"},
+                      "range": {"value": 5},
+                      "target": {"key": "home"}
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Go inside",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": null,
+                "type": "decorator",
+                "name": "inverter",
+                "parameters": {},
+                "child": {
+                  "title": "isInside",
+                  "type": "action",
+                  "name": "isInside",
+                  "parameters": {
+                    "position": {"key": "self"}
+                  }
+                }
+              },
+              {
+                "title": null,
+                "type": "action",
+                "name": "withinTimeRange",
+                "parameters": {
+                  "range": {"value": [0.5, 0.2]}
+                }
+              },
+              {
+                "title": "",
+                "type": "action",
+                "name": "findOuterDoor",
+                "parameters": {
+                  "position": {"key": "self"},
+                  "range": {"value": 50}
+                },
+                "output": {
+                  "insidePosition": "insideDoor"
+                }
+              },
+              {
+                "title": "",
+                "type": "composite",
+                "name": "parallel",
+                "parameters": {
+                  "fail": {"value": 1},
+                  "success": {"value": -1}
+                },
+                "children": [
+                  {
+                    "title": "",
+                    "type": "action",
+                    "name": "openDoors",
+                    "parameters": {
+                      "distance": {"value": 1.5}
+                    }
+                  },
+                  {
+                    "title": "",
+                    "type": "action",
+                    "name": "moveToPosition",
+                    "parameters": {
+                      "position": {"key": "insideDoor"},
+                      "run": {"key": "<alwaysRun>"}
+                    }
+                  }
+                ]
+              },
+              {
+                "title": null,
+                "type": "decorator",
+                "name": "succeeder",
+                "parameters": {},
+                "child": {
+                  "title": "",
+                  "type": "action",
+                  "name": "closeDoors",
+                  "parameters": {
+                    "distance": {"value": 3}
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "title": "Go outside",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "isInside",
+                "type": "action",
+                "name": "isInside",
+                "parameters": {
+                  "position": {"key": "self"}
+                }
+              },
+              {
+                "title": "",
+                "type": "action",
+                "name": "withinTimeRange",
+                "parameters": {
+                  "range": {"value": [0.2, 0.5]}
+                }
+              },
+              {
+                "title": "",
+                "type": "action",
+                "name": "findOuterDoor",
+                "parameters": {
+                  "position": {"key": "self"},
+                  "range": {"value": 50}
+                },
+                "output": {
+                  "outsidePosition": "outsideDoor"
+                }
+              },
+              {
+                "title": "",
+                "type": "composite",
+                "name": "parallel",
+                "parameters": {
+                  "fail": {"value": 1},
+                  "success": {"value": -1}
+                },
+                "children": [
+                  {
+                    "title": "",
+                    "type": "action",
+                    "name": "openDoors",
+                    "parameters": {
+                      "distance": {"value": 1.5}
+                    }
+                  },
+                  {
+                    "title": "",
+                    "type": "action",
+                    "name": "moveToPosition",
+                    "parameters": {
+                      "position": {"key": "outsideDoor"},
+                      "run": {"key": "<alwaysRun>"}
+                    }
+                  }
+                ]
+              },
+              {
+                "title": null,
+                "type": "decorator",
+                "name": "succeeder",
+                "parameters": {},
+                "child": {
+                  "title": null,
+                  "type": "action",
+                  "name": "closeDoors",
+                  "parameters": {
+                    "distance": {"value": 3}
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "title": "Wander but stay indoors/outdoors",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": null,
+                "type": "action",
+                "name": "setDirection",
+                "parameters": {},
+                "output": {
+                  "direction": "direction"
+                }
+              },
+              {
+                "title": "",
+                "type": "action",
+                "name": "offsetPosition",
+                "parameters": {
+                  "offset": {"value": [0, 0]},
+                  "position": {"key": "self"}
+                },
+                "output": {
+                  "position": "start"
+                }
+              },
+              {
+                "title": "succeeder",
+                "type": "decorator",
+                "name": "succeeder",
+                "parameters": {},
+                "child": {
+                  "title": "",
+                  "type": "composite",
+                  "name": "parallel",
+                  "parameters": {
+                    "fail": {"value": 1},
+                    "success": {"value": -1}
+                  },
+                  "children": [
+                    {
+                      "title": "Stay inside/outside",
+                      "type": "composite",
+                      "name": "sequence",
+                      "parameters": {},
+                      "children": [
+                        {
+                          "title": "",
+                          "type": "action",
+                          "name": "offsetDirection",
+                          "parameters": {
+                            "direction": {"key": "direction"},
+                            "multiplier": {"value": 2},
+                            "position": {"key": "self"}
+                          },
+                          "output": {
+                            "position": "ahead"
+                          }
+                        },
+                        {
+                          "title": null,
+                          "type": "composite",
+                          "name": "selector",
+                          "parameters": {},
+                          "children": [
+                            {
+                              "title": "Both inside",
+                              "type": "composite",
+                              "name": "sequence",
+                              "parameters": {},
+                              "children": [
+                                {
+                                  "title": null,
+                                  "type": "action",
+                                  "name": "isInside",
+                                  "parameters": {
+                                    "position": {"key": "start"}
+                                  }
+                                },
+                                {
+                                  "title": null,
+                                  "type": "action",
+                                  "name": "isInside",
+                                  "parameters": {
+                                    "position": {"key": "ahead"}
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "title": "Both outside",
+                              "type": "composite",
+                              "name": "sequence",
+                              "parameters": {},
+                              "children": [
+                                {
+                                  "title": null,
+                                  "type": "decorator",
+                                  "name": "inverter",
+                                  "parameters": {},
+                                  "child": {
+                                    "title": null,
+                                    "type": "action",
+                                    "name": "isInside",
+                                    "parameters": {
+                                      "position": {"key": "start"}
+                                    }
+                                  }
+                                },
+                                {
+                                  "title": null,
+                                  "type": "decorator",
+                                  "name": "inverter",
+                                  "parameters": {},
+                                  "child": {
+                                    "title": null,
+                                    "type": "action",
+                                    "name": "isInside",
+                                    "parameters": {
+                                      "position": {"key": "ahead"}
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "title": "sequence",
+                      "type": "composite",
+                      "name": "sequence",
+                      "parameters": {},
+                      "children": [
+                        {
+                          "title": "",
+                          "type": "action",
+                          "name": "openDoors",
+                          "parameters": {
+                            "distance": {"value": 3}
+                          }
+                        },
+                        {
+                          "title": "succeeder",
+                          "type": "decorator",
+                          "name": "succeeder",
+                          "parameters": {},
+                          "child": {
+                            "title": "closeDoors",
+                            "type": "action",
+                            "name": "closeDoors",
+                            "parameters": {
+                              "distance": {"value": 2}
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "title": "",
+                      "type": "action",
+                      "name": "move",
+                      "parameters": {
+                        "direction": {"key": "direction"},
+                        "run": {"key": "<alwaysRun>"}
+                      }
+                    },
+                    {
+                      "title": "faceDirection",
+                      "type": "action",
+                      "name": "faceDirection",
+                      "parameters": {
+                        "direction": {"key": "direction"}
+                      }
+                    },
+                    {
+                      "title": "failer",
+                      "type": "decorator",
+                      "name": "failer",
+                      "parameters": {},
+                      "child": {
+                        "title": "timer",
+                        "type": "action",
+                        "name": "timer",
+                        "parameters": {
+                          "time": {"value": "<wanderTime>"}
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "succeeder",
+        "type": "decorator",
+        "name": "succeeder",
+        "parameters": {},
+        "child": {
+          "title": "sequence",
+          "type": "composite",
+          "name": "sequence",
+          "parameters": {},
+          "children": [
+            {
+              "title": "multiply",
+              "type": "action",
+              "name": "multiply",
+              "parameters": {
+                "factor": {"value": 3},
+                "number": {"key": "facingDirection"}
+              },
+              "output": {
+                "result": "wallCheck"
+              }
+            },
+            {
+              "title": "lineTileCollision",
+              "type": "action",
+              "name": "lineTileCollision",
+              "parameters": {
+                "collisionType": {"value": ["Null", "Block", "Dynamic"]},
+                "offset": {"value": ["wallCheck", 0]},
+                "position": {"key": "self"}
+              }
+            },
+            {
+              "title": "reverseDirection",
+              "type": "action",
+              "name": "reverseDirection",
+              "parameters": {
+                "direction": {"key": "facingDirection"}
+              },
+              "output": {
+                "direction": "back"
+              }
+            },
+            {
+              "title": "faceDirection",
+              "type": "action",
+              "name": "faceDirection",
+              "parameters": {
+                "direction": {"key": "back"}
+              }
+            }
+          ]
+        }
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": "<idleTime>"}
+        }
+      }
+    ]
+  }
+}

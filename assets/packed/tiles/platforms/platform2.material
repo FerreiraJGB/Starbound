@@ -1,0 +1,22 @@
+{
+  "materialId" : 109,
+  "materialName" : "platform2",
+  "collisionKind" : "platform",
+  "itemDrop" : "platform",
+  "shortdescription" : "Wood Platform",
+  "description" : "A non-descript wood platform.",
+  "glitchdescription" : "Neutral. A wooden platform.",
+  "florandescription" : "Platformsss.",
+  "footstepSound" : "/sfx/blocks/footstep_lightwood.ogg",
+  "category" : "Supports",
+
+  "renderTemplate" : "/tiles/platformtemplate.config",
+  "renderParameters" : {
+    "texture" : "woodplatform2.png",
+    "variants" : 3,
+    "lightTransparent" : true,
+    "occludesBelow" : false,
+    "multiColored" : true,
+    "zLevel" : 0
+  }
+}

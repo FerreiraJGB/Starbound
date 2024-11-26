@@ -1,0 +1,53 @@
+{
+  "name" : "mountainsSurface",
+
+  //cliff face distortion
+  "type" : "displacement",
+  "xType" : "perlin",
+  "xOctaves" : 2,
+  "xFreq" : 0.015,
+  "xAmp" : 20,
+  "xXInfluence" : 0.5,
+  "yType" : "perlin",
+  "yOctaves" : 1,
+  "yFreq" : 0.1,
+  "yAmp" : 0,
+  "yYInfluence" : 0,
+
+  "source" : {
+    //big old mountains
+    "type" : "displacement",
+    "xType" : "perlin",
+    "xOctaves" : 1,
+    "xFreq" : 0.01,
+    "xAmp" : 0,
+    "yType" : "perlin",
+    "yOctaves" : 3,
+    "yFreq" : 0.0085,
+    "yAmp" : 140,
+    "yBias" : -30,
+    "yClamp" : [-90, 20],
+    "yClampSmoothing" : 5,
+    "yYInfluence" : 0.1,
+
+    "source" : {
+      //base terrain height variation
+      "type" : "displacement",
+      "xType" : "perlin",
+      "xOctaves" : 1,
+      "xFreq" : 0.02,
+      "xAmp" : 0,
+      "yType" : "perlin",
+      "yOctaves" : 2,
+      "yFreq" : 0.005,
+      "yAmp" : 40,
+      "yYInfluence" : 0,
+
+      "source" : {
+        "type" : "flatSurface",
+
+        "adjustment" : 40
+      }
+    }
+  }
+}

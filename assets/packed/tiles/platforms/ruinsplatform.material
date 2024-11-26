@@ -1,0 +1,23 @@
+{
+  "materialId" : 275,
+  "materialName" : "ruinsplatform",
+  "collisionKind" : "platform",
+  "itemDrop" : "ruinsplatform",
+  "shortdescription" : "Ruins Platform",
+  "description" : "An old dusty wooden platform. Looks like it's falling apart.",
+  "glitchDescription" : "Alarmed. This old wooden platform is structurally unsound.",
+  "floranDescription" : "Rotting and unsssafe. Floran approvess.",
+  "novakidDescription" : "Best watch myself, this ol' platform looks like it's fallin' apart.",
+  "footstepSound" : "/sfx/blocks/footstep_wood.ogg",
+  "category" : "Supports",
+
+  "renderTemplate" : "/tiles/platformtemplate.config",
+  "renderParameters" : {
+    "texture" : "ruinsplatform.png",
+    "variants" : 3,
+    "lightTransparent" : true,
+    "occludesBelow" : false,
+    "multiColored" : true,
+    "zLevel" : 0
+  }
+}

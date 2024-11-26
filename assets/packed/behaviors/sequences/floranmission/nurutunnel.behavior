@@ -1,0 +1,94 @@
+{
+  "name": "nurutunnel",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/position.lua",
+    "/scripts/actions/query.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/status.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "offsetPosition",
+        "type": "action",
+        "name": "offsetPosition",
+        "parameters": {
+          "offset": {"value": [0, 25]},
+          "position": {"key": "spawn"}
+        },
+        "output": {
+          "position": "queryPosition"
+        }
+      },
+      {
+        "title": "dynamic",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": "cooldown",
+            "type": "decorator",
+            "name": "cooldown",
+            "parameters": {
+              "cooldown": {"value": 1}
+            },
+            "child": {
+              "title": "queryEntity",
+              "type": "action",
+              "name": "queryEntity",
+              "parameters": {
+                "entityTypes": {"value": ["player"]},
+                "position": {"key": "queryPosition"},
+                "range": {"value": 15}
+              }
+            }
+          },
+          {
+            "title": "runner",
+            "type": "action",
+            "name": "runner",
+            "parameters": {}
+          }
+        ]
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {},
+        "children": [
+          {
+            "title": "controlMove",
+            "type": "action",
+            "name": "controlMove",
+            "parameters": {
+              "direction": {"value": 1}
+            }
+          },
+          {
+            "title": "timer",
+            "type": "action",
+            "name": "timer",
+            "parameters": {
+              "time": {"value": 10}
+            }
+          }
+        ]
+      },
+      {
+        "title": "suicide",
+        "type": "action",
+        "name": "suicide",
+        "parameters": {}
+      }
+    ]
+  }
+}

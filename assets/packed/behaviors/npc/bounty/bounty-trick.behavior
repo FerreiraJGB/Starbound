@@ -1,0 +1,135 @@
+{
+  "name": "bounty-trick",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/status.lua",
+    "/scripts/actions/dialog.lua",
+    "/scripts/actions/entity.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/bounty.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "limiter",
+        "type": "decorator",
+        "name": "limiter",
+        "parameters": {
+          "limit": {"value": 1}
+        },
+        "child": {
+          "title": "inverter",
+          "type": "decorator",
+          "name": "inverter",
+          "parameters": {},
+          "child": {
+            "title": "resourcePercentage",
+            "type": "action",
+            "name": "resourcePercentage",
+            "parameters": {
+              "percentage": {"value": 0.5},
+              "resource": {"value": "health"}
+            }
+          }
+        }
+      },
+      {
+        "title": "setResourcePercentage",
+        "type": "action",
+        "name": "setResourcePercentage",
+        "parameters": {
+          "percentage": {"value": 0.5},
+          "resource": {"value": "health"}
+        }
+      },
+      {
+        "title": "addEphemeralEffect",
+        "type": "action",
+        "name": "addEphemeralEffect",
+        "parameters": {
+          "duration": {"value": 10},
+          "name": {"value": "arrested"}
+        }
+      },
+      {
+        "title": "",
+        "type": "action",
+        "name": "sayToEntity",
+        "parameters": {
+          "dialogType": {"value": "dialog.arrested"},
+          "entity": {"key": "arrestingEntity"}
+        }
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": -1},
+          "success": {"value": 1}
+        },
+        "children": [
+          {
+            "title": "Converse",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": null,
+                "type": "action",
+                "name": "wasInteracted",
+                "parameters": {}
+              },
+              {
+                "title": null,
+                "type": "action",
+                "name": "faceEntity",
+                "parameters": {
+                  "entity": {"key": "interactionSource"}
+                }
+              },
+              {
+                "title": "",
+                "type": "action",
+                "name": "sayToEntity",
+                "parameters": {
+                  "dialogType": {"value": "dialog.bounty.tricked"},
+                  "entity": {"key": "interactionSource"}
+                }
+              },
+              {
+                "title": "removeEphemeralEffect",
+                "type": "action",
+                "name": "removeEphemeralEffect",
+                "parameters": {
+                  "name": {"value": "arrested"}
+                }
+              },
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": 4}
+                }
+              }
+            ]
+          },
+          {
+            "title": "arrested",
+            "type": "action",
+            "name": "arrested",
+            "parameters": {}
+          }
+        ]
+      }
+    ]
+  }
+}

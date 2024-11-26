@@ -1,0 +1,24 @@
+{
+  "materialId" : 165,
+  "materialName" : "fleshblock",
+  "particleColor" : [166, 27, 32, 255],
+  "itemDrop" : "fleshblock",
+  "description" : "Some hideous, foul-smelling kind of flesh.",
+  "shortdescription" : "Flesh Chunk",
+  "glitchDescription" : "Disgusted. This is made of squishy flesh.",
+  "floranDescription" : "Sssquishy meat.",
+  "novakidDescription" : "This is some sorta flesh.",
+  "footstepSound" : "/sfx/blocks/footstep_mud.ogg",
+  "health" : 4,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "fleshblock.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 0
+  }
+}

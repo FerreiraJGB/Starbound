@@ -1,0 +1,251 @@
+{
+  "name": "koichihologram",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/npc.lua",
+    "/scripts/actions/query.lua",
+    "/scripts/actions/entity.lua",
+    "/scripts/behavior.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/status.lua"
+  ],
+  "parameters": {
+    "initialDance": "koichihologramstanding",
+    "dialog": "dialog.koichihologram.1",
+    "dialogWaitTime": 4,
+    "dialogEndWait": 2,
+    "openDoor": false
+  },
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": -1},
+          "success": {"value": 1}
+        },
+        "children": [
+          {
+            "title": "failer",
+            "type": "decorator",
+            "name": "failer",
+            "parameters": {},
+            "child": {
+              "title": "dance",
+              "type": "action",
+              "name": "dance",
+              "parameters": {
+                "dance": {"value": "<initialDance>"}
+              }
+            }
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "sequence",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "queryEntity",
+                    "type": "action",
+                    "name": "queryEntity",
+                    "parameters": {
+                      "entityTypes": {"value": ["player"]},
+                      "orderBy": {"value": "nearest"},
+                      "position": {"key": "self"},
+                      "range": {"value": 20},
+                      "withoutEntity": {"key": "self"}
+                    },
+                    "output": {
+                      "list": "players"
+                    }
+                  },
+                  {
+                    "title": "filter",
+                    "type": "decorator",
+                    "name": "filter",
+                    "parameters": {
+                      "list": {"key": "players"},
+                      "type": {"value": "entity"}
+                    },
+                    "child": {
+                      "title": "entityInSight",
+                      "type": "action",
+                      "name": "entityInSight",
+                      "parameters": {
+                        "entity": {"key": "filterItem"}
+                      }
+                    }
+                  },
+                  {
+                    "title": "listGet",
+                    "type": "action",
+                    "name": "listGet",
+                    "parameters": {
+                      "list": {"key": "players"}
+                    },
+                    "output": {
+                      "entity": "player"
+                    }
+                  }
+                ]
+              },
+              {
+                "title": "faceEntity",
+                "type": "action",
+                "name": "faceEntity",
+                "parameters": {
+                  "entity": {"key": "player"}
+                }
+              },
+              {
+                "title": "sequentialdialog",
+                "type": "module",
+                "name": "sequentialdialog",
+                "parameters": {
+                  "dialogWaitTime": {"key": "<dialogWaitTime>"},
+                  "dialogEndWait": {"key": "<dialogEndWait>"},
+                  "dialogKey": {"value": "<dialog>"},
+                  "dialogTarget": {"key": "player"}
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "succeeder",
+            "type": "decorator",
+            "name": "succeeder",
+            "parameters": {},
+            "child": {
+              "title": "optional",
+              "type": "decorator",
+              "name": "optional",
+              "parameters": {
+                "shouldRun": {"key": "<openDoor>"}
+              },
+              "child": {
+                "title": "sequence",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "faceDirection",
+                    "type": "action",
+                    "name": "faceDirection",
+                    "parameters": {
+                      "direction": {"value": 1}
+                    }
+                  },
+                  {
+                    "title": "timer",
+                    "type": "action",
+                    "name": "timer",
+                    "parameters": {
+                      "time": {"value": 0.25}
+                    }
+                  },
+                  {
+                    "title": "dance",
+                    "type": "action",
+                    "name": "dance",
+                    "parameters": {
+                      "dance": {"value": "koichihologramstudying"}
+                    }
+                  },
+                  {
+                    "title": "timer",
+                    "type": "action",
+                    "name": "timer",
+                    "parameters": {
+                      "time": {"value": 1}
+                    }
+                  },
+                  {
+                    "title": "findObject",
+                    "type": "action",
+                    "name": "findObject",
+                    "parameters": {
+                      "name": {"value": "airlockhatch"},
+                      "orderBy": {"value": "nearest"},
+                      "position": {"key": "self"},
+                      "range": {"value": 20}
+                    },
+                    "output": {
+                      "entity": "door"
+                    }
+                  },
+                  {
+                    "title": "succeeder",
+                    "type": "decorator",
+                    "name": "succeeder",
+                    "parameters": {},
+                    "child": {
+                      "title": "callScriptedEntity",
+                      "type": "action",
+                      "name": "callScriptedEntity",
+                      "parameters": {
+                        "entity": {"key": "door"},
+                        "func": {"value": "openDoor"}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "title": "dance",
+            "type": "action",
+            "name": "dance",
+            "parameters": {
+              "dance": {"value": "koichihologramfading"}
+            }
+          },
+          {
+            "title": "timer",
+            "type": "action",
+            "name": "timer",
+            "parameters": {
+              "time": {"value": 1}
+            }
+          },
+          {
+            "title": "setDeathParticleBurst",
+            "type": "action",
+            "name": "setDeathParticleBurst",
+            "parameters": {}
+          },
+          {
+            "title": "suicide",
+            "type": "action",
+            "name": "suicide",
+            "parameters": {}
+          }
+        ]
+      }
+    ]
+  }
+}

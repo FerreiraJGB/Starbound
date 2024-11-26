@@ -1,0 +1,24 @@
+{
+  "materialId" : 1444,
+  "materialName" : "copperblock",
+  "particleColor" : [135, 97, 76, 255],
+  "itemDrop" : "copperblock",
+  "description" : "This copper block has a distinct gear-like imprint.",
+  "shortdescription" : "Copper Gear Block",
+  "glitchDescription" : "Delighted. I find the gear shape of these blocks pleasing.",
+  "floranDescription" : "Copper blockss like machine gearss.",
+  "novakidDescription" : "Copper blocks, they look sorta like gears.",
+  "footstepSound" : "/sfx/blocks/footstep_composite.ogg",
+  "health" : 4,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "copperblock.png",
+    "variants" : 7,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3001
+  }
+}

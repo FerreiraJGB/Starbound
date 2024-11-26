@@ -1,0 +1,27 @@
+{
+  "metadata" : {
+    "name" : "peacekeeperstation4",
+    "species" : "generic",
+    "rules" : [
+    ],
+    "anchor" : [
+      "peacekeeperstation4"
+    ],
+    "gravity" : 40,
+    "breathable" : true,
+    "maxRadius" : 1000000,
+    "maxParts" : 4,
+    "protected" : true
+  },
+
+  "parts" : [
+    {
+      "name" : "peacekeeperstation4",
+      "rules" : [
+        [ "ignorePartMaximumRule" ]
+      ],
+      "def" : [ "tmx", "peacekeeperstation4.json" ],
+      "chance" : 1
+    }
+  ]
+}

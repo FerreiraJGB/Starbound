@@ -1,0 +1,10 @@
+{
+  "name" : "skimbus",
+  "category" : "electricskimbus",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "electricskimbus.png",
+    "bodynobright" : "electricskimbusnobright.png"
+  }
+}

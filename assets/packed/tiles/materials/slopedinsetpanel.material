@@ -1,0 +1,26 @@
+{
+  "materialId" : 292,
+  "materialName" : "slopedinsetpanel",
+  "particleColor" : [182, 182, 182, 255],
+  "itemDrop" : "slopedinsetpanel",
+
+  "description" : "A somewhat inexpensive material that can withstand most weathering.",
+  "glitchDescription" : "Observant. This somewhat inexpensive material can withstand most weathering.",
+  "floranDescription" : "This sspace-metal looks ssstrong.",
+  "novakidDescription" : "A sturdy lookin' metal panel.",
+
+  "shortdescription" : "Inset Panel",
+  "footstepSound" : "/sfx/blocks/footstep_lightmetal.ogg",
+  "health" : 20,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/slopedmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "slopedinsetpanel.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 4999
+  }
+}

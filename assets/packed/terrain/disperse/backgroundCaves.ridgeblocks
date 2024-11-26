@@ -1,0 +1,9 @@
+{
+  "name" : "backgroundCaves",
+
+  "amplitude" : 1.0,
+  "frequency" : 0.022,
+  "bias" : -0.4,
+  "noiseAmplitude" : 0.5,
+  "noiseFrequency" : 0.7
+}

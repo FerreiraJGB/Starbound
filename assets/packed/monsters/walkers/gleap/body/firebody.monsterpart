@@ -1,0 +1,10 @@
+{
+  "name" : "gleap",
+  "category" : "firegleap",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "firegleap.png",
+    "bodynobright" : "firegleapnobright.png"
+  }
+}

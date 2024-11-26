@@ -1,0 +1,28 @@
+{
+  "materialId" : 657,
+  "materialName" : "jellyblock",
+  "particleColor" : [111, 94, 74, 255],
+  "itemDrop" : "jellyblock",
+
+  "description" : "A slimy, bright coloured mass of jelly.",
+  "shortdescription" : "Jelly Blob",
+  "glitchDescription" : "Uncomfortable. I dislike the way this jelly jiggles.",
+  "floranDescription" : "Jiggly wiggly jelly.",
+  "novakidDescription" : "A mess 'o slimy lookin' jelly.",
+  "falling" : true,
+  "cascading" : true,
+  "footstepSound" : "/sfx/blocks/footstep_brains.ogg",
+  "health" : 2,
+  "category" : "materials",
+  
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "jellyblock.png",
+    "variants" : 20,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 1727,
+    "radiantLight" : [66, 107, 95]
+  }
+}

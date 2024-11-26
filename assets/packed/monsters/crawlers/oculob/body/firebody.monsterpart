@@ -1,0 +1,9 @@
+{
+  "name" : "oculob",
+  "category" : "fireoculob",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "fireoculob.png"
+  }
+}

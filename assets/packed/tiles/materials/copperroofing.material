@@ -1,0 +1,24 @@
+{
+  "materialId" : 1591,
+  "materialName" : "copperroofing",
+  "particleColor" : [136, 76, 52, 255],
+  "itemDrop" : "copperroofing",
+  "description" : "Roofing tiles fashioned from copper.",
+  "shortdescription" : "Copper Roofing",
+  "glitchDescription" : "Surprised. These roofing tiles are made entirely from copper.",
+  "floranDescription" : "Floran likess sshiny copper roofing.",
+  "novakidDescription" : "Buncha copper roofin' tiles.",
+  "footstepSound" : "/sfx/blocks/footstep_composite.ogg",
+  "health" : 4,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "copperroofing.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3420
+  }
+}

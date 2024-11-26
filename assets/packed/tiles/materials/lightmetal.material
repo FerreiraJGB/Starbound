@@ -1,0 +1,24 @@
+{
+  "materialId" : 102,
+  "materialName" : "lightmetal",
+  "particleColor" : [144, 158, 170, 255],
+  "itemDrop" : "lightmetal",
+  "shortdescription" : "Light Metal",
+  "description" : "A light metallic tile, perfect for a research laboratory.",
+  "glitchDescription" : "Approving. These tiles are easy to keep sterilized.",
+  "floranDescription" : "Smooth metal tiless.",
+  "novakidDescription" : "Some tiles made outta metal.",
+  "footstepSound" : "/sfx/blocks/footstep_composite.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "lightmetal.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3000
+  }
+}

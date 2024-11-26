@@ -1,0 +1,24 @@
+{
+  "materialId" : 407,
+  "materialName" : "cactiblock",
+  "particleColor" : [166, 27, 32, 255],
+  "itemDrop" : "cactiblock",
+  "description" : "Cactus that's been fashioned into a construction block. Still prickly.",
+  "shortdescription" : "Cacti Block",
+  "glitchDescription" : "Cautious. This construction block has been made from prickly cactus.",
+  "floranDescription" : "Floran like pickly cactuss blocksss.",
+  "novakidDescription" : "It's made outta cactus. Better not lean against this.",
+  "footstepSound" : "/sfx/blocks/footstep_grass.ogg",
+  "health" : 2,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "cactiblock.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 1760
+  }
+}

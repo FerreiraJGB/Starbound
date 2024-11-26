@@ -1,0 +1,24 @@
+{
+  "materialId" : 1666,
+  "materialName" : "tentacleblock",
+  "particleColor" : [111, 94, 74, 255],
+  "itemDrop" : "tentacleblock",
+  "description" : "A mass of wriggling tentacles.",
+  "shortdescription" : "Tentacle Cluster",
+  "glitchDescription" : "Distrubed. These tentacles have been mashed together into a solid mass.",
+  "floranDescription" : "Floran dislikess wriggling tentacless.",
+  "novakidDescription" : "Buncha creepy lookin' tentacles all mashed together.",
+  "footstepSound" : "/sfx/blocks/footstep_brains.ogg",
+  "health" : 12,
+  "category" : "materials",
+  
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "tentacleblock.png",
+    "variants" : 8,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 1801
+  }
+}

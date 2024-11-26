@@ -1,0 +1,24 @@
+{
+  "materialId" : 27,
+  "materialName" : "temple2",
+  "particleColor" : [190, 159, 85, 255],
+  "itemDrop" : "temple2",
+  "shortdescription" : "Temple Bricks",
+  "description" : "These bricks look ancient. Intricate words are scratched into the surface but I can't make them out.",
+  "glitchDescription" : "Fascinated. The age of these bricks cannot be accurately determined.",
+  "floranDescription" : "Floran likess old brickss.",
+  "novakidDescription" : "Reckon these bricks have been around a while.",
+  "footstepSound" : "/sfx/blocks/footstep_stone3.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "temple2.png",
+    "variants" : 25,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3000
+  }
+}

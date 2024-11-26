@@ -1,0 +1,235 @@
+{
+  "name": "sleep",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/query.lua",
+    "/scripts/behavior.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/position.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/npc.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/reaction.lua"
+  ],
+  "parameters": {
+    "sleepUntil": [0, 0.7]
+  },
+  "root": {
+    "title": "Sleep",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": null,
+        "type": "action",
+        "name": "findLoungable",
+        "parameters": {
+          "orientation": {"value": "lay"},
+          "position": {"key": "spawn"},
+          "range": {"value": 50}
+        },
+        "output": {
+          "entity": "bed"
+        }
+      },
+      {
+        "title": "",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": 1},
+          "success": {"value": -1}
+        },
+        "children": [
+          {
+            "title": "controlFlag",
+            "type": "action",
+            "name": "controlFlag",
+            "parameters": {
+              "bool": {"value": true}
+            },
+            "output" : {
+              "bool" : "nochat"
+            }
+          },
+          {
+            "title": "Sleep",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": null,
+                "type": "action",
+                "name": "entityPosition",
+                "parameters": {
+                  "entity": {"key": "bed"}
+                },
+                "output": {
+                  "position": "bed"
+                }
+              },
+              {
+                "title": null,
+                "type": "action",
+                "name": "groundPosition",
+                "parameters": {
+                  "position": {"key": "bed"}
+                },
+                "output": {
+                  "position": "bed"
+                }
+              },
+              {
+                "title": "",
+                "type": "composite",
+                "name": "parallel",
+                "parameters": {
+                  "fail": {"value": 1},
+                  "success": {"value": -1}
+                },
+                "children": [
+                  {
+                    "title": null,
+                    "type": "action",
+                    "name": "moveToPosition",
+                    "parameters": {
+                      "position": {"key": "bed"}
+                    },
+                    "output": {}
+                  },
+                  {
+                    "title": "entityExists",
+                    "type": "action",
+                    "name": "entityExists",
+                    "parameters": {
+                      "entity": {"key": "bed"}
+                    }
+                  },
+                  {
+                    "title": null,
+                    "type": "decorator",
+                    "name": "inverter",
+                    "parameters": {},
+                    "child": {
+                      "title": null,
+                      "type": "action",
+                      "name": "loungableOccupied",
+                      "parameters": {
+                        "entity": {"key": "bed"}
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "title": "",
+                "type": "composite",
+                "name": "parallel",
+                "parameters": {
+                  "fail": {"value": 1},
+                  "success": {"value": -1}
+                },
+                "children": [
+                  {
+                    "title": "entityExists",
+                    "type": "action",
+                    "name": "entityExists",
+                    "parameters": {
+                      "entity": {"key": "bed"}
+                    }
+                  },
+                  {
+                    "title": "lounge",
+                    "type": "action",
+                    "name": "lounge",
+                    "parameters": {
+                      "entity": {"key": "bed"}
+                    }
+                  },
+                  {
+                    "title": "dynamic",
+                    "type": "composite",
+                    "name": "dynamic",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "",
+                        "type": "action",
+                        "name": "withinTimeRange",
+                        "parameters": {
+                          "range": {"key": "<sleepUntil>"}
+                        }
+                      },
+                      {
+                        "title": "failer",
+                        "type": "decorator",
+                        "name": "failer",
+                        "parameters": {},
+                        "child": {
+                          "title": "cooldown",
+                          "type": "decorator",
+                          "name": "cooldown",
+                          "parameters": {
+                            "cooldown": {"value": 30},
+                            "onFail": {"value": true},
+                            "onSuccess": {"value": true}
+                          },
+                          "child": {
+                            "title": "sequence",
+                            "type": "composite",
+                            "name": "sequence",
+                            "parameters": {},
+                            "children": [
+                              {
+                                "title": "setInfluence",
+                                "type": "action",
+                                "name": "setInfluence",
+                                "parameters": {
+                                  "influence": {"key": "sleep"}
+                                },
+                                "output": {
+                                  "influence": "sleep"
+                                }
+                              },
+                              {
+                                "title": "chooseReaction",
+                                "type": "action",
+                                "name": "chooseReaction",
+                                "parameters": {
+                                  "influence": {"key": "sleep"}
+                                },
+                                "output": {
+                                  "reaction": "sleepReaction"
+                                }
+                              },
+                              {
+                                "title": "playSimpleReaction",
+                                "type": "action",
+                                "name": "playSimpleReaction",
+                                "parameters": {
+                                  "reaction": {"key": "sleepReaction"}
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "runner",
+                        "type": "action",
+                        "name": "runner",
+                        "parameters": {}
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

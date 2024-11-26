@@ -1,0 +1,26 @@
+{
+  "materialId" : 25,
+  "materialName" : "crosshatch",
+  "particleColor" : [109, 99, 48, 255],
+  "itemDrop" : "crosshatch",
+  "shortdescription" : "Window Lattice",
+  "description" : "A simple lattice made of wood.",
+  "glitchDescription" : "Inspired. This lattice functions well as either a fence or window.",
+  "floranDescription" : "Floran like crisss crosssy wood.",
+  "novakidDescription" : "Thin wood strips all criss crossin' together.",
+  "footstepSound" : "/sfx/blocks/footstep_lightwood.ogg",
+  "health" : 2,
+  "category" : "materials",
+  "damageTable" : "/tiles/flammableDamage.config",
+  "blocksLiquidFlow" : false,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "crosshatch.png",
+    "variants" : 2,
+    "lightTransparent" : true,
+    "multiColored" : true,
+    "occludesBelow" : false,
+    "zLevel" : 510
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "name" : "remixedStepsSurfaceLarge",
+
+  //jaggy ledges
+  "type" : "displacement",
+  
+  "xType" : "perlin",
+  "xOctaves" : 3,
+  "xFreq" : 0.2,
+  "xAmp" : 3,
+  "xXInfluence" : 1.0,
+  "xYInfluence" : 0.5,
+  "yType" : "perlin",
+  "yOctaves" : 2,
+  "yFreq" : 0.015,
+  "yAmp" : 12,
+  "yYInfluence" : 0.5,
+  "yXInfluence" : 1.5,
+
+  "source" : {
+
+    "type" : "mix",
+
+    "mixSource" : {
+      "type" : "perlin",
+      "function" : "perlin",
+      "octaves" : 2,
+      "freq" : 0.003,
+      "amp" : 100,
+      "bias" : 20.0,
+      "xInfluence" : 0,
+      "yInfluence" : 0
+    },
+
+    "aSource" : {
+      //rare tall mountains with uneven tops
+      "type" : "displacement",
+
+      "xType" : "perlin",
+      "xOctaves" : 2,
+      "xFreq" : 0.007,
+      "xAmp" : 0,
+      "yType" : "perlin",
+      "yOctaves" : 2,
+      "yFreq" : 0.009,
+      "yAmp" : 90,
+      "yBias" : -30,
+      "yClamp" : [-60, 10],
+      "yClampSmoothing" : 10,
+      "yYInfluence" : 0.1,
+
+      "source" : {
+        "type" : "flatSurface",
+
+        "adjustment" : 50
+      }
+    },
+
+    // several levels of flattish steps
+    "bSource" : {
+      "type" : "mix",
+
+      "mixSource" : {
+        "type" : "perlin",
+        "function" : "perlin",
+        "octaves" : 2,
+        "freq" : 0.005,
+        "amp" : 1000,
+        "bias" : 20,
+        "xInfluence" : 1,
+        "yInfluence" : 0
+      },
+
+      "aSource" : {
+        "type" : "flatSurface",
+
+        "adjustment" : 80
+      },
+
+      "bSource" : {
+        "type" : "flatSurface",
+        
+        "adjustment" : -10
+      }
+    }
+  }
+}

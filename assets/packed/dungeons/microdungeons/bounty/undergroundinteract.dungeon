@@ -1,0 +1,65 @@
+{
+  "metadata" : {
+    "name" : "undergroundinteract",
+    "species" : "generic",
+    "rules" : [
+    ],
+    "anchor" : [ "undergroundinteract_1", "undergroundinteract_2", "undergroundinteract_3", "undergroundinteract_4", "undergroundinteract_5", "undergroundinteract_6", "undergroundinteract_7" ],
+    "gravity" : 80,
+    "maxRadius" : 1000000,
+    "maxParts" : 1,
+    "protected" : true
+  },
+
+  "parts" : [
+    {
+      "name" : "undergroundinteract_1",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundinteract_1.json" ]
+    },
+    {
+      "name" : "undergroundinteract_2",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundinteract_2.json" ]
+    },
+    {
+      "name" : "undergroundinteract_3",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundinteract_3.json" ]
+    },
+    {
+      "name" : "undergroundinteract_4",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundinteract_4.json" ]
+    },
+    {
+      "name" : "undergroundinteract_5",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundinteract_5.json" ]
+    },
+    {
+      "name" : "undergroundinteract_6",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundinteract_6.json" ]
+    },
+    {
+      "name" : "undergroundinteract_7",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundinteract_7.json" ]
+    }
+  ]
+}

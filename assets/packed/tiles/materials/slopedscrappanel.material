@@ -1,0 +1,25 @@
+{
+  "materialId" : 293,
+  "materialName" : "slopedscrappanel",
+  "particleColor" : [11, 98, 90, 255],
+  "itemDrop" : "slopedscrappanel",
+
+  "description" : "Rusted scrap metal paneling in a state of severe disrepair.",
+  "glitchDescription" : "Worried. This metal surface looks very jagged and rusty.",
+  "floranDescription" : "Metal sssso russty, Floran wouldn't even ussse it.",
+  "novakidDescription" : "This metal panel is just a buncha rusted scrap.",
+  "shortdescription" : "Scrap Panel",
+  "footstepSound" : "/sfx/blocks/footstep_lightmetal.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/slopedmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "slopedscrappanel.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 4998
+  }
+}

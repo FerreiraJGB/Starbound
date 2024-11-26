@@ -1,0 +1,9 @@
+{
+  "name" : "scaveran",
+  "category" : "poisonscaveran",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "poisonscaveran.png"
+  }
+}

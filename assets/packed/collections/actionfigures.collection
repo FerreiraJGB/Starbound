@@ -1,0 +1,288 @@
+{
+  "name" : "actionfigures",
+  "title" : "Action Figures",
+  "type" : "item",
+
+  "collectables" : {
+
+    // MONSTERS
+    "gleapaf" : {
+      "order" : 1,
+      "item" : "gleapaf"
+    },
+    "nutmidgeaf" : {
+      "order" : 2,
+      "item" : "nutmidgeaf"
+    },
+    "poptopaf" : {
+      "order" : 3,
+      "item" : "poptopaf"
+    },
+    "adultpoptopaf" : {
+      "order" : 4,
+      "item" : "adultpoptopaf"
+    },
+    "crustoiseaf" : {
+      "order" : 5,
+      "item" : "crustoiseaf"
+    },
+    "tinticaf" : {
+      "order" : 6,
+      "item" : "tinticaf"
+    },
+    "batongaf" : {
+      "order" : 7,
+      "item" : "batongaf"
+    },
+    "spookitaf" : {
+      "order" : 8,
+      "item" : "spookitaf"
+    },
+    "peblitaf" : {
+      "order" : 9,
+      "item" : "peblitaf"
+    },
+    "iguarmoraf" : {
+      "order" : 10,
+      "item" : "iguarmoraf"
+    },
+    "scaveranaf" : {
+      "order" : 11,
+      "item" : "scaveranaf"
+    },
+    "voltipaf" : {
+      "order" : 12,
+      "item" : "voltipaf"
+    },
+    "fennixaf" : {
+      "order" : 13,
+      "item" : "fennixaf"
+    },
+    "lilodonaf" : {
+      "order" : 14,
+      "item" : "lilodonaf"
+    },
+    "petricubaf" : {
+      "order" : 15,
+      "item" : "petricubaf"
+    },
+    "quagmuttaf" : {
+      "order" : 16,
+      "item" : "quagmuttaf"
+    },
+    "paratailaf" : {
+      "order" : 17,
+      "item" : "paratailaf"
+    },
+    "wisperaf" : {
+      "order" : 18,
+      "item" : "wisperaf"
+    },
+    "skimbusaf" : {
+      "order" : 19,
+      "item" : "skimbusaf"
+    },
+    "pulpinaf" : {
+      "order" : 20,
+      "item" : "pulpinaf"
+    },
+    "capricoataf" : {
+      "order" : 21,
+      "item" : "capricoataf"
+    },
+    "ringramaf" : {
+      "order" : 22,
+      "item" : "ringramaf"
+    },
+    "scandroidaf" : {
+      "order" : 23,
+      "item" : "scandroidaf"
+    },
+    "bobotaf" : {
+      "order" : 24,
+      "item" : "bobotaf"
+    },
+    "pipkinaf" : {
+      "order" : 25,
+      "item" : "pipkinaf"
+    },
+    "monopusaf" : {
+      "order" : 26,
+      "item" : "monopusaf"
+    },
+    "snaggleraf" : {
+      "order" : 27,
+      "item" : "snaggleraf"
+    },
+    "oculobaf" : {
+      "order" : 28,
+      "item" : "oculobaf"
+    },
+    "miasmopaf" : {
+      "order" : 29,
+      "item" : "miasmopaf"
+    },
+    "sporgusaf" : {
+      "order" : 30,
+      "item" : "sporgusaf"
+    },
+    "agrobataf" : {
+      "order" : 31,
+      "item" : "agrobataf"
+    },
+    "gosmetaf" : {
+      "order" : 32,
+      "item" : "gosmetaf"
+    },
+    "squeemaf" : {
+      "order" : 33,
+      "item" : "squeemaf"
+    },
+    "snauntaf" : {
+      "order" : 34,
+      "item" : "snauntaf"
+    },
+    "pteropodaf" : {
+      "order" : 35,
+      "item" : "pteropodaf"
+    },
+    "crutteraf" : {
+      "order" : 36,
+      "item" : "crutteraf"
+    },
+    "snuffishaf" : {
+      "order" : 37,
+      "item" : "snuffishaf"
+    },
+    "crabcanoaf" : {
+      "order" : 38,
+      "item" : "crabcanoaf"
+    },
+    "pyromantleaf" : {
+      "order" : 39,
+      "item" : "pyromantleaf"
+    },
+    "ignomeaf" : {
+      "order" : 40,
+      "item" : "ignomeaf"
+    },
+    "smoglinaf" : {
+      "order" : 41,
+      "item" : "smoglinaf"
+    },
+    "anglureaf" : {
+      "order" : 42,
+      "item" : "anglureaf"
+    },
+    "lumothaf" : {
+      "order" : 43,
+      "item" : "lumothaf"
+    },
+    "oogleraf" : {
+      "order" : 44,
+      "item" : "oogleraf"
+    },
+    "narfinaf" : {
+      "order" : 45,
+      "item" : "narfinaf"
+    },
+    "toumingoaf" : {
+      "order" : 46,
+      "item" : "toumingoaf"
+    },
+    "trictusaf" : {
+      "order" : 47,
+      "item" : "trictusaf"
+    },
+    "mandrafloraaf" : {
+      "order" : 48,
+      "item" : "mandrafloraaf"
+    },
+    "bulbopaf" : {
+      "order" : 49,
+      "item" : "bulbopaf"
+    },
+    "hypnareaf" : {
+      "order" : 50,
+      "item" : "hypnareaf"
+    },
+    "yokataf" : {
+      "order" : 51,
+      "item" : "yokataf"
+    },
+    "orbideaf" : {
+      "order" : 52,
+      "item" : "orbideaf"
+    },
+    "taroniaf" : {
+      "order" : 53,
+      "item" : "taroniaf"
+    },
+    "hemogoblinaf" : {
+      "order" : 54,
+      "item" : "hemogoblinaf"
+    },
+    "bobfaeaf" : {
+      "order" : 55,
+      "item" : "bobfaeaf"
+    },
+    "triplodaf" : {
+      "order" : 56,
+      "item" : "triplodaf"
+    },
+    "paraspriteaf" : {
+      "order" : 57,
+      "item" : "paraspriteaf"
+    },
+    "cosmicintruderaf" : {
+      "order" : 58,
+      "item" : "cosmicintruderaf"
+    },
+
+    // MISSION / BOSSES,
+    "erchiushorroraf" : {
+      "order" : 59,
+      "item" : "erchiushorroraf"
+    },
+    "ixolingaf" : {
+      "order" : 60,
+      "item" : "ixolingaf"
+    },
+    "ixodoomaf" : {
+      "order" : 61,
+      "item" : "ixodoomaf"
+    },
+    "asranoxaf" : {
+      "order" : 62,
+      "item" : "asranoxaf"
+    },
+    "kluexsentryaf" : {
+      "order" : 63,
+      "item" : "kluexsentryaf"
+    },
+    "kluexavataraf" : {
+      "order" : 64,
+      "item" : "kluexavataraf"
+    },
+    "bigapeaf" : {
+      "order" : 65,
+      "item" : "bigapeaf"
+    },
+    "bonedragonaf" : {
+      "order" : 66,
+      "item" : "bonedragonaf"
+    },
+    "dreadwingaf" : {
+      "order" : 67,
+      "item" : "dreadwingaf"
+    },
+    "shockhoppermkiaf" : {
+      "order" : 68,
+      "item" : "shockhoppermkiaf"
+    },
+    "swansongaf" : {
+      "order" : 69,
+      "item" : "swansongaf"
+    }
+  }
+}

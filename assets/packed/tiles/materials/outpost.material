@@ -1,0 +1,24 @@
+{
+  "materialId" : 266,
+  "materialName" : "outpost",
+  "particleColor" : [194, 194, 194, 255],
+  "itemDrop" : "outpost",
+  "shortdescription" : "Outpost Wall",
+  "description" : "Wall material commonly used in space outposts.",
+  "glitchDescription" : "Familiar. I have seen this material used in space outposts before.",
+  "floranDescription" : "Hard metal outposst wall.",
+  "novakidDescription" : "Some kinda outpost wall.",
+  "footstepSound" : "/sfx/blocks/footstep_lightmetal.ogg",
+  "health" : 20,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "outposthorizontal.png",
+    "variants" : 1,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

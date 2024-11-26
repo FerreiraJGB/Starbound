@@ -1,0 +1,25 @@
+{
+  "materialId" : 99,
+  "materialName" : "wallpaper",
+  "particleColor" : [225, 191, 150, 255],
+  "itemDrop" : "wallpaper",
+  "description" : "Some classy wallpaper, the perfect finishing touch.",
+  "shortdescription" : "Classic Wallpaper",
+  "glitchDescription" : "Confused. The Glitch have never understood the concept of glued wall papering.",
+  "floranDescription" : "Sstrange paper covers wallss.",
+  "novakidDescription" : "Wallpaper. Perfect for classin' up the place.",
+  "footstepSound" : "/sfx/blocks/footstep_lightwood.ogg",
+  "health" : 8,
+  "category" : "materials",
+  "damageTable" : "/tiles/flammableDamage.config",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "wallpaper.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 2640
+  }
+}

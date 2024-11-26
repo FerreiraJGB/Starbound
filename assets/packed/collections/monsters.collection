@@ -1,0 +1,308 @@
+{
+  "name" : "monsters",
+  "title" : "Pets",
+  "type" : "monster",
+
+  "collectables" : {
+    "gleap" : {
+      "order" : 1,
+      "monsterType" : "gleap",
+      "icon" : "/monsters/walkers/gleap/body/gleap.png:idle.1"
+    },
+    "nutmidge" : {
+      "order" : 2,
+      "monsterType" : "nutmidge",
+      "icon" : "/monsters/walkers/nutmidge/body/nutmidge.png:idle.1"
+    },
+    "nutmidgeling" : {
+      "order" : 3,
+      "monsterType" : "nutmidgeling",
+      "icon" : "/monsters/walkers/nutmidgeling/body/nutmidgeling.png:idle.1"
+    },
+    "kingnutmidgeling" : {
+      "order" : 4,
+      "monsterType" : "kingnutmidgeling",
+      "icon" : "/monsters/walkers/kingnutmidgeling/body/kingnutmidgeling.png:idle.1"
+    },
+    "poptop" : {
+      "order" : 5,
+      "monsterType" : "poptop",
+      "icon" : "/monsters/walkers/poptop/body/poptop.png:idle.1"
+    },
+    "adultpoptop" : {
+      "order" : 6,
+      "monsterType" : "adultpoptop",
+      "icon" : "/monsters/walkers/adultpoptop/body/adultpoptop.png:idle.1"
+    },
+    "crustoise" : {
+      "order" : 7,
+      "monsterType" : "crustoise",
+      "icon" : "/monsters/crawlers/crustoise/body/crustoise.png:idle.1"
+    },
+    "tintic" : {
+      "order" : 8,
+      "monsterType" : "tintic",
+      "icon" : "/monsters/crawlers/tintic/body/tintic.png:idle.1"
+    },
+    "batong" : {
+      "order" : 9,
+      "monsterType" : "batong",
+      "icon" : "/monsters/flyers/batong/body/batong.png:idle.1"
+    },
+    "spookit" : {
+      "order" : 10,
+      "monsterType" : "spookit",
+      "icon" : "/monsters/ghosts/spookit/body/spookit.png:idle.1"
+    },
+    "peblit" : {
+      "order" : 11,
+      "monsterType" : "peblit",
+      "icon" : "/monsters/walkers/peblit/body/peblit.png:idle.1"
+    },
+    "iguarmor" : {
+      "order" : 12,
+      "monsterType" : "iguarmor",
+      "icon" : "/monsters/crawlers/iguarmor/body/iguarmor.png:idle.1"
+    },
+    "scaveran" : {
+      "order" : 13,
+      "monsterType" : "scaveran",
+      "icon" : "/monsters/walkers/scaveran/body/scaveran.png:idle.1"
+    },
+    "voltip" : {
+      "order" : 14,
+      "monsterType" : "voltip",
+      "icon" : "/monsters/walkers/voltip/body/voltip.png:idle.1"
+    },
+    "fennix" : {
+      "order" : 15,
+      "monsterType" : "fennix",
+      "icon" : "/monsters/walkers/fennix/body/fennix.png:idle.5"
+    },
+    "lilodon" : {
+      "order" : 16,
+      "monsterType" : "lilodon",
+      "icon" : "/monsters/walkers/lilodon/body/lilodon.png:idle.1"
+    },
+    "petricub" : {
+      "order" : 17,
+      "monsterType" : "petricub",
+      "icon" : "/monsters/walkers/petricub/body/petricub.png:idle.1"
+    },
+    "quagmutt" : {
+      "order" : 18,
+      "monsterType" : "quagmutt",
+      "icon" : "/monsters/walkers/quagmutt/body/quagmutt.png:idle.1"
+    },
+    "paratail" : {
+      "order" : 19,
+      "monsterType" : "paratail",
+      "icon" : "/monsters/flyers/paratail/body/paratail.png:windup.1"
+    },
+    "wisper" : {
+      "order" : 20,
+      "monsterType" : "wisper",
+      "icon" : "/monsters/ghosts/wisper/body/wisper.png:windup.3"
+    },
+    "skimbus" : {
+      "order" : 21,
+      "monsterType" : "skimbus",
+      "icon" : "/monsters/ghosts/skimbus/body/skimbus.png:chargeloop.3"
+    },
+    "pulpin" : {
+      "order" : 22,
+      "monsterType" : "pulpin",
+      "icon" : "/monsters/crawlers/pulpin/body/pulpin.png:fire.2"
+    },
+    "capricoat" : {
+      "order" : 23,
+      "monsterType" : "capricoat",
+      "icon" : "/monsters/walkers/capricoat/body/capricoat.png:walk.5"
+    },
+    "ringram" : {
+      "order" : 24,
+      "monsterType" : "ringram",
+      "icon" : "/monsters/walkers/ringram/body/ringram.png:idle.1"
+    },
+    "scandroid" : {
+      "order" : 25,
+      "monsterType" : "scandroid",
+      "icon" : "/monsters/flyers/scandroid/body/scandroid.png:idle.1"
+    },
+    "bobot" : {
+      "order" : 26,
+      "monsterType" : "bobot",
+      "icon" : "/monsters/walkers/bobot/body/bobot.png:idle.1"
+    },
+    "pipkin" : {
+      "order" : 27,
+      "monsterType" : "pipkin",
+      "icon" : "/monsters/walkers/pipkin/body/pipkin.png:idle.1"
+    },
+    "monopus" : {
+      "order" : 28,
+      "monsterType" : "monopus",
+      "icon" : "/monsters/flyers/monopus/body/monopus.png:fly.5"
+    },
+    "snaggler" : {
+      "order" : 29,
+      "monsterType" : "snaggler",
+      "icon" : "/monsters/crawlers/snaggler/body/snaggler.png:idle.1"
+    },
+    "oculob" : {
+      "order" : 30,
+      "monsterType" : "oculob",
+      "icon" : "/monsters/crawlers/oculob/body/oculob.png:idle.1"
+    },
+    "miasmop" : {
+      "order" : 31,
+      "monsterType" : "miasmop",
+      "icon" : "/monsters/walkers/miasmop/body/miasmop.png:idle.1"
+    },
+    "sporgus" : {
+      "order" : 32,
+      "monsterType" : "sporgus",
+      "icon" : "/monsters/walkers/sporgus/body/sporgus.png:idle.1"
+    },
+    "agrobat" : {
+      "order" : 33,
+      "monsterType" : "agrobat",
+      "icon" : "/monsters/flyers/agrobat/body/agrobat.png:fly.6"
+    },
+    "gosmet" : {
+      "order" : 34,
+      "monsterType" : "gosmet",
+      "icon" : "/monsters/ghosts/gosmet/body/gosmet.png:fly.1"
+    },
+    "squeem" : {
+      "order" : 35,
+      "monsterType" : "squeem",
+      "icon" : "/monsters/ghosts/squeem/body/squeem.png:fly.1"
+    },
+    "snaunt" : {
+      "order" : 36,
+      "monsterType" : "snaunt",
+      "icon" : "/monsters/walkers/snaunt/body/snaunt.png:idle.1"
+    },
+    "pteropod" : {
+      "order" : 37,
+      "monsterType" : "pteropod",
+      "icon" : "/monsters/flyers/pteropod/body/pteropod.png:fly.1"
+    },
+    "crutter" : {
+      "order" : 38,
+      "monsterType" : "crutter",
+      "icon" : "/monsters/walkers/crutter/body/crutter.png:idle.1"
+    },
+    "snuffish" : {
+      "order" : 39,
+      "monsterType" : "snuffish",
+      "icon" : "/monsters/walkers/snuffish/body/snuffish.png:idle.1"
+    },
+    "crabcano" : {
+      "order" : 40,
+      "monsterType" : "crabcano",
+      "icon" : "/monsters/walkers/crabcano/body/crabcano.png:idle.1"
+    },
+    "pyromantle" : {
+      "order" : 41,
+      "monsterType" : "pyromantle",
+      "icon" : "/monsters/ghosts/pyromantle/body/pyromantle.png:idle.1"
+    },
+    "ignome" : {
+      "order" : 42,
+      "monsterType" : "ignome",
+      "icon" : "/monsters/ghosts/ignome/body/ignome.png:fly.1"
+    },
+    "smoglin" : {
+      "order" : 43,
+      "monsterType" : "smoglin",
+      "icon" : "/monsters/walkers/smoglin/body/smoglin.png:idle.1"
+    },
+    "anglure" : {
+      "order" : 44,
+      "monsterType" : "anglure",
+      "icon" : "/monsters/walkers/anglure/body/anglure.png:idle.1"
+    },
+    "lumoth" : {
+      "order" : 45,
+      "monsterType" : "lumoth",
+      "icon" : "/monsters/ghosts/lumoth/body/lumoth.png:idle.1"
+    },
+    "oogler" : {
+      "order" : 46,
+      "monsterType" : "oogler",
+      "icon" : "/monsters/walkers/oogler/body/oogler.png:idle.1"
+    },
+    "narfin" : {
+      "order" : 47,
+      "monsterType" : "narfin",
+      "icon" : "/monsters/walkers/narfin/body/narfin.png:idle.1"
+    },
+    "toumingo" : {
+      "order" : 48,
+      "monsterType" : "toumingo",
+      "icon" : "/monsters/walkers/toumingo/body/toumingo.png:idle.1"
+    },
+    "trictus" : {
+      "order" : 49,
+      "monsterType" : "trictus",
+      "icon" : "/monsters/walkers/trictus/body/trictus.png:idle.1"
+    },
+    "mandraflora" : {
+      "order" : 50,
+      "monsterType" : "mandraflora",
+      "icon" : "/monsters/walkers/mandraflora/body/mandraflora.png:idle.1"
+    },
+    "bulbop" : {
+      "order" : 51,
+      "monsterType" : "bulbop",
+      "icon" : "/monsters/walkers/bulbop/body/bulbop.png:idle.1"
+    },
+    "hypnare" : {
+      "order" : 52,
+      "monsterType" : "hypnare",
+      "icon" : "/monsters/walkers/hypnare/body/hypnare.png:idle.1"
+    },
+    "yokat" : {
+      "order" : 53,
+      "monsterType" : "yokat",
+      "icon" : "/monsters/walkers/yokat/body/yokat.png:idle.1"
+    },
+    "orbide" : {
+      "order" : 54,
+      "monsterType" : "orbide",
+      "icon" : "/monsters/walkers/orbide/body/orbide.png:idle.1"
+    },
+    "taroni" : {
+      "order" : 55,
+      "monsterType" : "taroni",
+      "icon" : "/monsters/walkers/taroni/body/taroni.png:idle.1"
+    },
+    "hemogoblin" : {
+      "order" : 56,
+      "monsterType" : "hemogoblin",
+      "icon" : "/monsters/walkers/hemogoblin/body/hemogoblin.png:idle.1"
+    },
+    "bobfae" : {
+      "order" : 57,
+      "monsterType" : "bobfae",
+      "icon" : "/monsters/flyers/bobfae/body/bobfae.png:fly.1"
+    },
+    "triplod" : {
+      "order" : 58,
+      "monsterType" : "triplod",
+      "icon" : "/monsters/crawlers/triplod/triplod-full.png:idle.1"
+    },
+    "parasprite" : {
+      "order" : 59,
+      "monsterType" : "parasprite",
+      "icon" : "/monsters/flyers/parasprite/parasprite.png:idle.1"
+    },
+    "cosmicintruder" : {
+      "order" : 60,
+      "monsterType" : "cosmicintruder",
+      "icon" : "/monsters/flyers/cosmicintruder/body/cosmicintruder.png:fly.1"
+    }
+  }
+}

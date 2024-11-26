@@ -1,0 +1,19 @@
+{
+  "kind" : "shrapnel4",
+  "definition" : {
+    "type" : "textured",
+    "image" : "/monsters/boss/swansong/particles/shrapnel4.png",
+    "initialVelocity" : [0.0, 0.0],
+    "finalVelocity" : [0.0, 0.0],
+    "approach" : [10, 10],
+    "timeToLive" : 2.0,
+    "layer" : "middle",
+    "collidesForeground" : true,
+    "variance" : {
+      "initialVelocity" : [20, 20],
+      "rotation" : 180,
+      "angularVelocity" : 180,
+      "timeToLive" : 1.0
+    }
+  }
+}

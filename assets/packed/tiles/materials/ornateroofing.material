@@ -1,0 +1,24 @@
+{
+  "materialId" : 159,
+  "materialName" : "ornateroofing",
+  "particleColor" : [112, 98, 56, 255],
+  "itemDrop" : "ornateroofing",
+  "description" : "Traditional looking ornate roofing.",
+  "shortdescription" : "Ornate Roofing",
+  "glitchDescription" : "Impressed. This ornate roofing is structurally sound.",
+  "floranDescription" : "Ornate roofing iss pretty.",
+  "novakidDescription" : "Ain't what I'm used to, but nice lookin' roofing all the same.",
+  "footstepSound" : "/sfx/blocks/footstep_rooftile.ogg",
+  "health" : 8,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "ornateroofing.png",
+    "variants" : 1,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3460
+  }
+}

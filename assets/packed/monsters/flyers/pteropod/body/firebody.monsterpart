@@ -1,0 +1,10 @@
+{
+  "name" : "pteropod",
+  "category" : "firepteropod",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "firepteropod.png",
+    "bodynobright" : "firepteropodnobright.png"
+  }
+}

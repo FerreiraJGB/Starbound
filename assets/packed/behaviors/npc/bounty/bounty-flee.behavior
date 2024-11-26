@@ -1,0 +1,268 @@
+{
+  "name": "bounty-flee",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/notification.lua",
+    "/scripts/actions/entity.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/dialog.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/time.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "limiter",
+        "type": "decorator",
+        "name": "limiter",
+        "parameters": {
+          "limit": {"value": 1}
+        },
+        "child": {
+          "title": "sequence",
+          "type": "composite",
+          "name": "sequence",
+          "parameters": {},
+          "children": [
+            {
+              "title": "receivedNotification",
+              "type": "action",
+              "name": "receivedNotification",
+              "parameters": {
+                "type": {"value": "bountyProximity"}
+              },
+              "output": {
+                "source": "fleeTarget"
+              }
+            },
+            {
+              "title": "entityInSight",
+              "type": "action",
+              "name": "entityInSight",
+              "parameters": {
+                "entity": {"key": "fleeTarget"}
+              }
+            }
+          ]
+        }
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": 1},
+          "success": {"value": -1}
+        },
+        "children": [
+          {
+            "title": "entityExists",
+            "type": "action",
+            "name": "entityExists",
+            "parameters": {
+              "entity": {"key": "fleeTarget"}
+            }
+          },
+          {
+            "title": "entityInSight",
+            "type": "action",
+            "name": "entityInSight",
+            "parameters": {
+              "entity": {"key": "fleeTarget"}
+            }
+          },
+          {
+            "title": "dynamic",
+            "type": "composite",
+            "name": "dynamic",
+            "parameters": {},
+            "children": [
+              {
+                "title": "selector",
+                "type": "composite",
+                "name": "selector",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "entityInRange",
+                    "type": "action",
+                    "name": "entityInRange",
+                    "parameters": {
+                      "entity": {"key": "fleeTarget"},
+                      "position": {"key": "self"},
+                      "range": {"value": 20}
+                    }
+                  },
+                  {
+                    "title": "wasDamaged",
+                    "type": "action",
+                    "name": "wasDamaged",
+                    "parameters": {}
+                  }
+                ]
+              },
+              {
+                "title": "runner",
+                "type": "action",
+                "name": "runner",
+                "parameters": {}
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "sayToEntity",
+        "type": "action",
+        "name": "sayToEntity",
+        "parameters": {
+          "dialogType": {"value": "dialog.bounty.flee"},
+          "entity": {"key": "fleeTarget"},
+          "tags": {"value": {}}
+        }
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": 1},
+          "success": {"value": -1}
+        },
+        "children": [
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "entityExists",
+                "type": "action",
+                "name": "entityExists",
+                "parameters": {
+                  "entity": {"key": "fleeTarget"}
+                }
+              },
+              {
+                "title": "entityDirection",
+                "type": "action",
+                "name": "entityDirection",
+                "parameters": {
+                  "target": {"key": "fleeTarget"}
+                },
+                "output": {
+                  "direction": "moveDirection"
+                }
+              },
+              {
+                "title": "reverseDirection",
+                "type": "action",
+                "name": "reverseDirection",
+                "parameters": {
+                  "direction": {"key": "moveDirection"}
+                },
+                "output": {
+                  "direction": "moveDirection"
+                }
+              }
+            ]
+          },
+          {
+            "title": "selector",
+            "type": "composite",
+            "name": "selector",
+            "parameters": {},
+            "children": [
+              {
+                "title": "dynamic",
+                "type": "composite",
+                "name": "dynamic",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "wasDamaged",
+                    "type": "action",
+                    "name": "wasDamaged",
+                    "parameters": {}
+                  },
+                  {
+                    "title": "",
+                    "type": "action",
+                    "name": "move",
+                    "parameters": {
+                      "direction": {"key": "moveDirection"},
+                      "run": {"value": true}
+                    }
+                  }
+                ]
+              },
+              {
+                "title": "failer",
+                "type": "decorator",
+                "name": "failer",
+                "parameters": {},
+                "child": {
+                  "title": "sequence",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "faceEntity",
+                      "type": "action",
+                      "name": "faceEntity",
+                      "parameters": {
+                        "entity": {"key": "fleeTarget"},
+                        "headingDirection": {"value": [1, 0]}
+                      }
+                    },
+                    {
+                      "title": "timer",
+                      "type": "action",
+                      "name": "timer",
+                      "parameters": {
+                        "time": {"value": 1}
+                      }
+                    },
+                    {
+                      "title": "sayToEntity",
+                      "type": "action",
+                      "name": "sayToEntity",
+                      "parameters": {
+                        "dialogType": {"value": "dialog.bounty.caughtFleeing"},
+                        "entity": {"key": "fleeTarget"},
+                        "tags": {"value": {}}
+                      }
+                    },
+                    {
+                      "title": "timer",
+                      "type": "action",
+                      "name": "timer",
+                      "parameters": {
+                        "time": {"value": 1}
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "title": "",
+            "type": "action",
+            "name": "openDoors",
+            "parameters": {
+              "direction": {"key": "moveDirection"}
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

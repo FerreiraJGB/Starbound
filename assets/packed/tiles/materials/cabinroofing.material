@@ -1,0 +1,24 @@
+{
+  "materialId" : 1590,
+  "materialName" : "cabinroofing",
+  "particleColor" : [112, 98, 56, 255],
+  "itemDrop" : "cabinroofing",
+  "description" : "Simple roofing for a cabin.",
+  "shortdescription" : "Cabin Roofing",
+  "glitchDescription" : "Pleased. This cabin roof has rustic charm.",
+  "floranDescription" : "Floran raisse the cabin roof.",
+  "novakidDescription" : "A cabin roof, good for keepin' dry in the rain.",
+  "footstepSound" : "/sfx/blocks/footstep_lightwood.ogg",
+  "health" : 4,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "cabinroofing.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3420
+  }
+}

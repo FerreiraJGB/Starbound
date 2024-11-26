@@ -1,0 +1,152 @@
+{
+  "name" : "fossils",
+  "title" : "Fossils",
+  "type" : "generic",
+
+  "collectables" : {
+    // SMALL FOSSILS
+    "amber" : {
+      "order" : 1,
+      "title" : "Amber",
+      "description" : "Amber has more catalogued variations than any other ancient artifact.",
+      "icon" : "/objects/fossils/smallfossils/amber.png"
+    },
+    "ammonite" : {
+      "order" : 2,
+      "title" : "Ammonite",
+      "description" : "Ammonites are widely recognised fossils, with variations appearing on most life-sustaining planets.",
+      "icon" : "/objects/fossils/smallfossils/ammonite.png"
+    },
+    "egg" : {
+      "order" : 3,
+      "title" : "Egg Fossil",
+      "description" : "The egg of an ancient creature, frozen in time before it ever truly lived.",
+      "icon" : "/objects/fossils/smallfossils/egg.png"
+    },
+    "fern" : {
+      "order" : 4,
+      "title" : "Fern Fossil",
+      "description" : "Fossilised fern leaves are evidence of organic life from millennia ago.",
+      "icon" : "/objects/fossils/smallfossils/fern.png"
+    },
+    "fish" : {
+      "order" : 5,
+      "title" : "Fish Fossil",
+      "description" : "Little has changed about fish anatomy over the millennia.",
+      "icon" : "/objects/fossils/smallfossils/fish.png"
+    },
+    "mysteriousalien" : {
+      "order" : 6,
+      "title" : "Mysterious Alien Skull",
+      "description" : "A strange and curious life-form, now lost to time.",
+      "icon" : "/objects/fossils/smallfossils/mysteriousalien.png"
+    },
+    "penguin" : {
+      "order" : 7,
+      "title" : "Penguin Fossil",
+      "description" : "The fossilised remains of a penguin.",
+      "icon" : "/objects/fossils/smallfossils/penguin.png"
+    },
+    "sabertooth" : {
+      "order" : 8,
+      "title" : "Sabertooth Skull",
+      "description" : "Sabertooth are widely recognised fossils, easily identifiable by their elongated canine teeth.",
+      "icon" : "/objects/fossils/smallfossils/sabertooth.png"
+    },
+    "track" : {
+      "order" : 9,
+      "title" : "Footprint Fossil",
+      "description" : "The size of this footprint indicates it was probably made by an adult male of the species.",
+      "icon" : "/objects/fossils/smallfossils/track.png"
+    },
+    "trilobite" : {
+      "order" : 10,
+      "title" : "Trilobite",
+      "description" : "Trilobites are one of the more well preserved fossil groups thanks to their exoskeleton.",
+      "icon" : "/objects/fossils/smallfossils/trilobite.png"
+    },
+
+    // MEDIUM FOSSILS
+
+    "apexSkeleton" : {
+      "order" : 11,
+      "title" : "Apex Fossil",
+      "description" : "The fossilised remains of an Apex. Note the powerful teeth and pronounced brow ridges.",
+      "icon" : "/items/fossils/humanoid/apexfossilhead.png"
+    },
+    "avianSkeleton" : {
+      "order" : 12,
+      "title" : "Avian Fossil",
+      "description" : "Features of interest in this fossilised Avian are the hollow bones and the short flexible beak.",
+      "icon" : "/items/fossils/humanoid/avianfossilhead.png"
+    },
+    "floranSkeleton" : {
+      "order" : 13,
+      "title" : "Floran Fossil",
+      "description" : "The plant based Floran have bones infused with lignin, giving a wood-like appearance.",
+      "icon" : "/items/fossils/humanoid/floranfossilhead.png"
+    },
+    "glitchSkeleton" : {
+      "order" : 14,
+      "title" : "Glitch Fossil",
+      "description" : "A fossilised Glitch. The internal wiring is rarely preserved.",
+      "icon" : "/items/fossils/humanoid/glitchfossilhead.png"
+    },
+    "humanSkeleton" : {
+      "order" : 15,
+      "title" : "Human Fossil",
+      "description" : "A fossilised human, the dominant species of Earth.",
+      "icon" : "/items/fossils/humanoid/humanfossilhead.png"
+    },
+    "hylotlSkeleton" : {
+      "order" : 16,
+      "title" : "Hylotl Fossil",
+      "description" : "This fossilised Hylotl skeleton shows early signs of adaptation to aquatic life.",
+      "icon" : "/items/fossils/humanoid/hylotlfossilhead.png"
+    },
+    "alpacaSkeleton" : {
+      "order" : 17,
+      "title" : "Alpaca Fossil",
+      "description" : "The dense, hard bones of a long deceased Alpaca.",
+      "icon" : "/items/fossils/humanoid/alpacafossilhead.png"
+    },
+    "avioscaleSkeleton" : {
+      "order" : 18,
+      "title" : "Avioscale Fossil",
+      "description" : "This Avioscale boasts oversized eye sockets and a prominent beak.",
+      "icon" : "/items/fossils/humanoid/avioscalefossilhead.png"
+    },
+    "froggSkeleton" : {
+      "order" : 19,
+      "title" : "Frogg Fossil",
+      "description" : "An excellent example of a fossilised Frogg.",
+      "icon" : "/items/fossils/humanoid/froggfossilhead.png"
+    },
+    "mysteriousSkeleton" : {
+      "order" : 20,
+      "title" : "Unidentified Fossil",
+      "description" : "A creature which has perplexed many scientists, its origin and age cannot be determined.",
+      "icon" : "/items/fossils/humanoid/mysteriousfossilhead.png"
+    },
+
+    // LARGE FOSSILS
+    "ixodoom" : {
+      "order" : 21,
+      "title" : "Ixodoom Fossil",
+      "description" : "This arthropod's thick exoskeleton has helped it survive for millions of years.",
+      "icon" : "/items/fossils/large/ixodoomfossil/ixodoomfossilhead.png"
+    },
+    "ophidaunt" : {
+      "order" : 22,
+      "title" : "Ophidaunt Fossil",
+      "description" : "This distant ancestor of the Snaunt used to hunt in oceans instead of on land.",
+      "icon" : "/items/fossils/large/ophidauntfossil/ophidauntfossilhead.png"
+    },
+    "trex" : {
+      "order" : 23,
+      "title" : "T. rex Fossil",
+      "description" : "A dinosaur once native to Earth, spread across the stars by overeager scientists.",
+      "icon" : "/items/fossils/large/trexfossil/trexfossilhead.png"
+    }
+  }
+}

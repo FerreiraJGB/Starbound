@@ -1,0 +1,26 @@
+{
+  "name": "floranhuntinggrounds",
+  "priority": 4,
+
+  "colonyTagCriteria": {
+    "light": 1,
+    "door": 1,
+    "floranhuntinggrounds": 24
+  },
+
+  "tenants": [
+    {
+      "spawn": "npc",
+      "species": "floran",
+      "level": 1,
+      "type": "floranhuntinggrounds",
+      "overrides": {
+       }
+     }
+   ],
+
+  "rent": {
+    "periodRange": [900.0, 1800.0],
+    "pool": "villagerGift"
+  }
+}

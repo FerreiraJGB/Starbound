@@ -1,0 +1,95 @@
+{
+  "name": "approach-swarm",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/animator.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/flying.lua",
+    "/scripts/actions/movement.lua"
+  ],
+  "parameters": {
+    "flyState": "fly",
+    "maxRange": 8,
+    "minMoveDistance": 4,
+    "idleTime": 0.3
+  },
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "succeeder",
+        "type": "decorator",
+        "name": "succeeder",
+        "parameters": {},
+        "child": {
+          "title": "setAnimationState",
+          "type": "action",
+          "name": "setAnimationState",
+          "parameters": {
+            "state": {"value": "<flyState>"},
+            "type": {"value": "body"}
+          }
+        }
+      },
+      {
+        "title": "dynamic",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": "parallel",
+            "type": "composite",
+            "name": "parallel",
+            "parameters": {
+              "fail": {"value": 1},
+              "success": {"value": -1}
+            },
+            "children": [
+              {
+                "title": "entityPosition",
+                "type": "action",
+                "name": "entityPosition",
+                "parameters": {
+                  "entity": {"key": "target"}
+                },
+                "output": {
+                  "position": "targetPosition"
+                }
+              },
+              {
+                "title": "swarmPosition",
+                "type": "action",
+                "name": "swarmPosition",
+                "parameters": {
+                  "center": {"key": "targetPosition"},
+                  "idleTime": {"key": "<idleTime>"},
+                  "maxRange": {"key": "<maxRange>"},
+                  "minMoveDistance": {"key": "<minMoveDistance>"}
+                }
+              }
+            ]
+          },
+          {
+            "title": "moveToPosition",
+            "type": "action",
+            "name": "moveToPosition",
+            "parameters": {
+              "avoidLiquid": {"value": true},
+              "groundPosition": {"value": false},
+              "pathOptions": {"value": {}},
+              "position": {"key": "targetPosition"},
+              "run": {"value": false}
+            },
+            "output": {
+              "pathfinding": "isPathfinding"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

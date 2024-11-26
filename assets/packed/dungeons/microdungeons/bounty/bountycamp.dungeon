@@ -1,0 +1,37 @@
+{
+  "metadata" : {
+    "name" : "bountycamp",
+    "species" : "generic",
+    "rules" : [
+    ],
+    "anchor" : [ "bountycamp_1", "bountycamp_2" ],
+    "gravity" : 80,
+    "maxRadius" : 1000000,
+    "maxParts" : 1,
+    "protected" : true
+  },
+
+  "parts" : [
+    {
+      "name" : "bountycamp_1",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "bountycamp_1.json" ]
+    },
+    {
+      "name" : "bountycamp_2",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "bountycamp_2.json" ]
+    },
+    {
+      "name" : "bountycamp_3",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "bountycamp_3.json" ]
+    }
+  ]
+}

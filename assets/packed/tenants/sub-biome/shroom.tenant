@@ -1,0 +1,25 @@
+{
+  "name": "shroom",
+  "priority": 10,
+
+  "colonyTagCriteria": {
+    "light": 1,
+    "door": 1,
+    "mushroompatch": 18
+  },
+
+  "tenants": [
+    {
+      "spawn": "npc",
+      "species": "floran",
+      "type": "shroommerchanttenant",
+      "overrides": {
+       }
+     }
+   ],
+
+  "rent": {
+    "periodRange": [900.0, 1800.0],
+    "pool": "merchantGift"
+  }
+}

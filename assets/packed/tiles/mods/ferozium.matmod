@@ -1,0 +1,20 @@
+{
+  "modId" : 28,
+  "modName" : "ferozium",
+  "itemDrop" : "feroziumore",
+  "description" : "Ferozium.",
+  "health" : 5,
+  "harvestLevel" : 7,
+  "breaksWithTile" : true,
+
+  "miningSounds" : [ "/sfx/tools/pickaxe_ore.ogg", "/sfx/tools/pickaxe_ore2.ogg" ],
+  "miningParticle" : "orespark",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "ferozium.png",
+    "variants" : 8,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

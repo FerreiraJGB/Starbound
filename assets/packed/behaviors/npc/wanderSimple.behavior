@@ -1,0 +1,183 @@
+{
+  "name": "wanderSimple",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/position.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/time.lua"
+  ],
+  "parameters": {
+    "wanderTime": [0.5, 2],
+    "wanderWaitTime": [2, 10],
+    "alwaysRun": false
+  },
+  "root": {
+    "title": "selector",
+    "type": "composite",
+    "name": "selector",
+    "parameters": {},
+    "children": [
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "inverter",
+            "type": "decorator",
+            "name": "inverter",
+            "parameters": {},
+            "child": {
+              "title": "inRange",
+              "type": "action",
+              "name": "inRange",
+              "parameters": {
+                "position": {"key": "self"},
+                "range": {"value": 10},
+                "target": {"key": "spawn"}
+              }
+            }
+          },
+          {
+            "title": "parallel",
+            "type": "composite",
+            "name": "parallel",
+            "parameters": {
+              "fail": {"value": -1},
+              "success": {"value": 1}
+            },
+            "children": [
+              {
+                "title": "selector",
+                "type": "composite",
+                "name": "selector",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "",
+                    "type": "action",
+                    "name": "moveToPosition",
+                    "parameters": {
+                      "pathOptions": {"value": {"returnBest": true}},
+                      "position": {"key": "spawn"},
+                      "run": {"key": "<alwaysRun>"}
+                    },
+                    "output": {
+                      "pathfinding": "isPathfinding"
+                    }
+                  },
+                  {
+                    "title": "parallel",
+                    "type": "composite",
+                    "name": "parallel",
+                    "parameters": {
+                      "fail": {"value": 2},
+                      "success": {"value": 2}
+                    },
+                    "children": [
+                      {
+                        "title": "distance",
+                        "type": "action",
+                        "name": "distance",
+                        "parameters": {
+                          "from": {"key": "self"},
+                          "to": {"key": "spawn"}
+                        },
+                        "output": {
+                          "magnitude": "targetDist",
+                          "x": "spawnX"
+                        }
+                      },
+                      {
+                        "title": "inRange",
+                        "type": "action",
+                        "name": "inRange",
+                        "parameters": {
+                          "position": {"key": "self"},
+                          "range": {"value": 10},
+                          "target": {"key": "spawn"}
+                        }
+                      },
+                      {
+                        "title": "move",
+                        "type": "action",
+                        "name": "move",
+                        "parameters": {
+                          "direction": {"key": "spawnX"},
+                          "run": {"value": false}
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "title": "inRange",
+                "type": "action",
+                "name": "inRange",
+                "parameters": {
+                  "position": {"key": "self"},
+                  "range": {"value": 3},
+                  "target": {"key": "spawn"}
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "timer",
+            "type": "action",
+            "name": "timer",
+            "parameters": {
+              "time": {"value": "<wanderWaitTime>"}
+            }
+          },
+          {
+            "title": "setDirection",
+            "type": "action",
+            "name": "setDirection",
+            "parameters": {},
+            "output": {
+              "direction": "moveDirection"
+            }
+          },
+          {
+            "title": "parallel",
+            "type": "composite",
+            "name": "parallel",
+            "parameters": {
+              "fail": {"value": 1},
+              "success": {"value": 1}
+            },
+            "children": [
+              {
+                "title": "move",
+                "type": "action",
+                "name": "move",
+                "parameters": {
+                  "direction": {"key": "moveDirection"}
+                }
+              },
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": "<wanderTime>"}
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

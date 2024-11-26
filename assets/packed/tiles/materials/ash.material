@@ -1,0 +1,26 @@
+{
+  "materialId" : 37,
+  "materialName" : "ash",
+  "particleColor" : [176, 174, 168, 255],
+  "itemDrop" : "ash",
+  "description" : "A pile of tightly packed ash.",
+  "shortdescription" : "Ash Pile",
+  "glitchDescription" : "Curious. A pile of packed ash.",
+  "floranDescription" : "Big bunch of ashess.",
+  "novakidDescription" : "Big ol' pile of ash.",
+  "footstepSound" : "/sfx/blocks/footstep_ash.ogg",
+  "falling" : true,
+  "cascading" : true,
+  "health" : 1,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "ash.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 400
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "materialId" : 666,
+  "materialName" : "deadcore",
+  "particleColor" : [20, 20, 20, 255],
+  "description" : "The superdense core of a dead planet. Nearly unbreakable.",
+  "shortdescription" : "Dead Core Block",
+  "footstepSound" : "/sfx/blocks/footstep_stone.ogg",
+  "health" : 2048,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "deadcore.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 4000
+  }
+}

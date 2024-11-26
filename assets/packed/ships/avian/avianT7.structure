@@ -1,0 +1,23 @@
+{
+  "config" : {
+    "shipUpgrades" : {
+      "capabilities" : ["teleport", "planetTravel", "systemTravel"],
+      "crewSize" : 10
+    }
+  },
+
+  "backgroundOverlays" : [
+    {
+      "image" : "avianT7.png",
+      "position" : [4.62, 12.38],
+      "fullbright" : true
+    },
+    {
+      "image" : "avianT7lit.png",
+      "position" : [4.62, 12.38]
+    }
+  ],
+
+  "blockKey" : "blockKey.config:blockKey",
+  "blockImage" : "avianT7blocks.png"
+}

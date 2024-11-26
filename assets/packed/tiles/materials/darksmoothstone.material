@@ -1,0 +1,24 @@
+{
+  "materialId" : 6,
+  "materialName" : "darksmoothstone",
+  "particleColor" : [132, 134, 132, 255],
+  "shortdescription" : "Dark Smooth Stone",
+  "description" : "A dark, smooth stone block.",
+  "glitchDescription" : "Curious. A dark brick made from an unknown stone.",
+  "floranDescription" : "Sssmooth sstone block.",
+  "novakidDescription" : "A dark lookin' stone brick.",
+  "itemDrop" : "darksmoothstonematerial",
+  "footstepSound" : "/sfx/blocks/footstep_stone2.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "darksmoothstone.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 2840
+  }
+}

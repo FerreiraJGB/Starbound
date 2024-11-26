@@ -1,0 +1,24 @@
+{
+  "materialId" : 41,
+  "materialName" : "hive",
+  "particleColor" : [13, 39, 7, 255],
+  "itemDrop" : "hive",
+  "description" : "Sticky hive combs made from the remains of fallen creatures.",
+  "shortdescription" : "Hivestone",
+  "glitchDescription" : "Revolted. This hive material is made up of crushed creatures.",
+  "floranDescription" : "Hive made from crusshed animalss.",
+  "novakidDescription" : "Some sorta hive made from crushed critters.",
+  "footstepSound" : "/sfx/blocks/footstep_gravel.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "hive.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 0
+  }
+}

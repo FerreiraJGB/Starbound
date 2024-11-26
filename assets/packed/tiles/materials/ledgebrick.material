@@ -1,0 +1,24 @@
+{
+  "materialId" : 286,
+  "materialName" : "ledgebrick",
+  "particleColor" : [71, 66, 57, 255],
+  "itemDrop" : "ledgebrick",
+  "description" : "Stone stepped bricks with a small ledge.",
+  "shortdescription" : "Ledge Brick",
+  "glitchDescription" : "Delighted. This stone has a small carved ledge.",
+  "floranDescription" : "Carved stone brickss.",
+  "novakidDescription" : "Some mighty old lookin' bricks.",
+  "footstepSound" : "/sfx/blocks/footstep_stone.ogg",
+  "health" : 20,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "ledgebrick.png",
+    "variants" : 8,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 2769
+  }
+}

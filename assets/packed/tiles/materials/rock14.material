@@ -1,0 +1,23 @@
+{
+  "materialId" : 776,
+  "materialName" : "rock14",
+  "particleColor" : [128, 124, 95, 255],
+  "itemDrop" : "cobblestonematerial",
+  "description" : "Stacked natural granite bricks.",
+  "shortdescription" : "Granite Block",
+  "glitchDescription" : "Interested. Mining this granite will only produce cobblestone.",
+  "floranDescription" : "Floran likessss pretty granite.",
+  "novakidDescription" : "Looks t'me like some basic granite.",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "rock14.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 1600
+  }
+}

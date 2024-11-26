@@ -1,0 +1,310 @@
+{
+  "name": "floranmissionstart",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/query.lua",
+    "/scripts/actions/position.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/behavior.lua",
+    "/scripts/actions/math.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "dynamic",
+    "type": "composite",
+    "name": "dynamic",
+    "parameters": {},
+    "children": [
+      {
+        "title": "limiter",
+        "type": "decorator",
+        "name": "limiter",
+        "parameters": {
+          "limit": {"value": 1}
+        },
+        "child": {
+          "title": "sequence",
+          "type": "composite",
+          "name": "sequence",
+          "parameters": {},
+          "children": [
+            {
+              "title": "parallel",
+              "type": "composite",
+              "name": "parallel",
+              "parameters": {
+                "fail": {"value": 1}
+              },
+              "children": [
+                {
+                  "title": "selector",
+                  "type": "composite",
+                  "name": "selector",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "faceEntity",
+                      "type": "action",
+                      "name": "faceEntity",
+                      "parameters": {
+                        "entity": {"key": "player"}
+                      }
+                    },
+                    {
+                      "title": "cooldown",
+                      "type": "decorator",
+                      "name": "cooldown",
+                      "parameters": {
+                        "cooldown": {"value": 0.5}
+                      },
+                      "child": {
+                        "title": "queryEntity",
+                        "type": "action",
+                        "name": "queryEntity",
+                        "parameters": {
+                          "entityTypes": {"value": ["player"]},
+                          "range": {"value": 10}
+                        },
+                        "output": {
+                          "entity": "player"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "title": "sequentialdialog",
+                  "type": "module",
+                  "name": "sequentialdialog",
+                  "parameters": {
+                    "dialogWaitTime": {"value": 8},
+                    "dialogEndWait": {"value": 2},
+                    "dialogKey": {"value": "dialog.floranmissionstart.introduction"},
+                    "dialogTarget": {"key": "player"}
+                  }
+                }
+              ]
+            },
+            {
+              "title": "selector",
+              "type": "composite",
+              "name": "selector",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "move",
+                  "type": "action",
+                  "name": "move",
+                  "parameters": {
+                    "direction": {"value": 1}
+                  }
+                },
+                {
+                  "title": "sequence",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "offsetPosition",
+                      "type": "action",
+                      "name": "offsetPosition",
+                      "parameters": {
+                        "offset": {"value": [0, -25]},
+                        "position": {"key": "self"}
+                      },
+                      "output": {
+                        "position": "switchposition"
+                      }
+                    },
+                    {
+                      "title": "Find switch",
+                      "type": "action",
+                      "name": "findObject",
+                      "parameters": {
+                        "name": {"value": "medievalswitchlever"},
+                        "position": {"key": "switchposition"},
+                        "range": {"value": 10}
+                      },
+                      "output": {
+                        "entity": "switch"
+                      }
+                    },
+                    {
+                      "title": "Flip switch",
+                      "type": "action",
+                      "name": "interactObject",
+                      "parameters": {
+                        "entity": {"key": "switch"}
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "setFlag",
+              "type": "action",
+              "name": "setFlag",
+              "parameters": {
+                "name": {"value": "beamout"}
+              }
+            }
+          ]
+        }
+      },
+      {
+        "title": "failer",
+        "type": "decorator",
+        "name": "failer",
+        "parameters": {},
+        "child": {
+          "title": null,
+          "type": "module",
+          "name": "converseseq",
+          "parameters": {}
+        }
+      },
+      {
+        "title": "limiter",
+        "type": "decorator",
+        "name": "limiter",
+        "parameters": {
+          "limit": {"value": 1}
+        },
+        "child": {
+          "title": "sequence",
+          "type": "composite",
+          "name": "sequence",
+          "parameters": {},
+          "children": [
+            {
+              "title": "hasFlag",
+              "type": "action",
+              "name": "hasFlag",
+              "parameters": {
+                "name": {"key": "beamout"}
+              }
+            },
+            {
+              "title": "parallel",
+              "type": "composite",
+              "name": "parallel",
+              "parameters": {
+                "fail": {"value": 1}
+              },
+              "children": [
+                {
+                  "title": "selector",
+                  "type": "composite",
+                  "name": "selector",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "faceEntity",
+                      "type": "action",
+                      "name": "faceEntity",
+                      "parameters": {
+                        "entity": {"key": "player"}
+                      }
+                    },
+                    {
+                      "title": "cooldown",
+                      "type": "decorator",
+                      "name": "cooldown",
+                      "parameters": {
+                        "cooldown": {"value": 0.5}
+                      },
+                      "child": {
+                        "title": "queryEntity",
+                        "type": "action",
+                        "name": "queryEntity",
+                        "parameters": {
+                          "entityTypes": {"value": ["player"]},
+                          "range": {"value": 10}
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "title": "entityDirection",
+                  "type": "action",
+                  "name": "entityDirection",
+                  "parameters": {
+                    "entity": {"key": "self"},
+                    "target": {"key": "player"}
+                  },
+                  "output": {
+                    "direction": "direction"
+                  }
+                },
+                {
+                  "title": "greaterThan",
+                  "type": "action",
+                  "name": "greaterThan",
+                  "parameters": {
+                    "first": {"key": "direction"},
+                    "second": {"value": 0}
+                  }
+                },
+                {
+                  "title": "inverter",
+                  "type": "decorator",
+                  "name": "inverter",
+                  "parameters": {},
+                  "child": {
+                    "title": "entityInRange",
+                    "type": "action",
+                    "name": "entityInRange",
+                    "parameters": {
+                      "entity": {"key": "player"},
+                      "position": {"key": "self"},
+                      "range": {"value": 3},
+                      "xRange": {"key": ""},
+                      "yRange": {"key": ""}
+                    }
+                  }
+                },
+                {
+                  "title": "sequentialdialog",
+                  "type": "module",
+                  "name": "sequentialdialog",
+                  "parameters": {
+                    "dialogWaitTime": {"value": 8},
+                    "dialogEndWait": {"value": 2},
+                    "dialogKey": {"value": "dialog.floranmissionstart.end"},
+                    "dialogTarget": {"key": "player"}
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "hasFlag",
+            "type": "action",
+            "name": "hasFlag",
+            "parameters": {
+              "name": {"key": "beamout"}
+            }
+          },
+          {
+            "title": null,
+            "type": "module",
+            "name": "beamout",
+            "parameters": {}
+          }
+        ]
+      }
+    ]
+  }
+}

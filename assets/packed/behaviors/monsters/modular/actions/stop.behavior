@@ -1,0 +1,19 @@
+{
+  "name": "action-stop",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/movement.lua"
+  ],
+  "parameters": {
+    "stopForce": 50
+  },
+  "root": {
+    "title": "controlApproachVelocity",
+    "type": "action",
+    "name": "controlApproachVelocity",
+    "parameters": {
+      "force": {"key": "<stopForce>"},
+      "velocity": {"value": [0, 0]}
+    }
+  }
+}

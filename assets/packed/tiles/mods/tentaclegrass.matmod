@@ -1,0 +1,15 @@
+{
+  "modId" : 33,
+  "modName" : "tentaclegrass",
+  "description" : "Pulsating tentacles",
+  "footstepSound" : "/sfx/blocks/footstep_mud.ogg",
+  "health" : 0,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "tentaclegrass.png",
+    "variants" : 5,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

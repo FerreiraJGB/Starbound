@@ -1,0 +1,54 @@
+{
+  "metadata" : {
+    "name" : "cyberdungeon",
+    "species" : "generic",
+    "rules" : [
+    ],
+    "anchor" : [ "cyberdungeon_start_1", "cyberdungeon_start_2", "cyberdungeon_start_3" ],
+    "gravity" : 80,
+    "maxRadius" : 1000000,
+    "maxParts" : 2,
+    "protected" : true
+  },
+
+  "parts" : [
+    {
+      "name" : "cyberdungeon_start_1",
+      "rules" : [
+        [ "maxSpawnCount", [1] ],
+        [ "doNotConnectToPart", [ "cyberdungeon_start_1", "cyberdungeon_start_2", "cyberdungeon_start_3" ] ]
+      ],
+      "def" : [ "tmx", "cyberdungeon_start_1.json" ]
+    },
+    {
+      "name" : "cyberdungeon_start_2",
+      "rules" : [
+        [ "maxSpawnCount", [1] ],
+        [ "doNotConnectToPart", [ "cyberdungeon_start_1", "cyberdungeon_start_2", "cyberdungeon_start_3" ] ]
+      ],
+      "def" : [ "tmx", "cyberdungeon_start_2.json" ]
+    },
+    {
+      "name" : "cyberdungeon_start_3",
+      "rules" : [
+        [ "maxSpawnCount", [1] ],
+        [ "doNotConnectToPart", [ "cyberdungeon_start_1", "cyberdungeon_start_2", "cyberdungeon_start_3" ] ]
+      ],
+      "def" : [ "tmx", "cyberdungeon_start_3.json" ]
+    },
+    {
+      "name" : "cyberdungeon_middle_1",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "cyberdungeon_middle_1.json" ]
+    },
+    {
+      "name" : "cyberdungeon_middle_2",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "cyberdungeon_middle_2.json" ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "frames" : "floorsmoke.png",
+  "variants" : 1,
+  "frameNumber" : 4,
+  "animationCycle" : 0.45,
+  "cycle" : 1,
+  "mode" : "stop",
+  "offset" : [0, 0],
+  "animationLoops" : false
+}

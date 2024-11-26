@@ -1,0 +1,25 @@
+{
+  "materialId" : 80,
+  "materialName" : "redtoyblock",
+  "particleColor" : [185, 29, 4, 255],
+  "itemDrop" : "redtoyblock",
+  "shortdescription" : "Red Toy Block",
+  "description" : "A large stackable toy block.",
+  "glitchDescription" : "Amused. These toy blocks stack and lock together.",
+  "floranDescription" : "Floran likess sstackable toy block.",
+  "novakidDescription" : "These colourful blocks are meant for playin' with.",
+  "footstepSound" : "/sfx/blocks/footstep_stone.ogg",
+  "falling" : true,
+  "health" : 4,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "redtoyblock.png",
+    "variants" : 1,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 0
+  }
+}

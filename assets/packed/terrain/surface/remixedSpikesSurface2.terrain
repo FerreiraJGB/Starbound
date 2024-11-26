@@ -1,0 +1,103 @@
+{
+  "name" : "remixedSpikesSurface2",
+
+  "type" : "max",
+
+  "sources" : [
+    {
+      "type" : "rotate",
+
+      "rotation" : -0.7,
+
+      "source" : {
+        //jaggy spikes
+        "type" : "displacement",
+        "xType" : "perlin",
+        "xOctaves" : 1,
+        "xFreq" : 0.01,
+        "xAmp" : 0,
+        "yType" : "perlin",
+        "yOctaves" : 2,
+        "yFreq" : 0.06,
+        "yAmp" : 80,
+        "yBias" : 5,
+        "yClamp" : [-60, 5],
+        "yClampSmoothing" : 5,
+        "yYInfluence" : 0,
+
+        "source" : {
+          "type" : "rotate",
+
+          "rotation" : 0.7,
+
+          "source" : {
+            //slower, lower hills
+            "type" : "displacement",
+            "xType" : "perlin",
+            "xOctaves" : 2,
+            "xFreq" : 0.01,
+            "xAmp" : 0,
+            "yType" : "perlin",
+            "yOctaves" : 1,
+            "yFreq" : 0.005,
+            "yAmp" : 70,
+
+            "source" : {
+              "type" : "flatSurface",
+
+              "adjustment" : 0
+            }
+          }
+        }
+      }
+    },
+
+    {
+      "type" : "rotate",
+
+      "rotation" : 0.7,
+
+      "source" : {
+        //jaggy spikes
+        "type" : "displacement",
+        "xType" : "perlin",
+        "xOctaves" : 1,
+        "xFreq" : 0.01,
+        "xAmp" : 0,
+        "yType" : "perlin",
+        "yOctaves" : 2,
+        "yFreq" : 0.07,
+        "yAmp" : 70,
+        "yBias" : 5,
+        "yClamp" : [-60, 5],
+        "yClampSmoothing" : 5,
+        "yYInfluence" : 0,
+
+        "source" : {
+          "type" : "rotate",
+
+          "rotation" : -0.7,
+
+          "source" : {
+            //slower, lower hills
+            "type" : "displacement",
+            "xType" : "perlin",
+            "xOctaves" : 2,
+            "xFreq" : 0.01,
+            "xAmp" : 0,
+            "yType" : "perlin",
+            "yOctaves" : 1,
+            "yFreq" : 0.0065,
+            "yAmp" : 60,
+
+            "source" : {
+              "type" : "flatSurface",
+
+              "adjustment" : 0
+            }
+          }
+        }
+      }
+    }
+  ]
+}

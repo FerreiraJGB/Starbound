@@ -1,0 +1,197 @@
+{
+  "name": "Tenant - Grumble",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/tenant.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/dialog.lua",
+    "/scripts/actions/npc.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "parallel",
+    "type": "composite",
+    "name": "parallel",
+    "parameters": {
+      "fail": {"value": 1},
+      "success": {"value": -1}
+    },
+    "children": [
+      {
+        "title": "hasGrumbles",
+        "type": "action",
+        "name": "hasGrumbles",
+        "parameters": {}
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "parallel",
+            "type": "composite",
+            "name": "parallel",
+            "parameters": {
+              "fail": {"value": 1},
+              "success": {"value": 1}
+            },
+            "children": [
+              {
+                "title": "repeater",
+                "type": "decorator",
+                "name": "repeater",
+                "parameters": {
+                  "maxLoops": {"value": -1},
+                  "untilSuccess": {"value": false}
+                },
+                "child": {
+                  "title": "sequence",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "sayGrumble",
+                      "type": "action",
+                      "name": "sayGrumble",
+                      "parameters": {}
+                    },
+                    {
+                      "title": "timer",
+                      "type": "action",
+                      "name": "timer",
+                      "parameters": {
+                        "time": {"value": [5, 10]}
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": [25, 25]}
+                }
+              }
+            ]
+          },
+          {
+            "title": "parallel",
+            "type": "composite",
+            "name": "parallel",
+            "parameters": {
+              "fail": {"value": 1},
+              "success": {"value": 1}
+            },
+            "children": [
+              {
+                "title": "repeater",
+                "type": "decorator",
+                "name": "repeater",
+                "parameters": {
+                  "maxLoops": {"value": -1},
+                  "untilSuccess": {"value": false}
+                },
+                "child": {
+                  "title": "sequence",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "sayToEntity",
+                      "type": "action",
+                      "name": "sayToEntity",
+                      "parameters": {
+                        "dialogType": {"value": "dialog.tenant.grumbles.severe"},
+                        "entity": {"key": "self"}
+                      }
+                    },
+                    {
+                      "title": "timer",
+                      "type": "action",
+                      "name": "timer",
+                      "parameters": {
+                        "time": {"value": [5, 10]}
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": [10, 10]}
+                }
+              }
+            ]
+          },
+          {
+            "title": "repeater",
+            "type": "decorator",
+            "name": "repeater",
+            "parameters": {
+              "maxLoops": {"value": -1},
+              "untilSuccess": {"value": false}
+            },
+            "child": {
+              "title": "sequence",
+              "type": "composite",
+              "name": "sequence",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "sayToEntity",
+                  "type": "action",
+                  "name": "sayToEntity",
+                  "parameters": {
+                    "dialogType": {"value": "dialog.tenant.grumbles.final"},
+                    "entity": {"key": "self"}
+                  }
+                },
+                {
+                  "title": "timer",
+                  "type": "action",
+                  "name": "timer",
+                  "parameters": {
+                    "time": {"value": [5, 10]}
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "emote",
+            "type": "action",
+            "name": "emote",
+            "parameters": {
+              "emote": {"value": "sad"}
+            }
+          },
+          {
+            "title": "timer",
+            "type": "action",
+            "name": "timer",
+            "parameters": {
+              "time": {"value": [1, 2]}
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

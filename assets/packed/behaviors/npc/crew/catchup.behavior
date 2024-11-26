@@ -1,0 +1,56 @@
+{
+  "name": "crewmember-catchup",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/crew.lua",
+    "/scripts/actions/world.lua"
+  ],
+  "parameters": {
+    "teleportRange": 50
+  },
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "isFollowingRecruiter",
+        "type": "action",
+        "name": "isFollowingRecruiter",
+        "parameters": {}
+      },
+      {
+        "title": "recruiterEntity",
+        "type": "action",
+        "name": "recruiterEntity",
+        "parameters": {},
+        "output": {
+          "entity": "player"
+        }
+      },
+      {
+        "title": "inverter",
+        "type": "decorator",
+        "name": "inverter",
+        "parameters": {},
+        "child": {
+          "title": "entityInRange",
+          "type": "action",
+          "name": "entityInRange",
+          "parameters": {
+            "entity": {"key": "player"},
+            "position": {"key": "self"},
+            "range": {"key": "<teleportRange>"}
+          }
+        }
+      },
+      {
+        "title": "crewmember-teleport",
+        "type": "module",
+        "name": "crewmember-teleport",
+        "parameters": {}
+      }
+    ]
+  }
+}

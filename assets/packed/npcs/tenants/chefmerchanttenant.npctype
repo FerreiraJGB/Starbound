@@ -1,0 +1,17 @@
+{
+  "type" : "chefmerchanttenant",
+  "baseType" : "chefmerchant",
+  "dropPools" : [],
+
+  "scriptConfig" : {
+    "questGenerator" : {
+      "pools" : ["common", "tenant"],
+      "enableParticipation" : true,
+
+      "timeLimit" : 30,
+      "nearbyQuestLimit" : 2,
+      "nearbyQuestRange" : 50,
+      "chance" : 0.01
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "modId" : 40,
+  "modName" : "moonstone",
+  "itemDrop" : "moonstoneore",
+  "description" : "Moonstone.",
+  "health" : 20,
+  "breaksWithTile" : true,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "moonstone.png",
+    "variants" : 8,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

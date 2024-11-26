@@ -1,0 +1,15 @@
+{
+  "modId" : 5,
+  "modName" : "ash",
+  "description" : "A thick layer of ash.",
+  "footstepSound" : "/sfx/blocks/footstep_ash.ogg",
+  "health" : 0,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "ash.png",
+    "variants" : 5,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

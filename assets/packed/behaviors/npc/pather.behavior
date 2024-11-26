@@ -1,0 +1,69 @@
+{
+  "name": "pather",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/query.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/movement.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "queryEntity",
+        "type": "action",
+        "name": "queryEntity",
+        "parameters": {
+          "entityTypes": {"value": ["player"]},
+          "orderBy": {"value": "nearest"},
+          "position": {"key": "self"},
+          "range": {"value": 50},
+          "withoutEntity": {"key": "self"}
+        },
+        "output": {
+          "entity": "player"
+        }
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": 1},
+          "success": {"value": -1}
+        },
+        "children": [
+          {
+            "title": "entityPosition",
+            "type": "action",
+            "name": "entityPosition",
+            "parameters": {
+              "entity": {"key": "player"}
+            },
+            "output": {
+              "position": "targetPosition"
+            }
+          },
+          {
+            "title": "moveToPosition",
+            "type": "action",
+            "name": "moveToPosition",
+            "parameters": {
+              "avoidLiquid": {"value": true},
+              "groundPosition": {"value": true},
+              "maxGround": {"value": 5},
+              "minGround": {"value": -25},
+              "position": {"key": "targetPosition"},
+              "run": {"value": false}
+            },
+            "output": {}
+          }
+        ]
+      }
+    ]
+  }
+}

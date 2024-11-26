@@ -1,0 +1,71 @@
+{
+  "name" : "mesasSurface",
+
+  //surface roughness
+  "type" : "displacement",
+  "xType" : "perlin",
+  "xOctaves" : 2,
+  "xFreq" : 0.2,
+  "xAmp" : 0,
+  "xXInfluence" : 0,
+  "yType" : "perlin",
+  "yOctaves" : 3,
+  "yFreq" : 0.05,
+  "yAmp" : 1,
+  "yYInfluence" : 1,
+  "yBias" : 0.5,
+  "yClamp" : [0, 1],
+
+  "source" : {
+    "type" : "mix",
+
+    "mixSource" : {
+      "type" : "perlin",
+      "function" : "perlin",
+      "octaves" : 1,
+      "freq" : 0.009,
+      "amp" : 120,
+      "bias" : 4,
+      "xInfluence" : 1,
+      "yInfluence" : 0.01
+    },
+
+    "aSource" : {
+      //base upper terrain height variation
+      "type" : "displacement",
+      "xType" : "perlin",
+      "xOctaves" : 2,
+      "xFreq" : 0.02,
+      "xAmp" : 0,
+      "yType" : "perlin",
+      "yOctaves" : 2,
+      "yFreq" : 0.002,
+      "yAmp" : 20,
+      "yYInfluence" : 0,
+
+      "source" : {
+        "type" : "flatSurface",
+        "adjustment" : 60
+      }
+    },
+
+    "bSource" : {
+      //base lower terrain height variation
+      "type" : "displacement",
+      "xType" : "perlin",
+      "xOctaves" : 2,
+      "xFreq" : 0.02,
+      "xAmp" : 0,
+      "yType" : "perlin",
+      "yOctaves" : 2,
+      "yFreq" : 0.003,
+      "yAmp" : 50,
+      "yYInfluence" : 0,
+
+      "source" : {
+        "type" : "flatSurface",
+        "adjustment" : 0
+      }
+    }
+  }
+}

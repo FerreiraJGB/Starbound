@@ -1,0 +1,15 @@
+{
+  "modId" : 359,
+  "modName" : "hiveceilinggrass",
+  "description" : "Gross, hivey ceiling grass.",
+  "footstepSound" : "/sfx/blocks/footstep_mud.ogg",
+  "health" : 0,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "hiveceilinggrass.png",
+    "variants" : 5,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

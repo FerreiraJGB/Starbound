@@ -1,0 +1,189 @@
+{
+  "animatedParts" : {
+    "stateTypes" : {
+      "body" : {
+        "priority" : 1,
+        "default" : "idle",
+        "states" : {
+          "idle" : {
+            "frames" : 1
+          },
+          "move" : {
+            "frames" : 4,
+            "cycle" : 0.2,
+            "mode" : "loop"
+          },
+          "movebackward" : {
+            "frames" : 4,
+            "cycle" : 0.2,
+            "mode" : "loop"
+          }
+        }
+      },
+      "cannon" : {
+        "priority" : 1,
+        "default" : "idle",
+        "states" : {
+          "idle" : {
+            "frames" : 1
+          },
+          "load" : {
+            "frames" : 4,
+            "cycle" : 0.4,
+            "mode" : "transition",
+            "transition" : "loaded"
+          },
+          "loaded" : {
+            "frames" : 1
+          },
+          "fire" : {
+            "frames" : 4,
+            "cycle" : 0.1,
+            "mode" : "transition",
+            "transition" : "idle"
+          }
+        }
+      },
+      "damage" : {
+        "priority" : 3,
+        "default" : "none",
+        "states" : {
+          "none" : {
+            "frames" : 1
+          },
+          "stunned" : {
+            "frames" : 1
+          }
+        }
+      }
+    },
+
+    "parts" : {
+      "back" : {
+        "properties" : {
+          "offset" : [0.0, 0.5],
+          "zLevel" : -2,
+          "mainSeatOffset" : [1.0, -0.25]
+        },
+        "partStates" : {
+          "body" : {
+            "idle" : {
+              "properties" : {
+                "image" : "ballistabackbody.png:idle.<frame>"
+              }
+            },
+            "move" : {
+              "properties" : {
+                "image" : "ballistabackbody.png:move.<frame>"
+              }
+            },
+            "movebackward" : {
+              "properties" : {
+                "image" : "ballistabackbody.png:movebackward.<frame>"
+              }
+            }
+          }
+        }
+      },
+      "front" : {
+        "properties" : {
+          "offset" : [0.0, 0.5],
+          "zLevel" : 2
+        },
+        "partStates" : {
+          "body" : {
+            "idle" : {
+              "properties" : {
+                "image" : "ballistafrontbody.png:idle.<frame>"
+              }
+            },
+            "move" : {
+              "properties" : {
+                "image" : "ballistafrontbody.png:move.<frame>"
+              }
+            },
+            "movebackward" : {
+              "properties" : {
+                "image" : "ballistafrontbody.png:movebackward.<frame>"
+              }
+            }
+          }
+        }
+      },
+      "ammo" : {
+        "properties" : {
+          "offset" : [0.0, 3.375],
+          "seatOffset" : [-2.5, 0],
+          "transformationGroups" : [ "ammo", "cannon" ]
+        }
+      },
+      "cannonback" : {
+        "properties" : {
+          "transformationGroups" : [ "cannon" ],
+          "offset" : [0.0, 3.375],
+          "zLevel" : -1,
+          "image" : "ballistacannonback.png"
+        }
+      },
+      "cannon" : {
+        "properties" : {
+          "transformationGroups" : [ "cannon" ],
+          "offset" : [0.0, 3.375],
+          "projectilePoint" : [-2.0, -1.5],
+          "zLevel" : 1
+        },
+        "partStates" : {
+          "cannon" : {
+            "idle" : {
+              "properties" : {
+                "image" : "ballistacannon.png:idle.<frame>"
+              }
+            },
+            "load" : {
+              "properties" : {
+                "image" : "ballistacannon.png:load.<frame>"
+              }
+            },
+            "loaded" : {
+              "properties" : {
+                "image" : "ballistacannon.png:loaded.<frame>"
+              }
+            },
+            "fire" : {
+              "properties" : {
+                "image" : "ballistacannon.png:fire.<frame>"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "transformationGroups" : {
+    "cannon" : { "interpolated" : true },
+    "ammo" : { "interpolated" : true }
+  },
+
+  "effects" : {
+    "blink" : {
+      "type" : "flash",
+      "time" : 0,
+      "directives" : "fade=ffffff;0.5"
+    }
+  },
+
+  "particleEmitters" : {
+    "deathPoof" : {
+      "burstCount" : 60,
+      "offsetRegion" : [-4, -2.375, 4, 2.375],
+      "particles" : [
+        { "particle" : "woodshard" }
+      ]
+    }
+  },
+
+  "sounds" : {
+    "fire" : []
+  }
+}

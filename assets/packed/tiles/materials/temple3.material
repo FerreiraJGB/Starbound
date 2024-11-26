@@ -1,0 +1,24 @@
+{
+  "materialId" : 28,
+  "materialName" : "temple3",
+  "particleColor" : [141, 131, 92, 255],
+  "itemDrop" : "temple3",
+  "shortdescription" : "Small Temple Bricks",
+  "description" : "Dusty but finely crafted bricks.",
+  "glitchDescription" : "Amazed. These small blocks display a high level of craftsmanship.",
+  "floranDescription" : "Dussty small brickss.",
+  "novakidDescription" : "Some dusty lookin' little bricks.",
+  "footstepSound" : "/sfx/blocks/footstep_stone3.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "temple3.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 2740
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "neon",
+  "priority": 4,
+
+  "colonyTagCriteria": {
+    "light": 1,
+    "door": 1,
+    "electronic": 32
+  },
+
+  "tenants": [
+    {
+      "spawn": "npc",
+      "species": ["human", "apex"],
+      "type": "neon",
+      "overrides": {
+       }
+     }
+   ],
+
+  "rent": {
+    "periodRange": [900.0, 1800.0],
+    "pool": "villagerGift"
+  }
+}

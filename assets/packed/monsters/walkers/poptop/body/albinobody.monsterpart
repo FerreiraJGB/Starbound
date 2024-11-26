@@ -1,0 +1,9 @@
+{
+  "name" : "poptop",
+  "category" : "albinopoptop",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "albinopoptop.png"
+  }
+}

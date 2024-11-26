@@ -1,0 +1,7 @@
+{
+  "image" : "transparentpoof.png",
+  "frameGrid" : {
+    "size" : [32, 32],
+    "dimensions" : [7, 1]
+  }
+}

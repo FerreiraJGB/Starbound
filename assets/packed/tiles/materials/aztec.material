@@ -1,0 +1,24 @@
+{
+  "materialId" : 1,
+  "materialName" : "aztec",
+  "particleColor" : [255, 231, 170, 255],
+  "itemDrop" : "aztecmaterial",
+  "shortdescription" : "Glyph Block",
+  "description" : "Small glyphs cover this stone.",
+  "glitchDescription" : "Fascinated. I do not know what these glyphs say.",
+  "floranDescription" : "Floran cannot undersstand ssymbolss.",
+  "novakidDescription" : "Some kinda ol' lookin' symbols.",
+  "footstepSound" : "/sfx/blocks/footstep_stone.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "aztec.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 3170
+  }
+}

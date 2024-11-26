@@ -1,0 +1,24 @@
+{
+  "materialId" : 1640,
+  "materialName" : "geodeblock",
+  "particleColor" : [121, 150, 102, 255],
+  "itemDrop" : "geodeblock",
+  "description" : "Glimmering natural geode crystals.",
+  "shortdescription" : "Geode Crystals",
+  "glitchDescription" : "Amazed. These natural crystals appear to have grown from geodes.",
+  "floranDescription" : "Ssshiny geode crysstalss.",
+  "novakidDescription" : "Some shiny lookin' rock crystals.",
+  "footstepSound" : "/sfx/blocks/footstep_crystal.ogg",
+  "health" : 12,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "geodeblock.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 1401
+  }
+}

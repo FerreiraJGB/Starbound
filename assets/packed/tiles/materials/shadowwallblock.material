@@ -1,0 +1,24 @@
+{
+  "materialId" : 887,
+  "materialName" : "shadowwallblock",
+  "particleColor" : [0, 0, 0, 255],
+  "itemDrop" : "shadowwallblock",
+  "description" : "Bricks carved from shadowy rock.",
+  "shortdescription" : "Shadow Bricks",
+  "glitchDescription" : "Perceptive. These bricks are made from a very durable material.",
+  "floranDescription" : "Tough black brickss.",
+  "novakidDescription" : "Some bricks made outta dark rock.",
+  "footstepSound" : "/sfx/blocks/footstep_stone3.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "shadowwallblock.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 1922
+  }
+}

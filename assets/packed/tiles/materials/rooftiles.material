@@ -1,0 +1,24 @@
+{
+  "materialId" : 121,
+  "materialName" : "rooftiles",
+  "particleColor" : [110, 71, 60, 255],
+  "itemDrop" : "rooftiles",
+  "description" : "Weathered roof tiles. Their shape makes me feel uneasy.",
+  "glitchDescription" : "Observant. These roof tiles are sloped to allow for easy rain run off.",
+  "floranDescription" : "Roofing tiless.",
+  "novakidDescription" : "These tiles look perfect for makin' a roof.",
+  "shortdescription" : "Roof Tiles",
+  "footstepSound" : "/sfx/blocks/footstep_stone.ogg",
+  "health" : 8,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "rooftiles.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3440
+  }
+}

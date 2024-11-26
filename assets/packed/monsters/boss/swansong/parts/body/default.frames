@@ -1,0 +1,17 @@
+{
+  "frameGrid" : {
+    "size" : [96, 96],
+    "dimensions" : [10, 9],
+
+    "names" : [
+      [ null, "init.1", "init.2", "init.3", "init.4", null, "spawn.1", "spawn.2", "spawn.3", "spawn.4" ],
+      [ "spawn.5", "spawn.6", "spawn.7", "spawn.8", "spawn.9", "spawn.10", "spawn.11", "spawn.12", "spawn.13", "spawn.14" ],
+      [ "spawn.15", "spawn.16", "spawn.17", "spawn.18", "spawn.19", "spawn.20", "spawn.21", "spawn.22", "spawn.23", "spawn.24" ],
+      [ "spawn.25", "spawn.26", "spawn.27", "spawn.28", "spawn.29", "spawn.30", "spawn.31", "spawn.32", "spawn.33", null],
+      [ "idle.1", "idle.2", "idle.3", "idle.4", "idle.5", "idle.6", null, "idlegrav.1", "idlegrav.2", "idlegrav.3"],
+      [ "idlegrav.4", "idlegrav.5", "idlegrav.6", null, "rocketwindup.1", "rocketwindup.2", "rocketwindup.3", "rocketwindup.4", "rocketwindup.5", "rocketwindup.6"],
+      [ null, "rocketloop.1", "rocketloop.2", "rocketloop.3", "rocketloop.4", "rocketloop.5", "rocketloop.6", null, "rocketwinddown.1", "rocketwinddown.2"],
+      [ "rocketwinddown.3", "rocketwinddown.4", "rocketwinddown.5", "rocketwinddown.6", "final.1", "final.2", "final.3", "final.4", "final.5", "final.6" ]
+    ]
+  }
+}

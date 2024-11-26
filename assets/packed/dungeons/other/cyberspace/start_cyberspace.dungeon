@@ -1,0 +1,23 @@
+{
+  "metadata" : {
+    "name" : "start_cyberspace",
+    "species" : "generic",
+    "rules" : [
+    ],
+    "anchor" : [ "start_cyberspace" ],
+    "gravity" : 80,
+    "maxRadius" : 1000000,
+    "maxParts" : 1,
+    "protected" : true
+  },
+
+  "parts" : [
+    {
+      "name" : "start_cyberspace",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "start_cyberspace.json" ]
+    }
+  ]
+}

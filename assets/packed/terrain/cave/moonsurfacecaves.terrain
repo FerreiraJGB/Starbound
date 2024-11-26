@@ -1,0 +1,27 @@
+{
+  "name" : "moonSurfaceCaves",
+
+  "type" : "max",
+  "sources" : [
+    {
+      "type" : "perlin",
+      "function" : "perlin",
+      "octaves" : 2,
+      "freq" : 0.08,
+      "amp" : 40,
+      "bias" : -12,
+      "xInfluence" : 0.8,
+      "yInfluence" : 1.0
+    },
+    {
+      "type" : "perlin",
+      "function" : "perlin",
+      "octaves" : 2,
+      "freq" : 0.025,
+      "amp" : 40,
+      "bias" : -8,
+      "xInfluence" : 0.8,
+      "yInfluence" : 1.0
+    }
+  ]
+}

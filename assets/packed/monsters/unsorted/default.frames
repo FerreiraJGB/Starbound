@@ -1,0 +1,10 @@
+{
+  "frameGrid" : {
+    "size" : [16, 16],
+    "dimensions" : [4, 1],
+
+    "names" : [
+      ["fly.1", "fly.2", "fly.3", "fly.4"]
+    ]
+  }
+}

@@ -1,0 +1,566 @@
+{
+  "name": "koichiend",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/query.lua",
+    "/scripts/actions/entity.lua",
+    "/scripts/behavior.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/position.lua",
+    "/scripts/actions/notification.lua",
+    "/scripts/actions/npc.lua",
+    "/scripts/actions/status.lua"
+  ],
+  "parameters": {
+    "dialogWaitTime": 8,
+    "dialogEndWait": 2
+  },
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "queryEntity",
+            "type": "action",
+            "name": "queryEntity",
+            "parameters": {
+              "entityTypes": {"value": ["player"]},
+              "orderBy": {"value": "nearest"},
+              "position": {"key": "self"},
+              "range": {"value": 20},
+              "withoutEntity": {"key": "self"}
+            },
+            "output": {
+              "list": "players"
+            }
+          },
+          {
+            "title": "filter",
+            "type": "decorator",
+            "name": "filter",
+            "parameters": {
+              "list": {"key": "players"},
+              "type": {"value": "entity"}
+            },
+            "child": {
+              "title": "entityInSight",
+              "type": "action",
+              "name": "entityInSight",
+              "parameters": {
+                "entity": {"key": "filterItem"}
+              }
+            }
+          },
+          {
+            "title": "listGet",
+            "type": "action",
+            "name": "listGet",
+            "parameters": {
+              "list": {"key": "players"}
+            },
+            "output": {
+              "entity": "player"
+            }
+          }
+        ]
+      },
+      {
+        "title": "faceEntity",
+        "type": "action",
+        "name": "faceEntity",
+        "parameters": {
+          "entity": {"key": "player"}
+        }
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "timer",
+            "type": "action",
+            "name": "timer",
+            "parameters": {
+              "time": {"value": 0.5}
+            }
+          },
+          {
+            "title": "sequentialdialog",
+            "type": "module",
+            "name": "sequentialdialog",
+            "parameters": {
+              "dialogWaitTime": {"key": "<dialogWaitTime>"},
+              "dialogEndWait": {"key": "<dialogEndWait>"},
+              "dialogKey": {"value": "dialog.koichi.greet"},
+              "dialogTarget": {"key": "player"}
+            }
+          },
+          {
+            "title": "parallel",
+            "type": "composite",
+            "name": "parallel",
+            "parameters": {
+              "fail": {"value": -1},
+              "success": {"value": 1}
+            },
+            "children": [
+              {
+                "title": "parallel",
+                "type": "composite",
+                "name": "parallel",
+                "parameters": {
+                  "fail": {"value": -1},
+                  "success": {"value": -1}
+                },
+                "children": [
+                  {
+                    "title": "move",
+                    "type": "action",
+                    "name": "move",
+                    "parameters": {
+                      "direction": {"value": 1},
+                      "run": {"value": false}
+                    }
+                  },
+                  {
+                    "title": "openDoors",
+                    "type": "action",
+                    "name": "openDoors",
+                    "parameters": {
+                      "direction": {"key": "facingDirection"},
+                      "distance": {"value": 1.5},
+                      "openLocked": {"value": true}
+                    }
+                  },
+                  {
+                    "title": "runner",
+                    "type": "action",
+                    "name": "runner",
+                    "parameters": {}
+                  }
+                ]
+              },
+              {
+                "title": "cooldown",
+                "type": "decorator",
+                "name": "cooldown",
+                "parameters": {
+                  "cooldown": {"value": 0.5},
+                  "onFail": {"value": true},
+                  "onSuccess": {"value": true}
+                },
+                "child": {
+                  "title": "findObject",
+                  "type": "action",
+                  "name": "findObject",
+                  "parameters": {
+                    "name": {"value": "hylotlartifactaltar"},
+                    "orderBy": {"value": "nearest"},
+                    "position": {"key": "self"},
+                    "range": {"value": 15}
+                  },
+                  "output": {
+                    "entity": "altar"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "entityPosition",
+                "type": "action",
+                "name": "entityPosition",
+                "parameters": {
+                  "entity": {"key": "altar"}
+                },
+                "output": {
+                  "position": "altarPosition"
+                }
+              },
+              {
+                "title": "offsetPosition",
+                "type": "action",
+                "name": "offsetPosition",
+                "parameters": {
+                  "offset": {"value": [2, 0]},
+                  "position": {"key": "altarPosition"}
+                },
+                "output": {
+                  "position": "altarPosition"
+                }
+              },
+              {
+                "title": "moveToPosition",
+                "type": "action",
+                "name": "moveToPosition",
+                "parameters": {
+                  "avoidLiquid": {"value": true},
+                  "groundPosition": {"value": true},
+                  "maxGround": {"value": 5},
+                  "minGround": {"value": -5},
+                  "closeDoors": {"value": false},
+                  "position": {"key": "altarPosition"},
+                  "run": {"value": false}
+                }
+              }
+            ]
+          },
+          {
+            "title": "faceDirection",
+            "type": "action",
+            "name": "faceDirection",
+            "parameters": {
+              "direction": {"value": -1}
+            }
+          },
+          {
+            "title": "sequentialdialog",
+            "type": "module",
+            "name": "sequentialdialog",
+            "parameters": {
+              "dialogWaitTime": {"key": "<dialogWaitTime>"},
+              "dialogEndWait": {"key": "<dialogEndWait>"},
+              "dialogKey": {"value": "dialog.koichi.giveRelic"},
+              "dialogTarget": {"key": "player"}
+            }
+          },
+          {
+            "title": "dynamic",
+            "type": "composite",
+            "name": "dynamic",
+            "parameters": {},
+            "children": [
+              {
+                "title": "cooldown",
+                "type": "decorator",
+                "name": "cooldown",
+                "parameters": {
+                  "cooldown": {"value": 1},
+                  "onFail": {"value": true},
+                  "onSuccess": {"value": true}
+                },
+                "child": {
+                  "title": "sendEntityMessage",
+                  "type": "action",
+                  "name": "sendEntityMessage",
+                  "parameters": {
+                    "entity": {"key": "altar"},
+                    "message": {"value": "setInteractive"}
+                  }
+                }
+              },
+              {
+                "title": "runner",
+                "type": "action",
+                "name": "runner",
+                "parameters": {}
+              }
+            ]
+          },
+          {
+            "title": "dynamic",
+            "type": "composite",
+            "name": "dynamic",
+            "parameters": {},
+            "children": [
+              {
+                "title": "receivedNotification",
+                "type": "action",
+                "name": "receivedNotification",
+                "parameters": {
+                  "type": {"value": "artifactTaken"}
+                }
+              },
+              {
+                "title": "runner",
+                "type": "action",
+                "name": "runner",
+                "parameters": {}
+              }
+            ]
+          },
+          {
+            "title": "timer",
+            "type": "action",
+            "name": "timer",
+            "parameters": {
+              "time": {"value": 1}
+            }
+          },
+          {
+            "title": "parallel",
+            "type": "composite",
+            "name": "parallel",
+            "parameters": {
+              "fail": {"value": -1},
+              "success": {"value": 1}
+            },
+            "children": [
+              {
+                "title": "parallel",
+                "type": "composite",
+                "name": "parallel",
+                "parameters": {
+                  "fail": {"value": -1},
+                  "success": {"value": -1}
+                },
+                "children": [
+                  {
+                    "title": "move",
+                    "type": "action",
+                    "name": "move",
+                    "parameters": {
+                      "direction": {"value": 1},
+                      "run": {"value": false}
+                    }
+                  },
+                  {
+                    "title": "openDoors",
+                    "type": "action",
+                    "name": "openDoors",
+                    "parameters": {
+                      "direction": {"key": "facingDirection"},
+                      "distance": {"value": 1.5},
+                      "openLocked": {"value": true}
+                    }
+                  },
+                  {
+                    "title": "runner",
+                    "type": "action",
+                    "name": "runner",
+                    "parameters": {}
+                  }
+                ]
+              },
+              {
+                "title": "cooldown",
+                "type": "decorator",
+                "name": "cooldown",
+                "parameters": {
+                  "cooldown": {"value": 0.5},
+                  "onFail": {"value": true},
+                  "onSuccess": {"value": true}
+                },
+                "child": {
+                  "title": "findObject",
+                  "type": "action",
+                  "name": "findObject",
+                  "parameters": {
+                    "name": {"value": "arkteleporter"},
+                    "orderBy": {"value": "nearest"},
+                    "position": {"key": "self"},
+                    "range": {"value": 15}
+                  },
+                  "output": {
+                    "entity": "teleporter"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "entityPosition",
+                "type": "action",
+                "name": "entityPosition",
+                "parameters": {
+                  "entity": {"key": "teleporter"}
+                },
+                "output": {
+                  "position": "teleporter"
+                }
+              },
+              {
+                "title": "offsetPosition",
+                "type": "action",
+                "name": "offsetPosition",
+                "parameters": {
+                  "offset": {"value": [0, 0]},
+                  "position": {"key": "teleporter"}
+                },
+                "output": {
+                  "position": "teleporter"
+                }
+              },
+              {
+                "title": "moveToPosition",
+                "type": "action",
+                "name": "moveToPosition",
+                "parameters": {
+                  "avoidLiquid": {"value": true},
+                  "groundPosition": {"value": true},
+                  "maxGround": {"value": 5},
+                  "minGround": {"value": -5},
+                  "closeDoors": {"value": false},
+                  "position": {"key": "teleporter"},
+                  "run": {"value": false}
+                }
+              }
+            ]
+          },
+          {
+            "title": "dynamic",
+            "type": "composite",
+            "name": "dynamic",
+            "parameters": {},
+            "children": [
+              {
+                "title": "sequence",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "queryEntity",
+                    "type": "action",
+                    "name": "queryEntity",
+                    "parameters": {
+                      "entityTypes": {"value": ["player"]},
+                      "orderBy": {"value": "nearest"},
+                      "position": {"key": "self"},
+                      "range": {"value": 20},
+                      "withoutEntity": {"key": "self"}
+                    },
+                    "output": {
+                      "list": "players"
+                    }
+                  },
+                  {
+                    "title": "filter",
+                    "type": "decorator",
+                    "name": "filter",
+                    "parameters": {
+                      "list": {"key": "players"},
+                      "type": {"value": "entity"}
+                    },
+                    "child": {
+                      "title": "entityInSight",
+                      "type": "action",
+                      "name": "entityInSight",
+                      "parameters": {
+                        "entity": {"key": "filterItem"}
+                      }
+                    }
+                  },
+                  {
+                    "title": "listGet",
+                    "type": "action",
+                    "name": "listGet",
+                    "parameters": {
+                      "list": {"key": "players"}
+                    },
+                    "output": {
+                      "entity": "player"
+                    }
+                  }
+                ]
+              },
+              {
+                "title": "runner",
+                "type": "action",
+                "name": "runner",
+                "parameters": {}
+              }
+            ]
+          },
+          {
+            "title": "sequentialdialog",
+            "type": "module",
+            "name": "sequentialdialog",
+            "parameters": {
+              "dialogWaitTime": {"key": "<dialogWaitTime>"},
+              "dialogEndWait": {"value": 0},
+              "dialogKey": {"value": "dialog.koichi.end"},
+              "dialogTarget": {"key": "player"}
+            }
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "playersInWorld",
+                "type": "action",
+                "name": "playersInWorld",
+                "parameters": {},
+                "output": {
+                  "list": "players"
+                }
+              },
+              {
+                "title": "each",
+                "type": "decorator",
+                "name": "each",
+                "parameters": {
+                  "list": {"key": "players"},
+                  "type": {"value": "entity"}
+                },
+                "child": {
+                  "title": "succeeder",
+                  "type": "decorator",
+                  "name": "succeeder",
+                  "parameters": {},
+                  "child": {
+                    "title": "sendEntityMessage",
+                    "type": "action",
+                    "name": "sendEntityMessage",
+                    "parameters": {
+                      "arguments": {"value": ["/cinematics/story/koichiatoutpost.cinematic", true]},
+                      "entity": {"key": "eachItem"},
+                      "message": {"value": "playCinematic"}
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "title": "setDeathParticleBurst",
+            "type": "action",
+            "name": "setDeathParticleBurst",
+            "parameters": {}
+          },
+          {
+            "title": "addEphemeralEffect",
+            "type": "action",
+            "name": "addEphemeralEffect",
+            "parameters": {
+              "name": {"value": "beamoutanddie"}
+            }
+          },
+          {
+            "title": "runner",
+            "type": "action",
+            "name": "runner",
+            "parameters": {}
+          }
+        ]
+      }
+    ]
+  }
+}

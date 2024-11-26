@@ -1,0 +1,309 @@
+{
+  "name": "meleecombat-leap",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/world.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/status.lua",
+    "/scripts/actions/math.lua",
+    "/scripts/actions/projectiles.lua",
+    "/scripts/actions/npc.lua",
+    "/scripts/behavior.lua",
+    "/scripts/actions/time.lua"
+  ],
+  "parameters": {
+    "leapWindup": 0.1
+  },
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "inverter",
+        "type": "decorator",
+        "name": "inverter",
+        "parameters": {},
+        "child": {
+          "title": "entityInRange",
+          "type": "action",
+          "name": "entityInRange",
+          "parameters": {
+            "entity": {"key": "target"},
+            "position": {"key": "self"},
+            "xRange": {"value": 10}
+          }
+        }
+      },
+      {
+        "title": "onGround",
+        "type": "action",
+        "name": "onGround",
+        "parameters": {}
+      },
+      {
+        "title": "entityPosition",
+        "type": "action",
+        "name": "entityPosition",
+        "parameters": {
+          "entity": {"key": "target"}
+        },
+        "output": {
+          "position": "targetPosition"
+        }
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "stat",
+            "type": "action",
+            "name": "stat",
+            "parameters": {
+              "statName": {"value": "jumpModifier"}
+            },
+            "output": {
+              "value": "jumpModifier"
+            }
+          },
+          {
+            "title": "multiply",
+            "type": "action",
+            "name": "multiply",
+            "parameters": {
+              "factor": {"key": "jumpModifier"},
+              "number": {"value": 45}
+            },
+            "output": {
+              "result": "speedModifier"
+            }
+          },
+          {
+            "title": "add",
+            "type": "action",
+            "name": "add",
+            "parameters": {
+              "addend": {"value": 45},
+              "number": {"key": "speedModifier"}
+            },
+            "output": {
+              "result": "leapSpeed"
+            }
+          }
+        ]
+      },
+      {
+        "title": "selector",
+        "type": "composite",
+        "name": "selector",
+        "parameters": {},
+        "children": [
+          {
+            "title": "projectileAimVector",
+            "type": "action",
+            "name": "projectileAimVector",
+            "parameters": {
+              "collisionCheck": {"value": false},
+              "fromPosition": {"key": "self"},
+              "gravityMultiplier": {"value": 1.5},
+              "speed": {"key": "leapSpeed"},
+              "toPosition": {"key": "targetPosition"},
+              "useHighArc": {"value": false}
+            },
+            "output": {
+              "aimVector": "jumpVector"
+            }
+          },
+          {
+            "title": "projectileAimVector",
+            "type": "action",
+            "name": "projectileAimVector",
+            "parameters": {
+              "collisionCheck": {"value": false},
+              "fromPosition": {"key": "self"},
+              "gravityMultiplier": {"value": 1.5},
+              "speed": {"key": "leapSpeed"},
+              "toPosition": {"key": "targetPosition"},
+              "useHighArc": {"value": true}
+            },
+            "output": {
+              "aimVector": "jumpVector"
+            }
+          }
+        ]
+      },
+      {
+        "title": "succeeder",
+        "type": "decorator",
+        "name": "succeeder",
+        "parameters": {},
+        "child": {
+          "title": "parallel",
+          "type": "composite",
+          "name": "parallel",
+          "parameters": {
+            "fail": {"value": -1},
+            "success": {"value": -1}
+          },
+          "children": [
+            {
+              "title": "meleecombat-aim",
+              "type": "module",
+              "name": "meleecombat-aim",
+              "parameters": {}
+            },
+            {
+              "title": "setAimPosition",
+              "type": "action",
+              "name": "setAimPosition",
+              "parameters": {
+                "offset": {"key": "aimOffset"},
+                "position": {"key": "self"}
+              }
+            },
+            {
+              "title": "primaryFire",
+              "type": "action",
+              "name": "primaryFire",
+              "parameters": {}
+            },
+            {
+              "title": "succeeder",
+              "type": "decorator",
+              "name": "succeeder",
+              "parameters": {},
+              "child": {
+                "title": "selector",
+                "type": "composite",
+                "name": "selector",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "projectileAimVector",
+                    "type": "action",
+                    "name": "projectileAimVector",
+                    "parameters": {
+                      "collisionCheck": {"value": false},
+                      "fromPosition": {"key": "self"},
+                      "gravityMultiplier": {"value": 1.5},
+                      "speed": {"key": "leapSpeed"},
+                      "toPosition": {"key": "targetPosition"},
+                      "useHighArc": {"value": false}
+                    },
+                    "output": {
+                      "aimVector": "jumpVector"
+                    }
+                  },
+                  {
+                    "title": "projectileAimVector",
+                    "type": "action",
+                    "name": "projectileAimVector",
+                    "parameters": {
+                      "collisionCheck": {"value": false},
+                      "fromPosition": {"key": "self"},
+                      "gravityMultiplier": {"value": 1.5},
+                      "speed": {"key": "leapSpeed"},
+                      "toPosition": {"key": "targetPosition"},
+                      "useHighArc": {"value": true}
+                    },
+                    "output": {
+                      "aimVector": "jumpVector"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "title": "sequence",
+              "type": "composite",
+              "name": "sequence",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "setFlag",
+                  "type": "action",
+                  "name": "setFlag",
+                  "parameters": {
+                    "name": {"value": "run"}
+                  }
+                },
+                {
+                  "title": "timer",
+                  "type": "action",
+                  "name": "timer",
+                  "parameters": {
+                    "time": {"value": "<leapWindup>"}
+                  }
+                },
+                {
+                  "title": "onGround",
+                  "type": "action",
+                  "name": "onGround",
+                  "parameters": {}
+                },
+                {
+                  "title": "vecMultiply",
+                  "type": "action",
+                  "name": "vecMultiply",
+                  "parameters": {
+                    "first": {"key": "jumpVector"},
+                    "number": {"key": "leapSpeed"}
+                  },
+                  "output": {
+                    "vector": "jumpVelocity"
+                  }
+                },
+                {
+                  "title": "setVelocity",
+                  "type": "action",
+                  "name": "setVelocity",
+                  "parameters": {
+                    "velocity": {"key": "jumpVelocity"}
+                  }
+                },
+                {
+                  "title": "timer",
+                  "type": "action",
+                  "name": "timer",
+                  "parameters": {
+                    "time": {"value": 0.1}
+                  }
+                },
+                {
+                  "title": "endPrimaryFire",
+                  "type": "action",
+                  "name": "endPrimaryFire",
+                  "parameters": {}
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "title": "dynamic",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": "onGround",
+            "type": "action",
+            "name": "onGround",
+            "parameters": {}
+          },
+          {
+            "title": "runner",
+            "type": "action",
+            "name": "runner",
+            "parameters": {}
+          }
+        ]
+      }
+    ]
+  }
+}

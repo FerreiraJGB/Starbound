@@ -1,0 +1,176 @@
+{
+  "name": "guardian-damagestun",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/entity.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/math.lua",
+    "/scripts/actions/status.lua",
+    "/scripts/actions/animator.lua",
+    "/scripts/actions/time.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "wasDamaged",
+        "type": "action",
+        "name": "wasDamaged",
+        "parameters": {}
+      },
+      {
+        "title": "succeeder",
+        "type": "decorator",
+        "name": "succeeder",
+        "parameters": {},
+        "child": {
+          "title": "each",
+          "type": "decorator",
+          "name": "each",
+          "parameters": {
+            "list": {"key": "newMinions"},
+            "type": {"value": "entity"}
+          },
+          "child": {
+            "title": "sendEntityMessage",
+            "type": "action",
+            "name": "sendEntityMessage",
+            "parameters": {
+              "entity": {"key": "eachItem"},
+              "message": {"value": "despawn"}
+            }
+          }
+        }
+      },
+      {
+        "title": "velocity",
+        "type": "action",
+        "name": "velocity",
+        "parameters": {},
+        "output": {
+          "velocity": "velocity"
+        }
+      },
+      {
+        "title": "vecMultiply",
+        "type": "action",
+        "name": "vecMultiply",
+        "parameters": {
+          "first": {"key": "velocity"},
+          "second": {"value": [-0.2, -0.2]}
+        },
+        "output": {
+          "vector": "velocity"
+        }
+      },
+      {
+        "title": "setVelocity",
+        "type": "action",
+        "name": "setVelocity",
+        "parameters": {
+          "velocity": {"key": "velocity"}
+        }
+      },
+      {
+        "title": "addEphemeralEffect",
+        "type": "action",
+        "name": "addEphemeralEffect",
+        "parameters": {
+          "duration": {"value": 6},
+          "name": {"value": "vulnerability"}
+        }
+      },
+      {
+        "title": "setAnimationState",
+        "type": "action",
+        "name": "setAnimationState",
+        "parameters": {
+          "state": {"value": "pierce"},
+          "type": {"value": "shield"}
+        }
+      },
+      {
+        "title": "playSound",
+        "type": "action",
+        "name": "playSound",
+        "parameters": {
+          "loops": {"value": 0},
+          "sound": {"value": "shieldBreak"}
+        }
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": -1},
+          "success": {"value": 1}
+        },
+        "children": [
+          {
+            "title": "timer",
+            "type": "action",
+            "name": "timer",
+            "parameters": {
+              "time": {"value": 6}
+            }
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": 5}
+                }
+              },
+              {
+                "title": "flyToPosition",
+                "type": "action",
+                "name": "flyToPosition",
+                "parameters": {
+                  "position": {"key": "spawn"},
+                  "tolerance": {"value": 1}
+                }
+              },
+              {
+                "title": "runner",
+                "type": "action",
+                "name": "runner",
+                "parameters": {}
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "setAnimationState",
+        "type": "action",
+        "name": "setAnimationState",
+        "parameters": {
+          "state": {"value": "active"},
+          "type": {"value": "shield"}
+        }
+      },
+      {
+        "title": "playSound",
+        "type": "action",
+        "name": "playSound",
+        "parameters": {
+          "loops": {"value": 0},
+          "sound": {"value": "shieldRestore"}
+        }
+      }
+    ]
+  }
+}

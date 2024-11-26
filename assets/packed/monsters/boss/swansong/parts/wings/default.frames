@@ -1,0 +1,13 @@
+{
+  "frameGrid" : {
+    "size" : [83, 48],
+    "dimensions" : [10, 4],
+
+    "names" : [
+      [null, "spawn.1", "spawn.2", "spawn.3", "spawn.4", "spawn.5", "spawn.6", "spawn.7", "spawn.8", null],
+      ["idle.1", null, "beamwindup.1", "beamwindup.2", "beamwindup.3", "beamwindup.4", "beamwindup.5", "beamwindup.6", "beamwindup.7", "beamwindup.8"],
+      ["beamwindup.9", "beamwindup.10", "beamwindup.11", "beamwindup.12", null, "beamloop.1", "beamloop.2", null, "beamwinddown.1", "beamwinddown.2"],
+      ["beamwinddown.3", "beamwinddown.4", "beamwinddown.5", "beamwinddown.6", "beamwinddown.7", "beamwinddown.8", "beamwinddown.9", "beamwinddown.10", null, "broken.1"]
+    ]
+  }
+}

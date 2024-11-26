@@ -1,0 +1,23 @@
+{
+  "metadata" : {
+    "name" : "undergroundtutorialclues",
+    "species" : "generic",
+    "rules" : [
+    ],
+    "anchor" : [ "undergroundtutorialclues"],
+    "gravity" : 80,
+    "maxRadius" : 1000000,
+    "maxParts" : 1,
+    "protected" : true
+  },
+
+  "parts" : [
+    {
+      "name" : "undergroundtutorialclues",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundtutorialclues.json" ]
+    }
+  ]
+}

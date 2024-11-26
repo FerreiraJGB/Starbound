@@ -1,0 +1,26 @@
+{
+  "name": "simple",
+  "description": "",
+  "scripts": [],
+  "parameters": {},
+  "root": {
+    "title": "dynamic",
+    "type": "composite",
+    "name": "dynamic",
+    "parameters": {},
+    "children": [
+      {
+        "title": null,
+        "type": "module",
+        "name": "converse",
+        "parameters": {}
+      },
+      {
+        "title": "wanderSimple",
+        "type": "module",
+        "name": "wanderSimple",
+        "parameters": {}
+      }
+    ]
+  }
+}

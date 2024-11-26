@@ -1,0 +1,105 @@
+{
+  "name": "nurustartboss",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/time.lua",
+    "/scripts/actions/notification.lua",
+    "/scripts/actions/npc.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "succeeder",
+        "type": "decorator",
+        "name": "succeeder",
+        "parameters": {},
+        "child": {
+          "title": "limiter",
+          "type": "decorator",
+          "name": "limiter",
+          "parameters": {
+            "limit": {"value": 1}
+          },
+          "child": {
+            "title": "sequentialdialog",
+            "type": "module",
+            "name": "sequentialdialog",
+            "parameters": {
+              "dialogWaitTime": {"value": 4},
+              "dialogEndWait": {"value": 4},
+              "dialogKey": {"value": "dialog.startboss.intro"},
+              "dialogTarget": {"key": "player"}
+            }
+          }
+        }
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 2}
+        }
+      },
+      {
+        "title": "dynamic",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": "cooldown",
+            "type": "decorator",
+            "name": "cooldown",
+            "parameters": {
+              "cooldown": {"value": 1},
+              "onFail": {"value": true}
+            },
+            "child": {
+              "title": "broadcastNotification",
+              "type": "action",
+              "name": "broadcastNotification",
+              "parameters": {
+                "entityTypes": {"value": ["monster", "npc"]},
+                "position": {"key": "self"},
+                "range": {"value": 20},
+                "type": {"value": "startboss"}
+              }
+            }
+          },
+          {
+            "title": "runner",
+            "type": "action",
+            "name": "runner",
+            "parameters": {}
+          }
+        ]
+      },
+      {
+        "title": "setItemSlot",
+        "type": "action",
+        "name": "setItemSlot",
+        "parameters": {
+          "itemName": {"value": "nurusspear"},
+          "slot": {"value": "primary"}
+        }
+      },
+      {
+        "title": "sequentialdialog",
+        "type": "module",
+        "name": "sequentialdialog",
+        "parameters": {
+          "dialogWaitTime": {"value": 4},
+          "dialogEndWait": {"value": 2},
+          "dialogKey": {"value": "dialog.startboss.start"},
+          "dialogTarget": {"key": "player"}
+        }
+      }
+    ]
+  }
+}

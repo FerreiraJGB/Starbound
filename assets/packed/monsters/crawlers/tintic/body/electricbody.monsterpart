@@ -1,0 +1,10 @@
+{
+  "name" : "tintic",
+  "category" : "electrictintic",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "electrictintic.png",
+    "bodynobright" : "electrictinticnobright.png"
+  }
+}

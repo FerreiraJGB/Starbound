@@ -1,0 +1,15 @@
+{
+  "modId" : 3,
+  "modName" : "snow",
+  "description" : "Soft, freshly fallen snow.",
+  "footstepSound" : "/sfx/blocks/footstep_snow.ogg",
+  "health" : 0,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "snow.png",
+    "variants" : 5,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

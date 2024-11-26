@@ -1,0 +1,26 @@
+{
+  "materialId" : 294,
+  "materialName" : "slopedrustypanel",
+  "particleColor" : [182, 182, 182, 255],
+  "itemDrop" : "slopedrustypanel",
+
+  "description" : "Sturdy metal panelling that has been rusted with age.",
+  "glitchDescription" : "Eager. I am sure with some elbow grease, this metal panelling could be cleared up.",
+  "floranDescription" : "Floran wantsss to make ssspears out of rusty metal.",
+  "novakidDescription" : "Some 'ol metal panels covered in rust.",
+
+  "shortdescription" : "Rusty Panel",
+  "footstepSound" : "/sfx/blocks/footstep_lightmetal.ogg",
+  "health" : 20,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/slopedmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "slopedrustypanel.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 5001
+  }
+}

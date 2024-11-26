@@ -1,0 +1,66 @@
+{
+  "name": "quest-new_stock-target-notification",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/notification.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/npc.lua",
+    "/scripts/actions/quests.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "receivedNotification",
+        "type": "action",
+        "name": "receivedNotification",
+        "parameters": {
+          "type": {"value": "requestTrade"}
+        },
+        "output": {
+          "source": "player"
+        }
+      },
+      {
+        "title": "faceEntity",
+        "type": "action",
+        "name": "faceEntity",
+        "parameters": {
+          "entity": {"key": "player"}
+        }
+      },
+      {
+        "title": "emote",
+        "type": "action",
+        "name": "emote",
+        "parameters": {
+          "emote": {"value": "wink"}
+        }
+      },
+      {
+        "title": "sayQuestDialog",
+        "type": "action",
+        "name": "sayQuestDialog",
+        "parameters": {
+          "dialogType": {"value": "new_stock.trade"},
+          "entity": {"key": "player"},
+          "extraTags": {"value": {}},
+          "quest": {"key": "override"}
+        }
+      },
+      {
+        "title": "fireQuestEvent",
+        "type": "action",
+        "name": "fireQuestEvent",
+        "parameters": {
+          "eventName": {"value": "tradeAccepted"},
+          "source": {"key": "player"}
+        }
+      }
+    ]
+  }
+}

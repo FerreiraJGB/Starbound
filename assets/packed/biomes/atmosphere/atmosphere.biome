@@ -1,0 +1,25 @@
+{
+  "name" : "atmosphere",
+  "friendlyName" : "Atmosphere",
+
+  "parallax" : "/parallax/atmosphere/atmosphere.parallax",
+
+  "spawnProfile" : {
+    "groups" : [
+      {
+        "select" : 1,
+        "pool" : "generatedFlying"
+      },
+      {
+        "select" : 1,
+        "pool" : [
+          [ 0.3, "passiveLargeFlying" ],
+          [ 0.7, "aggroLargeFlying" ]
+        ]
+      }
+    ],
+    "monsterParameters" : {}
+  },
+
+  "hueShiftOptions" : [0]
+}

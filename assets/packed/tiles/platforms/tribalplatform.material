@@ -1,0 +1,23 @@
+{
+  "materialId" : 69,
+  "materialName" : "tribalplatform",
+  "collisionKind" : "platform",
+  "itemDrop" : "tribalplatform",
+  "shortdescription" : "Temple Platform",
+  "description" : "Platforms built from solid temple bricks.",
+  "glitchDescription" : "Amazed. Stone bricks have been assembled into this platform.",
+  "floranDescription" : "Platform made from old brickss.",
+  "novakidDescription" : "Ol' stone bricks setup like a platform.",
+  "footstepSound" : "/sfx/blocks/footstep_stone2.ogg",
+  "category" : "Supports",
+
+  "renderTemplate" : "/tiles/platformtemplate.config",
+  "renderParameters" : {
+    "texture" : "tribalplatform.png",
+    "variants" : 3,
+    "lightTransparent" : true,
+    "occludesBelow" : false,
+    "multiColored" : true,
+    "zLevel" : 0
+  }
+}

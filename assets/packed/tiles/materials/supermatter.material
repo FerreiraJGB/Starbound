@@ -1,0 +1,25 @@
+{
+  "materialId" : 1164,
+  "materialName" : "supermatter",
+  "particleColor" : [225, 156, 244, 255],
+  "itemDrop" : "supermatter",
+  "description" : "A crystal used to power FTL technology. It's still not fully understood.",
+  "shortdescription" : "Erchius Crystal",
+  "glitchDescription" : "Intrigued. Erchius crystals contain a mysterious power.",
+  "floranDescription" : "Shiny giant crystalss.",
+  "novakidDescription" : "A big ol' erchius crystal.",
+  "footstepSound" : "/sfx/blocks/footstep_crystal.ogg",
+  "health" : 8,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "supermatter.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 3930,
+    "radiantLight" : [128, 0, 128]
+  }
+}

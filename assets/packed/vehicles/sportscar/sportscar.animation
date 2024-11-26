@@ -1,0 +1,244 @@
+{
+  "animatedParts" : {
+    "stateTypes" : {
+      "movement" : {
+        "default" : "idle",
+        "states" : {
+          "warpInPart1" : {
+            "frames" : 4,  
+            "cycle" : 0.33,
+            "mode" : "transition",
+            "transition" : "warpInPart2"
+          },
+          "warpInPart2" : {
+            "frames" : 4,  
+            "cycle" : 0.33,
+            "mode" : "transition",
+            "transition" : "idle"
+          },
+          "idle" : {},
+          "warpOutPart1" : {
+            "frames" : 4,  
+            "cycle" : 0.33,
+            "mode" : "transition",
+            "transition" : "warpOutPart2"
+          },
+          "warpOutPart2" : {
+            "frames" : 4,  
+            "cycle" : 0.33,
+            "mode" : "transition",
+            "transition" : "invisible"
+          },
+          "invisible" : {}
+        }
+      }
+    },
+
+    "parts" : {
+      "body" : {
+        "properties" : {
+          "centered" : true,
+          "zLevel" : 1,
+          "transformationGroups" : ["flip", "rotation"],
+          "drivingSeatPosition" : [0.0, 0.0]
+        },
+        "partStates" : {
+          "movement" : {
+            "idle" : {
+              "properties" : {
+                "image" : "sportscar.png:move.<damageState>"
+              }
+            },
+            "invisible" : {
+              "properties" : {}
+            }
+          }
+        }
+      },
+      "bodyfullbright" : {
+        "properties" : {
+          "zLevel" : 2,
+          "anchorPart" : "body",
+          "fullbright" : true
+        },
+        "partStates" : {
+          "movement" : {
+            "warpInPart1" : {
+              "properties" : {
+              }
+            },
+            "warpInPart2" : {
+              "properties" : {
+                "image" : "sportscarfullbright.png:move.<damageState>"
+              }
+            },
+            "idle" : {
+              "properties" : {
+                "image" : "sportscarfullbright.png:move.<damageState>"
+              }
+            },
+            "warpOutPart1" : {
+              "properties" : {
+                "image" : "sportscarfullbright.png:move.<damageState>"
+              }
+            },
+            "warpOutPart2" : {
+              "properties" : {
+              }
+            },
+            "invisible" : {
+              "properties" : {}
+            }
+          }
+        }
+      },
+      "warp" : {
+        "properties" : {
+          "centered" : true,
+          "zLevel" : 3,
+          "fullbright" : true,
+          "transformationGroups" : ["flip", "rotation"]
+        },
+        "partStates" : {
+          "movement" : {
+            "warpInPart1" : {
+              "properties" : {
+                "image" : "sportscarwarp.png:warpInPart1.<frame>"
+              }
+            },
+            "warpInPart2" : {
+              "properties" : {
+                "image" : "sportscarwarp.png:warpInPart2.<frame>"
+              }
+            },
+            "idle" : {
+              "properties" : {}
+            },
+            "warpOutPart1" : {
+              "properties" : {
+                "image" : "sportscarwarp.png:warpOutPart1.<frame>"
+              }
+            },
+            "warpOutPart2" : {
+              "properties" : {
+                "image" : "sportscarwarp.png:warpOutPart2.<frame>"
+              }
+            },
+            "invisible" : {
+              "properties" : {}
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "transformationGroups" : {
+    "rotation" : {
+      "interpolated" : true
+    },
+    "flip" : {}
+  },
+
+  "particleEmitters" : {
+    "thruster" : {
+      "active" : true,
+      "offsetRegion" : [-2.0, -1.0, 3.5, -1.0],
+      "anchorPart" : "body",
+      "emissionRate" : 50.0,
+      "particles" : [
+        {"particle" : "sportscardownthrust"}
+      ]
+    },
+    "smoke" : {
+      "anchorPart" : "body",
+      "emissionRate" : 0.0,
+      "offsetRegion" : [-1.5, -1.5, 0.5, -1],
+      "particles" : [
+        { "particle" : "burningvehiclesmokefront"}
+      ]
+    },
+    "fire" : {
+      "offsetRegion" : [2, 0, 3, 0.75],
+      "anchorPart" : "body",
+      "emissionRate" : 0.0,
+      "particles" : [
+        { "particle" : "burningdust"},
+        { "particle" : "campfireflames"},
+        { "particle" : "fireshard"},
+        { "particle" : "burningvehiclesmokeback"}
+      ]
+    },
+    "damageIntermittent" : {
+      "offsetRegion" : [-3.25, -1.5, -3, -1.25],
+      "anchorPart" : "body",
+      "burstCount"  : 5,
+      "particles" : [
+        { "particle" : "burningvehiclesmokefront"},
+        { "particle" : "fireshard"}
+      ]
+    },
+    "damageShards" : {
+      "offsetRegion" : [-3, -1.5, 3, 1],
+      "anchorPart" : "body",
+      "burstCount"  : 30,
+      "particles" : [
+        { "particle" : "hoverbikeredshard"},
+        { "particle" : "fireshard"}
+      ]
+    },
+    "wreckage" : {
+      "anchorPart" : "body",
+      "burstCount" : 30.0,
+      "particles" : [
+        { "particle" : "hoverbikeredshard"},
+        { "particle" : "fireshard"}
+      ]
+    }
+  },
+
+ "lights" : {
+    "neonglow" : {
+      "active" : true,
+      "anchorPart" : "body",
+      "position" : [0.0, -1.0],
+      "color" : [249, 21, 207],
+      "pointLight" : true,
+      "pointAngle" : -90,
+      "pointBeam" : 0.5
+    }
+  },
+
+  "sounds" : {
+    "collisionNotification" : [
+      "/sfx/tech/hoverbike_bump1.ogg",
+      "/sfx/tech/hoverbike_bump2.ogg",
+      "/sfx/tech/hoverbike_bump3.ogg"
+    ],
+    "collisionDamage" : [ "/sfx/melee/bite_robotic1.ogg" ],
+    "changeDamageState" : [
+      "/sfx/gun/grenadeblast_small_fire1.ogg",
+      "/sfx/gun/grenadeblast_small_fire2.ogg",
+      "/sfx/gun/grenadeblast_small_fire3.ogg"
+    ],
+
+    "explode" : [
+      "/sfx/gun/grenadeblast_small_fire1.ogg",
+      "/sfx/gun/grenadeblast_small_fire2.ogg",
+      "/sfx/gun/grenadeblast_small_fire3.ogg"
+    ],
+
+    "engineStart" : [ "/sfx/tools/teleport_up.ogg" ],
+    "engineLoop" : [ "/sfx/tech/hoverbike_drive_loop.ogg" ],
+    "engineStartDamaged" : [ "/sfx/tools/teleport_up.ogg" ],
+    "engineLoopDamaged" : [ "/sfx/tech/hoverbike_idle_loop.ogg" ],
+    "damageIntermittent" : [
+      "/sfx/gun/grenadeblast_small_fire1.ogg",
+      "/sfx/gun/grenadeblast_small_fire2.ogg",
+      "/sfx/gun/grenadeblast_small_fire3.ogg"
+    ],
+
+    "returnvehicle" : [ "/sfx/tech/vehicle_disappear1.ogg" ]
+
+  }
+}

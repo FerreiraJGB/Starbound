@@ -1,0 +1,24 @@
+{
+  "materialId" : 13,
+  "materialName" : "metallic",
+  "particleColor" : [125, 125, 125, 255],
+  "itemDrop" : "metallicmaterial",
+  "description" : "This looks hi-tech!",
+  "shortdescription" : "Hi-tech Block",
+  "glitchDescription" : "Interested. The technology within these blocks is unknown to me.",
+  "floranDescription" : "Futurisstic computer blockss.",
+  "novakidDescription" : "Some flashy lookin' hi-tech blocks.",
+  "footstepSound" : "/sfx/blocks/footstep_metallic.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "metallic.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3000
+  }
+}

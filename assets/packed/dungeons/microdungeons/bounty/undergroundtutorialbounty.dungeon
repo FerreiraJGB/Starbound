@@ -1,0 +1,23 @@
+{
+  "metadata" : {
+    "name" : "undergroundtutorialbounty",
+    "species" : "generic",
+    "rules" : [
+    ],
+    "anchor" : [ "undergroundtutorialbounty"],
+    "gravity" : 80,
+    "maxRadius" : 1000000,
+    "maxParts" : 1,
+    "protected" : true
+  },
+
+  "parts" : [
+    {
+      "name" : "undergroundtutorialbounty",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundtutorialbounty.json" ]
+    }
+  ]
+}

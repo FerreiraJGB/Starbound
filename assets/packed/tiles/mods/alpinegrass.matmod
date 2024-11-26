@@ -1,0 +1,15 @@
+{
+  "modId" : 88,
+  "modName" : "alpinegrass",
+  "description" : "Frosty alpine grass.",
+  "footstepSound" : "/sfx/blocks/footstep_snow.ogg",
+  "health" : 0,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "alpinegrass.png",
+    "variants" : 5,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

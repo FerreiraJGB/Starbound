@@ -1,0 +1,26 @@
+{
+  "name" : "elitemonster",
+  "effectConfig" : {
+    "healthMultiplier" : 4.0,
+    "powerMultiplier" : 2.0,
+    "statModifiers" : [
+      {
+        "stat" : "maxHealth",
+        "effectiveMultiplier" : 4.0
+      },
+      {
+        "stat" : "powerMultiplier",
+        "baseMultiplier" : 2.0
+      },
+      {
+        "stat" : "statusImmunity",
+        "amount" : 1.0
+      }
+    ]
+  },
+  "defaultDuration" : 60,
+
+  "scripts" : [
+    "elitemonster.lua"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name" : "ophanim",
+  "category" : "ophanim",
+  "type" : "ophanim",
+
+  "frames" : {
+    "body" : "body/ophanim.png",
+    "bodyfullbright" : "body/ophanimfullbright.png",
+    "aura" : "ophanimaura.png"
+  }
+}

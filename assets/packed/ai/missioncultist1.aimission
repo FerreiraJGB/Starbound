@@ -1,0 +1,20 @@
+{
+  "missionName" : "missioncultist1",
+  "icon" : "missioncultist1icon.png",
+  "missionWorld" : "cultistmission1",
+
+  "warpAnimation" : "deploy",
+  "warpDeploy" : true,
+
+  "speciesText" : {
+    "default" : {
+      "buttonText" : "The Dantalion",
+      "repeatButtonText" : "Revisit The Dantalion",
+      "selectSpeech" : {
+        "animation" : "talk",
+        "text" : "Asra Nox has been located on her warship, the Dantalion.",
+        "speedModifier" : 1.0
+      }
+    }
+  }
+}

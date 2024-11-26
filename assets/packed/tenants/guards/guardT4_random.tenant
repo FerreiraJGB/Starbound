@@ -1,0 +1,27 @@
+{
+  "name": "guardT4_random",
+  "priority": 10,
+
+  "colonyTagCriteria": {
+    "light": 1,
+    "door": 1,
+    "combat": 8,
+    "tier4": 12
+  },
+
+  "tenants": [
+    {
+      "spawn": "npc",
+      "species": ["human", "apex", "avian", "floran", "glitch", "hylotl"],
+      "level": 4,
+      "type": "friendlyguardtenant",
+      "overrides": {
+       }
+     }
+   ],
+
+  "rent": {
+    "periodRange": [1200.0, 1800.0],
+    "pool": "villagerGift"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "name" : "remixedMildCanyonsSurface",
+
+  //jaggy ledges
+  "type" : "displacement",
+  "xType" : "perlin",
+  "xOctaves" : 3,
+  "xFreq" : 0.08,
+  "xAmp" : 7,
+  "xXInfluence" : 0.5,
+  "xYInfluence" : 0.5,
+  "yType" : "perlin",
+  "yOctaves" : 1,
+  "yFreq" : 0.07,
+  "yAmp" : 0.7,
+  "yYInfluence" : 0,
+
+  "source" : {
+    "type" : "mix",
+
+    "mixSource" : {
+      "type" : "perlin",
+      "function" : "perlin",
+      "octaves" : 1,
+      "freq" : 0.0105,
+      "amp" : 9,
+      "bias" : 2.2,
+      "xInfluence" : 1,
+      "yInfluence" : 0.1
+    },
+
+    "aSource" : {
+      //canyons
+      "type" : "displacement",
+      "xType" : "perlin",
+      "xOctaves" : 1,
+      "xFreq" : 0.008,
+      "xAmp" : 0,
+      "yType" : "perlin",
+      "yOctaves" : 2,
+      "yFreq" : 0.02,
+      "yAmp" : 20,
+      "yYInfluence" : 0.1,
+
+      "source" : {
+        "type" : "flatSurface",
+
+        "adjustment" : -50
+      }
+    },
+
+    "bSource" : {
+      "type" : "mix",
+
+      "mixSource" : {
+        "type" : "perlin",
+        "function" : "perlin",
+        "octaves" : 1,
+        "freq" : 0.008,
+        "amp" : 20,
+        "bias" : 4.0,
+        "xInfluence" : 1,
+        "yInfluence" : 0
+      },
+
+      "aSource" : {
+        //little mesas
+        "type" : "displacement",
+        "xType" : "perlin",
+        "xOctaves" : 1,
+        "xFreq" : 0.007,
+        "xAmp" : 0,
+        "yType" : "perlin",
+        "yOctaves" : 3,
+        "yFreq" : 0.009,
+        "yAmp" : 20,
+        "yYInfluence" : 0.1,
+
+        "source" : {
+          "type" : "flatSurface",
+
+          "adjustment" : 30
+        }
+      },
+
+      "bSource" : {
+        //low hills
+        "type" : "displacement",
+        "xType" : "perlin",
+        "xOctaves" : 2,
+        "xFreq" : 0.01,
+        "xAmp" : 0,
+        "yType" : "perlin",
+        "yOctaves" : 1,
+        "yFreq" : 0.012,
+        "yAmp" : 30,
+        "yClamp" : [-60, 10],
+        "yClampSmoothing" : 5,
+        "yYInfluence" : 0.2,
+
+        "source" : {
+          //slower, lower hills
+          "type" : "displacement",
+          "xType" : "perlin",
+          "xOctaves" : 2,
+          "xFreq" : 1.0,
+          "xAmp" : 0,
+          "yType" : "perlin",
+          "yOctaves" : 1,
+          "yFreq" : 0.003,
+          "yAmp" : 30,
+
+          "source" : {
+            "type" : "flatSurface",
+
+            "adjustment" : 0
+          }
+        }
+      }
+    }
+  }
+}

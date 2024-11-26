@@ -1,0 +1,5 @@
+{
+  "name" : "empty",
+  "type" : "constant",
+  "value" : -1
+}

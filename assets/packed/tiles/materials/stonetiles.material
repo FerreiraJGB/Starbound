@@ -1,0 +1,24 @@
+{
+  "materialId" : 97,
+  "materialName" : "stonetiles",
+  "particleColor" : [225, 191, 150, 255],
+  "itemDrop" : "stonetiles",
+  "description" : "Tiles made from smoothly polished stone.",
+  "shortdescription" : "Stone Tiles",
+  "glitchDescription" : "Impressed. This stone has been carefully smoothed into tiles.",
+  "floranDescription" : "Sstones polished into beautiful tiless.",
+  "novakidDescription" : "Stone cut 'n polished into some fancy lookin' tiles.",
+  "footstepSound" : "/sfx/blocks/footstep_stone3.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "stonetiles.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 2750
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "materialId" : 48,
+  "materialName" : "tar",
+  "particleColor" : [75, 59, 109, 255],
+  "itemDrop" : "tar",
+  "description" : "Thick, rancid tar. Just looking at it feels sticky.",
+  "shortdescription" : "Tar",
+  "glitchDescription" : "Cautious. This tar is thick and very sticky.",
+  "floranDescription" : "Floran disslikes ssticky tar.",
+  "novakidDescription" : "A whole mess'a thick lookin' tar.",
+  "footstepSound" : "/sfx/blocks/footstep_mud.ogg",
+  "health" : 1,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "tar.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 1810
+  }
+}

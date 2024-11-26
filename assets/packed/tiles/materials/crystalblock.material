@@ -1,0 +1,24 @@
+{
+  "materialId" : 164,
+  "materialName" : "crystalblock",
+  "particleColor" : [104, 225, 241, 255],
+  "itemDrop" : "crystalblock",
+  "description" : "A shimmering block of made from crystals.",
+  "shortdescription" : "Crystal Block",
+  "glitchDescription" : "Calm. This crystal block has a soothing appearance.",
+  "floranDescription" : "Ssshiny block made from crysstalss.",
+  "novakidDescription" : "The crystals in this block are real purdy.",
+  "footstepSound" : "/sfx/blocks/footstep_crystal.ogg",
+  "health" : 8,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "crystalblock.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 1560
+  }
+}

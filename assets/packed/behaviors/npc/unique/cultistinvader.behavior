@@ -1,0 +1,432 @@
+{
+  "name": "cultistinvader",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/notification.lua",
+    "/scripts/actions/npc.lua",
+    "/scripts/actions/status.lua",
+    "/scripts/actions/query.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/behavior/bgroup.lua",
+    "/scripts/behavior.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "faceDirection",
+        "type": "action",
+        "name": "faceDirection",
+        "parameters": {
+          "direction": {"value": -1}
+        }
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 1}
+        }
+      },
+      {
+        "title": "Villager",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "receivedNotification",
+                "type": "action",
+                "name": "receivedNotification",
+                "parameters": {
+                  "type": {"value": "missionEnded"}
+                }
+              },
+              {
+                "title": "sequence",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "setDeathParticleBurst",
+                    "type": "action",
+                    "name": "setDeathParticleBurst",
+                    "parameters": {}
+                  },
+                  {
+                    "title": "addEphemeralEffect",
+                    "type": "action",
+                    "name": "addEphemeralEffect",
+                    "parameters": {
+                      "name": {"value": "beamoutanddie"}
+                    }
+                  },
+                  {
+                    "title": "timer",
+                    "type": "action",
+                    "name": "timer",
+                    "parameters": {
+                      "time": {"value": 1}
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "cooldown",
+                "type": "decorator",
+                "name": "cooldown",
+                "parameters": {
+                  "cooldown": {"value": 1},
+                  "onFail": {"value": true},
+                  "onSuccess": {"value": true}
+                },
+                "child": {
+                  "title": "findMonster",
+                  "type": "action",
+                  "name": "findMonster",
+                  "parameters": {
+                    "orderBy": {"value": "nearest"},
+                    "position": {"key": "self"},
+                    "range": {"value": 20},
+                    "type": {"value": "ballista"}
+                  },
+                  "output": {
+                    "entity": "ballista"
+                  }
+                }
+              },
+              {
+                "title": "parallel",
+                "type": "composite",
+                "name": "parallel",
+                "parameters": {
+                  "fail": {"value": 1},
+                  "success": {"value": -1}
+                },
+                "children": [
+                  {
+                    "title": "entityExists",
+                    "type": "action",
+                    "name": "entityExists",
+                    "parameters": {
+                      "entity": {"key": "ballista"}
+                    }
+                  },
+                  {
+                    "title": "group",
+                    "type": "action",
+                    "name": "group",
+                    "parameters": {
+                      "goal": {"value": "ballista"},
+                      "goalType": {"value": "entity"},
+                      "groupId": {"value": "followBallista"},
+                      "maxMembers": {"value": 1},
+                      "minMembers": {"value": 1},
+                      "unique": {"value": true}
+                    }
+                  },
+                  {
+                    "title": "Villager",
+                    "type": "composite",
+                    "name": "dynamic",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "selector",
+                        "type": "composite",
+                        "name": "selector",
+                        "parameters": {},
+                        "children": [
+                          {
+                            "title": "sequence",
+                            "type": "composite",
+                            "name": "sequence",
+                            "parameters": {},
+                            "children": [
+                              {
+                                "title": "inverter",
+                                "type": "decorator",
+                                "name": "inverter",
+                                "parameters": {},
+                                "child": {
+                                  "title": "entityInRange",
+                                  "type": "action",
+                                  "name": "entityInRange",
+                                  "parameters": {
+                                    "entity": {"key": "ballista"},
+                                    "position": {"key": "self"},
+                                    "range": {"value": 8}
+                                  }
+                                }
+                              },
+                              {
+                                "title": "entityPosition",
+                                "type": "action",
+                                "name": "entityPosition",
+                                "parameters": {
+                                  "entity": {"key": "ballista"}
+                                },
+                                "output": {
+                                  "position": "ballistaPosition"
+                                }
+                              },
+                              {
+                                "title": "failer",
+                                "type": "decorator",
+                                "name": "failer",
+                                "parameters": {},
+                                "child": {
+                                  "title": "moveToPosition",
+                                  "type": "action",
+                                  "name": "moveToPosition",
+                                  "parameters": {
+                                    "avoidLiquid": {"value": true},
+                                    "groundPosition": {"value": true},
+                                    "maxGround": {"value": 5},
+                                    "minGround": {"value": -5},
+                                    "pathOptions": {"value": {}},
+                                    "position": {"key": "ballistaPosition"},
+                                    "run": {"value": true}
+                                  }
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "title": "sequence",
+                            "type": "composite",
+                            "name": "sequence",
+                            "parameters": {},
+                            "children": [
+                              {
+                                "title": "loadUniqueEntity",
+                                "type": "action",
+                                "name": "loadUniqueEntity",
+                                "parameters": {
+                                  "uniqueId": {"value": "fireposition"}
+                                },
+                                "output": {
+                                  "entity": "fireStagehand"
+                                }
+                              },
+                              {
+                                "title": "parallel",
+                                "type": "composite",
+                                "name": "parallel",
+                                "parameters": {
+                                  "fail": {"value": 1},
+                                  "success": {"value": -1}
+                                },
+                                "children": [
+                                  {
+                                    "title": "entityInRange",
+                                    "type": "action",
+                                    "name": "entityInRange",
+                                    "parameters": {
+                                      "entity": {"key": "fireStagehand"},
+                                      "position": {"key": "self"},
+                                      "xRange": {"value": 2}
+                                    }
+                                  },
+                                  {
+                                    "title": "runner",
+                                    "type": "action",
+                                    "name": "runner",
+                                    "parameters": {}
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "title": "sequence",
+                        "type": "composite",
+                        "name": "sequence",
+                        "parameters": {},
+                        "children": [
+                          {
+                            "title": "loadUniqueEntity",
+                            "type": "action",
+                            "name": "loadUniqueEntity",
+                            "parameters": {
+                              "uniqueId": {"value": "ballistafireposition"}
+                            },
+                            "output": {
+                              "entity": "firePosition"
+                            }
+                          },
+                          {
+                            "title": "entityInRange",
+                            "type": "action",
+                            "name": "entityInRange",
+                            "parameters": {
+                              "entity": {"key": "firePosition"},
+                              "position": {"key": "self"},
+                              "xRange": {"value": 2}
+                            }
+                          },
+                          {
+                            "title": "runner",
+                            "type": "action",
+                            "name": "runner",
+                            "parameters": {}
+                          }
+                        ]
+                      },
+                      {
+                        "title": "parallel",
+                        "type": "composite",
+                        "name": "parallel",
+                        "parameters": {
+                          "fail": {"value": -1},
+                          "success": {"value": -1}
+                        },
+                        "children": [
+                          {
+                            "title": "addEphemeralEffect",
+                            "type": "action",
+                            "name": "addEphemeralEffect",
+                            "parameters": {
+                              "name": {"value": "ballistapusher"}
+                            }
+                          },
+                          {
+                            "title": "move",
+                            "type": "action",
+                            "name": "move",
+                            "parameters": {
+                              "direction": {"value": -1},
+                              "run": {"value": false}
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "parallel",
+            "type": "composite",
+            "name": "parallel",
+            "parameters": {
+              "fail": {"value": 1},
+              "success": {"value": -1}
+            },
+            "children": [
+              {
+                "title": "NPC Hostile Tracking",
+                "type": "module",
+                "name": "hostiletracking",
+                "parameters": {
+                  "trackingRange": {"value": 100}
+                }
+              },
+              {
+                "title": "NPC Combat",
+                "type": "module",
+                "name": "npccombat",
+                "parameters": {}
+              }
+            ]
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "entityConfigParameter",
+                "type": "action",
+                "name": "entityConfigParameter",
+                "parameters": {
+                  "default": {"value": false},
+                  "path": {"value": "moveLeft"}
+                },
+                "output": {
+                  "bool": "moveLeft"
+                }
+              },
+              {
+                "title": "hasFlag",
+                "type": "action",
+                "name": "hasFlag",
+                "parameters": {
+                  "name": {"key": "moveLeft"}
+                }
+              },
+              {
+                "title": "parallel",
+                "type": "composite",
+                "name": "parallel",
+                "parameters": {
+                  "fail": {"value": -1},
+                  "success": {"value": -1}
+                },
+                "children": [
+                  {
+                    "title": "openDoors",
+                    "type": "action",
+                    "name": "openDoors",
+                    "parameters": {
+                      "direction": {"value": -1},
+                      "distance": {"value": 1.5}
+                    }
+                  },
+                  {
+                    "title": "controlMove",
+                    "type": "action",
+                    "name": "controlMove",
+                    "parameters": {
+                      "direction": {"value": -1},
+                      "run": {"value": false}
+                    }
+                  },
+                  {
+                    "title": "runner",
+                    "type": "action",
+                    "name": "runner",
+                    "parameters": {}
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "runner",
+            "type": "action",
+            "name": "runner",
+            "parameters": {}
+          }
+        ]
+      }
+    ]
+  }
+}

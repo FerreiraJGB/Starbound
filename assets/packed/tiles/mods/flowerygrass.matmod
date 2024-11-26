@@ -1,0 +1,16 @@
+{
+  "modId" : 42,
+  "modName" : "flowerygrass",
+  "description" : "Lush, flowery grass.",
+  "footstepSound" : "/sfx/blocks/footstep_grass.ogg",
+  "grass" : true,
+  "health" : 0,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "flowerygrass.png",
+    "variants" : 5,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

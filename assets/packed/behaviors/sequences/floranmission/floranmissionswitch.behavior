@@ -1,0 +1,243 @@
+{
+  "name": "floranmissionswitch",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/position.lua",
+    "/scripts/actions/query.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/status.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "dynamic",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": "cooldown",
+            "type": "decorator",
+            "name": "cooldown",
+            "parameters": {
+              "cooldown": {"value": 0.5}
+            },
+            "child": {
+              "title": "sequence",
+              "type": "composite",
+              "name": "sequence",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "offsetPosition",
+                  "type": "action",
+                  "name": "offsetPosition",
+                  "parameters": {
+                    "offset": {"value": [-10, -13]},
+                    "position": {"key": "spawn"}
+                  },
+                  "output": {
+                    "position": "firstplayer"
+                  }
+                },
+                {
+                  "title": "queryEntity",
+                  "type": "action",
+                  "name": "queryEntity",
+                  "parameters": {
+                    "entityTypes": {"value": ["player"]},
+                    "position": {"key": "firstplayer"},
+                    "range": {"value": 8}
+                  },
+                  "output": {
+                    "entity": "player"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "title": "runner",
+            "type": "action",
+            "name": "runner",
+            "parameters": {}
+          }
+        ]
+      },
+      {
+        "title": "sequentialdialog",
+        "type": "module",
+        "name": "sequentialdialog",
+        "parameters": {
+          "dialogWaitTime": {"value": 4},
+          "dialogEndWait": {"value": 1},
+          "dialogKey": {"value": "dialog.floranmissionswitch.hello"},
+          "dialogTarget": {"key": "player"}
+        }
+      },
+      {
+        "title": "dynamic",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": "cooldown",
+            "type": "decorator",
+            "name": "cooldown",
+            "parameters": {
+              "cooldown": {"value": 0.5}
+            },
+            "child": {
+              "title": "sequence",
+              "type": "composite",
+              "name": "sequence",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "offsetPosition",
+                  "type": "action",
+                  "name": "offsetPosition",
+                  "parameters": {
+                    "offset": {"value": [-10, 3]},
+                    "position": {"key": "spawn"}
+                  },
+                  "output": {
+                    "position": "secondplayer"
+                  }
+                },
+                {
+                  "title": "queryEntity",
+                  "type": "action",
+                  "name": "queryEntity",
+                  "parameters": {
+                    "entityTypes": {"value": ["player"]},
+                    "position": {"key": "secondplayer"},
+                    "range": {"value": 4}
+                  },
+                  "output": {
+                    "entity": "player"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "title": "runner",
+            "type": "action",
+            "name": "runner",
+            "parameters": {}
+          }
+        ]
+      },
+      {
+        "title": "sequentialdialog",
+        "type": "module",
+        "name": "sequentialdialog",
+        "parameters": {
+          "dialogWaitTime": {"value": 4},
+          "dialogEndWait": {"value": 2},
+          "dialogKey": {"value": "dialog.floranmissionswitch.stuck"},
+          "dialogTarget": {"key": "player"}
+        }
+      },
+      {
+        "title": "findObject",
+        "type": "action",
+        "name": "findObject",
+        "parameters": {
+          "name": {"value": "medievalswitchlever"},
+          "range": {"value": 5}
+        },
+        "output": {
+          "entity": "switch"
+        }
+      },
+      {
+        "title": "interactObject",
+        "type": "action",
+        "name": "interactObject",
+        "parameters": {
+          "entity": {"key": "switch"}
+        }
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 2}
+        }
+      },
+      {
+        "title": "sequentialdialog",
+        "type": "module",
+        "name": "sequentialdialog",
+        "parameters": {
+          "dialogWaitTime": {"value": 4},
+          "dialogEndWait": {"value": 2},
+          "dialogKey": {"value": "dialog.floranmissionswitch.goodbye"},
+          "dialogTarget": {"key": "player"}
+        }
+      },
+      {
+        "title": "offsetPosition",
+        "type": "action",
+        "name": "offsetPosition",
+        "parameters": {
+          "offset": {"value": [25, 18]},
+          "position": {"key": "spawn"}
+        },
+        "output": {
+          "position": "endposition"
+        }
+      },
+      {
+        "title": "dynamic",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": "parallel",
+            "type": "composite",
+            "name": "parallel",
+            "parameters": {
+              "fail": {"value": 1}
+            },
+            "children": [
+              {
+                "title": "moveToPosition",
+                "type": "action",
+                "name": "moveToPosition",
+                "parameters": {
+                  "position": {"key": "endposition"}
+                },
+                "output": {}
+              }
+            ]
+          },
+          {
+            "title": "runner",
+            "type": "action",
+            "name": "runner",
+            "parameters": {}
+          }
+        ]
+      },
+      {
+        "title": "suicide",
+        "type": "action",
+        "name": "suicide",
+        "parameters": {}
+      }
+    ]
+  }
+}

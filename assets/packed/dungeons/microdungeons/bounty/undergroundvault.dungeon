@@ -1,0 +1,37 @@
+{
+  "metadata" : {
+    "name" : "undergroundvault",
+    "species" : "generic",
+    "rules" : [
+    ],
+    "anchor" : [ "undergroundvault_1", "undergroundvault_2", "undergroundvault_3" ],
+    "gravity" : 80,
+    "maxRadius" : 1000000,
+    "maxParts" : 1,
+    "protected" : true
+  },
+
+  "parts" : [
+    {
+      "name" : "undergroundvault_1",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundvault_1.json" ]
+    },
+    {
+      "name" : "undergroundvault_2",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundvault_2.json" ]
+    },
+    {
+      "name" : "undergroundvault_3",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundvault_3.json" ]
+    }
+  ]
+}

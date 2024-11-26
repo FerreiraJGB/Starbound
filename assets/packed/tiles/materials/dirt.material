@@ -1,0 +1,26 @@
+{
+  "materialId" : 8,
+  "materialName" : "dirt",
+  "particleColor" : [112, 72, 39, 255],
+  "itemDrop" : "dirtmaterial",
+  "description" : "Dirty looking dirt.",
+  "shortdescription" : "Dirt",
+  "glitchDescription" : "Indifferent. This is basic soil.",
+  "floranDescription" : "Filthy dirt!",
+  "novakidDescription" : "Dirty lookin' dirt.",
+  "footstepSound" : "/sfx/blocks/footstep_dirt.ogg",
+  "tillableMod" : 32,
+  "soil" : true,
+  "health" : 2,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "dirt.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 1920
+  }
+}

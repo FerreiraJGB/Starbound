@@ -1,0 +1,16 @@
+{
+  "modId" : 195,
+  "modName" : "metal",
+  "description" : "Metal.",
+  "footstepSound" : "/sfx/blocks/footstep_ash.ogg",
+  "health" : 0,
+  "breaksWithTile" : true,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "metal.png",
+    "variants" : 5,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

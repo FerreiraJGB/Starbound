@@ -1,0 +1,23 @@
+{
+  "materialId" : 189,
+  "materialName" : "ancientplatform",
+  "collisionKind" : "platform",
+  "itemDrop" : "ancientplatform",
+  "shortdescription" : "Ancient Platform",
+  "description" : "An ancient platform made up of some kind of technological rock.",
+  "glitchDescription" : "Confused. There is technology at work in this ancient platform I do not understand.",
+  "floranDescription" : "Platform made with sstrange technology.",
+  "novakidDescription" : "Some strange lookin' tech in this platform.",
+  "footstepSound" : "/sfx/blocks/footstep_stone2.ogg",
+  "category" : "Supports",
+
+  "renderTemplate" : "/tiles/platformtemplate.config",
+  "renderParameters" : {
+    "texture" : "ancientplatform.png",
+    "variants" : 3,
+    "lightTransparent" : true,
+    "occludesBelow" : false,
+    "multiColored" : true,
+    "zLevel" : 0
+  }
+}

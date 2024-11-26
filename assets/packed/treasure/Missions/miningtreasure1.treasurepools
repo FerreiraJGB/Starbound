@@ -1,0 +1,107 @@
+{
+  "miningtreasure" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.30, "pool" : "money"},
+        {"weight" : 0.19, "item" : [ "climbingrope", 1]},
+        {"weight" : 0.04, "item" : [ "copperpickaxe", 1]},
+        {"weight" : 0.02, "item" : [ "silverpickaxe", 1]},
+        {"weight" : 0.03, "pool" : "commonGun"},
+        {"weight" : 0.08, "item" : [ "bandage", 1]},
+        {"weight" : 0.02, "item" : [ "minerchest", 1]},
+        {"weight" : 0.02, "item" : [ "minerhead", 1]},
+        {"weight" : 0.08, "item" : [ "flare", 1]},
+        {"weight" : 0.04, "item" : [ "yellowstim", 1]},
+        {"weight" : 0.04, "item" : [ "ironbar", 1]},
+        {"weight" : 0.02, "item" : "lunarbasebunk-recipe" },
+        {"weight" : 0.02, "item" : "lunarbasechair-recipe" },
+        {"weight" : 0.02, "item" : "lunarbaseconsole-recipe" },
+        {"weight" : 0.02, "item" : "lunarbasecrate-recipe" },
+        {"weight" : 0.02, "item" : "lunarbasedoor-recipe" },
+        {"weight" : 0.02, "item" : "lunarbaselantern-recipe" },
+        {"weight" : 0.02, "item" : "lunarbaselocker-recipe" }
+      ],
+      "poolRounds" : [
+        [0.40, 0],
+        [0.30, 1],
+        [0.20, 2],
+        [0.10, 3]
+      ],
+      "allowDuplication" : false
+    }]
+  ],
+
+  "lunarbaseRare1" : [
+    [1, {
+      "fill" : [
+        {"item" : [ "spacesuithead", 1]}
+      ]
+    }]
+  ],
+
+  "lunarbaseRare2" : [
+    [1, {
+      "fill" : [
+        {"item" : [ "spacesuitchest", 1]},
+        {"item" : [ "lunarmission2-codex", 1]}
+      ]
+    }]
+  ],
+
+  "lunarbaseRare3" : [
+    [1, {
+      "fill" : [
+        {"item" : [ "spacesuitlegs", 1]},
+        {"item" : [ "lunarmission3-codex", 1]}
+      ]
+    }]
+  ],
+
+  "lunarbaseRare4" : [
+    [1, {
+      "fill" : [
+        {"item" : [ "spacesuitback", 1]},
+        {"item" : [ "lunarmission4-codex", 1]}
+      ]
+    }]
+  ],
+
+  "translator1Pool" : [
+    [1, {
+      "fill" : [
+        {"item" : [ "translator1", 1]}
+      ]
+    }]
+  ],
+
+  "miningtreasurepet" : [
+    [1, {
+      "fill" : [
+        {"item" : [ "capturepod", 1]}
+      ]
+    }]
+  ],
+
+  "miningtreasurelore" : [
+    [1, {
+      "fill" : [
+        {"item" : [ "lunarmission1-codex", 1]}
+      ],
+      "pool" : [
+        {"weight" : 0.1, "item" : [ "techcard", 1]},
+        {"weight" : 0.1, "item" : [ "ironbar", 20]},
+        {"weight" : 0.2, "item" : [ "diamond", 1]},
+        {"weight" : 0.1, "item" : [ "money", 1000]},
+        {"weight" : 0.1, "pool" : "uncommonGun"},
+        {"weight" : 0.15, "item" : [ "capturepod", 2]},
+        {"weight" : 0.15, "pool" : "uncommonMelee"},
+        {"weight" : 0.1, "pool" : "shield"}
+      ],
+      "poolRounds" : [
+        [0.5, 5],
+        [0.5, 6]
+      ],
+      "allowDuplication" : false
+    }]
+  ]
+}

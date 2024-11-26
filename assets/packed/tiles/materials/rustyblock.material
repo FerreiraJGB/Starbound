@@ -1,0 +1,24 @@
+{
+  "materialId" : 166,
+  "materialName" : "rustyblock",
+  "particleColor" : [111, 98, 90, 255],
+  "itemDrop" : "rustymetal",
+  "description" : "A rusty old metal block.",
+  "shortdescription" : "Rusty Block",
+  "glitchDescription" : "Horrified. This rusty discarded metal is weathered and worn.",
+  "floranDescription" : "Russsty metal blockss.",
+  "novakidDescription" : "This here metal looks mighty rusty.",
+  "footstepSound" : "/sfx/blocks/footstep_girder.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "rustyblock.png",
+    "variants" : 3,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 2560
+  }
+}

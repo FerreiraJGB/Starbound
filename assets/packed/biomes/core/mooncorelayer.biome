@@ -1,0 +1,34 @@
+{
+  "name" : "mooncorelayer",
+  "friendlyName" : "Moon Core Layer",
+
+  "parallax" : "/parallax/underground/rockunderground.parallax",
+
+  "mainBlock" : "moonrock",
+  "subBlocks" : [ "deadcore" ],
+  "ores" : "none",
+
+  "ambientNoises" : {
+    "day" : {
+      "tracks" : [ "/sfx/environmental/moon_underground.ogg" ]
+    },
+    "night" : {
+      "tracks" : [ "/sfx/environmental/moon_underground.ogg" ]
+    }
+  },
+
+  "musicTrack" : {
+    "day" : {
+      "tracks" : []
+    },
+    "night" : {
+      "tracks" : []
+    }
+  },
+
+  "undergroundPlaceables" : {
+    "items" : [ ]
+  },
+
+  "hueShiftOptions" : [-180, -135, -90, -45, 0, 45, 90, 135, 180]
+}

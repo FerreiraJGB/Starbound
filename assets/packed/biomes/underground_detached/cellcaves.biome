@@ -1,0 +1,63 @@
+{
+  "name" : "cellcaves",
+  "friendlyName" : "Cell Caves",
+
+
+  "spawnProfile" : {
+    "groups" : [
+      {
+        "select" : 2,
+        "pool" : [ 
+          [ 1.0, "pulpin" ],
+          [ 1.0, "skimbus" ],
+          [ 1.0, "crutter" ]
+        ]
+      }
+    ],
+      "monsterParameters" : {
+        "statusSettings" : {
+          "stats" : {
+            "poisonStatusImmunity" : {
+              "baseValue" : 1.0
+            }
+          }
+        }
+      }
+  },
+
+  "mainBlock" : "fleshblock",
+  "subBlocks" : [ "mud" ],
+  "ores" : "depth2",
+
+  "undergroundPlaceables" : {
+    "grassMod" : [ "fleshgrass" ],
+    "grassModDensity" : 0.7,
+
+    "items" : [
+      {
+        "mode" : "floor",
+        "priority" : 0.0,
+        "variants" : 1,
+        "distribution" : "/biomes/distributions.config:minibiomeChests",
+
+        "type" : "treasureBox",
+        "treasureBoxSets" : [ "cellChest" ]
+      },
+
+      {
+        "mode" : "floor",
+        "priority" : 1.0,
+        "variants" : 1,
+        "distribution" : "/biomes/distributions.config:denseLarge",
+
+        "type" : "object",
+        "objectSets" : [
+          {
+            "pool" : [ [0.35, "cellstructure1" ], [0.35, "cellstructure2" ], [0.35, "cellstructure3" ], [0.35, "cellstructure4" ], [0.35, "cellstructure5" ], [0.35, "dnaplant1" ], [0.35, "dnaplant2" ], [0.35, "dnaplant3" ], [0.35, "dnaplant4" ] ],
+            "parameters" : { }
+          }
+        ]
+      }
+    ]
+  }
+}

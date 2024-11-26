@@ -1,0 +1,9 @@
+{
+  "name" : "lilodon",
+  "category" : "firelilodon",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "firelilodon.png"
+  }
+}

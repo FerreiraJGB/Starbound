@@ -1,0 +1,9 @@
+{
+  "name" : "yokateye",
+  "category" : "yokat",
+  "type" : "eye",
+
+  "frames" : {
+    "eye" : "yokateye.png"
+  }
+}

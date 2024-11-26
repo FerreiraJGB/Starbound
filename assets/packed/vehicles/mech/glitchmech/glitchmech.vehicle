@@ -1,0 +1,61 @@
+{
+  "name" : "glitchmech",
+  "boundBox" : [-5, -5, 5, 5],
+  "slaveControlTimeout" : 2.0,
+  "slaveControlHeartbeat" : 1.0,
+  "canBeHit" : false,
+
+  "script" : "/vehicles/mech/mech.lua",
+  "animation" : "/vehicles/mech/glitchmech/glitchmech.animation",
+
+  "animationPartTags" : {
+    "backLeg" : {
+      "partImage" : "/vehicles/mech/glitchmech/glitchmechbleg.png"
+    },
+    "background" : {
+      "partImage" : "/vehicles/mech/glitchmech/glitchmechbackground.png"
+    },
+    "backGun" : {
+      "partImage" : "/vehicles/mech/glitchmech/glitchmechgun.png"
+    },
+    "body" : {
+      "partImage" : "/vehicles/mech/glitchmech/glitchmechbody.png"
+    },
+    "frontGun" : {
+      "partImage" : "/vehicles/mech/glitchmech/glitchmechgun.png"
+    },
+    "frontLeg" : {
+      "partImage" : "/vehicles/mech/glitchmech/glitchmechfleg.png"
+    }
+  },
+
+  "movementSettings" : {
+    "collisionPoly" : [ [-3.5, -2.0], [-2, -4.5], [2, -4.5], [3.5, -2.0], [3.5, 2], [2, 3], [-2, 3], [-3.5, 2] ],
+    "mass" : 3,
+    "airFriction" : 0.5,
+    "groundFriction" : 40.0,
+    "ignorePlatformCollision" : true,
+    "groundForce" : 400
+  },
+
+  "loungePositions" : {
+    "seat" : {
+      "part" : "body",
+      "partAnchor" : "sitPosition",
+      "orientation" : "sit"
+    }
+  },
+
+  "mechAimLimit" : 40,
+  "mechHorizontalMovement" : 8,
+  "mechJumpVelocity" : [10, 30],
+  "offGroundFrames" : 8,
+
+  "mechFireCycle" : 1.5,
+  "mechProjectile" : "snowball",
+  "mechProjectileConfig" : {
+    "power" : 4,
+    "speed" : 50
+  },
+  "mechLevel" : 6
+}

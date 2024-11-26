@@ -1,0 +1,15 @@
+{
+  "modId" : 24,
+  "modName" : "aliengrass",
+  "description" : "Dense grass.",
+  "footstepSound" : "/sfx/blocks/footstep_grass.ogg",
+  "health" : 0,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "aliengrass.png",
+    "variants" : 5,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "materialId" : 194,
+  "materialName" : "outpostwall2",
+  "particleColor" : [110, 110, 110, 255],
+  "itemDrop" : "outpostwall2",
+  "description" : "A thick wall type developed for exposure to extreme elements.",
+  "shortdescription" : "Outpost Thick Wall",
+  "glitchDescription" : "Pleased. Nothing will move this structurally reinforced wall.",
+  "floranDescription" : "Thiss wall is ssso sstrong.",
+  "novakidDescription" : "Ain't nothin' gonna move this thick wall.",
+  "footstepSound" : "/sfx/blocks/footstep_composite.ogg",
+  "health" : 20,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "outpostwall2.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 2790
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "materialId" : 24,
+  "materialName" : "mirror",
+  "particleColor" : [110, 110, 110, 255],
+  "itemDrop" : "mirror",
+  "description" : "A non-reflective mirror.",
+  "shortdescription" : "Mirror Block",
+  "glitchDescription" : "Confused. Though it appears to be a mirror there is no reflection.",
+  "floranDescription" : "Shiny ssurface.",
+  "novakidDescription" : "Somethin' wrong with this mirror. I ain't seein' nothin' reflected.",
+  "footstepSound" : "/sfx/blocks/footstep_composite.ogg",
+  "health" : 4,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "mirror.png",
+    "variants" : 1,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3000
+  }
+}

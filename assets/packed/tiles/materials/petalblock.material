@@ -1,0 +1,25 @@
+{
+  "materialId" : 409,
+  "materialName" : "petalblock",
+  "particleColor" : [71, 66, 57, 255],
+  "itemDrop" : "petalblock",
+  "description" : "Sweet smelling dark leaves and flowers.",
+  "shortdescription" : "Petal Matter Block",
+  "glitchDescription" : "Delighted. These leaves smell of earth and flowers.",
+  "floranDescription" : "Floran lovess flowery plantss.",
+  "novakidDescription" : "There's some real nice flowers growin' here.",
+  "footstepSound" : "/sfx/blocks/footstep_tallgrass.ogg",
+  "health" : 2,
+  "category" : "materials",
+  "damageTable" : "/tiles/flammableDamage.config",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "petalblock.png",
+    "variants" : 10,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 3980
+  }
+}

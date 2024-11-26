@@ -1,0 +1,24 @@
+{
+  "materialId" : 127,
+  "materialName" : "ironblock",
+  "particleColor" : [176, 174, 168, 255],
+  "itemDrop" : "ironblock",
+  "description" : "A solid iron block.",
+  "shortdescription" : "Iron Block",
+  "glitchDescription" : "Pleased. It's nice to see iron used in construction.",
+  "floranDescription" : "Cold iron metal blockss.",
+  "novakidDescription" : "These blocks are crafted outta iron.",
+  "footstepSound" : "/sfx/blocks/footstep_composite.ogg",
+  "health" : 8,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "ironblock.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3000
+  }
+}

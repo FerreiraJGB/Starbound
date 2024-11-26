@@ -1,0 +1,521 @@
+{
+  "name": "guardian-projectilecircle",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/math.lua",
+    "/scripts/actions/animator.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/boss/guardian.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/behavior.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/position.lua"
+  ],
+  "parameters": {
+    "duration": 1,
+    "innerRange": 10,
+    "outerRange": 20,
+    "interval": 0.2,
+    "fuzzAimPosition": 5,
+    "projectileCount": 4,
+    "projectileType": "guardianpellet",
+    "projectileParameters": {},
+    "windupTime": 1,
+    "distance": 15
+  },
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "logResult",
+        "type": "decorator",
+        "name": "logResult",
+        "parameters": {
+          "text": {"value": "Log result: %s"}
+        },
+        "child": {
+          "title": "sub",
+          "type": "action",
+          "name": "sub",
+          "parameters": {
+            "first": {"key": "<outerRange>"},
+            "second": {"value": 2}
+          },
+          "output": {
+            "result": "approachOuter"
+          }
+        }
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": -1},
+          "success": {"value": 1}
+        },
+        "children": [
+          {
+            "title": "animate",
+            "type": "action",
+            "name": "animate",
+            "parameters": {
+              "fallback": {"value": "close"},
+              "state": {"value": "open"},
+              "type": {"value": "righthand"}
+            }
+          },
+          {
+            "title": "animate",
+            "type": "action",
+            "name": "animate",
+            "parameters": {
+              "fallback": {"value": "close"},
+              "state": {"value": "open"},
+              "type": {"value": "lefthand"}
+            }
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "parallel",
+                "type": "composite",
+                "name": "parallel",
+                "parameters": {
+                  "fail": {"value": -1},
+                  "success": {"value": -1}
+                },
+                "children": [
+                  {
+                    "title": "entityPosition",
+                    "type": "action",
+                    "name": "entityPosition",
+                    "parameters": {
+                      "entity": {"key": "target"}
+                    },
+                    "output": {
+                      "position": "targetPosition"
+                    }
+                  },
+                  {
+                    "title": "guardianApproach",
+                    "type": "action",
+                    "name": "guardianApproach",
+                    "parameters": {
+                      "innerRange": {"key": "<innerRange>"},
+                      "outerRange": {"key": "approachOuter"},
+                      "position": {"key": "targetPosition"}
+                    }
+                  },
+                  {
+                    "title": "sequence",
+                    "type": "composite",
+                    "name": "sequence",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "entityDirection",
+                        "type": "action",
+                        "name": "entityDirection",
+                        "parameters": {
+                          "entity": {"key": "self"},
+                          "target": {"key": "target"}
+                        },
+                        "output": {
+                          "direction": "targetDir",
+                          "vector": "toTarget"
+                        }
+                      },
+                      {
+                        "title": "faceDirection",
+                        "type": "action",
+                        "name": "faceDirection",
+                        "parameters": {
+                          "direction": {"key": "targetDir"}
+                        }
+                      },
+                      {
+                        "title": "vecAngle",
+                        "type": "action",
+                        "name": "vecAngle",
+                        "parameters": {
+                          "vector": {"key": "toTarget"}
+                        },
+                        "output": {
+                          "angle": "targetAngle"
+                        }
+                      },
+                      {
+                        "title": "rotateGuardianHand",
+                        "type": "action",
+                        "name": "rotateGuardianHand",
+                        "parameters": {
+                          "angle": {"key": "targetAngle"},
+                          "handPart": {"value": "righthand"},
+                          "offset": {"value": [0, 0]}
+                        }
+                      },
+                      {
+                        "title": "rotateGuardianHand",
+                        "type": "action",
+                        "name": "rotateGuardianHand",
+                        "parameters": {
+                          "angle": {"key": "targetAngle"},
+                          "handPart": {"value": "lefthand"},
+                          "offset": {"value": [0, 0]}
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "title": "setNumber",
+                "type": "action",
+                "name": "setNumber",
+                "parameters": {
+                  "number": {"key": "targetAngle"}
+                },
+                "output": {
+                  "number": "rightAimAngle"
+                }
+              },
+              {
+                "title": "setNumber",
+                "type": "action",
+                "name": "setNumber",
+                "parameters": {
+                  "number": {"key": "targetAngle"}
+                },
+                "output": {
+                  "number": "leftAimAngle"
+                }
+              },
+              {
+                "title": "setNumber",
+                "type": "action",
+                "name": "setNumber",
+                "parameters": {
+                  "number": {"key": "<distance>"}
+                },
+                "output": {
+                  "number": "distance"
+                }
+              },
+              {
+                "title": "parallel",
+                "type": "composite",
+                "name": "parallel",
+                "parameters": {
+                  "fail": {"value": -1},
+                  "success": {"value": 1}
+                },
+                "children": [
+                  {
+                    "title": "animate",
+                    "type": "action",
+                    "name": "animate",
+                    "parameters": {
+                      "fallback": {"value": "deactivate"},
+                      "state": {"value": "activate"},
+                      "type": {"value": "body"}
+                    }
+                  },
+                  {
+                    "title": "animate",
+                    "type": "action",
+                    "name": "animate",
+                    "parameters": {
+                      "fallback": {"value": "deactivate"},
+                      "state": {"value": "activate"},
+                      "type": {"value": "head"}
+                    }
+                  },
+                  {
+                    "title": "parallel",
+                    "type": "composite",
+                    "name": "parallel",
+                    "parameters": {
+                      "fail": {"value": -1},
+                      "success": {"value": -1}
+                    },
+                    "children": [
+                      {
+                        "title": "sequence",
+                        "type": "composite",
+                        "name": "sequence",
+                        "parameters": {},
+                        "children": [
+                          {
+                            "title": "rotateGuardianHand",
+                            "type": "action",
+                            "name": "rotateGuardianHand",
+                            "parameters": {
+                              "angle": {"key": "rightAimAngle"},
+                              "handPart": {"value": "righthand"},
+                              "offset": {"value": [0, 0]}
+                            }
+                          },
+                          {
+                            "title": "rotateGuardianHand",
+                            "type": "action",
+                            "name": "rotateGuardianHand",
+                            "parameters": {
+                              "angle": {"key": "leftAimAngle"},
+                              "handPart": {"value": "lefthand"},
+                              "offset": {"value": [0, 0]}
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "title": "sequence",
+                        "type": "composite",
+                        "name": "sequence",
+                        "parameters": {},
+                        "children": [
+                          {
+                            "title": "playSound",
+                            "type": "action",
+                            "name": "playSound",
+                            "parameters": {
+                              "loops": {"value": 0},
+                              "sound": {"value": "fireWindup"}
+                            }
+                          },
+                          {
+                            "title": "timer",
+                            "type": "action",
+                            "name": "timer",
+                            "parameters": {
+                              "time": {"value": "<windupTime>"}
+                            }
+                          },
+                          {
+                            "title": "parallel",
+                            "type": "composite",
+                            "name": "parallel",
+                            "parameters": {
+                              "fail": {"value": -1},
+                              "success": {"value": 1}
+                            },
+                            "children": [
+                              {
+                                "title": "parallel",
+                                "type": "composite",
+                                "name": "parallel",
+                                "parameters": {
+                                  "fail": {"value": -1},
+                                  "success": {"value": -1}
+                                },
+                                "children": [
+                                  {
+                                    "title": "timer",
+                                    "type": "action",
+                                    "name": "timer",
+                                    "parameters": {
+                                      "time": {"value": "<duration>"}
+                                    },
+                                    "output": {
+                                      "ratio": "ratio"
+                                    }
+                                  },
+                                  {
+                                    "title": "sequence",
+                                    "type": "composite",
+                                    "name": "sequence",
+                                    "parameters": {},
+                                    "children": [
+                                      {
+                                        "title": "lerp",
+                                        "type": "action",
+                                        "name": "lerp",
+                                        "parameters": {
+                                          "max": {"value": 3.14},
+                                          "min": {"value": 0},
+                                          "ratio": {"key": "ratio"}
+                                        },
+                                        "output": {
+                                          "number": "angleOffset"
+                                        }
+                                      },
+                                      {
+                                        "title": "add",
+                                        "type": "action",
+                                        "name": "add",
+                                        "parameters": {
+                                          "addend": {"key": "targetAngle"},
+                                          "number": {"key": "angleOffset"}
+                                        },
+                                        "output": {
+                                          "result": "rightAimAngle"
+                                        }
+                                      },
+                                      {
+                                        "title": "sub",
+                                        "type": "action",
+                                        "name": "sub",
+                                        "parameters": {
+                                          "first": {"key": "targetAngle"},
+                                          "second": {"key": "angleOffset"}
+                                        },
+                                        "output": {
+                                          "result": "leftAimAngle"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "title": "repeater",
+                                "type": "decorator",
+                                "name": "repeater",
+                                "parameters": {
+                                  "maxLoops": {"value": -1},
+                                  "untilSuccess": {"value": false}
+                                },
+                                "child": {
+                                  "title": "sequence",
+                                  "type": "composite",
+                                  "name": "sequence",
+                                  "parameters": {},
+                                  "children": [
+                                    {
+                                      "title": "sequence",
+                                      "type": "composite",
+                                      "name": "sequence",
+                                      "parameters": {},
+                                      "children": [
+                                        {
+                                          "title": "vecRotate",
+                                          "type": "action",
+                                          "name": "vecRotate",
+                                          "parameters": {
+                                            "angle": {"key": "rightAimAngle"},
+                                            "vector": {"value": ["distance", 0]}
+                                          },
+                                          "output": {
+                                            "vector": "rightAimOffset"
+                                          }
+                                        },
+                                        {
+                                          "title": "offsetPosition",
+                                          "type": "action",
+                                          "name": "offsetPosition",
+                                          "parameters": {
+                                            "offset": {"key": "rightAimOffset"},
+                                            "position": {"key": "self"}
+                                          },
+                                          "output": {
+                                            "position": "rightAimPosition"
+                                          }
+                                        },
+                                        {
+                                          "title": "guardianHandProjectile",
+                                          "type": "action",
+                                          "name": "guardianHandProjectile",
+                                          "parameters": {
+                                            "aimPosition": {"key": "rightAimPosition"},
+                                            "fixedDistance": {"value": true},
+                                            "fuzzAimPosition": {"key": "<fuzzAimPosition>"},
+                                            "fuzzAngle": {"value": 0},
+                                            "fuzzSpeed": {"value": 0},
+                                            "handPart": {"value": "righthand"},
+                                            "projectileCount": {"key": "<projectileCount>"},
+                                            "projectileParameters": {"key": "<projectileParameters>"},
+                                            "projectileType": {"value": "<projectileType>"}
+                                          }
+                                        },
+                                        {
+                                          "title": "vecRotate",
+                                          "type": "action",
+                                          "name": "vecRotate",
+                                          "parameters": {
+                                            "angle": {"key": "leftAimAngle"},
+                                            "vector": {"value": ["distance", 0]}
+                                          },
+                                          "output": {
+                                            "vector": "leftAimOffset"
+                                          }
+                                        },
+                                        {
+                                          "title": "offsetPosition",
+                                          "type": "action",
+                                          "name": "offsetPosition",
+                                          "parameters": {
+                                            "offset": {"key": "leftAimOffset"},
+                                            "position": {"key": "self"}
+                                          },
+                                          "output": {
+                                            "position": "leftAimPosition"
+                                          }
+                                        },
+                                        {
+                                          "title": "guardianHandProjectile",
+                                          "type": "action",
+                                          "name": "guardianHandProjectile",
+                                          "parameters": {
+                                            "aimPosition": {"key": "leftAimPosition"},
+                                            "fixedDistance": {"value": true},
+                                            "fuzzAimPosition": {"key": "<fuzzAimPosition>"},
+                                            "fuzzAngle": {"value": 0},
+                                            "fuzzSpeed": {"value": 0},
+                                            "handPart": {"value": "lefthand"},
+                                            "projectileCount": {"key": "<projectileCount>"},
+                                            "projectileParameters": {"key": "<projectileParameters>"},
+                                            "projectileType": {"value": "<projectileType>"}
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "title": "playSound",
+                                      "type": "action",
+                                      "name": "playSound",
+                                      "parameters": {
+                                        "loops": {"value": 0},
+                                        "sound": {"value": "rapidFire"}
+                                      }
+                                    },
+                                    {
+                                      "title": "timer",
+                                      "type": "action",
+                                      "name": "timer",
+                                      "parameters": {
+                                        "time": {"value": "<interval>"}
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": 1}
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "materialId" : 141,
+  "materialName" : "plantblock",
+  "particleColor" : [13, 39, 7, 255],
+  "itemDrop" : "plantblock",
+  "description" : "A block made of plant matter.",
+  "shortdescription" : "Plant Block",
+  "glitchDescription" : "Fascinated. This block is completely constructed from plant matter.",
+  "floranDescription" : "Floran feelss kinship with thiss plant block.",
+  "novakidDescription" : "Looks t'me like a block made outta plants.",
+  "footstepSound" : "/sfx/blocks/footstep_gravel.ogg",
+  "health" : 16,
+  "category" : "materials",
+  "damageTable" : "/tiles/flammableDamage.config",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "plantblock.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 2780
+  }
+}

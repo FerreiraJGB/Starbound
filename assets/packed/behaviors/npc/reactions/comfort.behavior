@@ -1,0 +1,173 @@
+{
+  "name": "reaction-comfort",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/world.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/position.lua",
+    "/scripts/actions/npc.lua",
+    "/scripts/actions/time.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "entityPosition",
+        "type": "action",
+        "name": "entityPosition",
+        "parameters": {
+          "entity": {"key": "self"}
+        },
+        "output": {
+          "position": "origPos"
+        }
+      },
+      {
+        "title": "entityPosition",
+        "type": "action",
+        "name": "entityPosition",
+        "parameters": {
+          "entity": {"key": "reactTarget"}
+        },
+        "output": {
+          "position": "reactTargetPos"
+        }
+      },
+      {
+        "title": "entityDirection",
+        "type": "action",
+        "name": "entityDirection",
+        "parameters": {
+          "entity": {"key": "self"},
+          "target": {"key": "reactTarget"}
+        },
+        "output": {
+          "direction": "direction"
+        }
+      },
+      {
+        "title": "offsetDirection",
+        "type": "action",
+        "name": "offsetDirection",
+        "parameters": {
+          "direction": {"key": "direction"},
+          "multiplier": {"value": -1.3},
+          "position": {"key": "reactTargetPos"}
+        },
+        "output": {
+          "position": "standPos"
+        }
+      },
+      {
+        "title": "moveToPosition",
+        "type": "action",
+        "name": "moveToPosition",
+        "parameters": {
+          "avoidLiquid": {"value": true},
+          "groundPosition": {"value": true},
+          "maxGround": {"value": 5},
+          "minGround": {"value": -5},
+          "position": {"key": "standPos"},
+          "run": {"value": false}
+        },
+        "output": {
+          "pathfinding": "isPathfinding"
+        }
+      },
+      {
+        "title": "entityPosition",
+        "type": "action",
+        "name": "entityPosition",
+        "parameters": {
+          "entity": {"key": "self"}
+        },
+        "output": {
+          "y": "selfY"
+        }
+      },
+      {
+        "title": "setPosition",
+        "type": "action",
+        "name": "setPosition",
+        "parameters": {
+          "footPosition": {"value": false},
+          "position": {"key": "standPos"},
+          "y": {"key": "selfY"}
+        }
+      },
+      {
+        "title": "emote",
+        "type": "action",
+        "name": "emote",
+        "parameters": {
+          "emote": {"value": "sleep"}
+        }
+      },
+      {
+        "title": "dance",
+        "type": "action",
+        "name": "dance",
+        "parameters": {
+          "dance": {"value": "comfort"}
+        }
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 3.5}
+        }
+      },
+      {
+        "title": "moveToPosition",
+        "type": "action",
+        "name": "moveToPosition",
+        "parameters": {
+          "avoidLiquid": {"value": true},
+          "groundPosition": {"value": true},
+          "maxGround": {"value": 5},
+          "minGround": {"value": -5},
+          "position": {"key": "origPos"},
+          "run": {"value": false}
+        },
+        "output": {
+          "pathfinding": "isPathfinding"
+        }
+      },
+      {
+        "title": "entityPosition",
+        "type": "action",
+        "name": "entityPosition",
+        "parameters": {
+          "entity": {"key": "self"}
+        },
+        "output": {
+          "y": "selfY"
+        }
+      },
+      {
+        "title": "setPosition",
+        "type": "action",
+        "name": "setPosition",
+        "parameters": {
+          "footPosition": {"value": false},
+          "position": {"key": "origPos"},
+          "y": {"key": "selfY"}
+        }
+      },
+      {
+        "title": "faceEntity",
+        "type": "action",
+        "name": "faceEntity",
+        "parameters": {
+          "entity": {"key": "reactTarget"}
+        }
+      }
+    ]
+  }
+}

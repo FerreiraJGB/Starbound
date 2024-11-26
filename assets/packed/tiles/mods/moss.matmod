@@ -1,0 +1,14 @@
+{
+  "modId" : 263,
+  "modName" : "moss",
+  "description" : "Moss hanging from the ceiling.",
+  "health" : 0,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "moss.png",
+    "variants" : 5,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

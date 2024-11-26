@@ -1,0 +1,981 @@
+{
+  "name": "NPC Idle",
+  "description": "",
+  "scripts": [
+    "/scripts/behavior.lua",
+    "/scripts/actions/crew.lua",
+    "/scripts/actions/npc.lua",
+    "/scripts/actions/entity.lua",
+    "/scripts/actions/quests.lua",
+    "/scripts/actions/notification.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/reaction.lua",
+    "/scripts/behavior/bdata.lua",
+    "/scripts/actions/query.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/overrides.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/status.lua",
+    "/scripts/actions/position.lua",
+    "/scripts/actions/math.lua"
+  ],
+  "parameters": {
+    "play": true,
+    "chatCooldown": 30,
+    "nearPlayerCooldown": 120,
+    "playCooldown": 30,
+    "statusRandomizationCooldown": 60,
+    "questReactionCooldown": 15,
+    "questGiverWaitTime": 10,
+    "beamOutWhenNotInUse": false,
+    "chat": true
+  },
+  "root": {
+    "title": "parallel",
+    "type": "composite",
+    "name": "parallel",
+    "parameters": {
+      "fail": {"value": -1},
+      "success": {"value": -1}
+    },
+    "children": [
+      {
+        "title": "succeeder",
+        "type": "decorator",
+        "name": "succeeder",
+        "parameters": {},
+        "child": {
+          "title": "cooldown",
+          "type": "decorator",
+          "name": "cooldown",
+          "parameters": {
+            "cooldown": {"key": "<statusRandomizationCooldown>"},
+            "onFail": {"value": false},
+            "onSuccess": {"value": true}
+          },
+          "child": {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": null,
+                "type": "composite",
+                "name": "selector",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "Is Tenant?",
+                    "type": "action",
+                    "name": "getStorage",
+                    "parameters": {
+                      "key": {"value": "homePosition"}
+                    }
+                  },
+                  {
+                    "title": "hasRecruiter",
+                    "type": "action",
+                    "name": "hasRecruiter",
+                    "parameters": {}
+                  }
+                ]
+              },
+              {
+                "title": "randomizeStatusText",
+                "type": "action",
+                "name": "randomizeStatusText",
+                "parameters": {}
+              }
+            ]
+          }
+        }
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "selector",
+            "type": "composite",
+            "name": "selector",
+            "parameters": {},
+            "children": [
+              {
+                "title": "isDamageTeam",
+                "type": "action",
+                "name": "isDamageTeam",
+                "parameters": {
+                  "type": {"value": "friendly"}
+                }
+              },
+              {
+                "title": "isDamageTeam",
+                "type": "action",
+                "name": "isDamageTeam",
+                "parameters": {
+                  "type": {"value": "assistant"}
+                }
+              }
+            ]
+          },
+          {
+            "title": "maybeGenerateQuest",
+            "type": "action",
+            "name": "maybeGenerateQuest",
+            "parameters": {}
+          }
+        ]
+      },
+      {
+        "title": "dynamic",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": null,
+            "type": "composite",
+            "name": "selector",
+            "parameters": {},
+            "children": [
+              {
+                "title": "sequence",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "receivedNotification",
+                    "type": "action",
+                    "name": "receivedNotification",
+                    "parameters": {
+                      "type": {"value": "questOfferAccepted"}
+                    },
+                    "output": {
+                      "source": "reactTarget"
+                    }
+                  },
+                  {
+                    "title": "faceEntity",
+                    "type": "action",
+                    "name": "faceEntity",
+                    "parameters": {
+                      "entity": {"key": "reactTarget"}
+                    }
+                  },
+                  {
+                    "title": "setInfluence",
+                    "type": "action",
+                    "name": "setInfluence",
+                    "parameters": {
+                      "influence": {"value": "questaccepted"}
+                    },
+                    "output": {
+                      "influence": "influence"
+                    }
+                  },
+                  {
+                    "title": "react",
+                    "type": "module",
+                    "name": "react",
+                    "parameters": {
+                      "sendInfluence": {"value": false},
+                      "faceReactTarget": {"value": true}
+                    }
+                  },
+                  {
+                    "title": "finalreact",
+                    "type": "module",
+                    "name": "finalreact",
+                    "parameters": {}
+                  }
+                ]
+              },
+              {
+                "title": "sequence",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "receivedNotification",
+                    "type": "action",
+                    "name": "receivedNotification",
+                    "parameters": {
+                      "type": {"value": "questOfferDeclined"}
+                    },
+                    "output": {
+                      "source": "reactTarget"
+                    }
+                  },
+                  {
+                    "title": "faceEntity",
+                    "type": "action",
+                    "name": "faceEntity",
+                    "parameters": {
+                      "entity": {"key": "reactTarget"}
+                    }
+                  },
+                  {
+                    "title": "setInfluence",
+                    "type": "action",
+                    "name": "setInfluence",
+                    "parameters": {
+                      "influence": {"value": "questdeclined"}
+                    },
+                    "output": {
+                      "influence": "influence"
+                    }
+                  },
+                  {
+                    "title": "react",
+                    "type": "module",
+                    "name": "react",
+                    "parameters": {
+                      "sendInfluence": {"value": false},
+                      "faceReactTarget": {"value": true}
+                    }
+                  },
+                  {
+                    "title": "finalreact",
+                    "type": "module",
+                    "name": "finalreact",
+                    "parameters": {}
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": null,
+            "type": "composite",
+            "name": "selector",
+            "parameters": {},
+            "children": [
+              {
+                "title": "optional",
+                "type": "decorator",
+                "name": "optional",
+                "parameters": {
+                  "shouldRun": {"key": "<chat>"}
+                },
+                "child": {
+                  "title": "cooldown",
+                  "type": "decorator",
+                  "name": "cooldown",
+                  "parameters": {
+                    "cooldown": {"key": "<chatCooldown>"},
+                    "onFail": {"value": false},
+                    "onSuccess": {"value": true}
+                  },
+                  "child": {
+                    "title": "sequence",
+                    "type": "composite",
+                    "name": "sequence",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "inverter",
+                        "type": "decorator",
+                        "name": "inverter",
+                        "parameters": {},
+                        "child": {
+                          "title": "hasFlag",
+                          "type": "action",
+                          "name": "hasFlag",
+                          "parameters": {
+                            "name": {"key": "nochat"}
+                          }
+                        }
+                      },
+                      {
+                        "title": "listClear",
+                        "type": "action",
+                        "name": "listClear",
+                        "parameters": {},
+                        "output": {
+                          "list": "chatfriends"
+                        }
+                      },
+                      {
+                        "title": null,
+                        "type": "composite",
+                        "name": "selector",
+                        "parameters": {},
+                        "children": [
+                          {
+                            "title": "receivedNotification",
+                            "type": "action",
+                            "name": "receivedNotification",
+                            "parameters": {
+                              "type": {"value": "chatrequest"}
+                            },
+                            "output": {
+                              "source": "chatfriend"
+                            }
+                          },
+                          {
+                            "title": "sequence",
+                            "type": "composite",
+                            "name": "sequence",
+                            "parameters": {},
+                            "children": [
+                              {
+                                "title": "selector",
+                                "type": "composite",
+                                "name": "selector",
+                                "parameters": {},
+                                "children": [
+                                  {
+                                    "title": "cooldown",
+                                    "type": "decorator",
+                                    "name": "cooldown",
+                                    "parameters": {
+                                      "cooldown": {"value": 1},
+                                      "onFail": {"value": true},
+                                      "onSuccess": {"value": true}
+                                    },
+                                    "child": {
+                                      "title": "queryEntity",
+                                      "type": "action",
+                                      "name": "queryEntity",
+                                      "parameters": {
+                                        "entityTypes": {"value": ["npc"]},
+                                        "orderBy": {"value": "nearest"},
+                                        "position": {"key": "self"},
+                                        "range": {"value": 3},
+                                        "withoutEntity": {"key": "self"}
+                                      },
+                                      "output": {
+                                        "entity": "chatfriend"
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "title": "entityInRange",
+                                    "type": "action",
+                                    "name": "entityInRange",
+                                    "parameters": {
+                                      "entity": {"key": "chatfriend"},
+                                      "position": {"key": "self"},
+                                      "range": {"value": 3}
+                                    }
+                                  },
+                                  {
+                                    "title": "failer",
+                                    "type": "decorator",
+                                    "name": "failer",
+                                    "parameters": {},
+                                    "child": {
+                                      "title": "unset",
+                                      "type": "action",
+                                      "name": "unset",
+                                      "parameters": {
+                                        "key": {"value": "chatfriend"},
+                                        "type": {"value": "entity"}
+                                      }
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "title": "entityInSight",
+                                "type": "action",
+                                "name": "entityInSight",
+                                "parameters": {
+                                  "entity": {"key": "chatfriend"}
+                                }
+                              },
+                              {
+                                "title": "sendNotification",
+                                "type": "action",
+                                "name": "sendNotification",
+                                "parameters": {
+                                  "entity": {"key": "chatfriend"},
+                                  "type": {"value": "chatrequest"}
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "title": "listPush",
+                        "type": "action",
+                        "name": "listPush",
+                        "parameters": {
+                          "entity": {"key": "self"},
+                          "list": {"key": "chatfriends"}
+                        },
+                        "output": {
+                          "list": "chatfriends"
+                        }
+                      },
+                      {
+                        "title": "listPush",
+                        "type": "action",
+                        "name": "listPush",
+                        "parameters": {
+                          "entity": {"key": "chatfriend"},
+                          "list": {"key": "chatfriends"}
+                        },
+                        "output": {
+                          "list": "chatfriends"
+                        }
+                      },
+                      {
+                        "title": "NPC Chat",
+                        "type": "module",
+                        "name": "chat",
+                        "parameters": {}
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "title": "cooldown",
+                "type": "decorator",
+                "name": "cooldown",
+                "parameters": {
+                  "cooldown": {"key": "<questReactionCooldown>"},
+                  "onFail": {"value": false},
+                  "onSuccess": {"value": true}
+                },
+                "child": {
+                  "title": "parallel",
+                  "type": "composite",
+                  "name": "parallel",
+                  "parameters": {
+                    "fail": {"value": 1},
+                    "success": {"value": -1}
+                  },
+                  "children": [
+                    {
+                      "title": "sequence",
+                      "type": "composite",
+                      "name": "sequence",
+                      "parameters": {},
+                      "children": [
+                        {
+                          "title": "isGivingQuest",
+                          "type": "action",
+                          "name": "isGivingQuest",
+                          "parameters": {}
+                        },
+                        {
+                          "title": "inverter",
+                          "type": "decorator",
+                          "name": "inverter",
+                          "parameters": {},
+                          "child": {
+                            "title": "matchingOverrides",
+                            "type": "action",
+                            "name": "matchingOverrides",
+                            "parameters": {
+                              "overrideName": {"value": "follow"}
+                            }
+                          }
+                        },
+                        {
+                          "title": "inverter",
+                          "type": "decorator",
+                          "name": "inverter",
+                          "parameters": {},
+                          "child": {
+                            "title": "matchingOverrides",
+                            "type": "action",
+                            "name": "matchingOverrides",
+                            "parameters": {
+                              "overrideName": {"value": "flee"}
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "title": "sequence",
+                      "type": "composite",
+                      "name": "sequence",
+                      "parameters": {},
+                      "children": [
+                        {
+                          "title": "Tenant - Return Home",
+                          "type": "module",
+                          "name": "Tenant - Return Home",
+                          "parameters": {}
+                        },
+                        {
+                          "title": "succeeder",
+                          "type": "decorator",
+                          "name": "succeeder",
+                          "parameters": {},
+                          "child": {
+                            "title": "sequence",
+                            "type": "composite",
+                            "name": "sequence",
+                            "parameters": {},
+                            "children": [
+                              {
+                                "title": "setInfluence",
+                                "type": "action",
+                                "name": "setInfluence",
+                                "parameters": {
+                                  "influence": {"value": "hasquest"}
+                                },
+                                "output": {
+                                  "influence": "influence"
+                                }
+                              },
+                              {
+                                "title": "unset",
+                                "type": "action",
+                                "name": "unset",
+                                "parameters": {
+                                  "key": {"value": "reactTarget"},
+                                  "type": {"value": "entity"}
+                                }
+                              },
+                              {
+                                "title": "react",
+                                "type": "module",
+                                "name": "react",
+                                "parameters": {
+                                  "sendInfluence": {"value": false}
+                                }
+                              },
+                              {
+                                "title": "finalreact",
+                                "type": "module",
+                                "name": "finalreact",
+                                "parameters": {}
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "title": "timer",
+                          "type": "action",
+                          "name": "timer",
+                          "parameters": {
+                            "time": {"value": "<questGiverWaitTime>"}
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "title": "optional",
+                "type": "decorator",
+                "name": "optional",
+                "parameters": {
+                  "shouldRun": {"key": "<beamOutWhenNotInUse>"}
+                },
+                "child": {
+                  "title": "sequence",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "inverter",
+                      "type": "decorator",
+                      "name": "inverter",
+                      "parameters": {},
+                      "child": {
+                        "title": "hasQuest",
+                        "type": "action",
+                        "name": "hasQuest",
+                        "parameters": {}
+                      }
+                    },
+                    {
+                      "title": "timer",
+                      "type": "action",
+                      "name": "timer",
+                      "parameters": {
+                        "time": {"value": 10}
+                      }
+                    },
+                    {
+                      "title": "inverter",
+                      "type": "decorator",
+                      "name": "inverter",
+                      "parameters": {},
+                      "child": {
+                        "title": "hasQuest",
+                        "type": "action",
+                        "name": "hasQuest",
+                        "parameters": {}
+                      }
+                    },
+                    {
+                      "title": "addEphemeralEffect",
+                      "type": "action",
+                      "name": "addEphemeralEffect",
+                      "parameters": {
+                        "name": {"value": "beamoutanddie"}
+                      }
+                    },
+                    {
+                      "title": "setDeathParticleBurst",
+                      "type": "action",
+                      "name": "setDeathParticleBurst",
+                      "parameters": {}
+                    },
+                    {
+                      "title": "setDropPools",
+                      "type": "action",
+                      "name": "setDropPools",
+                      "parameters": {
+                        "dropPools": {"value": []}
+                      }
+                    },
+                    {
+                      "title": "timer",
+                      "type": "action",
+                      "name": "timer",
+                      "parameters": {
+                        "time": {"value": 20}
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "title": null,
+            "type": "composite",
+            "name": "selector",
+            "parameters": {},
+            "children": [
+              {
+                "title": "sequence",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "isGivingQuest",
+                    "type": "action",
+                    "name": "isGivingQuest",
+                    "parameters": {}
+                  },
+                  {
+                    "title": null,
+                    "type": "composite",
+                    "name": "selector",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "inRange",
+                        "type": "action",
+                        "name": "inRange",
+                        "parameters": {
+                          "position": {"key": "self"},
+                          "range": {"value": 8},
+                          "target": {"key": "spawn"}
+                        }
+                      },
+                      {
+                        "title": "matchingOverrides",
+                        "type": "action",
+                        "name": "matchingOverrides",
+                        "parameters": {
+                          "overrideName": {"value": "follow"}
+                        }
+                      },
+                      {
+                        "title": "matchingOverrides",
+                        "type": "action",
+                        "name": "matchingOverrides",
+                        "parameters": {
+                          "overrideName": {"value": "flee"}
+                        }
+                      },
+                      {
+                        "title": "Tenant - Return Home",
+                        "type": "module",
+                        "name": "Tenant - Return Home",
+                        "parameters": {}
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "title": "cooldown",
+                "type": "decorator",
+                "name": "cooldown",
+                "parameters": {
+                  "cooldown": {"value": 120},
+                  "onFail": {"value": false},
+                  "onSuccess": {"value": true}
+                },
+                "child": {
+                  "title": "sequence",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "cooldown",
+                      "type": "decorator",
+                      "name": "cooldown",
+                      "parameters": {
+                        "cooldown": {"value": 5},
+                        "onFail": {"value": true},
+                        "onSuccess": {"value": true}
+                      },
+                      "child": {
+                        "title": "queryEntity",
+                        "type": "action",
+                        "name": "queryEntity",
+                        "parameters": {
+                          "entityTypes": {"value": ["npc"]},
+                          "orderBy": {"value": "nearest"},
+                          "position": {"key": "self"},
+                          "range": {"value": 20},
+                          "withoutEntity": {"key": "self"}
+                        },
+                        "output": {
+                          "entity": "nearNpc"
+                        }
+                      }
+                    },
+                    {
+                      "title": "entityInSight",
+                      "type": "action",
+                      "name": "entityInSight",
+                      "parameters": {
+                        "entity": {"key": "nearNpc"}
+                      }
+                    },
+                    {
+                      "title": "setInfluence",
+                      "type": "action",
+                      "name": "setInfluence",
+                      "parameters": {
+                        "influence": {"value": "nearnpc"}
+                      },
+                      "output": {
+                        "influence": "influence"
+                      }
+                    },
+                    {
+                      "title": "setEntity",
+                      "type": "action",
+                      "name": "setEntity",
+                      "parameters": {
+                        "entity": {"key": "nearNpc"}
+                      },
+                      "output": {
+                        "entity": "reactTarget"
+                      }
+                    },
+                    {
+                      "title": "react",
+                      "type": "module",
+                      "name": "react",
+                      "parameters": {
+                        "sendInfluence": {"value": false}
+                      }
+                    },
+                    {
+                      "title": "finalreact",
+                      "type": "module",
+                      "name": "finalreact",
+                      "parameters": {}
+                    }
+                  ]
+                }
+              },
+              {
+                "title": "cooldown",
+                "type": "decorator",
+                "name": "cooldown",
+                "parameters": {
+                  "cooldown": {"key": "<nearPlayerCooldown>"},
+                  "onFail": {"value": false},
+                  "onSuccess": {"value": true}
+                },
+                "child": {
+                  "title": "sequence",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "cooldown",
+                      "type": "decorator",
+                      "name": "cooldown",
+                      "parameters": {
+                        "cooldown": {"value": 5},
+                        "onFail": {"value": true},
+                        "onSuccess": {"value": true}
+                      },
+                      "child": {
+                        "title": "queryEntity",
+                        "type": "action",
+                        "name": "queryEntity",
+                        "parameters": {
+                          "entityTypes": {"value": ["player"]},
+                          "orderBy": {"value": "nearest"},
+                          "position": {"key": "self"},
+                          "range": {"value": 20},
+                          "withoutEntity": {"key": "self"}
+                        },
+                        "output": {
+                          "entity": "nearPlayer"
+                        }
+                      }
+                    },
+                    {
+                      "title": "entityInSight",
+                      "type": "action",
+                      "name": "entityInSight",
+                      "parameters": {
+                        "entity": {"key": "nearPlayer"}
+                      }
+                    },
+                    {
+                      "title": "setInfluence",
+                      "type": "action",
+                      "name": "setInfluence",
+                      "parameters": {
+                        "influence": {"value": "nearplayer"}
+                      },
+                      "output": {
+                        "influence": "influence"
+                      }
+                    },
+                    {
+                      "title": "setEntity",
+                      "type": "action",
+                      "name": "setEntity",
+                      "parameters": {
+                        "entity": {"key": "nearPlayer"}
+                      },
+                      "output": {
+                        "entity": "reactTarget"
+                      }
+                    },
+                    {
+                      "title": "react",
+                      "type": "module",
+                      "name": "react",
+                      "parameters": {
+                        "sendInfluence": {"value": false},
+                        "faceReactTarget": {"value": true}
+                      }
+                    },
+                    {
+                      "title": "finalreact",
+                      "type": "module",
+                      "name": "finalreact",
+                      "parameters": {}
+                    }
+                  ]
+                }
+              },
+              {
+                "title": "cooldown",
+                "type": "decorator",
+                "name": "cooldown",
+                "parameters": {
+                  "cooldown": {"key": "<playCooldown>"},
+                  "onFail": {"value": false},
+                  "onSuccess": {"value": true}
+                },
+                "child": {
+                  "title": "optional",
+                  "type": "decorator",
+                  "name": "optional",
+                  "parameters": {
+                    "shouldRun": {"key": "<play>"}
+                  },
+                  "child": {
+                    "title": "sequence",
+                    "type": "composite",
+                    "name": "sequence",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "chance",
+                        "type": "action",
+                        "name": "chance",
+                        "parameters": {
+                          "chance": {"value": 0.25}
+                        }
+                      },
+                      {
+                        "title": "",
+                        "type": "module",
+                        "name": "play",
+                        "parameters": {}
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "title": "sequence",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "setInfluence",
+                    "type": "action",
+                    "name": "setInfluence",
+                    "parameters": {
+                      "influence": {"value": "spontaneous"}
+                    },
+                    "output": {
+                      "influence": "influence"
+                    }
+                  },
+                  {
+                    "title": "unset",
+                    "type": "action",
+                    "name": "unset",
+                    "parameters": {
+                      "key": {"value": "reactTarget"},
+                      "type": {"value": "entity"}
+                    }
+                  },
+                  {
+                    "title": "react",
+                    "type": "module",
+                    "name": "react",
+                    "parameters": {
+                      "sendInfluence": {"value": false}
+                    }
+                  },
+                  {
+                    "title": "finalreact",
+                    "type": "module",
+                    "name": "finalreact",
+                    "parameters": {}
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "runner",
+            "type": "action",
+            "name": "runner",
+            "parameters": {}
+          }
+        ]
+      }
+    ]
+  }
+}

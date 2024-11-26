@@ -1,0 +1,29 @@
+{
+  "projectileName" : "dronecannonflame",
+  "physics" : "grenadenobounce",
+  "bounces" : -1,
+  "timeToLive" : 3.5,
+  "speed" : 15,
+  "fullbright" : true,
+  "image" : "dronecannonflame.png",
+  "animationCycle" : 0.8,
+  "lightColor" : [249, 21, 207],
+  "frameNumber" : 8,
+  "emitters" : [ "flames" ],
+  "piercing" : true,
+  "damagePoly" : [ [-6, 0], [-4, -4], [0, -6], [4, -4], [6, 0], [4, 4], [0, 6], [-4, 4] ],
+  "actionOnReap" : [
+    {
+      "action" : "config",
+      "file" : "/projectiles/explosions/smoke/smoke.config"
+    }
+  ],
+  "damageKind" : "fire",
+  "damageKindImage" : "/interface/statuses/fire.png",
+  "statusEffects" : [
+    "burning"
+  ],
+  "hydrophobic" : true,
+
+  "persistentAudio" : "/sfx/objects/torch.ogg"
+}

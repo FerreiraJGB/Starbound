@@ -1,0 +1,9 @@
+{
+  "name" : "largeClumps",
+
+  "amplitude" : 1.0,
+  "frequency" : 0.0157,
+  "bias" : -0.4,
+  "noiseAmplitude" : 4.0,
+  "noiseFrequency" : 0.7
+}

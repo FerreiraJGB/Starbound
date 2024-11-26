@@ -1,0 +1,103 @@
+{
+  "name" : "undergroundtentacles",
+  "friendlyName" : "undergroundtentacles",
+ 
+  "spawnProfile" : {
+    "groups" : [
+      {
+        "select" : 6,
+        "pool" : [ 
+          [ 1, "tentaclecrawlerU" ],
+          [ 1, "tentaclegnatU" ],
+          [ 1, "tentaclespawnerU" ],
+          [ 1, "tentaclebombU" ],
+          [ 1, "tentacleghostU" ],
+          [ 1, "tentacleclamU" ]
+        ]
+      },
+      {
+        "select" : 5,
+        "pool" : [
+          [ 1, "bigwormcritter" ],
+          [ 1, "fisheyecritter" ],
+          [ 1, "cellcritter" ],
+          [ 1, "cell2critter" ],
+          [ 1, "eggcellcritter" ]          
+        ]
+      }
+    ]
+  },
+
+  "parallax" : "/parallax/underground/undergroundtentacle.parallax",
+
+  "mainBlock" : "tentacleblock",
+  "subBlocks" : [ "obsidian", "jellyblock" ],
+  "ores" : "none",
+
+  "ambientNoises" : {
+    "day" : {
+      "tracks" : [ "/sfx/environmental/savannah_underground.ogg" ]
+    },
+    "night" : {
+      "tracks" : [ "/sfx/environmental/savannah_underground.ogg" ]
+    }
+  },
+
+  "musicTrack" : {
+    "day" : {
+      "tracks" : [ "/music/crystal-battle1-loop.ogg" ]
+    },
+    "night" : {
+      "tracks" : [ "/music/crystal-battle1-loop.ogg" ]
+    }
+  },
+
+  "undergroundPlaceables" : {
+//    "grassMod" : [ "sand" ],
+//    "grassModDensity" : 0.9,
+
+    "items" : [
+
+      {
+        "mode" : "floor",
+        "priority" : 1.0,
+        "variants" : 1,
+        "distribution" : "/biomes/distributions.config:surfaceCapsules",
+
+        "type" : "object",
+        "objectSets" : [
+          {
+            "pool" : [ [2.0, "tentaclepart1" ], [0.8, "tentaclepart2" ], [0.8, "tentaclepart3" ], [0.4, "tentaclespawner1" ] ],
+            "parameters" : { }
+          }
+        ]
+      },
+      {
+        "mode" : "ceiling",
+        "priority" : 1.0,
+        "variants" : 1,
+        "distribution" : "/biomes/distributions.config:hazardUndergroundCeilingMid",
+
+        "type" : "object",
+        "objectSets" : [
+          {
+            "pool" : [ [2.0, "tentaclepart1" ], [0.8, "tentaclepart2" ], [0.8, "tentaclepart3" ], [0.4, "tentaclespawner1" ] ],
+            "parameters" : { }
+          }
+        ]
+      },
+      {
+        "mode" : "ceiling",
+        "priority" : 2.0,
+        "variants" : 1,
+        "distribution" : "/biomes/distributions.config:scatteredSmall",
+
+        "type" : "tree",
+        "treeFoliageHueShiftMax" : 0,
+        "treeStemHueShiftMax" : 0,
+        "treeStemList" : [ "tentacle" ],
+        "treeFoliageList" : [ "" ]
+      }
+    ]
+  }
+}

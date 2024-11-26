@@ -1,0 +1,46 @@
+{
+  "verticalOrigin" : -10,
+  
+  "layers" : [
+
+    {
+      "kind" : "cyberspace3",
+      "baseCount" : 6,
+      "offset" : [60, 215],
+      "parallax" : [2.0, 4.0]
+    },
+
+    {
+      "kind" : "cyberspace3",
+      "baseCount" : 6,
+      "offset" : [40, 200],
+      "parallax" : [3.0, 5.0]
+    },
+
+    {
+      "kind" : "cyberspace3",
+      "baseCount" : 6,
+      "offset" : [20, 180],
+      "parallax" : [4.0, 6.0]
+    },
+
+    {
+      "kind" : "cyberspace4",
+      "baseCount" : 2,
+      "offset" : [0, 160],
+      "parallax" : [8.0, 10.0]
+    },
+    {
+      "kind" : "cyberspace5",
+      "baseCount" : 3,
+      "offset" : [0, -20],
+      "parallax" : [70.0, 21.0]
+    },
+    {
+      "kind" : "cyberspace2",
+      "baseCount" : 3,
+      "offset" : [0, 110],
+      "parallax" : [70.0, 36.0]
+    }
+  ]
+}

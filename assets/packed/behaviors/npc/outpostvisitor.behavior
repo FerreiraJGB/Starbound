@@ -1,0 +1,145 @@
+{
+  "name": "outpostvisitor",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/time.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/npc.lua",
+    "/scripts/actions/status.lua"
+  ],
+  "parameters": {
+    "play": true,
+    "stayTime": [10, 60]
+  },
+  "root": {
+    "title": "selector",
+    "type": "composite",
+    "name": "selector",
+    "parameters": {},
+    "children": [
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": 1},
+          "success": {"value": -1}
+        },
+        "children": [
+          {
+            "title": "cooldown",
+            "type": "decorator",
+            "name": "cooldown",
+            "parameters": {
+              "cooldown": {"key": "<stayTime>"},
+              "onFail": {"value": false},
+              "onSuccess": {"value": true}
+            },
+            "child": {
+              "title": "timer",
+              "type": "action",
+              "name": "timer",
+              "parameters": {
+                "time": {"value": "<stayTime>"}
+              }
+            }
+          },
+          {
+            "title": "Villager",
+            "type": "composite",
+            "name": "dynamic",
+            "parameters": {},
+            "children": [
+              {
+                "title": null,
+                "type": "module",
+                "name": "converse",
+                "parameters": {}
+              },
+              {
+                "title": "NPC Idle",
+                "type": "module",
+                "name": "NPC Idle",
+                "parameters": {
+                  "play": {"value": "<play>"}
+                }
+              },
+              {
+                "title": "runner",
+                "type": "action",
+                "name": "runner",
+                "parameters": {}
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "succeeder",
+            "type": "decorator",
+            "name": "succeeder",
+            "parameters": {},
+            "child": {
+              "title": "moveToPosition",
+              "type": "action",
+              "name": "moveToPosition",
+              "parameters": {
+                "avoidLiquid": {"value": true},
+                "groundPosition": {"value": true},
+                "maxGround": {"value": 5},
+                "minGround": {"value": -5},
+                "pathOptions": {"value": {}},
+                "position": {"key": "spawn"},
+                "run": {"value": false}
+              }
+            }
+          },
+          {
+            "title": "timer",
+            "type": "action",
+            "name": "timer",
+            "parameters": {
+              "time": {"value": 1}
+            }
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "setDeathParticleBurst",
+                "type": "action",
+                "name": "setDeathParticleBurst",
+                "parameters": {}
+              },
+              {
+                "title": "addEphemeralEffect",
+                "type": "action",
+                "name": "addEphemeralEffect",
+                "parameters": {
+                  "name": {"value": "beamoutanddie"}
+                }
+              },
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": 1}
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

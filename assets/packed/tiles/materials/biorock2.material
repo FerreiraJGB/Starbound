@@ -1,0 +1,25 @@
+{
+  "materialId" : 1431,
+  "materialName" : "biorock2",
+  "particleColor" : [111, 94, 74, 255],
+  "itemDrop" : "biorock2",
+  "description" : "This blue rock is faintly glowing with bioluminescence.",
+  "shortdescription" : "Blue Glow Rock",
+  "glitchDescription" : "Perplexed. There's a faint blue glow coming from the bacteria in this rock.",
+  "floranDescription" : "Blue rockss faintly glow.",
+  "novakidDescription" : "This blue rock is shinin' a bit.",
+  "footstepSound" : "/sfx/blocks/footstep_stone3.ogg",
+  "health" : 6,
+  "category" : "materials",
+  
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "biorock2.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : false,
+    "zLevel" : 1719,
+    "radiantLight" : [25, 50, 75]
+  }
+}

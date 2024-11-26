@@ -1,0 +1,23 @@
+{
+  "materialId" : 51,
+  "materialName" : "wreckplatform",
+  "collisionKind" : "platform",
+  "itemDrop" : "wreckplatform",
+  "shortdescription" : "Wrecked Platform",
+  "description" : "Rusty scaffolding, it doesn't look safe.",
+  "glitchDescription" : "Alarmed. This rusty scaffolding appears structurally unsound.",
+  "floranDescription" : "Russty and unssafe. Floran likess.",
+  "novakidDescription" : "This rusty platform looks 'bout ready to fall apart.",
+  "footstepSound" : "/sfx/blocks/footstep_girder.ogg",
+  "category" : "Supports",
+
+  "renderTemplate" : "/tiles/platformtemplate.config",
+  "renderParameters" : {
+    "texture" : "wreckplatform.png",
+    "variants" : 3,
+    "lightTransparent" : true,
+    "occludesBelow" : false,
+    "multiColored" : true,
+    "zLevel" : 0
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "materialId" : 180,
+  "materialName" : "treasurehoard",
+  "particleColor" : [220, 164, 28, 255],
+  "itemDrop" : "treasurehoard",
+  "shortdescription" : "Treasure Hoard",
+  "description" : "A shimmering hoard of valuable treasure.",
+  "glitchDescription" : "Possessive. I can't take my eyes off this treasure.",
+  "floranDescription" : "Floran likes ssshiny gold!",
+  "novakidDescription" : "Gold! I can hardly contain my excitement!",
+  "falling" : true,
+  "cascading" : true,
+  "footstepSound" : "/sfx/blocks/footstep_treasure.ogg",
+  "health" : 2,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "treasurehoard.png",
+    "variants" : 25,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 410
+  }
+}

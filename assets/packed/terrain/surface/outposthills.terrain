@@ -1,0 +1,33 @@
+{
+  "name" : "outposthills",
+
+  "type" : "displacement",
+  "xType" : "perlin",
+  "xOctaves" : 1,
+  "xFreq" : 0.2,
+  "xAmp" : 0,
+  "yType" : "perlin",
+  "yOctaves" : 3,
+  "yFreq" : 0.2,
+  "yAmp" : 1,
+
+  "source" : {
+    "type" : "displacement",
+    "xType" : "ridgedmulti",
+    "xOctaves" : 2,
+    "xFreq" : 0.02,
+    "xAmp" : 0,
+    "yType" : "perlin",
+    "yOctaves" : 2,
+    "yFreq" : 0.02,
+    "yAmp" : 10,
+    "yXInfluence" : 1,
+    "yYInfluence" : 0,
+
+    "source" : {
+      "type" : "flatSurface",
+
+      "adjustment" : 0
+    }
+  }
+}

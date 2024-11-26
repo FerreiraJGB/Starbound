@@ -1,0 +1,17 @@
+{
+  "materialId" : 140,
+  "materialName" : "copperladder",
+  "collisionKind" : "platform",
+  "stairVariants" : 1,
+  "stairImage" : "copperladder.png",
+  "platformVariants" : 1,
+  "platformImage" : "copperladder.png",
+  "itemDrop" : "copperplatform",
+  "shortdescription" : "Copper Ladder",
+  "glitchDescription" : "Surprised. This ladder is made from copper.",
+  "floranDescription" : "Ladder iss made from sshiny copper.",
+  "novakidDescription" : "A ladder made outta copper.",
+  "description" : "A copper ladder.",
+  "footstepSound" : "/sfx/blocks/footstep_lightmetal.ogg",
+  "category" : "Supports"
+}

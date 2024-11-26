@@ -1,0 +1,23 @@
+{
+  "materialId" : 118,
+  "materialName" : "bambooplatform",
+  "collisionKind" : "platform",
+  "itemDrop" : "bambooplatform",
+  "shortdescription" : "Bamboo Platform",
+  "description" : "Strong platforms fashioned from bamboo stalks.",
+  "glitchDescription" : "Hopeful. This bamboo platform is incredibly strong.",
+  "floranDescription" : "Floran grow sstrong bamboo for platformsss.",
+  "novakidDescription" : "Bamboo hung up like a platform.",
+  "footstepSound" : "/sfx/blocks/footstep_lightwood.ogg",
+  "category" : "Supports",
+
+  "renderTemplate" : "/tiles/platformtemplate.config",
+  "renderParameters" : {
+    "texture" : "bambooplatform.png",
+    "variants" : 1,
+    "lightTransparent" : true,
+    "occludesBelow" : false,
+    "multiColored" : true,
+    "zLevel" : 0
+  }
+}

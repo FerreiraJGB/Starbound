@@ -1,0 +1,9 @@
+{
+  "name" : "crabcano",
+  "category" : "icecrabcano",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "icecrabcano.png"
+  }
+}

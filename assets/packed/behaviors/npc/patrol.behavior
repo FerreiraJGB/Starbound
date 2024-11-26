@@ -1,0 +1,195 @@
+{
+  "name": "patrol",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/sensor.lua",
+    "/scripts/actions/time.lua"
+  ],
+  "parameters": {
+    "idleTime": [2, 10],
+    "alwaysRun": false,
+    "patrolTime": 1.5
+  },
+  "root": {
+    "title": null,
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": 1},
+          "success": {"value": -1}
+        },
+        "children": [
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "moveToPosition",
+                "type": "action",
+                "name": "moveToPosition",
+                "parameters": {
+                  "avoidLiquid": {"value": true},
+                  "groundPosition": {"value": true},
+                  "maxGround": {"value": 5},
+                  "minGround": {"value": -5},
+                  "position": {"key": "spawn"},
+                  "run": {"key": "<alwaysRun>"}
+                }
+              },
+              {
+                "title": "setDirection",
+                "type": "action",
+                "name": "setDirection",
+                "parameters": {},
+                "output": {
+                  "direction": "patrolDirection"
+                }
+              },
+              {
+                "title": "succeeder",
+                "type": "decorator",
+                "name": "succeeder",
+                "parameters": {},
+                "child": {
+                  "title": "parallel",
+                  "type": "composite",
+                  "name": "parallel",
+                  "parameters": {
+                    "fail": {"value": 1},
+                    "success": {"value": 1}
+                  },
+                  "children": [
+                    {
+                      "title": "selector",
+                      "type": "composite",
+                      "name": "selector",
+                      "parameters": {},
+                      "children": [
+                        {
+                          "title": "parallel",
+                          "type": "composite",
+                          "name": "parallel",
+                          "parameters": {
+                            "fail": {"value": 1},
+                            "success": {"value": -1}
+                          },
+                          "children": [
+                            {
+                              "title": "succeeder",
+                              "type": "decorator",
+                              "name": "succeeder",
+                              "parameters": {},
+                              "child": {
+                                "title": "",
+                                "type": "action",
+                                "name": "openDoors",
+                                "parameters": {
+                                  "distance": {"value": 2}
+                                }
+                              }
+                            },
+                            {
+                              "title": "move",
+                              "type": "action",
+                              "name": "move",
+                              "parameters": {
+                                "direction": {"key": "patrolDirection"},
+                                "run": {"key": "<alwaysRun>"}
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "title": "succeeder",
+                          "type": "decorator",
+                          "name": "succeeder",
+                          "parameters": {},
+                          "child": {
+                            "title": "sequence",
+                            "type": "composite",
+                            "name": "sequence",
+                            "parameters": {},
+                            "children": [
+                              {
+                                "title": "succeeder",
+                                "type": "decorator",
+                                "name": "succeeder",
+                                "parameters": {},
+                                "child": {
+                                  "title": "closeDoors",
+                                  "type": "action",
+                                  "name": "closeDoors",
+                                  "parameters": {
+                                    "distance": {"value": 3}
+                                  }
+                                }
+                              },
+                              {
+                                "title": "lineTileCollision",
+                                "type": "action",
+                                "name": "lineTileCollision",
+                                "parameters": {
+                                  "collisionType": {"value": ["Null", "Block"]},
+                                  "offset": {"value": ["facingDirection", 0]},
+                                  "position": {"key": "self"}
+                                }
+                              },
+                              {
+                                "title": "reverseDirection",
+                                "type": "action",
+                                "name": "reverseDirection",
+                                "parameters": {
+                                  "direction": {"key": "facingDirection"}
+                                },
+                                "output": {
+                                  "direction": "reversedDirection"
+                                }
+                              },
+                              {
+                                "title": "faceDirection",
+                                "type": "action",
+                                "name": "faceDirection",
+                                "parameters": {
+                                  "direction": {"key": "reversedDirection"}
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "title": "timer",
+                      "type": "action",
+                      "name": "timer",
+                      "parameters": {
+                        "time": {"value": "<patrolTime>"}
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Idle",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": "<idleTime>"}
+        }
+      }
+    ]
+  }
+}

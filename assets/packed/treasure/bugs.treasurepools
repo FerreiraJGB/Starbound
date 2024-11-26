@@ -1,0 +1,349 @@
+  // ==============================================================================================
+  //                                    TREASURE POOLS FOR BUGNET TOOL
+  // ==============================================================================================
+
+{
+  "testbug" : [
+    [0, {
+      "fill" : [
+        {"item" : "testbug"}
+      ]
+    }]
+  ],
+
+  "butterbee" : [
+    [0, {
+      "fill" : [
+        {"item" : "butterbee"}
+      ]
+    }]
+  ],
+
+  "fawnfly" : [
+    [0, {
+      "fill" : [
+        {"item" : "fawnfly"}
+      ]
+    }]
+  ],
+
+  "sunskipper" : [
+    [0, {
+      "fill" : [
+        {"item" : "sunskipper"}
+      ]
+    }]
+  ],
+
+  "goldbuck" : [
+    [0, {
+      "fill" : [
+        {"item" : "goldbuck"}
+      ]
+    }]
+  ],
+
+  "sandclown" : [
+    [0, {
+      "fill" : [
+        {"item" : "sandclown"}
+      ]
+    }]
+  ],
+
+  "dewhopper" : [
+    [0, {
+      "fill" : [
+        {"item" : "dewhopper"}
+      ]
+    }]
+  ],
+
+  "greentip" : [
+    [0, {
+      "fill" : [
+        {"item" : "greentip"}
+      ]
+    }]
+  ],
+
+  "frostfly" : [
+    [0, {
+      "fill" : [
+        {"item" : "frostfly"}
+      ]
+    }]
+  ],
+
+  "dustmoth" : [
+    [0, {
+      "fill" : [
+        {"item" : "dustmoth"}
+      ]
+    }]
+  ],
+
+  "muddancer" : [
+    [0, {
+      "fill" : [
+        {"item" : "muddancer"}
+      ]
+    }]
+  ],
+
+  "icetip" : [
+    [0, {
+      "fill" : [
+        {"item" : "icetip"}
+      ]
+    }]
+  ],
+
+  "blueback" : [
+    [0, {
+      "fill" : [
+        {"item" : "blueback"}
+      ]
+    }]
+  ],
+
+  "redwing" : [
+    [0, {
+      "fill" : [
+        {"item" : "redwing"}
+      ]
+    }]
+  ],
+
+  "mudstag" : [
+    [0, {
+      "fill" : [
+        {"item" : "mudstag"}
+      ]
+    }]
+  ],
+
+  "thornbee" : [
+    [0, {
+      "fill" : [
+        {"item" : "thornbee"}
+      ]
+    }]
+  ],
+
+  "brightstripe" : [
+    [0, {
+      "fill" : [
+        {"item" : "brightstripe"}
+      ]
+    }]
+  ],
+
+  "stinkjack" : [
+    [0, {
+      "fill" : [
+        {"item" : "stinkjack"}
+      ]
+    }]
+  ],
+
+  "frostfleck" : [
+    [0, {
+      "fill" : [
+        {"item" : "frostfleck"}
+      ]
+    }]
+  ],
+
+  "scuttleploom" : [
+    [0, {
+      "fill" : [
+        {"item" : "scuttleploom"}
+      ]
+    }]
+  ],
+
+  "seahornet" : [
+    [0, {
+      "fill" : [
+        {"item" : "seahornet"}
+      ]
+    }]
+  ],
+
+  "tidefly" : [
+    [0, {
+      "fill" : [
+        {"item" : "tidefly"}
+      ]
+    }]
+  ],
+
+  "wavebird" : [
+    [0, {
+      "fill" : [
+        {"item" : "wavebird"}
+      ]
+    }]
+  ],
+
+  "vineclimber" : [
+    [0, {
+      "fill" : [
+        {"item" : "vineclimber"}
+      ]
+    }]
+  ],
+
+  "gasgiant" : [
+    [0, {
+      "fill" : [
+        {"item" : "gasgiant"}
+      ]
+    }]
+  ],
+
+  "hivehog" : [
+    [0, {
+      "fill" : [
+        {"item" : "hivehog"}
+      ]
+    }]
+  ],
+
+  "xenofly" : [
+    [0, {
+      "fill" : [
+        {"item" : "xenofly"}
+      ]
+    }]
+  ],
+
+  "shellcreep" : [
+    [0, {
+      "fill" : [
+        {"item" : "shellcreep"}
+      ]
+    }]
+  ],
+
+  "driftbell" : [
+    [0, {
+      "fill" : [
+        {"item" : "driftbell"}
+      ]
+    }]
+  ],
+
+  "aurorabee" : [
+    [0, {
+      "fill" : [
+        {"item" : "aurorabee"}
+      ]
+    }]
+  ],
+
+  "shardwing" : [
+    [0, {
+      "fill" : [
+        {"item" : "shardwing"}
+      ]
+    }]
+  ],
+
+  "snowskater" : [
+    [0, {
+      "fill" : [
+        {"item" : "snowskater"}
+      ]
+    }]
+  ],
+
+  "polarmoth" : [
+    [0, {
+      "fill" : [
+        {"item" : "polarmoth"}
+      ]
+    }]
+  ],
+
+  "orphanfly" : [
+    [0, {
+      "fill" : [
+        {"item" : "orphanfly"}
+      ]
+    }]
+  ],
+
+  "phoenixfly" : [
+    [0, {
+      "fill" : [
+        {"item" : "phoenixfly"}
+      ]
+    }]
+  ],
+
+  "heathugger" : [
+    [0, {
+      "fill" : [
+        {"item" : "heathugger"}
+      ]
+    }]
+  ],
+
+  "glowbug" : [
+    [0, {
+      "fill" : [
+        {"item" : "glowbug"}
+      ]
+    }]
+  ],
+
+  "flameroach" : [
+    [0, {
+      "fill" : [
+        {"item" : "flameroach"}
+      ]
+    }]
+  ],
+
+  "lavahopper" : [
+    [0, {
+      "fill" : [
+        {"item" : "lavahopper"}
+      ]
+    }]
+  ],
+
+  "fireygiant" : [
+    [0, {
+      "fill" : [
+        {"item" : "fireygiant"}
+      ]
+    }]
+  ],
+
+  "cinderfly" : [
+    [0, {
+      "fill" : [
+        {"item" : "cinderfly"}
+      ]
+    }]
+  ],
+
+  "ashsprite" : [
+    [0, {
+      "fill" : [
+        {"item" : "ashsprite"}
+      ]
+    }]
+  ],
+
+  "shadowmoth" : [
+    [0, {
+      "fill" : [
+        {"item" : "shadowmoth"}
+      ]
+    }]
+  ]
+}

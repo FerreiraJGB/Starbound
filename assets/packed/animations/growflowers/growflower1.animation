@@ -1,0 +1,7 @@
+{
+  "frames" : "growflower1.png",
+  "variants" : 1,
+  "frameNumber" : 11,
+  "animationCycle" : 2.5,
+  "offset" : [0, 0]
+}

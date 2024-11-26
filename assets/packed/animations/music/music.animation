@@ -1,0 +1,8 @@
+{
+  "frames" : "music.png",
+  "variants" : 1,
+  "frameNumber" : 1,
+  "loops" : 20.0,
+  "animationCycle" : 0.85,
+  "offset" : [0, 0]
+}

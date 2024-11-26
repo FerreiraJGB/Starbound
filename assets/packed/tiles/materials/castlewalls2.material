@@ -1,0 +1,24 @@
+{
+  "materialId" : 123,
+  "materialName" : "castlewalls2",
+  "particleColor" : [82, 83, 82, 255],
+  "itemDrop" : "castlewalls2",
+  "description" : "Small stone slabs, perfect for the finer details.",
+  "shortdescription" : "Small Stone Brick",
+  "glitchDescription" : "Interested. It appears these bricks were all cut from the same stone.",
+  "floranDescription" : "These sstone brickss are ssmall.",
+  "novakidDescription" : "Some bricks carved outta rock.",
+  "footstepSound" : "/sfx/blocks/footstep_stone2.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "castlewalls2.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 3100
+  }
+}

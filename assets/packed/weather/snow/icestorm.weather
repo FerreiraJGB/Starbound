@@ -1,0 +1,63 @@
+{
+  "name" : "icestorm",
+
+  "particles" : [
+    {
+      "density" : 0.15,
+      "particle" : {
+        "type" : "ember",
+        "color" : [212, 219, 247],
+        "size" : 1.0,
+        "velocity" : [0, -1.5],
+        "timeToLive" : 20,
+        "collidesForeground" : true,
+        "collidesLiquid" : true,
+        "ignoreWind" : false
+      }
+    },
+    {
+      "density" : 0.15,
+      "particle" : {
+        "type" : "ember",
+        "color" : [239, 242, 254],
+        "size" : 1.0,
+        "velocity" : [0, -3.75],
+        "timeToLive" : 20,
+        "collidesForeground" : true,
+        "collidesLiquid" : true,
+        "ignoreWind" : false
+      }
+    },
+    {
+      "density" : 0.15,
+      "particle" : {
+        "type" : "ember",
+        "color" : [246, 250, 250],
+        "size" : 1.0,
+        "velocity" : [0, -2],
+        "timeToLive" : 20,
+        "collidesForeground" : true,
+        "collidesLiquid" : true,
+        "ignoreWind" : false
+      }
+    }
+  ],
+
+  "projectiles" : [
+    {
+      "projectile" : "icestorm",
+      "parameters" : {
+        "power" : 10
+      },
+      "velocity" : [10, -30],
+      "ratePerX" : 0.01,
+      "spawnAboveRegion" : 30,
+      "spawnHorizontalPad" : 30,
+      "windAffectAmount" : 1.0
+    }
+  ],
+
+  "duration" : [50, 400],
+  "lightningFrequency" : 0,
+  "weatherNoises" : [ ]
+}

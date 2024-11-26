@@ -1,0 +1,86 @@
+{
+  "name" : "minivillage",
+  "friendlyName" : "Mini Village",
+
+  "spawnProfile" : {
+    "groups" : [
+      {
+        "select" : 1,
+        "pool" : [ 
+          [ 1.0, "bobot" ]
+        ]
+      }
+    ]
+  },
+
+  "mainBlock" : "dirt",
+  "subBlocks" : [  "rock03"],
+  "ores" : "depth2",
+
+  "undergroundPlaceables" : {
+
+    "grassMod" : [ "grass" ],
+    "grassModDensity" : 0.9,
+    "items" : [
+      {
+        "mode" : "floor",
+        "priority" : 1.0,
+        "variants" : 11,
+        "distribution" : "/biomes/distributions.config:denseSmall",
+
+        "type" : "object",
+        "objectSets" : [
+          {
+            "pool" : [ [0.13, "smallclocktower" ], [0.15, "smallhouse1" ], [0.15, "smallhouse2" ], [0.15, "smallhouse3" ], [0.15, "smallhouse3" ], [0.15, "smallhouse4" ], [0.15, "smallhouse5" ], [0.15, "smallhouse6" ], [0.15, "smallhouse7" ], [0.15, "smallhouse8" ], [0.15, "smallhouse9" ], [0.15, "smallhouse10" ], [0.14, "smallhouse11" ], [0.14, "smallchurch" ], [0.14, "smallwindmill" ], [0.14, "smallinn" ] ],
+            "parameters" : { }
+          }
+        ]
+      },
+
+      {
+          "mode" : "floor",
+          "priority" : 3.0,
+          "variants" : 1,
+          "distribution" : "/biomes/distributions.config:scatteredLarge",
+
+          "type" : "grass",
+          "grasses" : [ "smallvillage" ]
+        },
+
+        {
+          "mode" : "floor",
+          "priority" : 3.0,
+          "variants" : 1,
+          "distribution" : "/biomes/distributions.config:scatteredSmall",
+
+          "type" : "grass",
+          "grasses" : [ "grass" ]
+        },
+
+      {
+        "mode" : "floor",
+        "priority" : 1.0,
+        "variants" : 1,
+        "distribution" : "/biomes/distributions.config:scatteredSmall",
+
+        "type" : "object",
+        "objectSets" : [
+          {
+            "pool" : [ [1.0, "smalllamppost" ] ],
+            "parameters" : { }
+          }
+        ]
+      }
+    ]
+  },
+
+  "hueShiftOptions" : [0],
+  "parallax" : "/parallax/underground/dirtunderground.parallax",
+
+  "sky" : {
+    "topColor" : [182, 204, 255],
+    "bottomColor" : [224, 239, 255],
+    "nightTopColor" : [0, 0, 30],
+    "nightBottomColor" : [0, 0, 0]
+  }
+}

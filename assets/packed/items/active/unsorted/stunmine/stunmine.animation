@@ -1,0 +1,43 @@
+{
+  "animatedParts" : {
+    "stateTypes" : {
+      "inHand" : {
+        "default" : "mine",
+        "states" : {
+          "mine" : {},
+          "trigger" : {},
+          "empty" : {}
+        }
+      }
+    },
+
+    "parts" : {
+      "handItem" : {
+        "properties" : {
+          "centered" : true,
+          "offset" : [0.0, 0.0]
+        },
+
+        "partStates" : {
+          "inHand" : {
+            "mine" : {
+              "properties" : {
+                "image" : "inhandmine.png"
+              }
+            },
+            "trigger" : {
+              "properties" : {
+                "image" : "inhandtrigger.png"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "sounds" : {
+    "throw" : ["/sfx/projectiles/throw_item.ogg"],
+    "trigger" : ["/sfx/interface/rocket_lockon.ogg"]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "guard_floran",
+  "priority": 5,
+
+  "colonyTagCriteria": {
+    "light": 1,
+    "door": 1,
+    "floran": 8,
+    "combat": 8
+  },
+
+  "tenants": [
+    {
+      "spawn": "npc",
+      "species": "floran",
+      "level": 1,
+      "type": "friendlyguardtenant",
+      "overrides": {
+       }
+     }
+   ],
+
+  "rent": {
+    "periodRange": [900.0, 1800.0],
+    "pool": "villagerGift"
+  }
+}

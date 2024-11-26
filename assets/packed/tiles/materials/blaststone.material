@@ -1,0 +1,24 @@
+{
+  "materialId" : 38,
+  "materialName" : "blaststone",
+  "particleColor" : [100, 106, 106, 255],
+  "itemDrop" : "blaststone",
+  "description" : "Sharp rocks produced by blasts of enormous heat.",
+  "shortdescription" : "Blaststone Block",
+  "glitchDescription" : "Amazed. Intense heat have fused minerals into this blaststone.",
+  "floranDescription" : "Ssharp rockss are sstrong.",
+  "novakidDescription" : "These tough rocks are mighty sharp.",
+  "footstepSound" : "/sfx/blocks/footstep_stone.ogg",
+  "health" : 24,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "blaststone.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 1660
+  }
+}

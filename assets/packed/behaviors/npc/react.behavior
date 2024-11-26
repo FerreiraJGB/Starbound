@@ -1,0 +1,130 @@
+{
+  "name": "react",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/reaction.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/npc.lua"
+  ],
+  "parameters": {
+    "sendInfluence": true,
+    "faceReactTarget": false
+  },
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "chooseReaction",
+        "type": "action",
+        "name": "chooseReaction",
+        "parameters": {
+          "influence": {"key": "influence"},
+          "target": {"key": "reactTarget"}
+        },
+        "output": {
+          "reaction": "reaction"
+        }
+      },
+      {
+        "title": "succeeder",
+        "type": "decorator",
+        "name": "succeeder",
+        "parameters": {},
+        "child": {
+          "title": "optional",
+          "type": "decorator",
+          "name": "optional",
+          "parameters": {
+            "shouldRun": {"key": "<faceReactTarget>"}
+          },
+          "child": {
+            "title": "faceEntity",
+            "type": "action",
+            "name": "faceEntity",
+            "parameters": {
+              "entity": {"key": "reactTarget"}
+            }
+          }
+        }
+      },
+      {
+        "title": "succeeder",
+        "type": "decorator",
+        "name": "succeeder",
+        "parameters": {},
+        "child": {
+          "title": "sequence",
+          "type": "composite",
+          "name": "sequence",
+          "parameters": {},
+          "children": [
+            {
+              "title": "inverter",
+              "type": "decorator",
+              "name": "inverter",
+              "parameters": {},
+              "child": {
+                "title": "isFinalReaction",
+                "type": "action",
+                "name": "isFinalReaction",
+                "parameters": {
+                  "reaction": {"key": "reaction"}
+                }
+              }
+            },
+            {
+              "title": "selector",
+              "type": "composite",
+              "name": "selector",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "playSimpleReaction",
+                  "type": "action",
+                  "name": "playSimpleReaction",
+                  "parameters": {
+                    "reaction": {"key": "reaction"}
+                  }
+                },
+                {
+                  "title": "playBehaviorReaction",
+                  "type": "action",
+                  "name": "playBehaviorReaction",
+                  "parameters": {
+                    "reaction": {"key": "reaction"}
+                  }
+                }
+              ]
+            },
+            {
+              "title": "optional",
+              "type": "decorator",
+              "name": "optional",
+              "parameters": {
+                "shouldRun": {"key": "<sendInfluence>"}
+              },
+              "child": {
+                "title": "sendInfluenceNotification",
+                "type": "action",
+                "name": "sendInfluenceNotification",
+                "parameters": {
+                  "reaction": {"key": "reaction"},
+                  "target": {"key": "reactTarget"}
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "title": "dance",
+        "type": "action",
+        "name": "dance",
+        "parameters": {}
+      }
+    ]
+  }
+}

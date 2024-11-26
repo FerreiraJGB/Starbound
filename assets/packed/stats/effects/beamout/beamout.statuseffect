@@ -1,0 +1,16 @@
+{
+  "name" : "beamout",
+  "effectConfig" : {
+    "speciesTags" : {
+      "penguin" : "penguin"
+    },
+    "triggerTime" : 0.75
+  },
+  "defaultDuration" : 0.8,
+
+  "scripts" : [
+    "beamout.lua"
+  ],
+
+  "animationConfig" : "beamout.animation"
+}

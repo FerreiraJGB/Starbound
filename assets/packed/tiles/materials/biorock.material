@@ -1,0 +1,25 @@
+{
+  "materialId" : 1430,
+  "materialName" : "biorock",
+  "particleColor" : [111, 94, 74, 255],
+  "itemDrop" : "biorock",
+  "description" : "This rock is glowing with bioluminescence.",
+  "shortdescription" : "Yellow Glow Rock",
+  "glitchDescription" : "Curious. Microscopic bacteria in this rock are glowing yellow faintly.",
+  "floranDescription" : "Floran likess yellow glowing rockss.",
+  "novakidDescription" : "This rock is glowin' yellow but not givin' off any heat.",
+  "footstepSound" : "/sfx/blocks/footstep_stone3.ogg",
+  "health" : 6,
+  "category" : "materials",
+  
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "biorock.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : false,
+    "zLevel" : 1719,
+    "radiantLight" : [85, 55, 30]
+  }
+}

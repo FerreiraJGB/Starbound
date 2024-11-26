@@ -1,0 +1,24 @@
+{
+  "materialId" : 101,
+  "materialName" : "junktech",
+  "particleColor" : [31, 39, 20, 255],
+  "itemDrop" : "junktech",
+  "shortdescription" : "Junk Tech",
+  "description" : "Useless scrap metal, mostly remnants of outmoded technology.",
+  "glitchDescription" : "Interested. There are a variety of technologies within this discarded junk.",
+  "floranDescription" : "Technological trasssh.",
+  "novakidDescription" : "Bucha ol' tech smashed together into bricks.",
+  "footstepSound" : "/sfx/blocks/footstep_lightmetal.ogg",
+  "health" : 8,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "junktech.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 2570
+  }
+}

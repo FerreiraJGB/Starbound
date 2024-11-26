@@ -1,0 +1,111 @@
+{
+  "name": "bounty-disguise",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/npc.lua",
+    "/scripts/actions/entity.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/bounty.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/quests.lua",
+    "/scripts/actions/status.lua"
+  ],
+  "parameters": {
+    "quest": null,
+    "dialog": null
+  },
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "equipArmor",
+        "type": "action",
+        "name": "equipArmor",
+        "parameters": {
+          "itemTable": {"value": {"name": "grouchohead"}},
+          "vanitySlot": {"value": true}
+        }
+      },
+      {
+        "title": "wasInteracted",
+        "type": "action",
+        "name": "wasInteracted",
+        "parameters": {}
+      },
+      {
+        "title": "faceEntity",
+        "type": "action",
+        "name": "faceEntity",
+        "parameters": {
+          "entity": {"key": "interactionSource"},
+          "headingDirection": {"value": [1, 0]}
+        }
+      },
+      {
+        "title": "sayBountyClueDialog",
+        "type": "action",
+        "name": "sayBountyClueDialog",
+        "parameters": {
+          "dialog": {"value": "interact"},
+          "quest": {"key": "<quest>"},
+          "domain": {"key": "<dialog>"}
+        }
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 3}
+        }
+      },
+      {
+        "title": "fireQuestEvent",
+        "type": "action",
+        "name": "fireQuestEvent",
+        "parameters": {
+          "eventName": {"value": "clueGiven"}
+        }
+      },
+      {
+        "title": "setPersistent",
+        "type": "action",
+        "name": "setPersistent",
+        "parameters": {
+          "persistent": {"value": false}
+        }
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 240}
+        }
+      },
+      {
+        "title": "addEphemeralEffect",
+        "type": "action",
+        "name": "addEphemeralEffect",
+        "parameters": {
+          "name": {"value": "beamoutanddie"}
+        }
+      },
+      {
+        "title": "setDeathParticleBurst",
+        "type": "action",
+        "name": "setDeathParticleBurst",
+        "parameters": {}
+      },
+      {
+        "title": "runner",
+        "type": "action",
+        "name": "runner",
+        "parameters": {}
+      }
+    ]
+  }
+}

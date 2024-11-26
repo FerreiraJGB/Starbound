@@ -1,0 +1,35 @@
+{
+  "name" : "undergroundbrainssolid",
+  "friendlyName" : "undergroundbrainssolid",
+
+  "spawnProfile" : { },
+
+  "parallax" : "/parallax/underground/corebrains.parallax",
+
+  "mainBlock" : "brainsblock",
+  "subBlocks" : [ "brainsblock" ],
+  "ores" : "none",
+
+  "ambientNoises" : {
+    "day" : {
+      "tracks" : [ "/sfx/environmental/desert_underground.ogg" ]
+    },
+    "night" : {
+      "tracks" : [ "/sfx/environmental/desert_underground.ogg" ]
+    }
+  },
+
+  "musicTrack" : {
+    "day" : {
+      "tracks" : [ "/music/crystal-battle1-loop.ogg" ]
+    },
+    "night" : {
+      "tracks" : [ "/music/crystal-battle1-loop.ogg" ]
+    }
+  },
+  "surfacePlaceables" : { },
+
+  "undergroundPlaceables" : { },
+
+  "hueShiftOptions" : [0]
+}

@@ -1,0 +1,9 @@
+{
+  "name" : "peblit",
+  "category" : "icepeblit",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "icepeblit.png"
+  }
+}

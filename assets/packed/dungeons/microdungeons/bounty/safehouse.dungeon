@@ -1,0 +1,163 @@
+{
+  "metadata" : {
+    "name" : "safehouse",
+    "species" : "generic",
+    "rules" : [
+    ],
+    "anchor" : [ "safehouse_1", "safehouse_2", "safehouse_3", "safehouse_4", "safehouse_5", "safehouse_6", "safehouse_7", "safehouse_8", "safehouse_9", "safehouse_10", "safehouse_11", "safehouse_12", "safehouse_13", "safehouse_14", "safehouse_15", "safehouse_16", "safehouse_17", "safehouse_18", "safehouse_19", "safehouse_20", "safehouse_21" ],
+    "gravity" : 80,
+    "maxRadius" : 1000000,
+    "maxParts" : 1,
+    "protected" : true
+  },
+
+  "parts" : [
+    {
+      "name" : "safehouse_1",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "safehouse_1.json" ]
+    },
+    {
+      "name" : "safehouse_2",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "safehouse_2.json" ]
+    },
+    {
+      "name" : "safehouse_3",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "safehouse_3.json" ]
+    },
+    {
+      "name" : "safehouse_4",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "safehouse_4.json" ]
+    },
+    {
+      "name" : "safehouse_5",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "safehouse_5.json" ]
+    },
+    {
+      "name" : "safehouse_6",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "safehouse_6.json" ]
+    },
+    {
+      "name" : "safehouse_7",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "safehouse_7.json" ]
+    },
+    {
+      "name" : "safehouse_8",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "safehouse_8.json" ]
+    },
+    {
+      "name" : "safehouse_9",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "safehouse_9.json" ]
+    },
+    {
+      "name" : "safehouse_10",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "safehouse_10.json" ]
+    },
+    {
+      "name" : "safehouse_11",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "safehouse_11.json" ]
+    },
+    {
+      "name" : "safehouse_12",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "safehouse_12.json" ]
+    },
+    {
+      "name" : "safehouse_13",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "safehouse_13.json" ]
+    },
+    {
+      "name" : "safehouse_14",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "safehouse_14.json" ]
+    },
+    {
+      "name" : "safehouse_15",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "safehouse_15.json" ]
+    },
+    {
+      "name" : "safehouse_16",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "safehouse_16.json" ]
+    },
+    {
+      "name" : "safehouse_17",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "safehouse_17.json" ]
+    },
+    {
+      "name" : "safehouse_18",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "safehouse_18.json" ]
+    },
+    {
+      "name" : "safehouse_19",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "safehouse_19.json" ]
+    },
+    {
+      "name" : "safehouse_20",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "safehouse_20.json" ]
+    },
+    {
+      "name" : "safehouse_21",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "safehouse_21.json" ]
+    }
+  ]
+}

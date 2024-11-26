@@ -1,0 +1,25 @@
+{
+  "materialId" : 114,
+  "materialName" : "reedsmaterial",
+  "particleColor" : [225, 191, 150, 255],
+  "itemDrop" : "reedblock",
+  "description" : "A block made from tightly woven reeds.",
+  "shortdescription" : "Reed Block",
+  "glitchDescription" : "Impressed. These tightly woven reeds make strong blocks.",
+  "floranDescription" : "Floran likess sstrong reedss.",
+  "novakidDescription" : "Some reeds that're all woven together.",
+  "footstepSound" : "/sfx/blocks/footstep_tallgrass.ogg",
+  "health" : 2,
+  "category" : "materials",
+  "damageTable" : "/tiles/flammableDamage.config",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "reeds.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3480
+  }
+}

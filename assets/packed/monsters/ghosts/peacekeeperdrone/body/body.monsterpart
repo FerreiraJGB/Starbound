@@ -1,0 +1,10 @@
+{
+  "name" : "peacekeeperdrone",
+  "category" : "peacekeeperdrone",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "peacekeeperdrone.png",
+    "bodynobright" : "peacekeeperdronenobright.png"
+  }
+}

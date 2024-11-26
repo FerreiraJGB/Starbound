@@ -1,0 +1,20 @@
+{
+  "kind" : "orangeshrapnel1",
+  "definition" : {
+    "type" : "textured",
+    "image" : "/monsters/boss/swansong/particles/orangeshrapnel1.png",
+    "initialVelocity" : [0.0, 0.0],
+    "finalVelocity" : [0.0, -30.0],
+    "approach" : [4, 10],
+    "fullbright" : true,
+    "timeToLive" : 4.0,
+    "layer" : "middle",
+    "collidesForeground" : true,
+    "variance" : {
+      "initialVelocity" : [10, 10],
+      "rotation" : 180,
+      "angularVelocity" : 180,
+      "timeToLive" : 1.0
+    }
+  }
+}

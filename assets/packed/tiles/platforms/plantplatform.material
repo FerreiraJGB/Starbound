@@ -1,0 +1,23 @@
+{
+  "materialId" : 126,
+  "materialName" : "plantplatform",
+  "collisionKind" : "platform",
+  "itemDrop" : "plantplatform",
+  "shortdescription" : "Mossy Platform",
+  "description" : "The platform is slimy with moss and leaves. Better be careful not to slip!",
+  "glitchDescription" : "Cautious. This mossy platform is slimy and slippery.",
+  "floranDescription" : "Floran sslide along sslimy mosss platform.",
+  "novakidDescription" : "This moss makes this platform mighty slippery.",
+  "footstepSound" : "/sfx/blocks/footstep_lightwood.ogg",
+  "category" : "Supports",
+
+  "renderTemplate" : "/tiles/platformtemplate.config",
+  "renderParameters" : {
+    "texture" : "plantplatform.png",
+    "variants" : 5,
+    "lightTransparent" : true,
+    "occludesBelow" : false,
+    "multiColored" : true,
+    "zLevel" : 0
+  }
+}

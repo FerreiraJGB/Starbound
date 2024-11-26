@@ -1,0 +1,255 @@
+{
+  "name" : "fishing",
+  "title" : "Fishing",
+  "type" : "monster",
+
+  "collectables" : {
+    // ocean
+    "fishingjerk" : {
+      "order" : 1,
+      "monsterType" : "fishingjerk",
+      "icon" : "/monsters/fishing/small/jerk/fishingjerk.png:swim.1"
+    },
+    "fishingdirt" : {
+      "order" : 2,
+      "monsterType" : "fishingdirt",
+      "icon" : "/monsters/fishing/small/dirt/fishingdirt.png:swim.1"
+    },
+    "fishingchomp" : {
+      "order" : 3,
+      "monsterType" : "fishingchomp",
+      "icon" : "/monsters/fishing/medium/chomp/fishingchomp.png:swim.1"
+    },
+    "fishingfunny" : {
+      "order" : 4,
+      "monsterType" : "fishingfunny",
+      "icon" : "/monsters/fishing/medium/funny/fishingfunny.png:swim.1"
+    },
+    "fishingsquare" : {
+      "order" : 5,
+      "monsterType" : "fishingsquare",
+      "icon" : "/monsters/fishing/medium/square/fishingsquare.png:swim.1"
+    },
+    "fishingfrill" : {
+      "order" : 6,
+      "monsterType" : "fishingfrill",
+      "icon" : "/monsters/fishing/small/frill/fishingfrill.png:swim.1"
+    },
+    "fishingjaw" : {
+      "order" : 7,
+      "monsterType" : "fishingjaw",
+      "icon" : "/monsters/fishing/medium/jaw/fishingjaw.png:swim.1"
+    },
+    "fishingsunbeam" : {
+      "order" : 8,
+      "monsterType" : "fishingsunbeam",
+      "icon" : "/monsters/fishing/large/sunbeam/fishingsunbeam.png:swim.1"
+    },
+    "fishinghoop" : {
+      "order" : 9,
+      "monsterType" : "fishinghoop",
+      "icon" : "/monsters/fishing/large/hoop/fishinghoop.png:swim.1"
+    },
+    "fishingtongue" : {
+      "order" : 10,
+      "monsterType" : "fishingtongue",
+      "icon" : "/monsters/fishing/medium/tongue/fishingtongue.png:swim.1"
+    },
+    "fishingworm" : {
+      "order" : 11,
+      "monsterType" : "fishingworm",
+      "icon" : "/monsters/fishing/small/worm/fishingworm.png:swim.1"
+    },
+    "fishingchuckle" : {
+      "order" : 12,
+      "monsterType" : "fishingchuckle",
+      "icon" : "/monsters/fishing/large/chuckle/fishingchuckle.png:swim.1"
+    },
+
+    // toxic
+    "fishingredeye" : {
+      "order" : 13,
+      "monsterType" : "fishingredeye",
+      "icon" : "/monsters/fishing/medium/redeye/fishingredeye.png:swim.1"
+    },
+    "fishingspot" : {
+      "order" : 14,
+      "monsterType" : "fishingspot",
+      "icon" : "/monsters/fishing/medium/spot/fishingspot.png:swim.1"
+    },
+    "fishingglob" : {
+      "order" : 15,
+      "monsterType" : "fishingglob",
+      "icon" : "/monsters/fishing/medium/glob/fishingglob.png:swim.1"
+    },
+    "fishingcute" : {
+      "order" : 16,
+      "monsterType" : "fishingcute",
+      "icon" : "/monsters/fishing/small/cute/fishingcute.png:swim.1"
+    },
+    "fishingshell" : {
+      "order" : 17,
+      "monsterType" : "fishingshell",
+      "icon" : "/monsters/fishing/medium/shell/fishingshell.png:swim.1"
+    },
+    "fishingnose" : {
+      "order" : 18,
+      "monsterType" : "fishingnose",
+      "icon" : "/monsters/fishing/medium/nose/fishingnose.png:swim.1"
+    },
+    "fishingclaw" : {
+      "order" : 19,
+      "monsterType" : "fishingclaw",
+      "icon" : "/monsters/fishing/small/claw/fishingclaw.png:swim.1"
+    },
+    "fishingcurl" : {
+      "order" : 20,
+      "monsterType" : "fishingcurl",
+      "icon" : "/monsters/fishing/medium/curl/fishingcurl.png:swim.1"
+    },
+    "fishingeel" : {
+      "order" : 21,
+      "monsterType" : "fishingeel",
+      "icon" : "/monsters/fishing/medium/eel/fishingeel.png:swim.1"
+    },
+    "fishingfan" : {
+      "order" : 22,
+      "monsterType" : "fishingfan",
+      "icon" : "/monsters/fishing/large/fan/fishingfan.png:swim.1"
+    },
+    "fishingsac" : {
+      "order" : 23,
+      "monsterType" : "fishingsac",
+      "icon" : "/monsters/fishing/large/sac/fishingsac.png:swim.1"
+    },
+    "fishingdark" : {
+      "order" : 24,
+      "monsterType" : "fishingdark",
+      "icon" : "/monsters/fishing/large/dark/fishingdark.png:swim.1"
+    },
+
+    // arctic
+    "fishingspear" : {
+      "order" : 25,
+      "monsterType" : "fishingspear",
+      "icon" : "/monsters/fishing/small/spear/fishingspear.png:swim.1"
+    },
+    "fishingramp" : {
+      "order" : 26,
+      "monsterType" : "fishingramp",
+      "icon" : "/monsters/fishing/small/ramp/fishingramp.png:swim.1"
+    },
+    "fishingsaber" : {
+      "order" : 27,
+      "monsterType" : "fishingsaber",
+      "icon" : "/monsters/fishing/small/saber/fishingsaber.png:swim.1"
+    },
+    "fishingseal" : {
+      "order" : 28,
+      "monsterType" : "fishingseal",
+      "icon" : "/monsters/fishing/large/seal/fishingseal.png:swim.1"
+    },
+    "fishingwhisker" : {
+      "order" : 29,
+      "monsterType" : "fishingwhisker",
+      "icon" : "/monsters/fishing/medium/whisker/fishingwhisker.png:swim.1"
+    },
+    "fishingchirp" : {
+      "order" : 30,
+      "monsterType" : "fishingchirp",
+      "icon" : "/monsters/fishing/small/chirp/fishingchirp.png:swim.1"
+    },
+    "fishingwimp" : {
+      "order" : 31,
+      "monsterType" : "fishingwimp",
+      "icon" : "/monsters/fishing/small/wimp/fishingwimp.png:swim.1"
+    },
+    "fishingswindle" : {
+      "order" : 32,
+      "monsterType" : "fishingswindle",
+      "icon" : "/monsters/fishing/small/swindle/fishingswindle.png:swim.1"
+    },
+    "fishingbulb" : {
+      "order" : 33,
+      "monsterType" : "fishingbulb",
+      "icon" : "/monsters/fishing/medium/bulb/fishingbulb.png:swim.1"
+    },
+    "fishinggaze" : {
+      "order" : 34,
+      "monsterType" : "fishinggaze",
+      "icon" : "/monsters/fishing/medium/gaze/fishinggaze.png:swim.1"
+    },
+    "fishingfang" : {
+      "order" : 35,
+      "monsterType" : "fishingfang",
+      "icon" : "/monsters/fishing/medium/fang/fishingfang.png:swim.1"
+    },
+    "fishingbreach" : {
+      "order" : 36,
+      "monsterType" : "fishingbreach",
+      "icon" : "/monsters/fishing/large/breach/fishingbreach.png:swim.1"
+    },
+
+    // magma
+    "fishingstripe" : {
+      "order" : 37,
+      "monsterType" : "fishingstripe",
+      "icon" : "/monsters/fishing/medium/stripe/fishingstripe.png:swim.1"
+    },
+    "fishingtendril" : {
+      "order" : 38,
+      "monsterType" : "fishingtendril",
+      "icon" : "/monsters/fishing/medium/tendril/fishingtendril.png:swim.1"
+    },
+    "fishingtad" : {
+      "order" : 39,
+      "monsterType" : "fishingtad",
+      "icon" : "/monsters/fishing/small/tad/fishingtad.png:swim.1"
+    },
+    "fishingpuff" : {
+      "order" : 40,
+      "monsterType" : "fishingpuff",
+      "icon" : "/monsters/fishing/large/puff/fishingpuff.png:swim.1"
+    },
+    "fishingleech" : {
+      "order" : 41,
+      "monsterType" : "fishingleech",
+      "icon" : "/monsters/fishing/medium/leech/fishingleech.png:swim.1"
+    },
+    "fishingdart" : {
+      "order" : 42,
+      "monsterType" : "fishingdart",
+      "icon" : "/monsters/fishing/small/dart/fishingdart.png:swim.1"
+    },
+    "fishingeye" : {
+      "order" : 43,
+      "monsterType" : "fishingeye",
+      "icon" : "/monsters/fishing/small/eye/fishingeye.png:swim.1"
+    },
+    "fishingpincer" : {
+      "order" : 44,
+      "monsterType" : "fishingpincer",
+      "icon" : "/monsters/fishing/small/pincer/fishingpincer.png:swim.1"
+    },
+    "fishingshrimp" : {
+      "order" : 45,
+      "monsterType" : "fishingshrimp",
+      "icon" : "/monsters/fishing/medium/shrimp/fishingshrimp.png:swim.1"
+    },
+    "fishingray" : {
+      "order" : 46,
+      "monsterType" : "fishingray",
+      "icon" : "/monsters/fishing/large/ray/fishingray.png:swim.1"
+    },
+    "fishingdragon" : {
+      "order" : 47,
+      "monsterType" : "fishingdragon",
+      "icon" : "/monsters/fishing/small/dragon/fishingdragon.png:swim.1"
+    },
+    "fishingmega" : {
+      "order" : 48,
+      "monsterType" : "fishingmega",
+      "icon" : "/monsters/fishing/large/mega/fishingmega.png:swim.1"
+    }
+  }
+}

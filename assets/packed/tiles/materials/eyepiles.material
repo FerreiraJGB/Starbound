@@ -1,0 +1,26 @@
+{
+  "materialId" : 550,
+  "materialName" : "eyepiles",
+  "particleColor" : [103, 103, 103, 255],
+  "itemDrop" : "eyepiles",
+  "shortdescription" : "Pile of Eyes",
+  "description" : "A tumbling heap of squishy eyeballs.",
+  "glitchDescription" : "Reflective. Other than those on top of the pile, most of these eyes will only ever know darkness.",
+  "floranDescription" : "Ssquisshy eyess!",
+  "novakidDescription" : "Some of these eyes are lookin' right at me.",
+  "footstepSound" : "/sfx/blocks/footstep_brains.ogg",
+  "falling" : true,
+  "cascading" : true,
+  "health" : 2,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "eyepiles.png",
+    "variants" : 8,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 450
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "materialId" : 45,
+  "materialName" : "drydirt",
+  "particleColor" : [201, 137, 100, 255],
+  "itemDrop" : "drydirt",
+  "description" : "Dirt, dried solid in the sun.",
+  "shortdescription" : "Dry Dirt",
+  "glitchDescription" : "Perceptive. This dirt is very dry.",
+  "floranDescription" : "Dirt that iss dry.",
+  "novakidDescription" : "Just some dry dusty dirt.",
+  "footstepSound" : "/sfx/blocks/footstep_drydirt.ogg",
+  "tillableMod" : 32,
+  "soil" : true,
+  "health" : 2,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "drydirt.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 1900
+  }
+}

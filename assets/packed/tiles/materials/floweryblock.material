@@ -1,0 +1,25 @@
+{
+  "materialId" : 410,
+  "materialName" : "floweryblock",
+  "particleColor" : [71, 66, 57, 255],
+  "itemDrop" : "floweryblock",
+  "description" : "A fragrant bundle made of flowers and leaves.",
+  "shortdescription" : "Flower Block",
+  "glitchDescription" : "Delighted. This arrangement of flowers is pleasing.",
+  "floranDescription" : "Thesse flowerss look healthy.",
+  "novakidDescription" : "Some bright lookin' flowers.",
+  "footstepSound" : "/sfx/blocks/footstep_tallgrass.ogg",
+  "health" : 2,
+  "category" : "materials",
+  "damageTable" : "/tiles/flammableDamage.config",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "floweryblock.png",
+    "variants" : 10,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 3980
+  }
+}

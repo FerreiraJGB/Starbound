@@ -1,0 +1,8 @@
+{
+  "frames" : "sparkle4.png",
+  "variants" : 1,
+  "frameNumber" : 4,
+  "animationCycle" : 0.6,
+  "offset" : [0, 0],
+  "mode" : "LoopForever"
+}

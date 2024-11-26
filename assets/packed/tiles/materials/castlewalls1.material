@@ -1,0 +1,24 @@
+{
+  "materialId" : 122,
+  "materialName" : "castlewalls1",
+  "particleColor" : [91, 92, 91, 255],
+  "itemDrop" : "castlewalls1",
+  "description" : "Strong stone slabs, perfect for building a castle.",
+  "shortdescription" : "Heavy Stone Brick",
+  "glitchDescription" : "Informed. Stone bricks like this are frequently used in castle construction.",
+  "floranDescription" : "Giant sstone brickss.",
+  "novakidDescription" : "I'd hate t've been the fella who had to lay these heavy bricks.",
+  "footstepSound" : "/sfx/blocks/footstep_stone2.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "castlewalls1.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 3230
+  }
+}

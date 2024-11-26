@@ -1,0 +1,15 @@
+{
+  "modId" : 222,
+  "modName" : "fleshgrass",
+  "description" : "Gross, fleshy grass.",
+  "footstepSound" : "/sfx/blocks/footstep_mud.ogg",
+  "health" : 0,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "fleshgrass.png",
+    "variants" : 5,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

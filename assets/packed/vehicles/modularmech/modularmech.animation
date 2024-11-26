@@ -1,0 +1,1251 @@
+{
+  "globalTagDefaults" : {
+    "leftArmDirectives" : "",
+    "rightArmDirectives" : "",
+    "bodyDirectives" : "",
+    "boosterDirectives" : "",
+    "legsDirectives" : "",
+    "directives" : ""
+  },
+
+  "animatedParts" : {
+    "stateTypes" : {
+      "power" : {
+        "default" : "inactive",
+        "states" : {
+          "inactive" : {},
+          "active" : {},
+          "activate" : {
+            "frames" : 3,
+            "cycle" : 0.3,
+            "mode" : "transition",
+            "transition" : "active",
+            "properties" : {
+              "immediateSound" : "/sfx/tech/mech_activate1.ogg",
+              "immediateSoundRangeMultiplier" : 1.0
+            }
+          },
+          "deactivate" : {
+            "frames" : 3,
+            "cycle" : 0.3,
+            "mode" : "transition",
+            "transition" : "inactive",
+            "properties" : {
+              "immediateSound" : "/sfx/tech/mech_deactivate.ogg",
+              "immediateSoundRangeMultiplier" : 1.0
+            }
+          }
+        }
+      },
+      "boost" : {
+        "priority" : 1,
+        "default" : "idle",
+        "states" : {
+          "idle" : {},
+          "boostN" : {
+            "frames" : 2,
+            "cycle" : 0.2,
+            "mode" : "loop",
+            "properties" : {
+              "immediateSound" : "/sfx/tech/mech_jetpack_thrust3.ogg",
+              "immediateSoundRangeMultiplier" : 1.0,
+              "persistentSound" : "/sfx/tech/mech_jetpack_loop3.ogg",
+              "persistentSoundRangeMultiplier" : 1.0,
+              "persistentSoundStopTime" : 0.25
+            }
+          },
+          "boostNE" : {
+            "frames" : 2,
+            "cycle" : 0.2,
+            "mode" : "loop",
+            "properties" : {
+              "immediateSound" : "/sfx/tech/mech_jetpack_thrust3.ogg",
+              "immediateSoundRangeMultiplier" : 1.0,
+              "persistentSound" : "/sfx/tech/mech_jetpack_loop3.ogg",
+              "persistentSoundRangeMultiplier" : 1.0,
+              "persistentSoundStopTime" : 0.25
+            }
+          },
+          "boostE" : {
+            "frames" : 2,
+            "cycle" : 0.2,
+            "mode" : "loop",
+            "properties" : {
+              "immediateSound" : "/sfx/tech/mech_jetpack_thrust4.ogg",
+              "immediateSoundRangeMultiplier" : 1.0,
+              "persistentSound" : "/sfx/tech/mech_jetpack_loop3.ogg",
+              "persistentSoundRangeMultiplier" : 1.0,
+              "persistentSoundStopTime" : 0.25
+            }
+          },
+          "boostSE" : {
+            "frames" : 2,
+            "cycle" : 0.2,
+            "mode" : "loop",
+            "properties" : {
+              "immediateSound" : "/sfx/tech/mech_jetpack_thrust4.ogg",
+              "immediateSoundRangeMultiplier" : 1.0,
+              "persistentSound" : "/sfx/tech/mech_jetpack_loop3.ogg",
+              "persistentSoundRangeMultiplier" : 1.0,
+              "persistentSoundStopTime" : 0.25
+            }
+          },
+          "boostS" : {
+            "frames" : 2,
+            "cycle" : 0.2,
+            "mode" : "loop",
+            "properties" : {
+              "immediateSound" : "/sfx/tech/mech_jetpack_thrust4.ogg",
+              "immediateSoundRangeMultiplier" : 1.0,
+              "persistentSound" : "/sfx/tech/mech_jetpack_loop3.ogg",
+              "persistentSoundRangeMultiplier" : 1.0,
+              "persistentSoundStopTime" : 0.25
+            }
+          },
+          "boostSW" : {
+            "frames" : 2,
+            "cycle" : 0.2,
+            "mode" : "loop",
+            "properties" : {
+              "immediateSound" : "/sfx/tech/mech_jetpack_thrust4.ogg",
+              "immediateSoundRangeMultiplier" : 1.0,
+              "persistentSound" : "/sfx/tech/mech_jetpack_loop3.ogg",
+              "persistentSoundRangeMultiplier" : 1.0,
+              "persistentSoundStopTime" : 0.25
+            }
+          },
+          "boostW" : {
+            "frames" : 2,
+            "cycle" : 0.2,
+            "mode" : "loop",
+            "properties" : {
+              "immediateSound" : "/sfx/tech/mech_jetpack_thrust4.ogg",
+              "immediateSoundRangeMultiplier" : 1.0,
+              "persistentSound" : "/sfx/tech/mech_jetpack_loop3.ogg",
+              "persistentSoundRangeMultiplier" : 1.0,
+              "persistentSoundStopTime" : 0.25
+            }
+          },
+          "boostNW" : {
+            "frames" : 2,
+            "cycle" : 0.2,
+            "mode" : "loop",
+            "properties" : {
+              "immediateSound" : "/sfx/tech/mech_jetpack_thrust3.ogg",
+              "immediateSoundRangeMultiplier" : 1.0,
+              "persistentSound" : "/sfx/tech/mech_jetpack_loop3.ogg",
+              "persistentSoundRangeMultiplier" : 1.0,
+              "persistentSoundStopTime" : 0.25
+            }
+          }
+        }
+      },
+      "frontFoot" : {
+        "default" : "flat",
+        "states" : {
+          "flat" : {},
+          "tilt" : {},
+          "preview" : {}
+        }
+      },
+      "backFoot" : {
+        "default" : "flat",
+        "states" : {
+          "flat" : {},
+          "tilt" : {},
+          "preview" : {}
+        }
+      },
+      "leftArm" : {
+        "default" : "idle",
+        "states" : {
+          "idle" : {},
+          "rotate" : {},
+          "windup" : {
+            "frames" : 4,
+            "cycle" : 0.3,
+            "mode" : "transition",
+            "transition" : "active"
+          },
+          "active" : {
+            "frames" : 4,
+            "cycle" : 0.3,
+            "mode" : "loop"
+          },
+          "winddown" : {
+            "frames" : 4,
+            "cycle" : 0.3,
+            "mode" : "transition",
+            "transition" : "rotate"
+          },
+          "cooldown" : {},
+          "recover" : {
+            "frames" : 3,
+            "cycle" : 0.3,
+            "mode" : "transition",
+            "transition" : "idle"
+          }
+        }
+      },
+      "rightArm" : {
+        "default" : "idle",
+        "states" : {
+          "idle" : {},
+          "rotate" : {},
+          "windup" : {
+            "frames" : 4,
+            "cycle" : 0.3,
+            "mode" : "transition",
+            "transition" : "active"
+          },
+          "active" : {
+            "frames" : 4,
+            "cycle" : 0.3,
+            "mode" : "loop"
+          },
+          "winddown" : {
+            "frames" : 4,
+            "cycle" : 0.3,
+            "mode" : "transition",
+            "transition" : "rotate"
+          },
+          "cooldown" : {},
+          "recover" : {
+            "frames" : 3,
+            "cycle" : 0.3,
+            "mode" : "transition",
+            "transition" : "idle"
+          }
+        }
+      }
+    },
+
+    "parts" : {
+      "backBoosterBack" : {
+        "properties" : {
+          "centered" : true,
+          "zLevel" : -9,
+          "offset" : [1.75, 0.75],
+          "transformationGroups" : ["boosters"]
+        },
+        "partStates" : {
+          "boost" : {
+            "idle" : {
+              "properties" : {
+                "image" : "<partImage>:idle<boosterDirectives><directives>"
+              }
+            },
+            "boostN" : {
+              "properties" : {
+                "image" : "<partImage>:boostN<boosterDirectives><directives>"
+              }
+            },
+            "boostNE" : {
+              "properties" : {
+                "image" : "<partImage>:boostNE<boosterDirectives><directives>"
+              }
+            },
+            "boostE" : {
+              "properties" : {
+                "image" : "<partImage>:boostE<boosterDirectives><directives>"
+              }
+            },
+            "boostSE" : {
+              "properties" : {
+                "image" : "<partImage>:boostSE<boosterDirectives><directives>"
+              }
+            },
+            "boostS" : {
+              "properties" : {
+                "image" : "<partImage>:boostS<boosterDirectives><directives>"
+              }
+            },
+            "boostSW" : {
+              "properties" : {
+                "image" : "<partImage>:boostSW<boosterDirectives><directives>"
+              }
+            },
+            "boostW" : {
+              "properties" : {
+                "image" : "<partImage>:boostW<boosterDirectives><directives>"
+              }
+            },
+            "boostNW" : {
+              "properties" : {
+                "image" : "<partImage>:boostNW<boosterDirectives><directives>"
+              }
+            }
+          }
+        }
+      },
+      "backBoosterFullbright" : {
+        "properties" : {
+          "centered" : true,
+          "fullbright" : true,
+          "zLevel" : -8,
+          "offset" : [1.75, 0.75],
+          "transformationGroups" : ["boosters"]
+        },
+        "partStates" : {
+          "boost" : {
+            "idle" : {
+              "properties" : {
+                "image" : "<partImage>:idle<boosterDirectives><directives>"
+              }
+            },
+            "boostN" : {
+              "properties" : {
+                "image" : "<partImage>:boostN.<frame><boosterDirectives><directives>"
+              }
+            },
+            "boostNE" : {
+              "properties" : {
+                "image" : "<partImage>:boostNE.<frame><boosterDirectives><directives>"
+              }
+            },
+            "boostE" : {
+              "properties" : {
+                "image" : "<partImage>:boostE.<frame><boosterDirectives><directives>"
+              }
+            },
+            "boostSE" : {
+              "properties" : {
+                "image" : "<partImage>:boostSE.<frame><boosterDirectives><directives>"
+              }
+            },
+            "boostS" : {
+              "properties" : {
+                "image" : "<partImage>:boostS.<frame><boosterDirectives><directives>"
+              }
+            },
+            "boostSW" : {
+              "properties" : {
+                "image" : "<partImage>:boostSW.<frame><boosterDirectives><directives>"
+              }
+            },
+            "boostW" : {
+              "properties" : {
+                "image" : "<partImage>:boostW.<frame><boosterDirectives><directives>"
+              }
+            },
+            "boostNW" : {
+              "properties" : {
+                "image" : "<partImage>:boostNW.<frame><boosterDirectives><directives>"
+              }
+            }
+          }
+        }
+      },
+      "leftArm" : {
+        "properties" : {
+          "centered" : false,
+          "zLevel" : -7,
+          "flippedZLevel" : 8,
+          "transformationGroups" : ["leftArm", "leftArmFlipper"]
+        },
+        "partStates" : {
+          "leftArm" : {
+            "idle" : {
+              "properties" : {
+                "offset" : [1.75, -4.125],
+                "image" : "<partImage>:idle<leftArmDirectives><directives>"
+              }
+            },
+            "rotate" : {
+              "properties" : {
+                "offset" : [2.75, -2.875],
+                "image" : "<partImage>:rotate<leftArmDirectives><directives>"
+              }
+            },
+            "windup" : {
+              "properties" : {
+                "offset" : [2.75, -2.875],
+                "image" : "<partImage>:windup.<frame><leftArmDirectives><directives>"
+              }
+            },
+            "active" : {
+              "properties" : {
+                "offset" : [2.75, -2.875],
+                "image" : "<partImage>:active.<frame><leftArmDirectives><directives>"
+              }
+            },
+            "winddown" : {
+              "properties" : {
+                "offset" : [2.75, -2.875],
+                "image" : "<partImage>:winddown.<frame><leftArmDirectives><directives>"
+              }
+            },
+            "cooldown" : {
+              "properties" : {
+                "offset" : [1.75, -4.125],
+                "image" : "<partImage>:cooldown<leftArmDirectives><directives>"
+              }
+            },
+            "recover" : {
+              "properties" : {
+                "offset" : [1.75, -4.125],
+                "image" : "<partImage>:recover.<frame><leftArmDirectives><directives>"
+              }
+            }
+          }
+        }
+      },
+      "leftArmFullbright" : {
+        "properties" : {
+          "centered" : false,
+          "fullbright" : true,
+          "zLevel" : -6,
+          "flippedZLevel" : 9,
+          "transformationGroups" : ["leftArm", "leftArmFlipper"]
+        },
+        "partStates" : {
+          "leftArm" : {
+            "idle" : {
+              "properties" : {
+                "offset" : [1.75, -4.125],
+                "image" : "<partImage>:idle<leftArmDirectives><directives>"
+              }
+            },
+            "rotate" : {
+              "properties" : {
+                "offset" : [2.75, -2.875],
+                "image" : "<partImage>:rotate<leftArmDirectives><directives>"
+              }
+            },
+            "windup" : {
+              "properties" : {
+                "offset" : [2.75, -2.875],
+                "image" : "<partImage>:windup.<frame><leftArmDirectives><directives>"
+              }
+            },
+            "active" : {
+              "properties" : {
+                "offset" : [2.75, -2.875],
+                "image" : "<partImage>:active.<frame><leftArmDirectives><directives>"
+              }
+            },
+            "winddown" : {
+              "properties" : {
+                "offset" : [2.75, -2.875],
+                "image" : "<partImage>:winddown.<frame><leftArmDirectives><directives>"
+              }
+            },
+            "cooldown" : {
+              "properties" : {
+                "offset" : [1.75, -4.125],
+                "image" : "<partImage>:cooldown<leftArmDirectives><directives>"
+              }
+            },
+            "recover" : {
+              "properties" : {
+                "offset" : [1.75, -4.125],
+                "image" : "<partImage>:recover.<frame><leftArmDirectives><directives>"
+              }
+            }
+          }
+        }
+      },
+      "backBoosterFront" : {
+        "properties" : {
+          "centered" : true,
+          "zLevel" : -5,
+          "offset" : [1.75, 0.75],
+          "transformationGroups" : ["boosters"]
+        },
+        "partStates" : {
+          "boost" : {
+            "idle" : {
+              "properties" : {
+                "image" : "<partImage>:idle<boosterDirectives><directives>"
+              }
+            },
+            "boostN" : {
+              "properties" : {
+                "image" : "<partImage>:boostN<boosterDirectives><directives>"
+              }
+            },
+            "boostNE" : {
+              "properties" : {
+                "image" : "<partImage>:boostNE<boosterDirectives><directives>"
+              }
+            },
+            "boostE" : {
+              "properties" : {
+                "image" : "<partImage>:boostE<boosterDirectives><directives>"
+              }
+            },
+            "boostSE" : {
+              "properties" : {
+                "image" : "<partImage>:boostSE<boosterDirectives><directives>"
+              }
+            },
+            "boostS" : {
+              "properties" : {
+                "image" : "<partImage>:boostS<boosterDirectives><directives>"
+              }
+            },
+            "boostSW" : {
+              "properties" : {
+                "image" : "<partImage>:boostSW<boosterDirectives><directives>"
+              }
+            },
+            "boostW" : {
+              "properties" : {
+                "image" : "<partImage>:boostW<boosterDirectives><directives>"
+              }
+            },
+            "boostNW" : {
+              "properties" : {
+                "image" : "<partImage>:boostNW<boosterDirectives><directives>"
+              }
+            }
+          }
+        }
+      },
+      "backLeg" : {
+        "properties" : {
+          "centered" : true,
+          "zLevel" : -4,
+          "offset" : [1.375, -2.75],
+          "transformationGroups" : ["backLeg"]
+        },
+        "partStates" : {
+          "backFoot" : {
+            "flat" : {
+              "properties" : {
+                "image" : "<partImage>:flat<legsDirectives><directives>"
+              }
+            },
+            "tilt" : {
+              "properties" : {
+                "image" : "<partImage>:tilt<legsDirectives><directives>"
+              }
+            },
+            "preview" : {
+              "properties" : {
+                "offset" : [1.375, -3.375],
+                "image" : "<partImage>:flat<legsDirectives><directives>"
+              }
+            }
+          },
+          "boost" : {
+            "boostN" : {
+              "properties" : {
+                "image" : "<partImage>:boost.<frame><legsDirectives><directives>"
+              }
+            },
+            "boostNE" : {
+              "properties" : {
+                "image" : "<partImage>:boost.<frame><legsDirectives><directives>"
+              }
+            },
+            "boostNW" : {
+              "properties" : {
+                "image" : "<partImage>:boost.<frame><legsDirectives><directives>"
+              }
+            }
+          }
+        }
+      },
+      "backLegFullbright" : {
+        "properties" : {
+          "centered" : true,
+          "fullbright" : true,
+          "zLevel" : -3,
+          "offset" : [1.375, -2.75],
+          "transformationGroups" : ["backLeg"]
+        },
+        "partStates" : {
+          "backFoot" : {
+            "flat" : {
+              "properties" : {
+                "image" : "<partImage>:flat<legsDirectives><directives>"
+              }
+            },
+            "tilt" : {
+              "properties" : {
+                "image" : "<partImage>:tilt<legsDirectives><directives>"
+              }
+            },
+            "preview" : {
+              "properties" : {
+                "offset" : [1.375, -3.375],
+                "image" : "<partImage>:flat<legsDirectives><directives>"
+              }
+            }
+          },
+          "boost" : {
+            "boostN" : {
+              "properties" : {
+                "image" : "<partImage>:boost.<frame><legsDirectives><directives>"
+              }
+            },
+            "boostNE" : {
+              "properties" : {
+                "image" : "<partImage>:boost.<frame><legsDirectives><directives>"
+              }
+            },
+            "boostNW" : {
+              "properties" : {
+                "image" : "<partImage>:boost.<frame><legsDirectives><directives>"
+              }
+            }
+          }
+        }
+      },
+      "backLegJoint" : {
+        "properties" : {
+          "image" : "<partImage><legsDirectives><directives>",
+          "centered" : true,
+          "zLevel" : -2,
+          "offset" : [0.75, -2.625],
+          "transformationGroups" : ["backLegJoint"]
+        },
+        "partStates" : {
+          "backFoot" : {
+            "preview" : {
+              "properties" : {
+                "offset" : [0.625, -3.125]
+              }
+            }
+          }
+        }
+      },
+      "bodyBack" : {
+        "properties" : {
+          "centered" : true,
+          "zLevel" : -1,
+          "transformationGroups" : ["body"]
+        },
+        "partStates" : {
+          "power" : {
+            "inactive" : {
+              "properties" : {
+                "image" : "<partImage>:inactive<bodyDirectives><directives>"
+              }
+            },
+            "active" : {
+              "properties" : {
+                "image" : "<partImage>:active<bodyDirectives><directives>"
+              }
+            },
+            "activate" : {
+              "properties" : {
+                "image" : "<partImage>:activate.<frame><bodyDirectives><directives>"
+              }
+            },
+            "deactivate" : {
+              "properties" : {
+                "image" : "<partImage>:deactivate.<frame><bodyDirectives><directives>"
+              }
+            }
+          }
+        }
+      },
+      "hips" : {
+        "properties" : {
+          "centered" : true,
+          "zLevel" : 0,
+          "image" : "<partImage><legsDirectives><directives>",
+          "offset" : [0.25, -2.75],
+          "transformationGroups" : ["body", "hips"]
+        },
+        "partStates" : {
+          "frontFoot" : {
+            "preview" : {
+              "properties" : {
+                "offset" : [0.25, -2.5]
+              }
+            }
+          }
+        }
+      },
+      "bodyFront" : {
+        "properties" : {
+          "centered" : true,
+          "zLevel" : 1,
+          "transformationGroups" : ["body"],
+          "sitPosition" : [0.0625, 1.5]
+        },
+        "partStates" : {
+          "power" : {
+            "inactive" : {
+              "properties" : {
+                "image" : "<partImage>:inactive<bodyDirectives><directives>"
+              }
+            },
+            "active" : {
+              "properties" : {
+                "image" : "<partImage>:active<bodyDirectives><directives>"
+              }
+            },
+            "activate" : {
+              "properties" : {
+                "image" : "<partImage>:activate.<frame><bodyDirectives><directives>"
+              }
+            },
+            "deactivate" : {
+              "properties" : {
+                "image" : "<partImage>:deactivate.<frame><bodyDirectives><directives>"
+              }
+            }
+          }
+        }
+      },
+      "bodyFullbright" : {
+        "properties" : {
+          "centered" : true,
+          "fullbright" : true,
+          "zLevel" : 2,
+          "transformationGroups" : ["body"]
+        },
+        "partStates" : {
+          "power" : {
+            "inactive" : {
+              "properties" : {
+                "image" : "<partImage>:inactive<bodyDirectives><directives>"
+              }
+            },
+            "active" : {
+              "properties" : {
+                "image" : "<partImage>:active<bodyDirectives><directives>"
+              }
+            },
+            "activate" : {
+              "properties" : {
+                "image" : "<partImage>:activate.<frame><bodyDirectives><directives>"
+              }
+            },
+            "deactivate" : {
+              "properties" : {
+                "image" : "<partImage>:deactivate.<frame><bodyDirectives><directives>"
+              }
+            }
+          }
+        }
+      },
+      "frontLegJoint" : {
+        "properties" : {
+          "image" : "<partImage><legsDirectives><directives>",
+          "centered" : true,
+          "zLevel" : 3,
+          "offset" : [-0.625, -2.625],
+          "transformationGroups" : ["frontLegJoint"]
+        },
+        "partStates" : {
+          "frontFoot" : {
+            "preview" : {
+              "properties" : {
+                "offset" : [-0.75, -3.125]
+              }
+            }
+          }
+        }
+      },
+      "frontLeg" : {
+        "properties" : {
+          "centered" : true,
+          "zLevel" : 4,
+          "offset" : [-1.25, -2.75],
+          "transformationGroups" : ["frontLeg"]
+        },
+        "partStates" : {
+          "frontFoot" : {
+            "flat" : {
+              "properties" : {
+                "image" : "<partImage>:flat<legsDirectives><directives>"
+              }
+            },
+            "tilt" : {
+              "properties" : {
+                "image" : "<partImage>:tilt<legsDirectives><directives>"
+              }
+            },
+            "preview" : {
+              "properties" : {
+                "offset" : [-1.25, -3.375],
+                "image" : "<partImage>:flat<legsDirectives><directives>"
+              }
+            }
+          },
+          "boost" : {
+            "boostN" : {
+              "properties" : {
+                "image" : "<partImage>:boost.<frame><legsDirectives><directives>"
+              }
+            },
+            "boostNE" : {
+              "properties" : {
+                "image" : "<partImage>:boost.<frame><legsDirectives><directives>"
+              }
+            },
+            "boostNW" : {
+              "properties" : {
+                "image" : "<partImage>:boost.<frame><legsDirectives><directives>"
+              }
+            }
+          }
+        }
+      },
+      "frontLegFullbright" : {
+        "properties" : {
+          "centered" : true,
+          "fullbright" : true,
+          "zLevel" : 5,
+          "offset" : [-1.25, -2.75],
+          "transformationGroups" : ["frontLeg"]
+        },
+        "partStates" : {
+          "frontFoot" : {
+            "flat" : {
+              "properties" : {
+                "image" : "<partImage>:flat<legsDirectives><directives>"
+              }
+            },
+            "tilt" : {
+              "properties" : {
+                "image" : "<partImage>:tilt<legsDirectives><directives>"
+              }
+            },
+            "preview" : {
+              "properties" : {
+                "offset" : [-1.25, -3.375],
+                "image" : "<partImage>:flat<legsDirectives><directives>"
+              }
+            }
+          },
+          "boost" : {
+            "boostN" : {
+              "properties" : {
+                "image" : "<partImage>:boost.<frame><legsDirectives><directives>"
+              }
+            },
+            "boostNE" : {
+              "properties" : {
+                "image" : "<partImage>:boost.<frame><legsDirectives><directives>"
+              }
+            },
+            "boostNW" : {
+              "properties" : {
+                "image" : "<partImage>:boost.<frame><legsDirectives><directives>"
+              }
+            }
+          }
+        }
+      },
+      "frontBoosterBack" : {
+        "properties" : {
+          "centered" : true,
+          "zLevel" : 6,
+          "offset" : [-3.0, 0.75],
+          "transformationGroups" : ["boosters"]
+        },
+        "partStates" : {
+          "boost" : {
+            "idle" : {
+              "properties" : {
+                "image" : "<partImage>:idle<boosterDirectives><directives>"
+              }
+            },
+            "boostN" : {
+              "properties" : {
+                "image" : "<partImage>:boostN<boosterDirectives><directives>"
+              }
+            },
+            "boostNE" : {
+              "properties" : {
+                "image" : "<partImage>:boostNE<boosterDirectives><directives>"
+              }
+            },
+            "boostE" : {
+              "properties" : {
+                "image" : "<partImage>:boostE<boosterDirectives><directives>"
+              }
+            },
+            "boostSE" : {
+              "properties" : {
+                "image" : "<partImage>:boostSE<boosterDirectives><directives>"
+              }
+            },
+            "boostS" : {
+              "properties" : {
+                "image" : "<partImage>:boostS<boosterDirectives><directives>"
+              }
+            },
+            "boostSW" : {
+              "properties" : {
+                "image" : "<partImage>:boostSW<boosterDirectives><directives>"
+              }
+            },
+            "boostW" : {
+              "properties" : {
+                "image" : "<partImage>:boostW<boosterDirectives><directives>"
+              }
+            },
+            "boostNW" : {
+              "properties" : {
+                "image" : "<partImage>:boostNW<boosterDirectives><directives>"
+              }
+            }
+          }
+        }
+      },
+      "frontBoosterFullbright" : {
+        "properties" : {
+          "centered" : true,
+          "fullbright" : true,
+          "zLevel" : 7,
+          "offset" : [-3.0, 0.75],
+          "transformationGroups" : ["boosters"]
+        },
+        "partStates" : {
+          "boost" : {
+            "idle" : {
+              "properties" : {
+                "image" : "<partImage>:idle<boosterDirectives><directives>"
+              }
+            },
+            "boostN" : {
+              "properties" : {
+                "image" : "<partImage>:boostN.<frame><boosterDirectives><directives>"
+              }
+            },
+            "boostNE" : {
+              "properties" : {
+                "image" : "<partImage>:boostNE.<frame><boosterDirectives><directives>"
+              }
+            },
+            "boostE" : {
+              "properties" : {
+                "image" : "<partImage>:boostE.<frame><boosterDirectives><directives>"
+              }
+            },
+            "boostSE" : {
+              "properties" : {
+                "image" : "<partImage>:boostSE.<frame><boosterDirectives><directives>"
+              }
+            },
+            "boostS" : {
+              "properties" : {
+                "image" : "<partImage>:boostS.<frame><boosterDirectives><directives>"
+              }
+            },
+            "boostSW" : {
+              "properties" : {
+                "image" : "<partImage>:boostSW.<frame><boosterDirectives><directives>"
+              }
+            },
+            "boostW" : {
+              "properties" : {
+                "image" : "<partImage>:boostW.<frame><boosterDirectives><directives>"
+              }
+            },
+            "boostNW" : {
+              "properties" : {
+                "image" : "<partImage>:boostNW.<frame><boosterDirectives><directives>"
+              }
+            }
+          }
+        }
+      },
+      "rightArm" : {
+        "properties" : {
+          "centered" : false,
+          "zLevel" : 8,
+          "flippedZLevel" : -7,
+          "transformationGroups" : ["rightArm", "rightArmFlipper"]
+        },
+        "partStates" : {
+          "rightArm" : {
+            "idle" : {
+              "properties" : {
+                "offset" : [-2.75, -4.125],
+                "image" : "<partImage>:idle<rightArmDirectives><directives>"
+              }
+            },
+            "rotate" : {
+              "properties" : {
+                "offset" : [-2.0, -2.875],
+                "image" : "<partImage>:rotate<rightArmDirectives><directives>"
+              }
+            },
+            "windup" : {
+              "properties" : {
+                "offset" : [-2.0, -2.875],
+                "image" : "<partImage>:windup.<frame><rightArmDirectives><directives>"
+              }
+            },
+            "active" : {
+              "properties" : {
+                "offset" : [-2.0, -2.875],
+                "image" : "<partImage>:active.<frame><rightArmDirectives><directives>"
+              }
+            },
+            "winddown" : {
+              "properties" : {
+                "offset" : [-2.0, -2.875],
+                "image" : "<partImage>:winddown.<frame><rightArmDirectives><directives>"
+              }
+            },
+            "cooldown" : {
+              "properties" : {
+                "offset" : [-2.75, -4.125],
+                "image" : "<partImage>:cooldown<rightArmDirectives><directives>"
+              }
+            },
+            "recover" : {
+              "properties" : {
+                "offset" : [-2.75, -4.125],
+                "image" : "<partImage>:recover.<frame><rightArmDirectives><directives>"
+              }
+            }
+          }
+        }
+      },
+      "rightArmFullbright" : {
+        "properties" : {
+          "centered" : false,
+          "fullbright" : true,
+          "zLevel" : 9,
+          "flippedZLevel" : -6,
+          "transformationGroups" : ["rightArm", "rightArmFlipper"]
+        },
+        "partStates" : {
+          "rightArm" : {
+            "idle" : {
+              "properties" : {
+                "offset" : [-2.75, -4.125],
+                "image" : "<partImage>:idle<rightArmDirectives><directives>"
+              }
+            },
+            "rotate" : {
+              "properties" : {
+                "offset" : [-2.0, -2.875],
+                "image" : "<partImage>:rotate<rightArmDirectives><directives>"
+              }
+            },
+            "windup" : {
+              "properties" : {
+                "offset" : [-2.0, -2.875],
+                "image" : "<partImage>:windup.<frame><rightArmDirectives><directives>"
+              }
+            },
+            "active" : {
+              "properties" : {
+                "offset" : [-2.0, -2.875],
+                "image" : "<partImage>:active.<frame><rightArmDirectives><directives>"
+              }
+            },
+            "winddown" : {
+              "properties" : {
+                "offset" : [-2.0, -2.875],
+                "image" : "<partImage>:winddown.<frame><rightArmDirectives><directives>"
+              }
+            },
+            "cooldown" : {
+              "properties" : {
+                "offset" : [-2.75, -4.125],
+                "image" : "<partImage>:cooldown<rightArmDirectives><directives>"
+              }
+            },
+            "recover" : {
+              "properties" : {
+                "offset" : [-2.75, -4.125],
+                "image" : "<partImage>:recover.<frame><rightArmDirectives><directives>"
+              }
+            }
+          }
+        }
+      },
+      "frontBoosterFront" : {
+        "properties" : {
+          "centered" : true,
+          "zLevel" : 10,
+          "offset" : [-3.0, 0.75],
+          "transformationGroups" : ["boosters"]
+        },
+        "partStates" : {
+          "boost" : {
+            "idle" : {
+              "properties" : {
+                "image" : "<partImage>:idle<boosterDirectives><directives>"
+              }
+            },
+            "boostN" : {
+              "properties" : {
+                "image" : "<partImage>:boostN<boosterDirectives><directives>"
+              }
+            },
+            "boostNE" : {
+              "properties" : {
+                "image" : "<partImage>:boostNE<boosterDirectives><directives>"
+              }
+            },
+            "boostE" : {
+              "properties" : {
+                "image" : "<partImage>:boostE<boosterDirectives><directives>"
+              }
+            },
+            "boostSE" : {
+              "properties" : {
+                "image" : "<partImage>:boostSE<boosterDirectives><directives>"
+              }
+            },
+            "boostS" : {
+              "properties" : {
+                "image" : "<partImage>:boostS<boosterDirectives><directives>"
+              }
+            },
+            "boostSW" : {
+              "properties" : {
+                "image" : "<partImage>:boostSW<boosterDirectives><directives>"
+              }
+            },
+            "boostW" : {
+              "properties" : {
+                "image" : "<partImage>:boostW<boosterDirectives><directives>"
+              }
+            },
+            "boostNW" : {
+              "properties" : {
+                "image" : "<partImage>:boostNW<boosterDirectives><directives>"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "transformationGroups" : {
+    "leftArmFlipper" : {
+      "interpolated" : false
+    },
+    "rightArmFlipper" : {
+      "interpolated" : false
+    },
+    "leftArm" : {
+      "interpolated" : true
+    },
+    "rightArm" : {
+      "interpolated" : true
+    },
+    "backLeg" : {
+      "interpolated" : true
+    },
+    "backLegJoint" : {
+      "interpolated" : true
+    },
+    "frontLeg" : {
+      "interpolated" : true
+    },
+    "frontLegJoint" : {
+      "interpolated" : true
+    },
+    "body" : {
+      "interpolated" : true
+    },
+    "hips" : {
+      "interpolated" : true
+    },
+    "boosters" : {
+      "interpolated" : true
+    }
+  },
+
+  "particleEmitters" : {
+    "leftArmFire" : {
+      "active" : false,
+      "particles" : []
+    },
+    "rightArmFire" : {
+      "active" : false,
+      "particles" : []
+    },
+    "despawn" : {
+      "active" : false,
+      "emissionRate" : 200,
+      "burstCount" : 20,
+      "offsetRegion" : [-3.0, -3.5, 3.0, 3.25],
+      "particles" : [
+        { "particle" : {
+          "type" : "ember",
+          "size" : 1.5,
+          "color" : [96, 184, 234, 255],
+          "light" : [96, 184, 234],
+          "fullbright" : true,
+          "fade" : 0.5,
+          "destructionAction" : "shrink",
+          "destructionTime" : 0.5,
+          "initialVelocity" : [0, 5],
+          "finalVelocity" : [0.0, 10],
+          "approach" : [0, 10],
+          "timeToLive" : 0.15,
+          "layer" : "middle",
+          "variance" : {
+            "initialVelocity" : [0, 5],
+            "size" : 0.5,
+            "timeToLive" : 0.1,
+            "destructionTime" : 0.3
+          }
+        } }
+      ]
+    },
+    "explode" : {
+      "active" : false,
+      "emissionRate" : 300,
+      "offsetRegion" : [-0.5, -0.5, 0.5, 0.5],
+      "particles" : [
+        { "particle" : {
+          "type" : "ember",
+          "size" : 1.5,
+          "color" : [255, 220, 120, 255],
+          "light" : [255, 220, 120],
+          "fullbright" : true,
+          "fade" : 0.5,
+          "destructionAction" : "shrink",
+          "destructionTime" : 0.5,
+          "initialVelocity" : [0, 0],
+          "timeToLive" : 0.15,
+          "layer" : "middle",
+          "variance" : {
+            "initialVelocity" : [20, 20],
+            "size" : 0.5,
+            "timeToLive" : 0.1
+          }
+        } }
+      ]
+    }
+  },
+
+  "lights" : {
+    "deployLight" : {
+      "active" : false,
+      "pointLight" : true,
+      "position" : [0, 0],
+      "color" : [0, 0, 0]
+    },
+    "activeLight" : {
+      "active" : false,
+      "pointLight" : false,
+      "position" : [0, 0],
+      "color" : [100, 100, 100]
+    },
+    "boostLight" : {
+      "active" : false,
+      "pointLight" : false,
+      "position" : [0, 0],
+      "color" : [60, 120, 155]
+    }
+  },
+
+  "sounds" : {
+    "step" : ["/sfx/tech/mech_servo_step1.ogg", "/sfx/tech/mech_servo_step2.ogg", "/sfx/tech/mech_servo_step3.ogg", "/sfx/tech/mech_servo_step4.ogg"],
+    "jump" : ["/sfx/tech/mech_jump1.ogg"],
+    "horn" : [],
+    "restoreEnergy" : ["/sfx/interface/mech_energy_refill.ogg"],
+    "despawn" : ["/sfx/tech/vehicle_disappear1.ogg"],
+    "explodeWindup" : ["/sfx/tech/mech_explosion_windup.ogg"],
+    "explode" : ["/sfx/tech/mech_explosion.ogg"]
+  }
+}

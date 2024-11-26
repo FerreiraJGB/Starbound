@@ -1,0 +1,10 @@
+{
+  "name" : "pyromantle",
+  "category" : "poisonpyromantle",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "poisonpyromantle.png",
+    "bodynobright" : "poisonpyromantlenobright.png"
+  }
+}

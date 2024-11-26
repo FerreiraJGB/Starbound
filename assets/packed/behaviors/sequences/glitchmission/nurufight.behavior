@@ -1,0 +1,222 @@
+{
+  "name": "nurufight",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/time.lua",
+    "/scripts/actions/dialog.lua",
+    "/scripts/actions/notification.lua",
+    "/scripts/actions/npc.lua",
+    "/scripts/actions/status.lua",
+    "/scripts/actions/math.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 1.5}
+        }
+      },
+      {
+        "title": "sayToEntity",
+        "type": "action",
+        "name": "sayToEntity",
+        "parameters": {
+          "dialogType": {"value": "dialog.start"},
+          "tags": {"value": {}}
+        }
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 2}
+        }
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": -1},
+          "success": {"value": -1}
+        },
+        "children": [
+          {
+            "title": "Villager",
+            "type": "composite",
+            "name": "dynamic",
+            "parameters": {},
+            "children": [
+              {
+                "title": "sequence",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "receivedNotification",
+                    "type": "action",
+                    "name": "receivedNotification",
+                    "parameters": {
+                      "type": {"value": "reinforcementsLeave"}
+                    }
+                  },
+                  {
+                    "title": "sayToEntity",
+                    "type": "action",
+                    "name": "sayToEntity",
+                    "parameters": {
+                      "dialogType": {"value": "dialog.leave"},
+                      "tags": {"value": {}}
+                    }
+                  },
+                  {
+                    "title": "timer",
+                    "type": "action",
+                    "name": "timer",
+                    "parameters": {
+                      "time": {"value": 3}
+                    }
+                  },
+                  {
+                    "title": "sequence",
+                    "type": "composite",
+                    "name": "sequence",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "setDeathParticleBurst",
+                        "type": "action",
+                        "name": "setDeathParticleBurst",
+                        "parameters": {}
+                      },
+                      {
+                        "title": "addEphemeralEffect",
+                        "type": "action",
+                        "name": "addEphemeralEffect",
+                        "parameters": {
+                          "name": {"value": "beamoutanddie"}
+                        }
+                      },
+                      {
+                        "title": "timer",
+                        "type": "action",
+                        "name": "timer",
+                        "parameters": {
+                          "time": {"value": 1}
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "title": "parallel",
+                "type": "composite",
+                "name": "parallel",
+                "parameters": {
+                  "fail": {"value": 1},
+                  "success": {"value": -1}
+                },
+                "children": [
+                  {
+                    "title": "friendlyTargeting",
+                    "type": "action",
+                    "name": "friendlyTargeting",
+                    "parameters": {
+                      "attackOnSight": {"key": "attackOnSight"},
+                      "broadcastInterval": {"value": 2},
+                      "hostileDamageTeam": {"value": {"type": "assistant", "team": 1}},
+                      "losTime": {"value": 8},
+                      "queryRange": {"value": 50},
+                      "trackingRange": {"value": 100}
+                    },
+                    "output": {
+                      "target": "target"
+                    }
+                  },
+                  {
+                    "title": "runner",
+                    "type": "action",
+                    "name": "runner",
+                    "parameters": {}
+                  },
+                  {
+                    "title": "sequence",
+                    "type": "composite",
+                    "name": "sequence",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "succeeder",
+                        "type": "decorator",
+                        "name": "succeeder",
+                        "parameters": {},
+                        "child": {
+                          "title": "sequence",
+                          "type": "composite",
+                          "name": "sequence",
+                          "parameters": {},
+                          "children": [
+                            {
+                              "title": "chance",
+                              "type": "action",
+                              "name": "chance",
+                              "parameters": {
+                                "chance": {"value": 0.5}
+                              }
+                            },
+                            {
+                              "title": "sayToEntity",
+                              "type": "action",
+                              "name": "sayToEntity",
+                              "parameters": {
+                                "dialogType": {"value": "dialog.attack"},
+                                "entity": {"key": "target"},
+                                "tags": {"value": {}}
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "title": "NPC Combat",
+                        "type": "module",
+                        "name": "npccombat",
+                        "parameters": {}
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "title": "patrol",
+                "type": "module",
+                "name": "patrol",
+                "parameters": {
+                  "idleTime": {"value": [2, 10]},
+                  "alwaysRun": {"value": false}
+                }
+              }
+            ]
+          },
+          {
+            "title": "runner",
+            "type": "action",
+            "name": "runner",
+            "parameters": {}
+          }
+        ]
+      }
+    ]
+  }
+}

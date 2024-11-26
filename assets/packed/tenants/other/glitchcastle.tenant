@@ -1,0 +1,25 @@
+{
+  "name": "glitchcastle",
+  "priority": 4,
+
+  "colonyTagCriteria": {
+    "light": 1,
+    "door": 1,
+    "glitchcastle": 24
+  },
+
+  "tenants": [
+    {
+      "spawn": "npc",
+      "species": "glitch",
+      "type": "glitchcastle",
+      "overrides": {
+       }
+     }
+   ],
+
+  "rent": {
+    "periodRange": [900.0, 1800.0],
+    "pool": "villagerGift"
+  }
+}

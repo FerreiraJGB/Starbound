@@ -1,0 +1,125 @@
+{
+  "name" : "remixedCanyonsSurface",
+
+  //jaggy ledges
+  "type" : "displacement",
+  "xType" : "perlin",
+  "xOctaves" : 3,
+  "xFreq" : 0.08,
+  "xAmp" : 10,
+  "xXInfluence" : 0.5,
+  "xYInfluence" : 0.5,
+  "yType" : "perlin",
+  "yOctaves" : 1,
+  "yFreq" : 0.1,
+  "yAmp" : 1,
+  "yYInfluence" : 0,
+
+  "source" : {
+    "type" : "mix",
+
+    "mixSource" : {
+      "type" : "perlin",
+      "function" : "perlin",
+      "octaves" : 2,
+      "freq" : 0.0105,
+      "amp" : 9,
+      "bias" : 2.3,
+      "xInfluence" : 1,
+      "yInfluence" : 0.1
+    },
+
+    "aSource" : {
+      //big old canyons
+      "type" : "displacement",
+      "xType" : "perlin",
+      "xOctaves" : 1,
+      "xFreq" : 0.008,
+      "xAmp" : 0,
+      "yType" : "perlin",
+      "yOctaves" : 2,
+      "yFreq" : 0.02,
+      "yAmp" : 40,
+      "yYInfluence" : 0.1,
+
+      "source" : {
+        "type" : "flatSurface",
+
+        "adjustment" : -50
+      }
+    },
+
+    "bSource" : {
+      "type" : "mix",
+
+      "mixSource" : {
+        "type" : "perlin",
+        "function" : "perlin",
+        "octaves" : 2,
+        "freq" : 0.0045,
+        "amp" : 7,
+        "bias" : 1.0,
+        "xInfluence" : 1,
+        "yInfluence" : 0.1
+      },
+
+      "aSource" : {
+        //smallish mountains
+        "type" : "displacement",
+        "xType" : "perlin",
+        "xOctaves" : 1,
+        "xFreq" : 0.008,
+        "xAmp" : 0,
+        "yType" : "perlin",
+        "yOctaves" : 3,
+        "yFreq" : 0.0085,
+        "yAmp" : 50,
+        "yBias" : -10,
+        "yClamp" : [-60, 20],
+        "yClampSmoothing" : 10,
+        "yYInfluence" : 0.1,
+
+        "source" : {
+          "type" : "flatSurface",
+
+          "adjustment" : 40
+        }
+      },
+
+      "bSource" : {
+        //low hills
+        "type" : "displacement",
+        "xType" : "perlin",
+        "xOctaves" : 2,
+        "xFreq" : 0.01,
+        "xAmp" : 0,
+        "yType" : "perlin",
+        "yOctaves" : 1,
+        "yFreq" : 0.012,
+        "yAmp" : 20,
+        "yClamp" : [-60, 15],
+        "yClampSmoothing" : 5,
+        "yYInfluence" : 0.2,
+
+        "source" : {
+          //slower, lower hills
+          "type" : "displacement",
+          "xType" : "perlin",
+          "xOctaves" : 2,
+          "xFreq" : 0.01,
+          "xAmp" : 0,
+          "yType" : "perlin",
+          "yOctaves" : 1,
+          "yFreq" : 0.005,
+          "yAmp" : 20,
+
+          "source" : {
+            "type" : "flatSurface",
+
+            "adjustment" : 0
+          }
+        }
+      }
+    }
+  }
+}

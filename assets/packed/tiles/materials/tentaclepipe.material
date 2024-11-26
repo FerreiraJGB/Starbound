@@ -1,0 +1,24 @@
+{
+  "materialId" : 1187,
+  "materialName" : "tentaclepipe",
+  "particleColor" : [111, 75, 58, 255],
+  "itemDrop" : "tentaclepipe",
+  "shortdescription" : "Large Tentacle",
+  "description" : "A large tentacle",
+  "glitchDescription" : "Concerned. This tentacle is certainly from something quite large.",
+  "floranDescription" : "Big sstrong tentacless.",
+  "novakidDescription" : "Looks t'me like some kinda tentacle.",
+  "footstepSound" : "/sfx/blocks/footstep_brains.ogg",
+  "health" : 6,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/pipetemplate.config",
+  "renderParameters" : {
+    "texture" : "tentaclepipe.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : false,
+    "multiColored" : true,
+    "zLevel" : 203
+  }
+}

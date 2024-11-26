@@ -1,0 +1,83 @@
+{
+  "name": "Player Reaction",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/reaction.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/npc.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "chooseReaction",
+        "type": "action",
+        "name": "chooseReaction",
+        "parameters": {
+          "influence": {"key": "influence"},
+          "target": {"key": "reactTarget"}
+        },
+        "output": {
+          "reaction": "reaction"
+        }
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 0.25}
+        }
+      },
+      {
+        "title": "faceEntity",
+        "type": "action",
+        "name": "faceEntity",
+        "parameters": {
+          "entity": {"key": "reactTarget"}
+        }
+      },
+      {
+        "title": "succeeder",
+        "type": "decorator",
+        "name": "succeeder",
+        "parameters": {},
+        "child": {
+          "title": "selector",
+          "type": "composite",
+          "name": "selector",
+          "parameters": {},
+          "children": [
+            {
+              "title": "playSimpleReaction",
+              "type": "action",
+              "name": "playSimpleReaction",
+              "parameters": {
+                "reaction": {"key": "reaction"}
+              }
+            },
+            {
+              "title": "playBehaviorReaction",
+              "type": "action",
+              "name": "playBehaviorReaction",
+              "parameters": {
+                "reaction": {"key": "reaction"}
+              }
+            }
+          ]
+        }
+      },
+      {
+        "title": "dance",
+        "type": "action",
+        "name": "dance",
+        "parameters": {}
+      }
+    ]
+  }
+}

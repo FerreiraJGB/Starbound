@@ -1,0 +1,90 @@
+{
+  "fishingUpgrade" : [
+    [0, {
+      "pool" : [
+        {"weight" : 1.0, "item" : "fishingreelstrong"},
+        {"weight" : 1.0, "item" : "fishingreellong"},
+        {"weight" : 1.0, "item" : "fishingreelfast"},
+        {"weight" : 1.0, "item" : "fishinglurelight"},
+        {"weight" : 1.0, "item" : "fishingluresinking"},
+        {"weight" : 1.0, "item" : "fishinglurecontrol"}
+      ]
+    }]
+  ],
+
+  "fishingPrize" : [
+    [0, {
+      "pool" : [
+        {"weight" : 0.3, "pool" : "fishingUpgrade"},
+        {"weight" : 0.3, "pool" : "chestMoney"},
+        {"weight" : 0.15, "item" : "manipulatormodule"},
+        {"weight" : 0.125, "item" : "techcard"},
+        {"weight" : 0.125, "item" : "diamond"}
+      ]
+    }]
+  ],
+
+  "fishingGrandPrize" : [
+    [0, {
+      "pool" : [
+        {"weight" : 0.4, "pool" : "fishingUpgrade"},
+        {"weight" : 0.15, "pool" : "petcollars"},
+        {"weight" : 0.15, "pool" : "augments"},
+        {"weight" : 0.15, "pool" : "instrument"},
+        {"weight" : 0.15, "pool" : "costume"}
+      ]
+    }]
+  ],
+
+  "fishingcommon" : [
+    [0, {
+      "fill" : [
+        {"item" : "rawfish"}
+      ],
+      "pool" : [
+        {"weight" : 1.0, "pool" : "money"}
+      ],
+      "poolRounds" : [
+        [0.7, 0],
+        [0.3, 1]
+      ],
+      "allowDuplication" : true
+    }]
+  ],
+  "fishinguncommon" : [
+    [0, {
+      "fill" : [
+        {"item" : "rawfish"}
+      ],
+      "pool" : [
+        {"weight" : 0.97, "pool" : "money"},
+        {"weight" : 0.03, "pool" : "fishingUpgrade"}
+      ],
+      "allowDuplication" : true
+    }]
+  ],
+  "fishingrare" : [
+    [0, {
+      "fill" : [
+        {"item" : "rawfish"}
+      ],
+      "pool" : [
+        {"weight" : 1.0, "pool" : "fishingPrize"}
+      ],
+      "allowDuplication" : true
+    }]
+  ],
+  "fishinglegendary" : [
+    [0, {
+      "fill" : [
+        {"item" : "rawfish"},
+        {"pool" : "chestMoney"},
+        {"pool" : "chestMoney"}
+      ],
+      "pool" : [
+        {"weight" : 0.5, "pool" : "fishingGrandPrize"}
+      ],
+      "allowDuplication" : true
+    }]
+  ]
+}

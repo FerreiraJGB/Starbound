@@ -1,0 +1,23 @@
+{
+  "config" : {
+    "shipUpgrades" : {
+      "capabilities" : ["teleport", "planetTravel", "systemTravel"],
+      "crewSize" : 10
+    }
+  },
+
+  "backgroundOverlays" : [
+    {
+      "image" : "floranT7.png",
+      "position" : [44, 34],
+      "fullbright" : true
+    },
+    {
+      "image" : "floranT7lit.png",
+      "position" : [44, 34]
+    }
+  ],
+
+  "blockKey" : "blockKey.config:blockKey",
+  "blockImage" : "floranT7blocks.png"
+}

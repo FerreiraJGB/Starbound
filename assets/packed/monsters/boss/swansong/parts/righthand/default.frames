@@ -1,0 +1,17 @@
+{
+  "frameGrid" : {
+    "size" : [32, 48],
+    "dimensions" : [10, 4],
+
+    "names" : [
+      [null, "spawn.1", "spawn.2", "spawn.3", "spawn.4", "spawn.5", null, "idle.1", "idle.2", "idle.3"],
+      ["idle.4", null, "firewindup.1", "firewindup.2", "firewindup.3", "firewindup.4", "firewindup.5", "firewindup.6", "firewindup.7", "firewindup.8"],
+      [null, "fire.1", "fire.2", "fire.3", "fire.4", null, "fireend.1", "fireend.2", "fireend.3", "fireend.4"],
+      ["fireend.5", "fireend.6", "fireend.7", "fireend.8", null, "boost.1", "boost.2", "boost.3", "boost.4"]
+    ]
+  },
+
+  "aliases" : {
+    "fireidle.1" : "firewindup.8"
+  }
+}

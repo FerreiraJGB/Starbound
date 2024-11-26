@@ -1,0 +1,20 @@
+{
+  "projectileName" : "swansongdashswoosh",
+  "image" : "swansongdashswoosh.png",
+  "timeToLive" : 0.2,
+  "speed" : 0,
+  "orientationLocked" : true,
+  "damagePoly" : [ [-208, -8], [208, 24] ],
+  "movementSettings" : {
+    "collisionEnabled" : false
+  },
+
+  "flippable" : true,
+  "damageKind" : "slash",
+  "piercing" : true,
+
+  "fullbright" : true,
+  "statusEffects" : [],
+  "knockback" : 18,
+  "knockbackDirectional" : true
+}

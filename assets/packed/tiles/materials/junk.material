@@ -1,0 +1,26 @@
+{
+  "materialId" : 1293,
+  "materialName" : "junk",
+  "particleColor" : [142, 101, 101, 255],
+  "itemDrop" : "junk",
+  "description" : "A pile of random junk.",
+  "shortdescription" : "Junk Pile",
+  "glitchDescription" : "Observant. I can see many different types of twisted broken debris in this pile.",
+  "floranDescription" : "Sso much junk.",
+  "novakidDescription" : "An ol' heap of garbage.",
+  "footstepSound" : "/sfx/blocks/footstep_bone.ogg",
+  "falling" : true,
+  "cascading" : true,
+  "health" : 4,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "junk.png",
+    "variants" : 9,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 3943
+  }
+}

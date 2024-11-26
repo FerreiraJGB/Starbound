@@ -1,0 +1,51 @@
+{
+  "animatedParts" : {
+    "stateTypes" : {
+      "rail" : {
+        "default" : "off",
+        "states" : {
+          "off" : {
+            "properties" : {
+              "immediateSound" : "/sfx/objects/steel_elevator_hit.ogg",
+              "immediateSoundRangeMultiplier" : 0.5
+            }
+          },
+          "on" : {
+            "frames" : 5,
+            "cycle" : 0.25,
+            "mode" : "loop",
+            "properties" : {
+              "persistentSound" : "/sfx/objects/sewergear.ogg",
+              "persistentSoundRangeMultiplier" : 0.5
+            }
+          }
+        }
+      }
+    },
+
+    "parts" : {
+      "platform" : {
+        "properties" : {
+          "centered" : true,
+          "offset" : [0, -0.25],
+          "zLevel" : 0
+        },
+
+        "partStates" : {
+          "rail" : {
+            "on" : {
+              "properties" : {
+                "image" : "<partImage>:onRail.<frame>"
+              }
+            },
+            "off" : {
+              "properties" : {
+                "image" : "<partImage>:offRail"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

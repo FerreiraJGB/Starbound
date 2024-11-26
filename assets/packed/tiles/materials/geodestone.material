@@ -1,0 +1,24 @@
+{
+  "materialId" : 360,
+  "materialName" : "geodestone",
+  "particleColor" : [92, 90, 87, 255],
+  "itemDrop" : "geodestone",
+  "description" : "A solid stone filled with small geode crystals.",
+  "shortdescription" : "Geode Stone",
+  "glitchDescription" : "Observant. There are tiny geode crystals inside this stone.",
+  "floranDescription" : "Floran likess tiny crysstals in geode sstone.",
+  "novakidDescription" : "This stone is full'a tiny geode crystals.",
+  "footstepSound" : "/sfx/blocks/footstep_stone3.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "geodestone.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 1561
+  }
+}

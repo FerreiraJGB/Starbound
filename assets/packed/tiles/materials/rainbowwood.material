@@ -1,0 +1,24 @@
+{
+  "materialId" : 570,
+  "materialName" : "rainbowwood",
+  "particleColor" : [102, 73, 41, 255],
+  "itemDrop" : "rainbowwood",
+  "description" : "Rough and unrefined, this wood has a colourful center.",
+  "shortdescription" : "Unrefined Rainbow Wood",
+  "glitchDescription" : "Statement. Unrefined rainbow wood.",
+  "floranDescription" : "Unssstabbed rainbow wood.",
+  "footstepSound" : "/sfx/blocks/footstep_wood.ogg",
+  "health" : 2,
+  "category" : "materials",
+  "damageTable" : "/tiles/flammableDamage.config",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "rainbowwood.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 2809
+  }
+}

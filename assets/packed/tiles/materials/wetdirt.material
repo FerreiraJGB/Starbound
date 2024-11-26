@@ -1,0 +1,26 @@
+{
+  "materialId" : 49,
+  "materialName" : "wetdirt",
+  "particleColor" : [225, 191, 150, 255],
+  "itemDrop" : "wetdirt",
+  "description" : "Not quite mud, not quite dirt...it's wet dirt.",
+  "shortdescription" : "Wet Dirt",
+  "glitchDescription" : "Unimpressed. It is simply dirt saturated with some water.",
+  "floranDescription" : "Wet dirt iss good for plantss.",
+  "novakidDescription" : "Jus' some wet lookin' dirt.",
+  "footstepSound" : "/sfx/blocks/footstep_wetclay.ogg",
+  "tillableMod" : 31,
+  "soil" : true,
+  "health" : 1,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "wetdirt.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 1860
+  }
+}

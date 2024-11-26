@@ -1,0 +1,20 @@
+{
+  "eventName" : "bountyQuest",
+  "scripts" : [ "/achievements/event.lua" ],
+
+  // Fields:
+  //  - targetType
+
+  "stats" : [
+    {
+      "name" : "bountyQuest",
+      "type" : "int",
+      "op" : "increment"
+    },
+    {
+      "name" : "bountyQuest.targetType.<targetType>",
+      "type" : "int",
+      "op" : "increment"
+    }
+  ]
+}

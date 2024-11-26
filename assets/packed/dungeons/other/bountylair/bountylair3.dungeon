@@ -1,0 +1,23 @@
+{
+  "metadata" : {
+    "name" : "bountylair3",
+    "species" : "generic",
+    "rules" : [
+    ],
+    "anchor" : [ "bountylair3" ],
+    "gravity" : 40,
+    "maxRadius" : 1000000,
+    "maxParts" : 1,
+    "protected" : true
+  },
+
+  "parts" : [
+    {
+      "name" : "bountylair3",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "bountylair3.json" ]
+    }
+  ]
+}

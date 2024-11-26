@@ -1,0 +1,26 @@
+{
+  "materialId" : 129,
+  "materialName" : "bonematerial",
+  "particleColor" : [231, 223, 189, 255],
+  "itemDrop" : "bonematerial",
+  "description" : "A collection of bones tightly packed together.",
+  "shortdescription" : "Packed Bones",
+  "glitchDescription" : "Horrified. Bones from a variety of sources packed together.",
+  "floranDescription" : "Bonesss!",
+  "novakidDescription" : "Bunch of bones. Who needs 'em!",
+  "footstepSound" : "/sfx/blocks/footstep_bone.ogg",
+  "falling" : true,
+  "cascading" : true,
+  "health" : 4,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "bonematerial.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 3940
+  }
+}

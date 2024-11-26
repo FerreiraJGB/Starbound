@@ -1,0 +1,10 @@
+{
+  "name" : "wisper",
+  "category" : "firewisper",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "firewisper.png",
+    "bodynobright" : "firewispernobright.png"
+  }
+}

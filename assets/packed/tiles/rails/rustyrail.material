@@ -1,0 +1,25 @@
+{
+  "materialId" : 4467,
+  "materialName" : "rustyrail",
+  "collisionKind" : "none",
+  "foregroundOnly" : true,
+  "itemDrop" : "rustyrail",
+  "shortdescription" : "Rusty Rail",
+  "description" : "These rails are a bit rough, but functional.",
+  "footstepSound" : "/sfx/blocks/footstep_girder.ogg",
+  "category": "supports",
+  "health" : 3,
+  "glitchDescription" : "Concerned. These rails look worn and rusted.",
+  "floranDescription" : "Rusty metal rails.",
+  "novakidDescription" : "Some rusty lookin' rails, gettin' the itch to ride 'em.",
+
+  "renderTemplate" : "/tiles/railtemplate.config",
+  "renderParameters" : {
+    "texture" : "rustyrail.png",
+    "variants" : 1,
+    "multiColored" : true,
+    "lightTransparent" : true,
+    "occludesBelow" : false,
+    "zLevel" : 0
+  }
+}

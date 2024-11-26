@@ -1,0 +1,99 @@
+{
+  "metadata" : {
+    "name" : "peacekeeperstation5",
+    "species" : "generic",
+    "rules" : [
+    ],
+    "anchor" : [
+      "station5_entrance1", "station5_entrance2", "station5_entrance3"
+    ],
+    "gravity" : 40,
+    "breathable" : true,
+    "maxRadius" : 1000000,
+    "maxParts" : 3,
+    "protected" : true
+  },
+
+  "parts" : [
+    {
+      "name" : "station5_entrance1",
+      "rules" : [
+        [ "doNotCombineWith", [ "station5_entrance1", "station5_entrance2", "station5_entrance3" ] ]
+      ],
+      "def" : [ "tmx", "station5_entrance1.json" ],
+      "chance" : 0.3
+    },
+    {
+      "name" : "station5_entrance2",
+      "rules" : [
+        [ "doNotCombineWith", [ "station5_entrance1", "station5_entrance2", "station5_entrance3" ] ]
+      ],
+      "def" : [ "tmx", "station5_entrance2.json" ],
+      "chance" : 0.3
+    },
+    {
+      "name" : "station5_entrance3",
+      "rules" : [
+        [ "doNotCombineWith", [ "station5_entrance1", "station5_entrance2", "station5_entrance3" ] ]
+      ],
+      "def" : [ "tmx", "station5_entrance3.json" ],
+      "chance" : 0.3
+    },
+    {
+      "name" : "station5_middle1",
+      "rules" : [
+        [ "doNotCombineWith", [ "station5_middle1", "station5_middle2", "station5_middle3", "station5_middle4" ] ]
+      ],
+      "def" : [ "tmx", "station5_middle1.json" ],
+      "chance" : 0.3
+    },
+    {
+      "name" : "station5_middle2",
+      "rules" : [
+        [ "doNotCombineWith", [ "station5_middle1", "station5_middle2", "station5_middle3", "station5_middle4" ] ]
+      ],
+      "def" : [ "tmx", "station5_middle2.json" ],
+      "chance" : 0.3
+    },
+    {
+      "name" : "station5_middle3",
+      "rules" : [
+        [ "doNotCombineWith", [ "station5_middle1", "station5_middle2", "station5_middle3", "station5_middle4" ] ]
+      ],
+      "def" : [ "tmx", "station5_middle3.json" ],
+      "chance" : 0.3
+    },
+    {
+      "name" : "station5_middle4",
+      "rules" : [
+        [ "doNotCombineWith", [ "station5_middle1", "station5_middle2", "station5_middle3", "station5_middle4" ] ]
+      ],
+      "def" : [ "tmx", "station5_middle4.json" ],
+      "chance" : 0.3
+    },
+    {
+      "name" : "station5_end1",
+      "rules" : [
+        [ "doNotCombineWith", [ "station5_end1", "station5_end2", "station5_end3" ] ]
+      ],
+      "def" : [ "tmx", "station5_end1.json" ],
+      "chance" : 0.3
+    },
+    {
+      "name" : "station5_end2",
+      "rules" : [
+        [ "doNotCombineWith", [ "station5_end1", "station5_end2", "station5_end3" ] ]
+      ],
+      "def" : [ "tmx", "station5_end2.json" ],
+      "chance" : 0.3
+    },
+    {
+      "name" : "station5_end3",
+      "rules" : [
+        [ "doNotCombineWith", [ "station5_end1", "station5_end2", "station5_end3" ] ]
+      ],
+      "def" : [ "tmx", "station5_end3.json" ],
+      "chance" : 0.3
+    }
+  ]
+}

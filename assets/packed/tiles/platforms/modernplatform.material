@@ -1,0 +1,23 @@
+{
+  "materialId" : 47,
+  "materialName" : "modernplatform",
+  "collisionKind" : "platform",
+  "itemDrop" : "modernplatform",
+  "shortdescription" : "Modern Platform",
+  "description" : "Made from a modern material, these are smooth to the touch.",
+  "glitchDescription" : "Satisfied. This smooth modern platform is attractive and sturdy.",
+  "floranDescription" : "Ssmooth modern platformsss.",
+  "novakidDescription" : "Some fancy lookin' metal platforms.",
+  "footstepSound" : "/sfx/blocks/footstep_lightmetal.ogg",
+  "category" : "Supports",
+
+  "renderTemplate" : "/tiles/platformtemplate.config",
+  "renderParameters" : {
+    "texture" : "modernplatform.png",
+    "variants" : 1,
+    "lightTransparent" : true,
+    "occludesBelow" : false,
+    "multiColored" : true,
+    "zLevel" : 0
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name" : "ballista",
+  "boundBox" : [-5, -5, 5, 5],
+  "slaveControlTimeout" : 2.0,
+  "slaveControlHeartbeat" : 1.0,
+  "canBeHit" : true,
+
+  "animation" : "ballista.animation",
+
+  "movementSettings" : {
+    "collisionPoly" : [ [4, 2.375], [5, 1.375], [5, -1.375], [4, -2.375], [-4, -2.375], [-5, -1.375], [-5, 1.375], [-4, 2.375] ],
+    "mass" : 4,
+    "airFriction" : 0.5,
+    "groundFriction" : 3,
+    "liquidBuoyancy" : 4,
+    "ignorePlatformCollision" : true,
+    "walkSpeed" : 4,
+    "groundForce" : 4
+  },
+
+  "loungePositions" : {
+    "cannon" : {
+      "part" : "ammo",
+      "partAnchor" : "seatOffset",
+      "orientation" : "stand"
+    },
+    "main" : {
+      "part" : "back",
+      "partAnchor" : "mainSeatOffset",
+      "orientation" : "sit"
+    }
+  },
+
+  "script" : "ballista.lua"
+}

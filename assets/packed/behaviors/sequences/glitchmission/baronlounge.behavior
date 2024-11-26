@@ -1,0 +1,81 @@
+{
+  "name": "baron-lounge",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/query.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/npc.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "moveToPosition",
+        "type": "action",
+        "name": "moveToPosition",
+        "parameters": {
+          "avoidLiquid": {"value": true},
+          "groundPosition": {"value": true},
+          "maxGround": {"value": 5},
+          "minGround": {"value": -10},
+          "pathOptions": {"value": {}},
+          "position": {"key": "spawn"},
+          "run": {"value": false}
+        }
+      },
+      {
+        "title": "findLoungable",
+        "type": "action",
+        "name": "findLoungable",
+        "parameters": {
+          "orderBy": {"value": "nearest"},
+          "orientation": {"value": "sit"},
+          "position": {"key": "self"},
+          "range": {"value": 5},
+          "unoccupied": {"value": true}
+        },
+        "output": {
+          "entity": "throne"
+        }
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": 1},
+          "success": {"value": -1}
+        },
+        "children": [
+          {
+            "title": "entityExists",
+            "type": "action",
+            "name": "entityExists",
+            "parameters": {
+              "entity": {"key": "throne"}
+            }
+          },
+          {
+            "title": "lounge",
+            "type": "action",
+            "name": "lounge",
+            "parameters": {
+              "entity": {"key": "throne"}
+            }
+          },
+          {
+            "title": "runner",
+            "type": "action",
+            "name": "runner",
+            "parameters": {}
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "projectileName" : "electricdarkgas",
+  "image" : "darkgas.png",
+  "physics" : "stickyheavygas",
+  "animationCycle" : 0.5,
+  "animationLoops" : true,
+  "frameNumber" : 3,
+  "intangibleWindup" : true,
+  "windupFrames" : 2,
+  "winddownFrames" : 3,
+  "power" : 10,
+  "speed" : 20,
+  "timeToLive" : 3.0,
+  "bounces" : -1,
+  "damagePoly" : [ [-18, 0], [-12, -12], [0, -18], [12, -12], [18, 0], [12, 12], [0, 18], [-12, 12] ],
+  "piercing" : true,
+  "emitters" : [ "largeelectriccloud" ],
+
+  "statusEffects" : [ "electrified" ],
+
+  "renderLayer" : "Monster+10",
+  "lightColor" : [161, 172, 247],
+
+  "damageKind" : "electric"
+}

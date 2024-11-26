@@ -1,0 +1,24 @@
+{
+  "materialId" : 54,
+  "materialName" : "aztectech",
+  "particleColor" : [218, 199, 130, 255],
+  "itemDrop" : "aztectech",
+  "shortdescription" : "Avian Tech Block",
+  "description" : "An advanced synthetic Avian material with printed markings.",
+  "glitchDescription" : "Curious. These blocks are made from an unknown artificial material.",
+  "floranDescription" : "Brickss covered in sstrange markingss.",
+  "novakidDescription" : "Sturdy lookin' bricks all marked up with symbols.",
+  "footstepSound" : "/sfx/blocks/footstep_stone.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "aztectech.png",
+    "variants" : 25,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 3160
+  }
+}

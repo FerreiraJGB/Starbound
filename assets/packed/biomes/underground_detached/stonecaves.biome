@@ -1,0 +1,72 @@
+{
+  "name" : "stonecaves",
+  "friendlyName" : "Stone Caves",
+
+  "spawnProfile" : {
+    "groups" : [
+      {
+        "select" : 2,
+        "pool" : [ 
+          [ 1.0, "crustoise" ],
+          [ 1.0, "peblit" ],
+          [ 1.0, "batong" ]
+        ]
+      }
+    ]
+  },
+
+  "mainBlock" : "limestone",
+  "subBlocks" : [ "rock01", "limestone" ],
+  "ores" : "depth2",
+
+  "undergroundPlaceables" : {
+
+    "items" : [
+      {
+        "mode" : "floor",
+        "priority" : 1.0,
+        "variants" : 1,
+        "distribution" : "/biomes/distributions.config:undergroundCapsules",
+
+        "type" : "object",
+        "objectSets" : [
+          {
+            "pool" : [ [0.35, "capsulesmall" ], [0.35, "capsulemed" ], [0.35, "capsulebig" ] ],
+            "parameters" : { }
+          }
+        ]
+      },
+      {
+        "mode" : "floor",
+        "priority" : 0.0,
+        "variants" : 1,
+        "distribution" : "/biomes/distributions.config:undergroundChests",
+
+        "type" : "treasureBox",
+        "treasureBoxSets" : [ "stoneCaveChest" ]
+      },
+      {
+        "mode" : "ceiling",
+        "priority" : 0.5,
+        "variants" : 1,
+        "distribution" : "/biomes/distributions.config:uncommon",
+
+        "type" : "object",
+        "objectSets" : [
+          {
+            "pool" : [ [0.20, "ceilingstalactite1" ], [0.20, "ceilingstalactite2" ], [0.20, "ceilingstalactite3" ], [0.20, "ceilingstalactite4" ], [0.20, "ceilingstalactite5" ] ]
+          }
+        ]
+      },
+      {
+        "mode" : "floor",
+        "priority" : 3.0,
+        "variants" : 1,
+        "distribution" : "/biomes/distributions.config:scatteredSmall",
+
+        "type" : "grass",
+        "grasses" : [ "pebbles" ]
+      }
+    ]
+  }
+}

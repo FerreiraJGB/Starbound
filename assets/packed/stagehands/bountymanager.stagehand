@@ -1,0 +1,13 @@
+{
+  "type" : "bountymanager",
+
+  "scripts" : [
+  	"/stagehands/bountymanager.lua"
+  ],
+  "scriptDelta" : 10,
+
+  // Dungeon ID range to use for bounty dungeons
+  // Starts high and decrements with each dungeon
+  // 65520 is the first meta dungeon ID
+  "dungeonIdRange" : [64519, 65519]
+}

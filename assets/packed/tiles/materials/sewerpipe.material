@@ -1,0 +1,24 @@
+{
+  "materialId" : 1182,
+  "materialName" : "sewerpipe",
+  "particleColor" : [194, 194, 194, 255],
+  "itemDrop" : "sewerpipe",
+  "shortdescription" : "Sewer Pipe",
+  "description" : "A sewer pipe used for transporting waste.",
+  "glitchDescription" : "Disgusted. This pipe is filthy, I would hate to see what is inside it.",
+  "floranDescription" : "Sssmelly ssewer pipess.",
+  "novakidDescription" : "Filthy, dirty lookin' sewer pipes.",
+  "footstepSound" : "/sfx/blocks/footstep_lightmetal.ogg",
+  "health" : 8,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/pipetemplate.config",
+  "renderParameters" : {
+    "texture" : "sewerpipe.png",
+    "variants" : 10,
+    "lightTransparent" : false,
+    "occludesBelow" : false,
+    "multiColored" : true,
+    "zLevel" : 3360
+  }
+}

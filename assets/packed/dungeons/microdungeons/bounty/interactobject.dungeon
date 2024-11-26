@@ -1,0 +1,71 @@
+{
+  "metadata" : {
+    "name" : "interactobject",
+    "species" : "generic",
+    "rules" : [
+    ],
+    "anchor" : [ "interactobject_1", "interactobject_2", "interactobject_3", "interactobject_4", "interactobject_5", "interactobject_6", "interactobject_7", "interactobject_8" ],
+    "gravity" : 80,
+    "maxRadius" : 1000000,
+    "maxParts" : 1,
+    "protected" : true
+  },
+
+  "parts" : [
+    {
+      "name" : "interactobject_1",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "interactobject_1.json" ]
+    },
+    {
+      "name" : "interactobject_2",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "interactobject_2.json" ]
+    },
+    {
+      "name" : "interactobject_3",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "interactobject_3.json" ]
+    },
+    {
+      "name" : "interactobject_4",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "interactobject_4.json" ]
+    },
+    {
+      "name" : "interactobject_5",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "interactobject_5.json" ]
+    },
+    {
+      "name" : "interactobject_6",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "interactobject_6.json" ]
+    },
+    {
+      "name" : "interactobject_7",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "interactobject_7.json" ]
+    },
+    {
+      "name" : "interactobject_8",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "interactobject_8.json" ]
+    }  ]
+}

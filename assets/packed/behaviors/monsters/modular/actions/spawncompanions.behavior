@@ -1,0 +1,195 @@
+{
+  "name": "action-spawncompanions",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/world.lua",
+    "/scripts/behavior/bdata.lua",
+    "/scripts/actions/math.lua",
+    "/scripts/actions/position.lua",
+    "/scripts/behavior.lua",
+    "/scripts/actions/notification.lua"
+  ],
+  "parameters": {
+    "maxCount": 1,
+    "spawnCooldown": 5,
+    "position": null,
+    "offset": [0, 0],
+    "monsterType": ""
+  },
+  "root": {
+    "title": "parallel",
+    "type": "composite",
+    "name": "parallel",
+    "parameters": {
+      "fail": {"value": -1},
+      "success": {"value": -1}
+    },
+    "children": [
+      {
+        "title": "filter",
+        "type": "decorator",
+        "name": "filter",
+        "parameters": {
+          "list": {"key": "companions"},
+          "type": {"value": "entity"}
+        },
+        "child": {
+          "title": "entityExists",
+          "type": "action",
+          "name": "entityExists",
+          "parameters": {
+            "entity": {"key": "filterItem"}
+          }
+        }
+      },
+      {
+        "title": "cooldown",
+        "type": "decorator",
+        "name": "cooldown",
+        "parameters": {
+          "cooldown": {"key": "<spawnCooldown>"},
+          "onFail": {"value": true},
+          "onSuccess": {"value": true}
+        },
+        "child": {
+          "title": "sequence",
+          "type": "composite",
+          "name": "sequence",
+          "parameters": {},
+          "children": [
+            {
+              "title": "selector",
+              "type": "composite",
+              "name": "selector",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "listSize",
+                  "type": "action",
+                  "name": "listSize",
+                  "parameters": {
+                    "list": {"key": "companions"}
+                  },
+                  "output": {
+                    "number": "companionCount"
+                  }
+                },
+                {
+                  "title": "sequence",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "listClear",
+                      "type": "action",
+                      "name": "listClear",
+                      "parameters": {},
+                      "output": {
+                        "list": "companions"
+                      }
+                    },
+                    {
+                      "title": "listSize",
+                      "type": "action",
+                      "name": "listSize",
+                      "parameters": {
+                        "list": {"key": "companions"}
+                      },
+                      "output": {
+                        "number": "companionCount"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "selector",
+              "type": "composite",
+              "name": "selector",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "gte",
+                  "type": "action",
+                  "name": "gte",
+                  "parameters": {
+                    "first": {"key": "companionCount"},
+                    "second": {"key": "<maxCount>"}
+                  }
+                },
+                {
+                  "title": "sequence",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "vecMultiply",
+                      "type": "action",
+                      "name": "vecMultiply",
+                      "parameters": {
+                        "first": {"key": "<offset>"},
+                        "second": {"value": ["facingDirection", 1]}
+                      },
+                      "output": {
+                        "vector": "spawnOffset"
+                      }
+                    },
+                    {
+                      "title": "offsetPosition",
+                      "type": "action",
+                      "name": "offsetPosition",
+                      "parameters": {
+                        "offset": {"key": "spawnOffset"},
+                        "position": {"key": "<position>"}
+                      },
+                      "output": {
+                        "position": "spawnPosition"
+                      }
+                    },
+                    {
+                      "title": "spawnMonster",
+                      "type": "action",
+                      "name": "spawnMonster",
+                      "parameters": {
+                        "position": {"key": "spawnPosition"},
+                        "type": {"value": "<monsterType>"}
+                      },
+                      "output": {
+                        "entityId": "spawnedMonster"
+                      }
+                    },
+                    {
+                      "title": "listPush",
+                      "type": "action",
+                      "name": "listPush",
+                      "parameters": {
+                        "entity": {"key": "spawnedMonster"},
+                        "list": {"key": "companions"}
+                      },
+                      "output": {
+                        "list": "companions"
+                      }
+                    },
+                    {
+                      "title": "sendNotification",
+                      "type": "action",
+                      "name": "sendNotification",
+                      "parameters": {
+                        "entity": {"key": "spawnedMonster"},
+                        "target": {"key": "self"},
+                        "type": {"value": "setOwner"}
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

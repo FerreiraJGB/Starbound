@@ -1,0 +1,26 @@
+{
+  "materialId" : 52,
+  "materialName" : "clay",
+  "particleColor" : [127, 126, 156, 255],
+  "itemDrop" : "clay",
+  "description" : "Heavy, sticky clay.",
+  "shortdescription" : "Clay",
+  "glitchDescription" : "Interested. This clay is dense enough to use as a building material.",
+  "floranDescription" : "Sssmooth clay.",
+  "novakidDescription" : "I reckon drying this clay would harden it up.",
+  "footstepSound" : "/sfx/blocks/footstep_wetclay.ogg",
+  "tillableMod" : 31,
+  "soil" : true,
+  "health" : 4,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "clay.png",
+    "variants" : 3,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 1870
+  }
+}

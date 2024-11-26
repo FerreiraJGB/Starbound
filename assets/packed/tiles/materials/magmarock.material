@@ -1,0 +1,24 @@
+{
+  "materialId" : 81,
+  "materialName" : "magmarock",
+  "particleColor" : [84, 49, 49, 255],
+  "itemDrop" : "magmarock",
+  "description" : "Magmarock. This is hot stuff.",
+  "shortdescription" : "Magmarock",
+  "glitchDescription" : "Cautious. The temperature of this magmarock remains dangerously high.",
+  "floranDescription" : "Burny hot magmarockss.",
+  "novakidDescription" : "Better watch myself 'round these burnin' magmarocks.",
+  "footstepSound" : "/sfx/blocks/footstep_stone3.ogg",
+  "health" : 24,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "magmarock.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 1680
+  }
+}

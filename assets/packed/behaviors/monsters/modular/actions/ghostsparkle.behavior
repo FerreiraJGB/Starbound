@@ -1,0 +1,99 @@
+{
+  "name": "action-ghostsparkle",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/sensor.lua",
+    "/scripts/actions/animator.lua"
+  ],
+  "parameters": {
+    "enterEmitter": "groundBurstEmitter",
+    "behindGroundEmitter": "behindGroundEmitter"
+  },
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "pointTileCollision",
+        "type": "action",
+        "name": "pointTileCollision",
+        "parameters": {
+          "position": {"key": "self"}
+        }
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": -1},
+          "success": {"value": 1}
+        },
+        "children": [
+          {
+            "title": "emitParticles",
+            "type": "action",
+            "name": "emitParticles",
+            "parameters": {
+              "emitter": {"value": "<behindGroundEmitter>"}
+            }
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "burstParticleEmitter",
+                "type": "action",
+                "name": "burstParticleEmitter",
+                "parameters": {
+                  "emitter": {"value": "<enterEmitter>"}
+                }
+              },
+              {
+                "title": "dynamic",
+                "type": "composite",
+                "name": "dynamic",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "inverter",
+                    "type": "decorator",
+                    "name": "inverter",
+                    "parameters": {},
+                    "child": {
+                      "title": "pointTileCollision",
+                      "type": "action",
+                      "name": "pointTileCollision",
+                      "parameters": {
+                        "position": {"key": "self"}
+                      }
+                    }
+                  },
+                  {
+                    "title": "runner",
+                    "type": "action",
+                    "name": "runner",
+                    "parameters": {}
+                  }
+                ]
+              },
+              {
+                "title": "burstParticleEmitter",
+                "type": "action",
+                "name": "burstParticleEmitter",
+                "parameters": {
+                  "emitter": {"value": "<enterEmitter>"}
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

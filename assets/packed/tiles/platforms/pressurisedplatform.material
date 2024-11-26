@@ -1,0 +1,23 @@
+{
+  "materialId" : 160,
+  "materialName" : "pressurisedplatform",
+  "collisionKind" : "platform",
+  "itemDrop" : "pressurisedplatform",
+  "shortdescription" : "Pressurised Platform",
+  "description" : "Tough pressurised platform for potentially pressured environments!",
+  "glitchDescription" : "Approving. These strong platforms are reinforced to stand up to pressurisation changes.",
+  "floranDescription" : "Sstrong metal platformss are cold.",
+  "novakidDescription" : "Some sorta shiny lookin' platform.",
+  "footstepSound" : "/sfx/blocks/footstep_lightmetal.ogg",
+  "category" : "Supports",
+
+  "renderTemplate" : "/tiles/platformtemplate.config",
+  "renderParameters" : {
+    "texture" : "pressurisedplatform.png",
+    "variants" : 1,
+    "lightTransparent" : true,
+    "occludesBelow" : false,
+    "multiColored" : true,
+    "zLevel" : 0
+  }
+}

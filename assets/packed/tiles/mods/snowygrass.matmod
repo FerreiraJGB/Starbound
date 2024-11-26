@@ -1,0 +1,15 @@
+{
+  "modId" : 41,
+  "modName" : "snowygrass",
+  "description" : "Grass poking through freshly fallen snow.",
+  "footstepSound" : "/sfx/blocks/footstep_snow.ogg",
+  "health" : 0,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "snowygrass.png",
+    "variants" : 5,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

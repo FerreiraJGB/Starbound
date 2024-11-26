@@ -1,0 +1,244 @@
+{
+  "name": "meleestandby",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/world.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/entity.lua",
+    "/scripts/actions/math.lua",
+    "/scripts/actions/dialog.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "parallel",
+    "type": "composite",
+    "name": "parallel",
+    "parameters": {
+      "fail": {"value": -1},
+      "success": {"value": -1}
+    },
+    "children": [
+      {
+        "title": "entityPosition",
+        "type": "action",
+        "name": "entityPosition",
+        "parameters": {
+          "entity": {"key": "target"}
+        },
+        "output": {
+          "position": "targetPosition"
+        }
+      },
+      {
+        "title": "dynamic",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "entityInRange",
+                "type": "action",
+                "name": "entityInRange",
+                "parameters": {
+                  "entity": {"key": "target"},
+                  "position": {"key": "self"},
+                  "range": {"value": 5}
+                }
+              },
+              {
+                "title": "parallel",
+                "type": "composite",
+                "name": "parallel",
+                "parameters": {
+                  "fail": {"value": 1},
+                  "success": {"value": -1}
+                },
+                "children": [
+                  {
+                    "title": "entityInRange",
+                    "type": "action",
+                    "name": "entityInRange",
+                    "parameters": {
+                      "entity": {"key": "target"},
+                      "position": {"key": "self"},
+                      "range": {"value": 8}
+                    }
+                  },
+                  {
+                    "title": "entityDirection",
+                    "type": "action",
+                    "name": "entityDirection",
+                    "parameters": {
+                      "entity": {"key": "self"},
+                      "target": {"key": "target"}
+                    },
+                    "output": {
+                      "direction": "targetDirection"
+                    }
+                  },
+                  {
+                    "title": "reverseDirection",
+                    "type": "action",
+                    "name": "reverseDirection",
+                    "parameters": {
+                      "direction": {"key": "targetDirection"}
+                    },
+                    "output": {
+                      "direction": "targetDirection"
+                    }
+                  },
+                  {
+                    "title": "succeeder",
+                    "type": "decorator",
+                    "name": "succeeder",
+                    "parameters": {},
+                    "child": {
+                      "title": "move",
+                      "type": "action",
+                      "name": "move",
+                      "parameters": {
+                        "direction": {"key": "targetDirection"},
+                        "run": {"value": true}
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "selector",
+            "type": "composite",
+            "name": "selector",
+            "parameters": {},
+            "children": [
+              {
+                "title": "sequence",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "entityInRange",
+                    "type": "action",
+                    "name": "entityInRange",
+                    "parameters": {
+                      "entity": {"key": "target"},
+                      "position": {"key": "self"},
+                      "range": {"value": 15}
+                    }
+                  },
+                  {
+                    "title": "entityInSight",
+                    "type": "action",
+                    "name": "entityInSight",
+                    "parameters": {
+                      "entity": {"key": "target"}
+                    }
+                  },
+                  {
+                    "title": "faceEntity",
+                    "type": "action",
+                    "name": "faceEntity",
+                    "parameters": {
+                      "entity": {"key": "target"}
+                    }
+                  }
+                ]
+              },
+              {
+                "title": "parallel",
+                "type": "composite",
+                "name": "parallel",
+                "parameters": {
+                  "fail": {"value": 1},
+                  "success": {"value": -1}
+                },
+                "children": [
+                  {
+                    "title": "inverter",
+                    "type": "decorator",
+                    "name": "inverter",
+                    "parameters": {},
+                    "child": {
+                      "title": "entityInRange",
+                      "type": "action",
+                      "name": "entityInRange",
+                      "parameters": {
+                        "entity": {"key": "target"},
+                        "position": {"key": "self"},
+                        "range": {"value": 10}
+                      }
+                    }
+                  },
+                  {
+                    "title": "moveToPosition",
+                    "type": "action",
+                    "name": "moveToPosition",
+                    "parameters": {
+                      "avoidLiquid": {"value": true},
+                      "groundPosition": {"value": false},
+                      "maxGround": {"value": 5},
+                      "minGround": {"value": -10},
+                      "position": {"key": "targetPosition"},
+                      "run": {"value": true}
+                    },
+                    "output": {}
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "cooldown",
+        "type": "decorator",
+        "name": "cooldown",
+        "parameters": {
+          "cooldown": {"value": 5},
+          "onFail": {"value": false},
+          "onSuccess": {"value": true}
+        },
+        "child": {
+          "title": "selector",
+          "type": "composite",
+          "name": "selector",
+          "parameters": {},
+          "children": [
+            {
+              "title": "chance",
+              "type": "action",
+              "name": "chance",
+              "parameters": {
+                "chance": {"value": 0.3}
+              }
+            },
+            {
+              "title": "sayToEntity",
+              "type": "action",
+              "name": "sayToEntity",
+              "parameters": {
+                "dialogType": {"value": "dialog.cheerOn"},
+                "entity": {"key": "target"},
+                "tags": {"value": {}}
+              }
+            }
+          ]
+        }
+      },
+      {
+        "title": "runner",
+        "type": "action",
+        "name": "runner",
+        "parameters": {}
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "materialId" : 889,
+  "materialName" : "shadowspikeblock",
+  "particleColor" : [89, 127, 52, 255],
+  "itemDrop" : "shadowspikeblock",
+  "description" : "A spiked block formed from shadowy material.",
+  "shortdescription" : "Shadow Spike Block",
+  "glitchDescription" : "Interested. This block is made from an unknown material.",
+  "floranDescription" : "Dark blockss are black as night.",
+  "novakidDescription" : "These blocks're darker'n a moonless night.",
+  "footstepSound" : "/sfx/blocks/footstep_rooftile.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "shadowspikeblock.png",
+    "variants" : 1,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3240
+  }
+}

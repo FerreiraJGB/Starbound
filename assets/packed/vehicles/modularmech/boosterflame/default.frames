@@ -1,0 +1,12 @@
+{
+  "frameGrid" : {
+    "size" : [44, 42],
+    "dimensions" : [17, 1],
+
+    "names" : [
+      [ "idle", "boostN.1", "boostN.2", "boostNE.1", "boostNE.2", "boostE.1", "boostE.2", "boostSE.1", "boostSE.2", "boostS.1", "boostS.2", "boostSW.1", "boostSW.2", "boostW.1", "boostW.2", "boostNW.1", "boostNW.2" ]
+    ]
+  },
+
+  "aliases" : { }
+}

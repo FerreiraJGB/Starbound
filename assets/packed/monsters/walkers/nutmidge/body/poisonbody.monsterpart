@@ -1,0 +1,9 @@
+{
+  "name" : "nutmidge",
+  "category" : "poisonnutmidge",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "poisonnutmidge.png"
+  }
+}

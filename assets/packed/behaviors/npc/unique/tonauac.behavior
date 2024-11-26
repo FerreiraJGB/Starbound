@@ -1,0 +1,117 @@
+{
+  "name": "tonauacoutpost",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/entity.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/dialog.lua",
+    "/scripts/actions/npc/tonauac.lua",
+    "/scripts/actions/time.lua"
+  ],
+  "parameters": {
+    "blessings": [],
+    "blessingDuration": 1800,
+    "rotationTime": 86400
+  },
+  "root": {
+    "title": "parallel",
+    "type": "composite",
+    "name": "parallel",
+    "parameters": {
+      "fail": {"value": -1},
+      "success": {"value": -1}
+    },
+    "children": [
+      {
+        "title": "dynamic",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": null,
+                "type": "action",
+                "name": "wasInteracted",
+                "parameters": {}
+              },
+              {
+                "title": "parallel",
+                "type": "composite",
+                "name": "parallel",
+                "parameters": {
+                  "fail": {"value": -1},
+                  "success": {"value": -1}
+                },
+                "children": [
+                  {
+                    "title": "faceEntity",
+                    "type": "action",
+                    "name": "faceEntity",
+                    "parameters": {
+                      "entity": {"key": "interactionSource"}
+                    }
+                  },
+                  {
+                    "title": "sequence",
+                    "type": "composite",
+                    "name": "sequence",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "sayToEntity",
+                        "type": "action",
+                        "name": "sayToEntity",
+                        "parameters": {
+                          "dialogType": {"value": "dialog.bless"},
+                          "entity": {"key": "interactionSource"},
+                          "tags": {"value": {}}
+                        }
+                      },
+                      {
+                        "title": "blessPlayer",
+                        "type": "action",
+                        "name": "blessPlayer",
+                        "parameters": {
+                          "blessings": {"key": "<blessings>"},
+                          "duration": {"key": "<blessingDuration>"},
+                          "entity": {"key": "interactionSource"},
+                          "rotation": {"key": "<rotationTime>"}
+                        }
+                      },
+                      {
+                        "title": "timer",
+                        "type": "action",
+                        "name": "timer",
+                        "parameters": {
+                          "time": {"value": 1}
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": null,
+            "type": "module",
+            "name": "converse",
+            "parameters": {}
+          },
+          {
+            "title": "runner",
+            "type": "action",
+            "name": "runner",
+            "parameters": {}
+          }
+        ]
+      }
+    ]
+  }
+}

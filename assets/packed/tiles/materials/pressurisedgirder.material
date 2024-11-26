@@ -1,0 +1,25 @@
+{
+  "materialId" : 153,
+  "materialName" : "pressurisedgirder",
+  "frames" : "pressurisedgirder.png",
+  "particleColor" : [110, 110, 110, 255],
+  "itemDrop" : "pressurisedgirder",
+  "description" : "A girder designed to accommodate pressurisation changes.",
+  "shortdescription" : "Pressurised Girder",
+  "glitchDescription" : "Informed. A girder made to accommodate adjustments in pressurisation ",
+  "floranDescription" : "Shiny sstrong metal girder.",
+  "novakidDescription" : "A tough 'ol metal girder.",
+  "footstepSound" : "/sfx/blocks/footstep_composite.ogg",
+  "health" : 20,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/girdertemplate.config",
+  "renderParameters" : {
+    "texture" : "pressurisedgirder.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : false,
+    "multiColored" : true,
+    "zLevel" : 3280
+  }
+}

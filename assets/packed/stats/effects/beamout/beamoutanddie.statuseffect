@@ -1,0 +1,17 @@
+{
+  "name" : "beamoutanddie",
+  "effectConfig" : {
+    "speciesTags" : {
+      "penguin" : "penguin"
+    },
+    "die": true,
+    "triggerTime" : 0.75
+  },
+  "defaultDuration" : 2.0,
+
+  "scripts" : [
+    "beamout.lua"
+  ],
+
+  "animationConfig" : "beamout.animation"
+}

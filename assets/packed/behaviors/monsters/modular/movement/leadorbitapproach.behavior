@@ -1,0 +1,77 @@
+{
+  "name": "approach-leadorbit",
+  "description": null,
+  "scripts": [
+    "/scripts/actions/animator.lua",
+    "/scripts/actions/monsters/space.lua"
+  ],
+  "parameters": {
+    "distance": 10,
+    "tangentialSpeed": 5,
+    "tangentialForce": 5,
+    "flyState": "fly",
+    "idleState": "idle",
+    "rotationCenter": [0, 0]
+  },
+  "root": {
+    "title": "parallel",
+    "type": "composite",
+    "name": "parallel",
+    "parameters": {
+      "fail": {"value": 1},
+      "success": {"value": -1}
+    },
+    "children": [
+      {
+        "title": "animate",
+        "type": "action",
+        "name": "animate",
+        "parameters": {
+          "fallback": {"key": "<idleState>"},
+          "state": {"key": "<flyState>"},
+          "type": {"value": "body"}
+        }
+      },
+      {
+        "title": "approachLeadOrbit",
+        "type": "action",
+        "name": "approachLeadOrbit",
+        "parameters": {
+          "distance": {"key": "<distance>"},
+          "tangentialForce": {"key": "<tangentialForce>"},
+          "tangentialSpeed": {"key": "<tangentialSpeed>"},
+          "target": {"key": "target"}
+        },
+        "output": {
+          "angle": "leadOrbitAngle"
+        }
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "resetTransformationGroup",
+            "type": "action",
+            "name": "resetTransformationGroup",
+            "parameters": {
+              "transformationGroup": {"value": "body"}
+            }
+          },
+          {
+            "title": "rotateTransformationGroup",
+            "type": "action",
+            "name": "rotateTransformationGroup",
+            "parameters": {
+              "angle": {"key": "leadOrbitAngle"},
+              "rotationCenter": {"key": "<rotationCenter>"},
+              "transformationGroup": {"value": "body"}
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

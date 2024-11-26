@@ -1,0 +1,23 @@
+{
+  "materialId" : 1391,
+  "materialName" : "goldenplatform",
+  "collisionKind" : "platform",
+  "itemDrop" : "goldenplatform",
+  "shortdescription" : "Gold Platform",
+  "description" : "For the truly opulent, a platform made from gold.",
+  "glitchDescription" : "Enchanted. This platform is made from solid gold.",
+  "floranDescription" : "Gold platformsss. Sso fancy.",
+  "novakidDescription" : "Gold! It's a platform made of gold!.",
+  "footstepSound" : "/sfx/blocks/footstep_composite.ogg",
+  "category" : "Supports",
+
+  "renderTemplate" : "/tiles/platformtemplate.config",
+  "renderParameters" : {
+    "texture" : "goldenplatform.png",
+    "variants" : 1,
+    "lightTransparent" : true,
+    "occludesBelow" : false,
+    "multiColored" : true,
+    "zLevel" : 0
+  }
+}

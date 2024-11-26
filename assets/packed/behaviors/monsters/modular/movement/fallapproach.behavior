@@ -1,0 +1,47 @@
+{
+  "name": "approach-fall",
+  "description": null,
+  "scripts": [
+    "/scripts/actions/animator.lua",
+    "/scripts/actions/flying.lua"
+  ],
+  "parameters": {
+    "flyState": "fly",
+    "idleState": "idle",
+    "friction": 1,
+    "dampenDistance": 30,
+    "dampenMultiplier": 2
+  },
+  "root": {
+    "title": "parallel",
+    "type": "composite",
+    "name": "parallel",
+    "parameters": {
+      "fail": {"value": 1},
+      "success": {"value": -1}
+    },
+    "children": [
+      {
+        "title": "animate",
+        "type": "action",
+        "name": "animate",
+        "parameters": {
+          "fallback": {"key": "<idleState>"},
+          "state": {"key": "<flyState>"},
+          "type": {"value": "body"}
+        }
+      },
+      {
+        "title": "approachFall",
+        "type": "action",
+        "name": "approachFall",
+        "parameters": {
+          "friction": {"key": "<friction>"},
+          "target": {"key": "target"},
+          "dampenDistance": {"key": "<dampenDistance>"},
+          "dampenMultiplier": {"key": "<dampenMultiplier>"}
+        }
+      }
+    ]
+  }
+}

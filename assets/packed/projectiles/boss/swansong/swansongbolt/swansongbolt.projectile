@@ -1,0 +1,18 @@
+{
+  "projectileName" : "swansongbolt",
+  "physics" : "laser",
+  "bounces" : 0,
+  "damageKindImage" : "icon.png",
+  "image" : "swansongbolt.png",
+  "animationCycle" : 0.2,
+  "frameNumber" : 4,
+  "fullbright" : true,
+  "actionOnReap" : [
+  ],
+  "damageKind" : "fireplasma",
+
+  "emitters" : [ "fireplasma" ],
+
+  "power" : 10,
+  "speed" : 35
+}

@@ -1,0 +1,24 @@
+{
+  "materialId" : 33,
+  "materialName" : "goldblock",
+  "particleColor" : [227, 174, 47, 255],
+  "itemDrop" : "goldblock",
+  "description" : "A whole block of solid gold.",
+  "shortdescription" : "Gold Block",
+  "glitchDescription" : "Delighted. A block made entirely of solid gold.",
+  "floranDescription" : "Sshiny gold blockss.",
+  "novakidDescription" : "Yeehaw! Shiny blocks of solid gold!",
+  "footstepSound" : "/sfx/blocks/footstep_composite.ogg",
+  "health" : 6,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "goldblock.png",
+    "variants" : 1,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3000
+  }
+}

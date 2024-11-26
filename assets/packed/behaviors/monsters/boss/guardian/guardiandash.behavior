@@ -1,0 +1,369 @@
+{
+  "name": "guardiandash",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/position.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/math.lua",
+    "/scripts/actions/animator.lua",
+    "/scripts/actions/boss/guardian.lua",
+    "/scripts/actions/sensor.lua"
+  ],
+  "parameters": {
+    "firstPosition": [0, 0],
+    "secondPosition": [0, 0],
+    "dashSpeed": 75,
+    "windupTime": 1
+  },
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "randomize",
+        "type": "composite",
+        "name": "randomize",
+        "parameters": {},
+        "children": [
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "offsetPosition",
+                "type": "action",
+                "name": "offsetPosition",
+                "parameters": {
+                  "offset": {"value": [0, 0]},
+                  "position": {"key": "<firstPosition>"}
+                },
+                "output": {
+                  "position": "start"
+                }
+              },
+              {
+                "title": "offsetPosition",
+                "type": "action",
+                "name": "offsetPosition",
+                "parameters": {
+                  "offset": {"value": [0, 0]},
+                  "position": {"key": "<secondPosition>"}
+                },
+                "output": {
+                  "position": "end"
+                }
+              }
+            ]
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "offsetPosition",
+                "type": "action",
+                "name": "offsetPosition",
+                "parameters": {
+                  "offset": {"value": [0, 0]},
+                  "position": {"key": "<secondPosition>"}
+                },
+                "output": {
+                  "position": "start"
+                }
+              },
+              {
+                "title": "offsetPosition",
+                "type": "action",
+                "name": "offsetPosition",
+                "parameters": {
+                  "offset": {"value": [0, 0]},
+                  "position": {"key": "<firstPosition>"}
+                },
+                "output": {
+                  "position": "end"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "flyToPosition",
+        "type": "action",
+        "name": "flyToPosition",
+        "parameters": {
+          "position": {"key": "start"},
+          "tolerance": {"value": 2}
+        }
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 0.5}
+        }
+      },
+      {
+        "title": "distance",
+        "type": "action",
+        "name": "distance",
+        "parameters": {
+          "from": {"key": "start"},
+          "to": {"key": "end"}
+        },
+        "output": {
+          "x": "dashDir"
+        }
+      },
+      {
+        "title": "setDirection",
+        "type": "action",
+        "name": "setDirection",
+        "parameters": {
+          "direction": {"key": "dashDir"}
+        },
+        "output": {
+          "direction": "dashDir"
+        }
+      },
+      {
+        "title": "faceDirection",
+        "type": "action",
+        "name": "faceDirection",
+        "parameters": {
+          "direction": {"key": "dashDir"}
+        }
+      },
+      {
+        "title": "vecMultiply",
+        "type": "action",
+        "name": "vecMultiply",
+        "parameters": {
+          "first": {"value": ["dashDir", 0]},
+          "number": {"key": "<dashSpeed>"}
+        },
+        "output": {
+          "vector": "dashVelocity"
+        }
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": -1},
+          "success": {"value": 1}
+        },
+        "children": [
+          {
+            "title": "failer",
+            "type": "decorator",
+            "name": "failer",
+            "parameters": {},
+            "child": {
+              "title": "resetTransformationGroup",
+              "type": "action",
+              "name": "resetTransformationGroup",
+              "parameters": {
+                "transformationGroup": {"value": "all"}
+              }
+            }
+          },
+          {
+            "title": "guardianStab",
+            "type": "action",
+            "name": "guardianStab",
+            "parameters": {
+              "angle": {"value": 0},
+              "offset": {"value": [0, 1.5]},
+              "stabLength": {"value": 0},
+              "windup": {"key": "<windupTime>"},
+              "windupLength": {"value": 7}
+            }
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": 1}
+                }
+              },
+              {
+                "title": "animate",
+                "type": "action",
+                "name": "animate",
+                "parameters": {
+                  "fallback": {"value": "invisible"},
+                  "state": {"value": "active"},
+                  "type": {"value": "swoosh"}
+                }
+              }
+            ]
+          },
+          {
+            "title": "animate",
+            "type": "action",
+            "name": "animate",
+            "parameters": {
+              "fallback": {"value": "deactivate"},
+              "state": {"value": "activate"},
+              "type": {"value": "body"}
+            }
+          },
+          {
+            "title": "animate",
+            "type": "action",
+            "name": "animate",
+            "parameters": {
+              "fallback": {"value": "deactivate"},
+              "state": {"value": "activate"},
+              "type": {"value": "head"}
+            }
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "playSound",
+                "type": "action",
+                "name": "playSound",
+                "parameters": {
+                  "loops": {"value": 0},
+                  "sound": {"value": "dashWindup"}
+                }
+              },
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": "<windupTime>"}
+                }
+              },
+              {
+                "title": "playSound",
+                "type": "action",
+                "name": "playSound",
+                "parameters": {
+                  "loops": {"value": 0},
+                  "sound": {"value": "dashSwoosh"}
+                }
+              },
+              {
+                "title": "loopSound",
+                "type": "action",
+                "name": "loopSound",
+                "parameters": {
+                  "sound": {"value": "dashLoop"}
+                }
+              }
+            ]
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": 1}
+                }
+              },
+              {
+                "title": "parallel",
+                "type": "composite",
+                "name": "parallel",
+                "parameters": {
+                  "fail": {"value": -1},
+                  "success": {"value": -1}
+                },
+                "children": [
+                  {
+                    "title": "setVelocity",
+                    "type": "action",
+                    "name": "setVelocity",
+                    "parameters": {
+                      "velocity": {"key": "dashVelocity"}
+                    }
+                  },
+                  {
+                    "title": "boundsCollision",
+                    "type": "action",
+                    "name": "boundsCollision",
+                    "parameters": {
+                      "dirVector": {"value": ["dashDir", 0]}
+                    }
+                  }
+                ]
+              },
+              {
+                "title": "burstParticleEmitter",
+                "type": "action",
+                "name": "burstParticleEmitter",
+                "parameters": {
+                  "emitter": {"value": "wallCollision"}
+                }
+              },
+              {
+                "title": "playSound",
+                "type": "action",
+                "name": "playSound",
+                "parameters": {
+                  "loops": {"value": 0},
+                  "sound": {"value": "wallCollision"}
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 1}
+        }
+      },
+      {
+        "title": "flyToPosition",
+        "type": "action",
+        "name": "flyToPosition",
+        "parameters": {
+          "position": {"key": "spawn"},
+          "tolerance": {"value": 2}
+        }
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 1}
+        }
+      }
+    ]
+  }
+}

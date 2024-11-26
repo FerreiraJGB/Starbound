@@ -1,0 +1,9 @@
+{
+  "name" : "quagmutt",
+  "category" : "electricquagmutt",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "electricquagmutt.png"
+  }
+}

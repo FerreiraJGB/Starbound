@@ -1,0 +1,72 @@
+{
+  "bountyhunter" : [
+    "/startquest '\"bootship\"'",
+    "/completequest bootship",
+    "/startquest '\"gaterepair\"'",
+    "/completequest gaterepair",
+    "/startquest '\"shiprepair\"'",
+    "/startquest '\"human_mission1\"'",
+    "/completequest human_mission1",
+    "/completequest shiprepair",
+    "/startquest '\"outpostclue\"'",
+    "/completequest outpostclue",
+    "/setuniverseflag outpost_mission1",
+    "/startquest '\"mechunlock\"'",
+    "/completequest mechunlock",
+    "/startquest '\"destroyruin\"'",
+    "/completequest destroyruin",
+    "/giveessentialitem scanmode inspectiontool",
+    "/warp instanceworld:outpost"
+  ],
+
+  "outpost" : [
+    "/warp instanceworld:outpost"
+  ],
+
+  "tier6kit" : [
+    "/spawnitem rarebroadsword 1 '{\"level\":6}'",
+    "/spawnitem rareassaultrifle 1 '{\"level\":6}'",
+    "/spawnitem humantier6mhead",
+    "/spawnitem humantier6mpants",
+    "/spawnitem humantier6mchest",
+    "/spawnitem heatprotectionback",
+    "/spawnitem mechbodyprotector",
+    "/spawnitem mechbodycultist2",
+    "/spawnitem mechbodyiris",
+    "/spawnitem mechboostergallant",
+    "/spawnitem mechboosterzero",
+    "/spawnitem mechboosterhammer",
+    "/spawnitem mechlegsintrepid",
+    "/spawnitem mecharmteslastream",
+    "/spawnitem mecharmmultidrone",
+    "/spawnitem mecharmspikefist",
+    "/spawnitem mecharmshielddrone",
+    "/spawnitem mecharmguidedmissiles",
+    "/spawnitem mecharmgravitymine",
+    "/spawnitem mecharmenergyblade",
+    "/spawnitem mecharmdualrifle",
+    "/spawnitem mecharmbeamsniper",
+    "/spawnitem techconsole",
+    "/spawnitem mechassemblystation",
+    "/spawnitem manipulatormodule 60",
+    "/giveessentialitem beamaxe beamaxe",
+    "/giveessentialitem wiretool wiretool",
+    "/giveessentialitem painttool painttool",
+    "/enabletech sprint",
+    "/enabletech doublejump",
+    "/enabletech multijump",
+    "/enabletech rocketjump",
+    "/enabletech walljump",
+    "/enabletech distortionsphere",
+    "/enabletech spikesphere",
+    "/enabletech aquasphere",
+    "/enabletech sonicsphere",
+    "/enabletech dash",
+    "/enabletech airdash",
+    "/enabletech blinkdash"
+  ],
+
+  "fuel" : [
+    "/spawnitem solidfuel 1000"
+  ]
+}

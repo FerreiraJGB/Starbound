@@ -1,0 +1,43 @@
+{
+  "name": "crewmember-teleport",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/crew.lua",
+    "/scripts/actions/world.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "recruiterEntity",
+        "type": "action",
+        "name": "recruiterEntity",
+        "parameters": {},
+        "output": {
+          "entity": "player"
+        }
+      },
+      {
+        "title": "entityPosition",
+        "type": "action",
+        "name": "entityPosition",
+        "parameters": {
+          "entity": {"key": "player"}
+        },
+        "output": {
+          "position": "targetPosition"
+        }
+      },
+      {
+        "title": "npcblink",
+        "type": "module",
+        "name": "npcblink",
+        "parameters": {}
+      }
+    ]
+  }
+}

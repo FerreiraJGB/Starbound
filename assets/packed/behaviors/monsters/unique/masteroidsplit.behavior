@@ -1,0 +1,24 @@
+{
+  "name": "masteroid-split",
+  "description": null,
+  "scripts": [
+    "/scripts/actions/monsters/space.lua"
+  ],
+  "parameters": {
+    "monsterType": "masteroid",
+    "angle": 0,
+    "speed": 10,
+    "offset": 1
+  },
+  "root": {
+    "title": "masteroidSplit",
+    "type": "action",
+    "name": "masteroidSplit",
+    "parameters": {
+      "angle": {"key": "<angle>"},
+      "monsterType": {"value": "<monsterType>"},
+      "offset": {"key": "<offset>"},
+      "speed": {"key": "<speed>"}
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "modId" : 19,
+  "modName" : "lead",
+  "itemDrop" : "lead",
+  "description" : "Lead.",
+  "health" : 10,
+  "breaksWithTile" : true,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "lead.png",
+    "variants" : 8,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

@@ -1,0 +1,898 @@
+{
+  "animatedParts" : {
+    "stateTypes" : {
+      "body" : {
+        "priority" : 1,
+        "default" : "init",
+        "states" : {
+          "init" : {
+            "frames" : 4,
+            "cycle" : 0.33,
+            "mode" : "loop"
+          },
+          "invisible" : {},
+          "spawn" : {
+            "frames" : 33,
+            "cycle" : 2.75,
+            "mode" : "transition",
+            "transition" : "idle",
+            "properties" : {
+              "immediateSound" : "/sfx/tech/mech_activate3.ogg"
+            }
+          },
+          "idle" : {
+            "frames" : 6,
+            "cycle" : 0.5,
+            "mode" : "loop"
+          },
+          "idlegrav" : {
+            "frames" : 6,
+            "cycle" : 0.5,
+            "mode" : "loop"
+          },
+          "rocketwindup" : {
+            "frames" : 6,
+            "cycle" : 0.5,
+            "mode" : "transition",
+            "transition" : "rocketloop",
+            "properties" : {
+              "immediateSound" : "/sfx/tech/mech_activate1.ogg"
+            }
+          },
+          "rocketloop" : {
+            "frames" : 6,
+            "cycle" : 0.5,
+            "mode" : "loop"
+          },
+          "rocketwinddown" : {
+            "frames" : 6,
+            "cycle" : 0.5,
+            "mode" : "transition",
+            "transition" : "idle",
+            "properties" : {
+              "immediateSound" : "/sfx/tech/mech_deactivate.ogg"
+            }
+          },
+          "final" : {
+            "frames" : 6,
+            "cycle" : 0.5,
+            "mode" : "loop"
+          }
+        }
+      },
+      "lefthand" : {
+        "priority" : 1,
+        "default" : "invisible",
+        "states" : {
+          "invisible" : {},
+          "spawn" : {
+            "frames" : 5,
+            "cycle" : 0.42,
+            "mode" : "transition",
+            "transition" : "idle",
+            "properties" : {
+              "immediateSound" : "/sfx/tech/mech_activate2.ogg"
+            }
+          },
+          "idle" : {
+            "frames" : 4,
+            "cycle" : 0.33,
+            "mode" : "loop"
+          },
+          "boost" : {
+            "frames" : 4,
+            "cycle" : 0.33,
+            "mode" : "loop"
+          },
+          "swordwindup" : {
+            "frames" : 8,
+            "cycle" : 0.5,
+            "mode" : "transition",
+            "transition" : "swordloop",
+            "properties" : {
+              "immediateSound" : "/sfx/melee/mech_energysword_windup2.ogg"
+            }
+          },
+          "swordloop" : {
+            "frames" : 4,
+            "cycle" : 0.33,
+            "mode" : "loop"
+          },
+          "swordwinddown" : {
+            "frames" : 4,
+            "cycle" : 0.33,
+            "mode" : "transition",
+            "transition" : "idle",
+            "properties" : {
+              "immediateSound" : "/sfx/melee/mech_energysword_winddown1.ogg"
+            }
+          }
+        }
+      },
+      "righthand" : {
+        "priority" : 1,
+        "default" : "invisible",
+        "states" : {
+          "invisible" : {},
+          "spawn" : {
+            "frames" : 5,
+            "cycle" : 0.42,
+            "mode" : "transition",
+            "transition" : "idle",
+            "properties" : {
+              "immediateSound" : "/sfx/tech/mech_activate1.ogg"
+            }
+          },
+          "idle" : {
+            "frames" : 4,
+            "cycle" : 0.33,
+            "mode" : "loop"
+          },
+          "boost" : {
+            "frames" : 4,
+            "cycle" : 0.33,
+            "mode" : "loop"
+          },
+          "firewindup" : {
+            "frames" : 8,
+            "cycle" : 0.67,
+            "mode" : "transition",
+            "transition" : "fireidle",
+            "properties" : {
+              "immediateSound" : "/sfx/gun/mech_gatling_windup.ogg"
+            }
+          },
+          "fireidle" : {},
+          "fire" : {
+            "frames" : 4,
+            "cycle" : 0.2,
+            "mode" : "transition",
+            "transition" : "fireidle",
+            "properties" : {
+              "immediateSound" : "/sfx/gun/plasma_sniper1.ogg"
+            }
+          },
+          "fireend" : {
+            "frames" : 8,
+            "cycle" : 0.67,
+            "mode" : "transition",
+            "transition" : "idle"
+          }
+        }
+      },
+      "wings" : {
+        "priority" : 1,
+        "default" : "invisible",
+        "states" : {
+          "invisible" : {},
+          "spawn" : {
+            "frames" : 8,
+            "cycle" : 0.67,
+            "mode" : "transition",
+            "transition" : "idle",
+            "properties" : {
+              "immediateSound" : "/sfx/tech/mech_activate4.ogg"
+            }
+          },
+          "idle" : {
+            "frames" : 1,
+            "cycle" : 0.083,
+            "mode" : "loop"
+          },
+          "beamwindup" : {
+            "frames" : 12,
+            "cycle" : 1.0,
+            "mode" : "transition", 
+            "transition" : "beamloop"
+          },
+          "beamloop" : {
+            "frames" : 2,
+            "cycle" : 0.2,
+            "mode" : "loop"
+          },
+          "beamwinddown" : {
+            "frames" : 10,
+            "cycle" : 0.8,
+            "mode" : "transition",
+            "transition" : "idle"
+          },
+          "broken" : {
+          }
+        }
+      },
+      "chargeswoosh" : {
+        "priority" : 1,
+        "default" : "inactive",
+        "states" : {
+          "inactive" : {},
+          "active" : {
+            "frames" : 6,
+            "cycle" : 0.5,
+            "mode" : "loop"
+          }
+        }
+      },
+      "damage" : {
+        "priority" : 2,
+        "default" : "none",
+        "states" : {
+          "none" : { },
+          "stunned" : { }
+        }
+      }
+    },
+
+    "parts" : {
+      "body" : {
+        "properties" : {
+          "zLevel" : 5,
+          "centered" : true,
+          "offset" : [0.0, 0.0],
+          "wingsAnchor" : [-0.5, 1.0],
+          "leftRocketSource" : [-2.25, 0.0],
+          "rightRocketSource" : [2.25, 0.0],
+          "transformationGroups" : ["body", "flip"]
+        },
+        "partStates" : {
+          "body" : {
+            "init" : {
+              "properties" : {
+                "image" : "<partImage>:init.<frame>"
+              }
+            },
+            "spawn" : {
+              "properties" : {
+                "image" : "<partImage>:spawn.<frame>"
+              }
+            },
+            "idle" : {
+              "properties" : {
+                "image" : "<partImage>:idle.<frame>"
+              }
+            },
+            "idlegrav" : {
+              "properties" : {
+                "image" : "<partImage>:idlegrav.<frame>"
+              }
+            },
+            "rocketwindup" : {
+              "properties" : {
+                "image" : "<partImage>:rocketwindup.<frame>"
+              }
+            },
+            "rocketloop" : {
+              "properties" : {
+                "image" : "<partImage>:rocketloop.<frame>"
+              }
+            },
+            "rocketwinddown" : {
+              "properties" : {
+                "image" : "<partImage>:rocketwinddown.<frame>"
+              }
+            },
+            "final" : {
+              "properties" : {
+                "image" : "<partImage>:final.<frame>"
+              }
+            }
+          }
+        }
+      },
+      "bodyfullbright" : {
+        "properties" : {
+          "anchorPart" : "body",
+          "fullbright" : true,
+          "zLevel" : 6
+        },
+        "partStates" : {
+          "body" : {
+            "init" : {
+              "properties" : {
+                "image" : "<partImage>:init.<frame>"
+              }
+            },
+            "spawn" : {
+              "properties" : {
+                "image" : "<partImage>:spawn.<frame>"
+              }
+            },
+            "idle" : {
+              "properties" : {
+                "image" : "<partImage>:idle.<frame>"
+              }
+            },
+            "idlegrav" : {
+              "properties" : {
+                "image" : "<partImage>:idlegrav.<frame>"
+              }
+            },
+            "rocketwindup" : {
+              "properties" : {
+                "image" : "<partImage>:rocketwindup.<frame>"
+              }
+            },
+            "rocketloop" : {
+              "properties" : {
+                "image" : "<partImage>:rocketloop.<frame>"
+              }
+            },
+            "rocketwinddown" : {
+              "properties" : {
+                "image" : "<partImage>:rocketwinddown.<frame>"
+              }
+            }
+          }
+        }
+      },
+      "lefthand" : {
+        "properties" : {
+          "zLevel" : 7,
+          "centered" : true,
+          "offset" : [0.0, -2.0],
+          "swordStart" : [0.0, 1.5],
+          "swordEnd" : [0.0, -5.5],
+          "beamStart" : [0.0, 2.0],
+          "beamEnd" : [0.0, -48.0],
+          "transformationGroups" : ["lhflip", "lefthand", "flip"]
+        },
+        "partStates" : {
+          "lefthand" : {
+            "spawn" : {
+              "properties" : {
+                "image" : "<partImage>:spawn.<frame>"
+              }
+            },
+            "idle" : {
+              "properties" : {
+                "image" : "<partImage>:idle.<frame>"
+              }
+            },
+            "boost" : {
+              "properties" : {
+                "image" : "<partImage>:boost.<frame>"
+              }
+            },
+            "swordwindup" : {
+              "properties" : {
+                "image" : "<partImage>:swordwindup.<frame>"
+              }
+            },
+            "swordloop" : {
+              "properties" : {
+                "image" : "<partImage>:swordloop.<frame>"
+              }
+            },
+            "swordwinddown" : {
+              "properties" : {
+                "image" : "<partImage>:swordwinddown.<frame>"
+              }
+            }
+          }
+        }
+      },
+      "lefthandfullbright" : {
+        "properties" : {
+          "anchorPart" : "lefthand",
+          "fullbright" : true,
+          "zLevel" : 8
+        },
+        "partStates" : {
+          "lefthand" : {
+            "spawn" : {
+              "properties" : {
+                "image" : "<partImage>:spawn.<frame>"
+              }
+            },
+            "idle" : {
+              "properties" : {
+                "image" : "<partImage>:idle.<frame>"
+              }
+            },
+            "boost" : {
+              "properties" : {
+                "image" : "<partImage>:boost.<frame>"
+              }
+            },
+            "swordwindup" : {
+              "properties" : {
+                "image" : "<partImage>:swordwindup.<frame>"
+              }
+            },
+            "swordloop" : {
+              "properties" : {
+                "image" : "<partImage>:swordloop.<frame>"
+              }
+            },
+            "swordwinddown" : {
+              "properties" : {
+                "image" : "<partImage>:swordwinddown.<frame>"
+              }
+            }
+          }
+        }
+      },
+      "chargeswoosh" : {
+        "properties" : {
+          "anchorPart" : "lefthand",
+          "fullbright" : true,
+          "offset" : [0.1875, -2.0],
+          "zLevel" : 8
+        },
+        "partStates" : {
+          "chargeswoosh" : {
+            "active" : {
+              "properties" : {
+                "image" : "<partImage>:active.<frame>"
+              }
+            }
+          }
+        }
+      },
+      "righthand" : {
+        "properties" : {
+          "zLevel" : 3,
+          "centered" : true,
+          "offset" : [0.0, 0.0],
+          "projectileSource" : [0.0, -0.25],
+          "beamStart" : [0.0, -0.25],
+          "beamEnd" : [0.0, -50.25],
+          "transformationGroups" : ["rhflip", "righthand", "flip"]
+        },
+        "partStates" : {
+          "righthand" : {
+            "spawn" : {
+              "properties" : {
+                "image" : "<partImage>:spawn.<frame>"
+              }
+            },
+            "idle" : {
+              "properties" : {
+                "image" : "<partImage>:idle.<frame>"
+              }
+            },
+            "boost" : {
+              "properties" : {
+                "image" : "<partImage>:boost.<frame>"
+              }
+            },
+            "firewindup" : {
+              "properties" : {
+                "image" : "<partImage>:firewindup.<frame>"
+              }
+            },
+            "fireidle" : {
+              "properties" : {
+                "image" : "<partImage>:fireidle.<frame>"
+              }
+            },
+            "fire" : {
+              "properties" : {
+                "image" : "<partImage>:fire.<frame>"
+              }
+            },
+            "fireend" : {
+              "properties" : {
+                "image" : "<partImage>:fireend.<frame>"
+              }
+            }
+          }
+        }
+      },
+      "righthandfullbright" : {
+        "properties" : {
+          "anchorPart" : "righthand",
+          "fullbright" : true,
+          "zLevel" : 4
+        },
+        "partStates" : {
+          "righthand" : {
+            "spawn" : {
+              "properties" : {
+                "image" : "<partImage>:spawn.<frame>"
+              }
+            },
+            "idle" : {
+              "properties" : {
+                "image" : "<partImage>:idle.<frame>"
+              }
+            },
+            "boost" : {
+              "properties" : {
+                "image" : "<partImage>:boost.<frame>"
+              }
+            },
+            "firewindup" : {
+              "properties" : {
+                "image" : "<partImage>:firewindup.<frame>"
+              }
+            },
+            "fireidle" : {
+              "properties" : {
+                "image" : "<partImage>:fireidle.<frame>"
+              }
+            },
+            "fire" : {
+              "properties" : {
+                "image" : "<partImage>:fire.<frame>"
+              }
+            },
+            "fireend" : {
+              "properties" : {
+                "image" : "<partImage>:fireend.<frame>"
+              }
+            }
+          }
+        }
+      },
+      "wings" : {
+        "properties" : {
+          "zLevel" : 1,
+          "centered" : true,
+          "offset" : [-0.375, 2.75],
+          "transformationGroups" : ["body", "wings", "flip"]
+        },
+        "partStates" : {
+          "wings" : {
+            "spawn" : {
+              "properties" : {
+                "image" : "<partImage>:spawn.<frame>"
+              }
+            },
+            "idle" : {
+              "properties" : {
+                "image" : "<partImage>:idle.<frame>"
+              }
+            },
+            "beamwindup" : {
+              "properties" : {
+                "image" : "<partImage>:beamwindup.<frame>"
+              }
+            },
+            "beamloop" : {
+              "properties" : {
+                "image" : "<partImage>:beamloop.<frame>"
+              }
+            },
+            "beamwinddown" : {
+              "properties" : {
+                "image" : "<partImage>:beamwinddown.<frame>"
+              }
+            },
+            "broken" : {
+              "properties" : {
+                "image" : "<partImage>:broken.<frame>"
+              }
+            }
+          }
+        }
+      },
+      "wingsfullbright" : {
+        "properties" : {
+          "anchorPart" : "wings",
+          "fullbright" : true,
+          "zLevel" : 2
+        },
+        "partStates" : {
+          "wings" : {
+            "spawn" : {
+              "properties" : {
+                "image" : "<partImage>:spawn.<frame>"
+              }
+            },
+            "idle" : {
+              "properties" : {
+                "image" : "<partImage>:idle.<frame>"
+              }
+            },
+            "beamwindup" : {
+              "properties" : {
+                "image" : "<partImage>:beamwindup.<frame>"
+              }
+            },
+            "beamloop" : {
+              "properties" : {
+                "image" : "<partImage>:beamloop.<frame>"
+              }
+            },
+            "beamwinddown" : {
+              "properties" : {
+                "image" : "<partImage>:beamwinddown.<frame>"
+              }
+            }
+          }
+        }
+      },
+      "beam" : {
+        "properties" : {
+          "anchorPart" : "wings",
+          "offset" : [0, -0.0625],
+          "transformationGroups" : ["beam"],
+          "beamStart" : [0.0, 0.0],
+          "beamEnd" : [50.0, 0.0]
+        }
+      }
+    }
+  },
+  "globalTagDefaults" : {
+  },
+
+  "transformationGroups" : {
+    "body" : {"interpolated" : true},
+    "lhflip" : {"interpolated" : false},
+    "lefthand" : {"interpolated" : true},
+    "righthand" : {"interpolated" : true},
+    "rhflip" : {"interpolated" : false},
+    "wings" : {"interpolated" : true},
+    "flip" : {"interpolated" : false},
+    "beam" : {"interpolated" : true}
+  },
+
+  "particleEmitters" : {
+    "teleport" : {
+      "active" : false,
+      "emissionRate" : 200,
+      "burstCount" : 20,
+      "offsetRegion" : [-2.0, -4.0, 2.0, 4.0],
+      "particles" : [
+        {
+          "particle" : {
+            "type" : "ember",
+            "size" : 2.0,
+            "color" : [253, 143, 77, 255],
+            "light" : [96, 184, 234],
+            "fullbright" : true,
+            "fade" : 0.5,
+            "destructionAction" : "shrink",
+            "destructionTime" : 0.5,
+            "initialVelocity" : [0, 0],
+            "finalVelocity" : [0.0, 0],
+            "approach" : [10, 10],
+            "timeToLive" : 0.15,
+            "layer" : "middle",
+            "variance" : {
+              "initialVelocity" : [5, 5],
+              "size" : 1.0,
+              "timeToLive" : 0.1,
+              "destructionTime" : 0.3
+            }
+          }
+        },
+        {
+          "particle" : {
+            "type" : "ember",
+            "size" : 2.0,
+            "color" : [253, 209, 77, 255],
+            "light" : [96, 184, 234],
+            "fullbright" : true,
+            "fade" : 0.5,
+            "destructionAction" : "shrink",
+            "destructionTime" : 0.5,
+            "initialVelocity" : [0, 0],
+            "finalVelocity" : [0, 0],
+            "approach" : [10, 10],
+            "timeToLive" : 0.15,
+            "layer" : "middle",
+            "variance" : {
+              "initialVelocity" : [5, 5],
+              "size" : 1.0,
+              "timeToLive" : 0.1,
+              "destructionTime" : 0.3
+            }
+          }
+        }
+      ]
+    },
+    "shock" : {
+      "emissionRate" : 20,
+      "offsetRegion" : [-1.5, -3.0, 1.5, 3.0],
+      "particles" : [
+        {
+          "particle" : {
+            "type" : "animated",
+            "animation" : "/animations/swansongshock/swansongshock.animation",
+            "timeToLive" : 0.2,
+            "rotation" : 0,
+            "initialVelocity" : [0, 0],
+            "layer" : "front",
+            "fullbright" : true,
+            "variance" : {
+              "rotation" : 180
+            }
+          }
+        }
+      ]
+    },
+    "burst" : {
+      "offsetRegion" : [-1.5, -3.0, 1.5, 3.0],
+      "anchorPart" : "body",
+      "particles" : [
+        {
+          "particle" : {
+            "type" : "animated",
+            "animation" : "/animations/dusttest/dusttest.animation",
+            "approach" : [0.5, 0.5],
+            "timeToLive" : 0.85,
+            "variance" : {
+              "position" : [2.0, 2.0],
+              "initialVelocity" : [1, 1],
+              "rotation" : 180
+            }
+          },
+          "count" : 15
+        },
+        {"particle" : "shrapnel1", "count" : 5},
+        {"particle" : "shrapnel2", "count" : 5},
+        {"particle" : "shrapnel3", "count" : 5},
+        {"particle" : "shrapnel4", "count" : 5},
+        {"particle" : "shrapnel5", "count" : 5}
+      ]
+    },
+    "lhburst" : {
+      "offsetRegion" : [-1.0, 1.0, 1.0, 3.0],
+      "anchorPart" : "lefthand",
+      "particles" : [
+        {
+          "particle" : {
+            "type" : "animated",
+            "animation" : "/animations/dust2/dust2.animation",
+            "approach" : [0.5, 0.5],
+            "timeToLive" : 0.85,
+            "variance" : {
+              "initialVelocity" : [1, 1],
+              "rotation" : 180
+            }
+          },
+          "count" : 10
+        },
+        {"particle" : "shrapnel1", "count" : 2},
+        {"particle" : "shrapnel2", "count" : 2},
+        {"particle" : "shrapnel3", "count" : 2},
+        {"particle" : "shrapnel4", "count" : 2},
+        {"particle" : "shrapnel5", "count" : 2}
+      ]
+    },
+    "rhburst" : {
+      "offsetRegion" : [-1.0, -1.0, 1.0, 1.0],
+      "anchorPart" : "righthand",
+      "particles" : [
+        {
+          "particle" : {
+            "type" : "animated",
+            "animation" : "/animations/dust2/dust2.animation",
+            "approach" : [0.5, 0.5],
+            "timeToLive" : 0.85,
+            "variance" : {
+              "initialVelocity" : [1, 1],
+              "rotation" : 180
+            }
+          },
+          "count" : 10
+        },
+        {"particle" : "shrapnel1", "count" : 2},
+        {"particle" : "shrapnel2", "count" : 2},
+        {"particle" : "shrapnel3", "count" : 2},
+        {"particle" : "shrapnel4", "count" : 2},
+        {"particle" : "shrapnel5", "count" : 2}
+      ]
+    },
+    "smoke" : {
+      "offsetRegion" : [-1.5, -3.0, 1.5, 3.0],
+      "emissionRate" : 10.0,
+      "anchorPart" : "body",
+      "particles" : [
+        {
+          "particle" : {
+            "type" : "animated",
+            "animation" : "/animations/dusttest/dusttest.animation",
+            "approach" : [5.0, 5.0],
+            "finalVelocity" : [0.0, 5.0],
+            "timeToLive" : 0.85,
+            "layer" : "middle",
+            "variance" : {
+              "position" : [2.0, 2.0],
+              "initialVelocity" : [1, 1],
+              "rotation" : 180
+            }
+          }
+        }
+      ]
+    },
+    "deathBurst" : {
+      "offsetRegion" : [-1.5, -3.0, 1.5, 3.0],
+      "anchorPart" : "body",
+      "particles" : [
+        {"particle" : "orangeshrapnel1", "count" : 8},
+        {"particle" : "orangeshrapnel2", "count" : 8},
+        {"particle" : "orangeshrapnel3", "count" : 8},
+        {"particle" : "orangeshrapnel4", "count" : 8}
+      ]
+    }
+  },
+
+  "lights" : {
+    "glow" : {
+      "active" : true,
+      "position" : [0, 0],
+      "color" : [0, 0, 0],
+      "pointLight" : true
+    }
+  },
+
+  "sounds" : {
+    "deathPuff" : [ "/sfx/npc/enemydeathpuff.ogg" ],
+    "spawnClank" : [
+      "/sfx/melee/blunt_hit_metal1.ogg",
+      "/sfx/melee/blunt_hit_metal2.ogg",
+      "/sfx/melee/blunt_hit_metal3.ogg",
+      "/sfx/melee/blunt_hit_metal4.ogg",
+      "/sfx/melee/blunt_hit_metal5.ogg",
+      "/sfx/melee/blunt_hit_metal6.ogg"
+    ],
+    "thrustLoop" : [
+      "/sfx/tech/mech_jetpack_loop1.ogg"
+    ],
+    "thrustBurst" : [
+      "/sfx/tech/mech_jetpack_thrust1.ogg"
+    ],
+    "toggleGravityWarning" : [
+      "/sfx/objects/camera_alert_on.ogg"
+    ],
+    "enableGravity" : [
+      "/sfx/tech/mech_powerdown.ogg"
+    ],
+    "disableGravity" : [
+      "/sfx/interface/ship_powerup.ogg"
+    ],
+    "fireRockets" : [
+      "/sfx/npc/boss/swansong_rocket.ogg"
+    ],
+    "targetRockets" : [
+      "/sfx/npc/boss/swansong_rocket_target.ogg"
+    ],
+    "blinkDash" : [
+      "/sfx/npc/boss/cultistboss_blink.ogg"
+    ],
+    "charge" : [
+      "/sfx/npc/boss/swansong_charge.ogg"
+    ],
+    "chargeBrake" : [
+      "/sfx/gun/fireblast.ogg"
+    ],
+    "slash" : [
+      "/sfx/melee/mech_energysword_swing1.ogg",
+      "/sfx/melee/mech_energysword_swing2.ogg",
+      "/sfx/melee/mech_energysword_swing3.ogg",
+      "/sfx/melee/mech_energysword_swing4.ogg"
+    ],
+    "beamStart" : [
+      "/sfx/npc/boss/swansong_beamstart.ogg"
+    ],
+    "beamLoop" : [
+      "/sfx/npc/boss/crystalboss_beam.ogg"
+    ],
+    "shockLoop" : [
+      "/sfx/objects/plasmadisc.ogg"
+    ],
+    "transitionBurst" : [
+      "/sfx/melee/hammer_smash2.ogg"
+    ],
+    "deathLoop" : [
+      "/sfx/npc/boss/boss_dying.ogg"
+    ],
+    "deathBurst" : [
+      "/sfx/tech/mech_explosion.ogg"
+    ]
+  },
+
+  "effects" : {
+    "blink" : {
+      "type" : "flash",
+      "time" : 0.25,
+      "directives" : "fade=ffffff;0.5"
+    },
+    "teleport" : {
+      "type" : "directive",
+      "directives" : "fade=fdd14d;0.5?border=2;fd8f4dff;fd8f4d00"
+    }
+  }
+}

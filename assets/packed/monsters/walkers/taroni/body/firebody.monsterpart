@@ -1,0 +1,9 @@
+{
+  "name" : "taroni",
+  "category" : "firetaroni",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "firetaroni.png"
+  }
+}

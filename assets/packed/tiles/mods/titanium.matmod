@@ -1,0 +1,20 @@
+{
+  "modId" : 25,
+  "modName" : "titanium",
+  "itemDrop" : "titaniumore",
+  "description" : "Titanium.",
+  "health" : 3,
+  "harvestLevel" : 4,
+  "breaksWithTile" : true,
+
+  "miningSounds" : [ "/sfx/tools/pickaxe_ore.ogg", "/sfx/tools/pickaxe_ore2.ogg" ],
+  "miningParticle" : "orespark",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "titanium.png",
+    "variants" : 8,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

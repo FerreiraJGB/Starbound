@@ -1,0 +1,125 @@
+{
+  "name" : "sportscar",
+  "script" : "sportscar.lua",
+  "boundBox" : [-5, -5, 5, 5],
+  "slaveControlTimeout" : 2.0,
+  "slaveControlHeartbeat" : 1.0,
+  "canBeHit" : true,
+  "animation" : "sportscar.animation",
+
+  "loungePositions" : {
+    "drivingSeat" : {
+      "part" : "body",
+      "partAnchor" : "drivingSeatPosition",
+      "orientation" : "lay",
+      "directives" : "?multiply=00000000",
+      "statusEffects" : ["highprotection"],
+      "emote" : "happy",
+      "dance" : "warmhands",
+      "cameraFocus" : true
+    }
+  },
+
+  "warpInDelay" : 1.0,
+
+  "levelApproachFactor" : 0.01,
+  "angleApproachFactor" : 0.01,
+  "maxGroundSearchDistance" : 10,
+  "maxAngle" : 20,
+  "hoverTargetDistance" : 1.5,
+  "hoverVelocityFactor" : 8,
+  "hoverControlForce" : 650,
+  "targetHorizontalVelocity" : 30,
+  "horizontalControlForce" : 120,
+  "zeroGTargetVelocity" : 40,
+  "zeroGSpinRate" : 4,
+  "spinFriction" : 0.1,
+
+  //Health and damage
+  "protection" : 50,
+  "maxHealth" : 1000,
+
+  "damageStateNames" : ["undamaged","scratched","dented","wrecked"],
+  "damageStatePassengerDances" : ["","","","panic"],
+  "damageStateDriverEmotes" : ["happy","happy","sad","annoyed"],
+  "damageStatePassengerEmotes" : ["happy","annoyed","sad","oh"],
+  "damageTakenEmote" : "oooh",
+  "damageEmoteTime" : 2.0,
+
+  "minNotificationCollisionAccel" : 15,
+  "minDamageCollisionAccel" : 45,
+  "terrainCollisionDamage" : 10,
+
+  //Damage visual effects
+  "smokeParticleHealthThreshold" : 0.5,
+  "smokeRateAtZeroHealth" : 100,
+
+  "fireParticleHealthThreshold" : 0.25,
+  "fireRateAtZeroHealth" : 30,
+
+  "onFireHealthThreshold" : 0.125,
+  "damagePerSecondWhenOnFire" : 1.0,
+  "explosionConfig" : "/projectiles/explosions/regularexplosion2/regularexplosionknockback.config",
+  "explosionDamage" : 10,
+
+  //Sound effects
+  "engineDamageSoundThreshold" : 0.40,
+
+  "intermittentDamageSoundThreshold" : 0.33,
+  "maxDamageSoundInterval" : 10,
+  "minDamageSoundInterval" : 1,
+
+  "engineIdlePitch" : 0.75,
+  "engineRevPitch" : 1.5,
+  "engineIdleVolume" : 1.0,
+  "engineRevVolume" : 1.5,
+
+  "materialKind" : "robotic",
+  "terrainCollisionDamageSourceKind" : "falling",
+  "accelerationTrackingCount" : 2,
+
+  "backSpringPositions" : [
+    [-3.0, 0.0],
+    [-4.0, 0.0],
+    [-5.0, 0.0],
+    [-6.0, 0.0]
+  ],
+
+  "frontSpringPositions" : [
+    [3.0, 0.0],
+    [4.0, 0.0],
+    [5.0, 0.0],
+    [6.0, 0.0]
+  ],
+
+  "bodySpringPositions" : [
+    [-4.0, -1.0],
+    [-2.0, -1.0],
+    [0.0, -1.0],
+    [2.0, -1.0],
+    [4.0, -1.0]
+  ],
+
+  "movementSettings" : {
+    "collisionPoly" : [[-4.0, 0.5], [-2.0, -1.5], [2.0, -1.5], [4.0, 0.5]],
+    "mass" : 4,
+    "airFriction" : 2,
+    "ignorePlatformCollision" : true,
+    "gravityEnabled" : true,
+    "collisionEnabled" : true
+  },
+
+  "occupiedMovementSettings" : {
+    "collisionPoly" : [[-4.0, 0.5], [-2.0, -1.5], [2.0, -1.5], [4.0, 0.5]],
+    "mass" : 4,
+    "gravityEnabled" : true,
+    "collisionEnabled" : true
+  },
+
+  "zeroGMovementSettings" : {
+    "collisionPoly" : [[-4.0, 0.5], [-2.0, -1.5], [2.0, -1.5], [4.0, 0.5]],
+    "mass" : 4,
+    "airFriction" : 0.1,
+    "collisionEnabled" : true
+  }
+}

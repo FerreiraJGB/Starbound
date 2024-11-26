@@ -1,0 +1,24 @@
+{
+  "materialId" : 408,
+  "materialName" : "asphalt",
+  "particleColor" : [44, 44, 44, 255],
+  "itemDrop" : "asphalt",
+  "description" : "A cheap but effective construction material.",
+  "shortdescription" : "Asphalt",
+  "glitchDescription" : "Disgusted. Readings suggest aesthetic value of asphalt is below 2%.",
+  "floranDescription" : "Sssticky asphalt ssmelly like tar.",
+  "novakidDescription" : "It's a mash of sticky oil an' rocks.",
+  "footstepSound" : "/sfx/blocks/footstep_stone.ogg",
+  "health" : 8,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "asphalt.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 3120
+  }
+}

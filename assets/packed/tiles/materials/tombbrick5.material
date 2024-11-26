@@ -1,0 +1,24 @@
+{
+  "materialId" : 64,
+  "materialName" : "tombbrick5",
+  "particleColor" : [120, 127, 154, 255],
+  "itemDrop" : "tombbrick5",
+  "shortdescription" : "Smooth Tomb Brick",
+  "description" : "Old bricks, polished to perfection.",
+  "glitchDescription" : "Impressed. These bricks have had all edges carefully smoothed.",
+  "floranDescription" : "Ssmooth bricks and ssoft.",
+  "novakidDescription" : "These ol' lookin' bricks are mighty smooth.",
+  "footstepSound" : "/sfx/blocks/footstep_stone.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "tombbrick5.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3000
+  }
+}

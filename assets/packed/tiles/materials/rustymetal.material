@@ -1,0 +1,24 @@
+{
+  "materialId" : 50,
+  "materialName" : "rustymetal",
+  "particleColor" : [111, 98, 90, 255],
+  "itemDrop" : "rustymetal",
+  "description" : "Old metal encrusted with rust.",
+  "shortdescription" : "Rusty Metal",
+  "glitchDescription" : "Alarmed. The rust on this metal makes me very uncomfortable.",
+  "floranDescription" : "Russst covered metal.",
+  "novakidDescription" : "Some ol' metal covered in thick rust.",
+  "footstepSound" : "/sfx/blocks/footstep_girder.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "rustymetal.png",
+    "variants" : 3,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3000
+  }
+}

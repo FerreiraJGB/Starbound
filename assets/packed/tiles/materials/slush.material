@@ -1,0 +1,27 @@
+{
+  "materialId" : 31,
+  "materialName" : "slush",
+  "particleColor" : [214, 242, 251, 255],
+  "itemDrop" : "slush",
+  "shortdescription" : "Slush",
+  "description" : "Melting ice makes a thick slush.",
+  "glitchDescription" : "Imformed. Slush like this is made from melted ice.",
+  "floranDescription" : "Sslushy cold wet sslush.",
+  "novakidDescription" : "A whole mess of freezin' slush.",
+  "footstepSound" : "/sfx/blocks/footstep_slush.ogg",
+  "falling" : true,
+  "cascading" : true,
+  "health" : 1,
+  "category" : "materials",
+  "damageTable" : "/tiles/flammableDamage.config",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "slush.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 1780
+  }
+}

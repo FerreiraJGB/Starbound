@@ -1,0 +1,149 @@
+{
+  "name": "override-notification",
+  "description": "",
+  "scripts": [
+    "/scripts/behavior.lua",
+    "/scripts/behavior/bdata.lua",
+    "/scripts/actions/overrides.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "unsetFlag",
+        "type": "action",
+        "name": "unsetFlag",
+        "parameters": {
+          "name": {"value": "notifySuccess"}
+        }
+      },
+      {
+        "title": "repeater",
+        "type": "decorator",
+        "name": "repeater",
+        "parameters": {
+          "maxLoops": {"value": -1},
+          "untilSuccess": {"value": true}
+        },
+        "child": {
+          "title": "inverter",
+          "type": "decorator",
+          "name": "inverter",
+          "parameters": {},
+          "child": {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "listPop",
+                "type": "action",
+                "name": "listPop",
+                "parameters": {
+                  "list": {"key": "notificationOverrides"}
+                },
+                "output": {
+                  "list": "notificationOverrides",
+                  "table": "notificationOverride"
+                }
+              },
+              {
+                "title": "succeeder",
+                "type": "decorator",
+                "name": "succeeder",
+                "parameters": {},
+                "child": {
+                  "title": "sequence",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "parallel",
+                      "type": "composite",
+                      "name": "parallel",
+                      "parameters": {
+                        "fail": {"value": 1},
+                        "success": {"value": 2}
+                      },
+                      "children": [
+                        {
+                          "title": "sequence",
+                          "type": "composite",
+                          "name": "sequence",
+                          "parameters": {},
+                          "children": [
+                            {
+                              "title": "setTable",
+                              "type": "action",
+                              "name": "setTable",
+                              "parameters": {
+                                "table": {"key": "notificationOverride"}
+                              },
+                              "output": {
+                                "table": "override"
+                              }
+                            },
+                            {
+                              "title": "overrideBehavior",
+                              "type": "action",
+                              "name": "overrideBehavior",
+                              "parameters": {
+                                "argumentName": {"value": "behavior"},
+                                "override": {"key": "override"}
+                              },
+                              "output": {
+                                "behavior": "behavior"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "title": "sequence",
+                          "type": "composite",
+                          "name": "sequence",
+                          "parameters": {},
+                          "children": [
+                            {
+                              "title": "playBehavior",
+                              "type": "action",
+                              "name": "playBehavior",
+                              "parameters": {
+                                "behavior": {"key": "behavior"}
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "title": "setFlag",
+                      "type": "action",
+                      "name": "setFlag",
+                      "parameters": {
+                        "name": {"value": "notifySuccess"}
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "title": "hasFlag",
+        "type": "action",
+        "name": "hasFlag",
+        "parameters": {
+          "name": {"key": "notifySuccess"}
+        }
+      }
+    ]
+  }
+}

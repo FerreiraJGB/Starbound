@@ -1,0 +1,620 @@
+{
+  "name" : "cooking",
+  "title" : "Cooking",
+  "type" : "item",
+
+  "collectables" : {
+
+    // MAINS
+    "apexfritter" : {
+      "order" : 1,
+      "item" : "apexfritter"
+    },
+    "automatostew" : {
+      "order" : 2,
+      "item" : "automatostew"
+    },
+    "baconpancakes" : {
+      "order" : 3,
+      "item" : "baconpancakes"
+    },
+    "boltos" : {
+      "order" : 4,
+      "item" : "boltos"
+    },
+    "cheeseburger" : {
+      "order" : 5,
+      "item" : "cheeseburger"
+    },
+    "coralcreepcurry" : {
+      "order" : 6,
+      "item" : "coralcreepcurry"
+    },
+    "cornpeckers" : {
+      "order" : 7,
+      "item" : "cornpeckers"
+    },
+    "featherfood" : {
+      "order" : 8,
+      "item" : "featherfood"
+    },
+    "fishdumplings" : {
+      "order" : 9,
+      "item" : "fishdumplings"
+    },
+    "fishfingers" : {
+      "order" : 10,
+      "item" : "fishfingers"
+    },
+    "fishinabone" : {
+      "order" : 11,
+      "item" : "fishinabone"
+    },
+    "fishnchips" : {
+      "order" : 12,
+      "item" : "fishnchips"
+    },
+    "fishpie" : {
+      "order" : 13,
+      "item" : "fishpie"
+    },
+    "fishstew" : {
+      "order" : 14,
+      "item" : "fishstew"
+    },
+    "hamburger" : {
+      "order" : 15,
+      "item" : "hamburger"
+    },
+    "hothothotpot" : {
+      "order" : 16,
+      "item" : "hothothotpot"
+    },
+    "meatdumplings" : {
+      "order" : 17,
+      "item" : "meatdumplings"
+    },
+    "meatstew" : {
+      "order" : 18,
+      "item" : "meatstew"
+    },
+    "mushroomquiche" : {
+      "order" : 19,
+      "item" : "mushroomquiche"
+    },
+    "oceanrisotto" : {
+      "order" : 20,
+      "item" : "oceanrisotto"
+    },
+    "oceansurprise" : {
+      "order" : 21,
+      "item" : "oceansurprise"
+    },
+    "oculemonstew" : {
+      "order" : 22,
+      "item" : "oculemonstew"
+    },
+    "omelette" : {
+      "order" : 23,
+      "item" : "omelette"
+    },
+    "pasty" : {
+      "order" : 24,
+      "item" : "pasty"
+    },
+    "pearlpeapancakes" : {
+      "order" : 25,
+      "item" : "pearlpeapancakes"
+    },
+    "pearlpearisotto" : {
+      "order" : 26,
+      "item" : "pearlpearisotto"
+    },
+    "pineapplepizzaslice" : {
+      "order" : 27,
+      "item" : "pineapplepizzaslice"
+    },
+    "piodia" : {
+      "order" : 28,
+      "item" : "piodia"
+    },
+    "pizzaslice" : {
+      "order" : 29,
+      "item" : "pizzaslice"
+    },
+    "8gbpizzap" : {
+      "order" : 30,
+      "item" : "8gbpizzap"
+    },
+    "porridge" : {
+      "order" : 31,
+      "item" : "porridge"
+    },
+    "quichelorraine" : {
+      "order" : 32,
+      "item" : "quichelorraine"
+    },
+    "reefpodsurprise" : {
+      "order" : 33,
+      "item" : "reefpodsurprise"
+    },
+    "roastdinner" : {
+      "order" : 34,
+      "item" : "roastdinner"
+    },
+    "16gbpasty" : {
+      "order" : 35,
+      "item" : "16gbpasty"
+    },
+    "seafoodgratin" : {
+      "order" : 36,
+      "item" : "seafoodgratin"
+    },
+    "meatpie" : {
+      "order" : 37,
+      "item" : "meatpie"
+    },
+    "spicyribs" : {
+      "order" : 38,
+      "item" : "spicyribs"
+    },
+    "spookypie" : {
+      "order" : 39,
+      "item" : "spookypie"
+    },
+    "stickyribs" : {
+      "order" : 40,
+      "item" : "stickyribs"
+    },
+    "sushi" : {
+      "order" : 41,
+      "item" : "sushi"
+    },
+    "wartweedstew" : {
+      "order" : 42,
+      "item" : "wartweedstew"
+    },
+
+    // SIDES
+    "bananacon" : {
+      "order" : 43,
+      "item" : "bananacon"
+    },
+    "beakseedbread" : {
+      "order" : 44,
+      "item" : "beakseedbread"
+    },
+    "bread" : {
+      "order" : 45,
+      "item" : "bread"
+    },
+    "burningeyeballs" : {
+      "order" : 46,
+      "item" : "burningeyeballs"
+    },
+    "carrotbread" : {
+      "order" : 47,
+      "item" : "carrotbread"
+    },
+    "carrotsoup" : {
+      "order" : 48,
+      "item" : "carrotsoup"
+    },
+    "cheese" : {
+      "order" : 49,
+      "item" : "cheese"
+    },
+    "coconutrice" : {
+      "order" : 50,
+      "item" : "coconutrice"
+    },
+    "corncob" : {
+      "order" : 51,
+      "item" : "corncob"
+    },
+    "eggshootsalad" : {
+      "order" : 52,
+      "item" : "eggshootsalad"
+    },
+    "eyebowls" : {
+      "order" : 53,
+      "item" : "eyebowls"
+    },
+    "fluffyruffs" : {
+      "order" : 54,
+      "item" : "fluffyruffs"
+    },
+    "gardensalad" : {
+      "order" : 55,
+      "item" : "gardensalad"
+    },
+    "hotbone" : {
+      "order" : 56,
+      "item" : "hotbone"
+    },
+    "mashedpotato" : {
+      "order" : 57,
+      "item" : "mashedpotato"
+    },
+    "mushroombread" : {
+      "order" : 58,
+      "item" : "mushroombread"
+    },
+    "mushroomrice" : {
+      "order" : 59,
+      "item" : "mushroomrice"
+    },
+    "pearlpeabroth" : {
+      "order" : 60,
+      "item" : "pearlpeabroth"
+    },
+    "pearlpeaparcels" : {
+      "order" : 61,
+      "item" : "pearlpeaparcels"
+    },
+    "ricecake" : {
+      "order" : 62,
+      "item" : "ricecake"
+    },
+    "saltsalad" : {
+      "order" : 63,
+      "item" : "saltsalad"
+    },
+    "soggysack" : {
+      "order" : 64,
+      "item" : "soggysack"
+    },
+    "specialrice" : {
+      "order" : 65,
+      "item" : "specialrice"
+    },
+    "spicyfeathercrown" : {
+      "order" : 66,
+      "item" : "spicyfeathercrown"
+    },
+    "stuffedautomato" : {
+      "order" : 67,
+      "item" : "stuffedautomato"
+    },
+    "stuffeddirturchin" : {
+      "order" : 68,
+      "item" : "stuffeddirturchin"
+    },
+    "stuffedtomato" : {
+      "order" : 69,
+      "item" : "stuffedtomato"
+    },
+    "sweetmeat" : {
+      "order" : 70,
+      "item" : "sweetmeat"
+    },
+    "tomatosoup" : {
+      "order" : 71,
+      "item" : "tomatosoup"
+    },
+    "2kbpotage" : {
+      "order" : 72,
+      "item" : "2kbpotage"
+    },
+    "smash" : {
+      "order" : 73,
+      "item" : "smash"
+    },
+
+    // DESSERTS
+    "apegrapes" : {
+      "order" : 74,
+      "item" : "apegrapes"
+    },
+    "applecrumble" : {
+      "order" : 75,
+      "item" : "applecrumble"
+    },
+    "avesmingoicecream" : {
+      "order" : 76,
+      "item" : "avesmingoicecream"
+    },
+    "bananacreampie" : {
+      "order" : 77,
+      "item" : "bananacreampie"
+    },
+    "bananaicecream" : {
+      "order" : 78,
+      "item" : "bananaicecream"
+    },
+    "bananasplit" : {
+      "order" : 79,
+      "item" : "bananasplit"
+    },
+    "batteredbanana" : {
+      "order" : 80,
+      "item" : "batteredbanana"
+    },
+    "beakseedtart" : {
+      "order" : 81,
+      "item" : "beakseedtart"
+    },
+    "bonbons" : {
+      "order" : 82,
+      "item" : "bonbons"
+    },
+    "bonbonbonbons" : {
+      "order" : 83,
+      "item" : "bonbonbonbons"
+    },
+    "brineapple" : {
+      "order" : 84,
+      "item" : "brineapple"
+    },
+    "cactiicecream" : {
+      "order" : 85,
+      "item" : "cactiicecream"
+    },
+    "cake" : {
+      "order" : 86,
+      "item" : "cake"
+    },
+    "campfirebanana" : {
+      "order" : 87,
+      "item" : "campfirebanana"
+    },
+    "carrotcake" : {
+      "order" : 88,
+      "item" : "carrotcake"
+    },
+    "chocolatecake" : {
+      "order" : 89,
+      "item" : "chocolatecake"
+    },
+    "coconuticecream" : {
+      "order" : 90,
+      "item" : "coconuticecream"
+    },
+    "coffeecake" : {
+      "order" : 91,
+      "item" : "coffeecake"
+    },
+    "eggshooticecream" : {
+      "order" : 92,
+      "item" : "eggshooticecream"
+    },
+    "fruitsalad" : {
+      "order" : 93,
+      "item" : "fruitsalad"
+    },
+    "oculemonmeringue" : {
+      "order" : 94,
+      "item" : "oculemonmeringue"
+    },
+    "pussplumpudding" : {
+      "order" : 95,
+      "item" : "pussplumpudding"
+    },
+    "pussplumtart" : {
+      "order" : 96,
+      "item" : "pussplumtart"
+    },
+    "ricepudding" : {
+      "order" : 97,
+      "item" : "ricepudding"
+    },
+    "snowcone" : {
+      "order" : 98,
+      "item" : "snowcone"
+    },
+    "toxictart" : {
+      "order" : 99,
+      "item" : "toxictart"
+    },
+
+    // SNACKS
+    "bananacreamdonut" : {
+      "order" : 100,
+      "item" : "bananacreamdonut"
+    },
+    "candiedcorn" : {
+      "order" : 101,
+      "item" : "candiedcorn"
+    },
+    "candyapple" : {
+      "order" : 102,
+      "item" : "candyapple"
+    },
+    "candyautomato" : {
+      "order" : 103,
+      "item" : "candyautomato"
+    },
+    "chocolate" : {
+      "order" : 104,
+      "item" : "chocolate"
+    },
+    "choconut" : {
+      "order" : 105,
+      "item" : "choconut"
+    },
+    "luckydip" : {
+      "order" : 106,
+      "item" : "luckydip"
+    },
+    "nutsandbolts" : {
+      "order" : 107,
+      "item" : "nutsandbolts"
+    },
+    "spikycookies" : {
+      "order" : 108,
+      "item" : "spikycookies"
+    },
+    "spookydonut" : {
+      "order" : 109,
+      "item" : "spookydonut"
+    },
+    "sweetpopcorn" : {
+      "order" : 110,
+      "item" : "sweetpopcorn"
+    },
+    "toxicjamdonut" : {
+      "order" : 111,
+      "item" : "toxicjamdonut"
+    },
+    "wartweedjamdonut" : {
+      "order" : 112,
+      "item" : "wartweedjamdonut"
+    },
+
+    // DRINKS
+    "alienfruitjuice" : {
+      "order" : 113,
+      "item" : "alienfruitjuice"
+    },
+    "automatoshake" : {
+      "order" : 114,
+      "item" : "automatoshake"
+    },
+    "avesmingojuice" : {
+      "order" : 115,
+      "item" : "avesmingojuice"
+    },
+    "bloodypuss" : {
+      "order" : 116,
+      "item" : "bloodypuss"
+    },
+    "bottledwater" : {
+      "order" : 117,
+      "item" : "bottledwater"
+    },
+    "cactusjuice" : {
+      "order" : 118,
+      "item" : "cactusjuice"
+    },
+    "carrotjuice" : {
+      "order" : 119,
+      "item" : "carrotjuice"
+    },
+    "coconutmilk" : {
+      "order" : 120,
+      "item" : "coconutmilk"
+    },
+    "coffee" : {
+      "order" : 121,
+      "item" : "coffee"
+    },
+    "cyanider" : {
+      "order" : 122,
+      "item" : "cyanider"
+    },
+    "flatwhite" : {
+      "order" : 123,
+      "item" : "flatwhite"
+    },
+    "grapejuice" : {
+      "order" : 124,
+      "item" : "grapejuice"
+    },
+    "kiwijuice" : {
+      "order" : 125,
+      "item" : "kiwijuice"
+    },
+    "mocha" : {
+      "order" : 126,
+      "item" : "mocha"
+    },
+    "pineapplejuice" : {
+      "order" : 127,
+      "item" : "pineapplejuice"
+    },
+    "pozest" : {
+      "order" : 128,
+      "item" : "pozest"
+    },
+    "reefjuice" : {
+      "order" : 129,
+      "item" : "reefjuice"
+    },
+    "reefshake" : {
+      "order" : 130,
+      "item" : "reefshake"
+    },
+    "sweetpunch" : {
+      "order" : 131,
+      "item" : "sweetpunch"
+    },
+    "thornjuice" : {
+      "order" : 132,
+      "item" : "thornjuice"
+    },
+    "tomatojuice" : {
+      "order" : 133,
+      "item" : "tomatojuice"
+    },
+    "toxicjuice" : {
+      "order" : 134,
+      "item" : "toxicjuice"
+    },
+    "tropicalpunch" : {
+      "order" : 135,
+      "item" : "tropicalpunch"
+    },
+    "ultimatejuice" : {
+      "order" : 136,
+      "item" : "ultimatejuice"
+    },
+
+    // CONDIMENTS
+    "alienfruitjam" : {
+      "order" : 137,
+      "item" : "alienfruitjam"
+    },
+    "beakseedjam" : {
+      "order" : 138,
+      "item" : "beakseedjam"
+    },
+    "desertsalsa" : {
+      "order" : 139,
+      "item" : "desertsalsa"
+    },
+    "feathercrownjam" : {
+      "order" : 140,
+      "item" : "feathercrownjam"
+    },
+    "kiwijam" : {
+      "order" : 141,
+      "item" : "kiwijam"
+    },
+    "neonmelonjam" : {
+      "order" : 142,
+      "item" : "neonmelonjam"
+    },
+    "oceansalsa" : {
+      "order" : 143,
+      "item" : "oceansalsa"
+    },
+    "pearlpeajam" : {
+      "order" : 144,
+      "item" : "pearlpeajam"
+    },
+    "pineapplejam" : {
+      "order" : 145,
+      "item" : "pineapplejam"
+    },
+    "pussplumjam" : {
+      "order" : 146,
+      "item" : "pussplumjam"
+    },
+    "relish" : {
+      "order" : 147,
+      "item" : "relish"
+    },
+    "toxictopjam" : {
+      "order" : 148,
+      "item" : "toxictopjam"
+    },
+    "volcanicsalsa" : {
+      "order" : 149,
+      "item" : "volcanicsalsa"
+    },
+    "wartweedjam" : {
+      "order" : 150,
+      "item" : "wartweedjam"
+    }
+  }
+}

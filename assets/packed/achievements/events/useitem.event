@@ -1,0 +1,17 @@
+{
+  "eventName" : "useItem",
+  "scripts" : [ "/achievements/event.lua" ],
+
+  // Fields:
+  //  - itemType
+  //  - count
+  //  - category
+
+  "stats" : [
+    {
+      "name" : "useItem.itemType.<itemType>",
+      "type" : "int",
+      "op" : "increment"
+    }
+  ]
+}

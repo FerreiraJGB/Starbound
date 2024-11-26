@@ -1,0 +1,278 @@
+{
+  "name": "floorprojectiles",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/math.lua",
+    "/scripts/actions/animator.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/boss/guardian.lua",
+    "/scripts/actions/boss/kluexboss.lua"
+  ],
+  "parameters": {
+    "projectileType": "floorlava",
+    "center": "spawn",
+    "power": 10,
+    "segmentWidth": 8,
+    "areaWidth": 64,
+    "spawnHeight": 0.625,
+    "projectileCount": 8,
+    "duration": 12,
+    "windup": 2
+  },
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "add",
+        "type": "action",
+        "name": "add",
+        "parameters": {
+          "addend": {"value": 0.5},
+          "number": {"key": "<windup>"}
+        },
+        "output": {
+          "result": "windup"
+        }
+      },
+      {
+        "title": "add",
+        "type": "action",
+        "name": "add",
+        "parameters": {
+          "addend": {"key": "windup"},
+          "number": {"key": "<duration>"}
+        },
+        "output": {
+          "result": "duration"
+        }
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": -1},
+          "success": {"value": 1}
+        },
+        "children": [
+          {
+            "title": "animate",
+            "type": "action",
+            "name": "animate",
+            "parameters": {
+              "fallback": {"value": "close"},
+              "state": {"value": "open"},
+              "type": {"value": "righthand"}
+            }
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "playSound",
+                "type": "action",
+                "name": "playSound",
+                "parameters": {
+                  "loops": {"value": 0},
+                  "sound": {"value": "groundHazardWindup"}
+                }
+              },
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": 0.5}
+                }
+              },
+              {
+                "title": "playSound",
+                "type": "action",
+                "name": "playSound",
+                "parameters": {
+                  "loops": {"value": 0},
+                  "sound": {"value": "groundHazardStart"}
+                }
+              },
+              {
+                "title": "parallel",
+                "type": "composite",
+                "name": "parallel",
+                "parameters": {
+                  "fail": {"value": -1},
+                  "success": {"value": 1}
+                },
+                "children": [
+                  {
+                    "title": "loopSound",
+                    "type": "action",
+                    "name": "loopSound",
+                    "parameters": {
+                      "sound": {"value": "groundHazardLoop"}
+                    }
+                  },
+                  {
+                    "title": "timer",
+                    "type": "action",
+                    "name": "timer",
+                    "parameters": {
+                      "time": {"key": "duration"}
+                    }
+                  }
+                ]
+              },
+              {
+                "title": "playSound",
+                "type": "action",
+                "name": "playSound",
+                "parameters": {
+                  "loops": {"value": 0},
+                  "sound": {"value": "groundHazardWinddown"}
+                }
+              },
+              {
+                "title": "runner",
+                "type": "action",
+                "name": "runner",
+                "parameters": {}
+              }
+            ]
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "parallel",
+                "type": "composite",
+                "name": "parallel",
+                "parameters": {
+                  "fail": {"value": -1},
+                  "success": {"value": -1}
+                },
+                "children": [
+                  {
+                    "title": "timer",
+                    "type": "action",
+                    "name": "timer",
+                    "parameters": {
+                      "time": {"value": 0.5}
+                    }
+                  },
+                  {
+                    "title": "rotateGuardianHand",
+                    "type": "action",
+                    "name": "rotateGuardianHand",
+                    "parameters": {
+                      "angle": {"value": -1.57},
+                      "handPart": {"value": "righthand"}
+                    }
+                  }
+                ]
+              },
+              {
+                "title": "parallel",
+                "type": "composite",
+                "name": "parallel",
+                "parameters": {
+                  "fail": {"value": -1},
+                  "success": {"value": 1}
+                },
+                "children": [
+                  {
+                    "title": "guardianBeam",
+                    "type": "action",
+                    "name": "guardianBeam",
+                    "parameters": {
+                      "angle": {"value": -1.57},
+                      "duration": {"key": "duration"},
+                      "handPart": {"value": "righthand"},
+                      "maxLength": {"value": 50},
+                      "power": {"value": 10}
+                    }
+                  },
+                  {
+                    "title": "sequence",
+                    "type": "composite",
+                    "name": "sequence",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "timer",
+                        "type": "action",
+                        "name": "timer",
+                        "parameters": {
+                          "time": {"key": "windup"}
+                        }
+                      },
+                      {
+                        "title": "spawnFloorProjectiles",
+                        "type": "action",
+                        "name": "spawnFloorProjectiles",
+                        "parameters": {
+                          "areaWidth": {"key": "<areaWidth>"},
+                          "center": {"key": "<center>"},
+                          "power": {"key": "<power>"},
+                          "projectileCount": {"key": "<projectileCount>"},
+                          "projectileType": {"value": "<projectileType>"},
+                          "segmentWidth": {"key": "<segmentWidth>"},
+                          "spawnHeight": {"key": "<spawnHeight>"},
+                          "timeToLive": {"key": "<duration>"}
+                        },
+                        "output": {
+                          "projectiles": "projectiles"
+                        }
+                      },
+                      {
+                        "title": "runner",
+                        "type": "action",
+                        "name": "runner",
+                        "parameters": {}
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": -1},
+          "success": {"value": -1}
+        },
+        "children": [
+          {
+            "title": "timer",
+            "type": "action",
+            "name": "timer",
+            "parameters": {
+              "time": {"value": 0.6}
+            }
+          },
+          {
+            "title": "rotateGuardianHand",
+            "type": "action",
+            "name": "rotateGuardianHand",
+            "parameters": {
+              "angle": {"value": -1.57},
+              "handPart": {"value": "righthand"}
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "materialId" : 103,
+  "materialName" : "mediummetal",
+  "particleColor" : [124, 124, 124, 255],
+  "itemDrop" : "mediummetal",
+  "shortdescription" : "Tungsten Block",
+  "description" : "A solid tungsten block.",
+  "glitchDescription" : "Observant. These blocks have been constructed from tungsten.",
+  "floranDescription" : "Shiny tungssten blockss.",
+  "novakidDescription" : "Some smooth lookin' blocks made outta tungsten.",
+  "footstepSound" : "/sfx/blocks/footstep_lightmetal.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "mediummetal.png",
+    "variants" : 10,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3000
+  }
+}

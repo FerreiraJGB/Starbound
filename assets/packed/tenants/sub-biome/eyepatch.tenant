@@ -1,0 +1,26 @@
+{
+  "name": "eyepatch_glitch",
+  "priority": 10,
+
+  "colonyTagCriteria": {
+    "light": 1,
+    "door": 1,
+    "eyepatch": 18
+  },
+
+  "tenants": [
+    {
+      "spawn": "npc",
+      "species": "glitch",
+      "level": 4,
+      "type": "eyepatch",
+      "overrides": {
+       }
+     }
+   ],
+
+  "rent": {
+    "periodRange": [900.0, 1800.0],
+    "pool": "villagerGift"
+  }
+}

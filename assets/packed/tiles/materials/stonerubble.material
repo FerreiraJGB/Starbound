@@ -1,0 +1,26 @@
+{
+  "materialId" : 222,
+  "materialName" : "stonerubble",
+  "particleColor" : [91, 92, 91, 255],
+  "itemDrop" : "stonerubble",
+  "description" : "Stone rubble which appears to be debris from an old structure.",
+  "shortdescription" : "Stone Rubble",
+  "glitchDescription" : "Observant. It appears the pieces in this rubble were part of a structure at one time.",
+  "floranDescription" : "Ssstone rubble made from old buildingss.",
+  "novakidDescription" : "Buncha crushed up rocks.",
+  "footstepSound" : "/sfx/blocks/footstep_stone2.ogg",
+  "health" : 6,
+  "falling" : true,
+  "cascading" : true,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "stonerubble.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 480
+  }
+}

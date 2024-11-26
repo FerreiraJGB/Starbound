@@ -1,0 +1,37 @@
+{
+  "metadata" : {
+    "name" : "boatvault",
+    "species" : "generic",
+    "rules" : [
+    ],
+    "anchor" : [ "boatvault_1", "boatvault_2", "boatvault_3" ],
+    "gravity" : 80,
+    "maxRadius" : 1000000,
+    "maxParts" : 1,
+    "protected" : true
+  },
+
+  "parts" : [
+    {
+      "name" : "boatvault_1",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "boatvault_1.json" ]
+    },
+    {
+      "name" : "boatvault_2",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "boatvault_2.json" ]
+    },
+    {
+      "name" : "boatvault_3",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "boatvault_3.json" ]
+    }
+  ]
+}

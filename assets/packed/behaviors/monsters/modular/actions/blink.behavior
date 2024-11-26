@@ -1,0 +1,17 @@
+{
+  "name": "action-blink",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/animator.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "setAnimationState",
+    "type": "action",
+    "name": "setAnimationState",
+    "parameters": {
+      "state": {"value": "blink"},
+      "type": {"value": "body"}
+    }
+  }
+}

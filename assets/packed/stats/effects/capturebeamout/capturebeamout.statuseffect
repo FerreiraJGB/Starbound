@@ -1,0 +1,11 @@
+{
+  "name" : "capturebeamout",
+  "effectConfig" : {},
+  "defaultDuration" : 2.0,
+
+  "scripts" : [
+    "capturebeamout.lua"
+  ],
+
+  "animationConfig" : "capturebeamout.animation"
+}

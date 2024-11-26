@@ -1,0 +1,16 @@
+{
+  "modId" : 23,
+  "modName" : "sulphur",
+  "itemDrop" : "sulphur",
+  "description" : "Sulphur.",
+  "health" : 0,
+  "breaksWithTile" : true,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "sulphur.png",
+    "variants" : 8,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

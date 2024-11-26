@@ -1,0 +1,10 @@
+{
+  "name" : "ignome",
+  "category" : "electricignome",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "electricignome.png",
+    "bodynobright" : "electricignomenobright.png"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "action-globaltag",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/animator.lua"
+  ],
+  "parameters": {
+    "tagName": "frame",
+    "tag": "default"
+  },
+  "root": {
+    "title": "setGlobalTag",
+    "type": "action",
+    "name": "setGlobalTag",
+    "parameters": {
+      "tag": {"value": "<tag>"},
+      "type": {"value": "<tagName>"}
+    }
+  }
+}

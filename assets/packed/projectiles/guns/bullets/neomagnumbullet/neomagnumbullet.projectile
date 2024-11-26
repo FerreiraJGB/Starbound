@@ -1,0 +1,22 @@
+{
+  "projectileName" : "neomagnumbullet",
+  "image" : "neomagnumbullet.png",
+  "physics" : "laser",
+  "animationCycle" : 0.25,
+  "frameNumber" : 1,
+  "damageKind" : "plasma",
+  "pointLight" : false,
+  "flippable" : true,
+  "actionOnReap" : [
+    {
+      "action" : "config",
+      "file" : "/projectiles/explosions/plasmabulletexplosion/plasmabulletexplosion.config"
+    }
+  ],
+  "statusEffects" : [ ],
+  "power" : 5.0,
+  "speed" : 75,
+  "knockback" : 0,
+  "lightColor" : [249, 21, 207],
+  "fullbright" : true
+}

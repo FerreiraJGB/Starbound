@@ -1,0 +1,25 @@
+{
+  "materialId" : 111,
+  "materialName" : "coconutblock",
+  "particleColor" : [102, 73, 41, 255],
+  "itemDrop" : "coconutblock",
+  "description" : "Bricks made from coconut and mortar.",
+  "shortdescription" : "Coconut Block",
+  "glitchDescription" : "Surprised. The primary component of these bricks are coconuts.",
+  "floranDescription" : "Coconutss are sstong brickss.",
+  "novakidDescription" : "I'd reckon these coconut bricks are mighty strong.",
+  "footstepSound" : "/sfx/blocks/footstep_wood.ogg",
+  "health" : 6,
+  "category" : "materials",
+  "damageTable" : "/tiles/flammableDamage.config",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "coconutblock.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 1750
+  }
+}

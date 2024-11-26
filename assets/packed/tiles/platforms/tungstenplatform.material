@@ -1,0 +1,23 @@
+{
+  "materialId" : 68,
+  "materialName" : "tungstenplatform",
+  "collisionKind" : "platform",
+  "itemDrop" : "tungstenplatform",
+  "shortdescription" : "Tungsten Platform",
+  "description" : "Strong platforms made from tungsten.",
+  "glitchDescription" : "Approving. Tungsten can be made into extremely solid platforms.",
+  "floranDescription" : "Sstrong metal platformss.",
+  "novakidDescription" : "Platforms made outta tungsten.", 
+  "footstepSound" : "/sfx/blocks/footstep_lightmetal.ogg",
+  "category" : "Supports",
+
+  "renderTemplate" : "/tiles/platformtemplate.config",
+  "renderParameters" : {
+    "texture" : "tungstenplatform.png",
+    "variants" : 1,
+    "lightTransparent" : true,
+    "occludesBelow" : false,
+    "multiColored" : true,
+    "zLevel" : 0
+  }
+}

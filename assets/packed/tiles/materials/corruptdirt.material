@@ -1,0 +1,26 @@
+{
+  "materialId" : 145,
+  "materialName" : "corruptdirt",
+  "particleColor" : [112, 72, 39, 255],
+  "itemDrop" : "corruptdirtmaterial",
+  "description" : "A disgusting block of corrupted dirt.",
+  "shortdescription" : "Corrupt Dirt",
+  "glitchDescription" : "Disgusted. This dirt has been corrupted.",
+  "floranDescription" : "Dissgusting corrupted dirt.",
+  "novakidDescription" : "This corrupted dirt ain't too pleasant.",
+  "footstepSound" : "/sfx/blocks/footstep_dirt.ogg",
+  "tillableMod" : 32,
+  "soil" : true,
+  "health" : 1,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "corruptdirt.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 0
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name" : "void",
+  "friendlyName" : "void",
+
+  "parallax" : "/parallax/atmosphere/atmosphere.parallax",
+
+  "spawnProfile" : {
+    "groups" : [],
+    "monsterParameters" : {}
+  },
+
+  "hueShiftOptions" : [0]
+}

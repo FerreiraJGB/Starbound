@@ -1,0 +1,308 @@
+{
+  "name": "flyingcritter",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/animator.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/query.lua",
+    "/scripts/actions/entity.lua",
+    "/scripts/behavior.lua",
+    "/scripts/actions/sensor.lua",
+    "/scripts/actions/status.lua",
+    "/scripts/actions/math.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "setAnimationState",
+        "type": "action",
+        "name": "setAnimationState",
+        "parameters": {
+          "state": {"value": "idle"},
+          "type": {"value": "movement"}
+        }
+      },
+      {
+        "title": "dynamic",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "onGround",
+                "type": "action",
+                "name": "onGround",
+                "parameters": {}
+              },
+              {
+                "title": "cooldown",
+                "type": "decorator",
+                "name": "cooldown",
+                "parameters": {
+                  "cooldown": {"value": 1},
+                  "onFail": {"value": true}
+                },
+                "child": {
+                  "title": "queryEntity",
+                  "type": "action",
+                  "name": "queryEntity",
+                  "parameters": {
+                    "entityTypes": {"value": ["player", "npc"]},
+                    "orderBy": {"value": "nearest"},
+                    "position": {"key": "self"},
+                    "range": {"value": 15},
+                    "withoutEntity": {"key": "self"}
+                  },
+                  "output": {
+                    "entity": "target"
+                  }
+                }
+              },
+              {
+                "title": "entityInSight",
+                "type": "action",
+                "name": "entityInSight",
+                "parameters": {
+                  "entity": {"key": "target"}
+                }
+              }
+            ]
+          },
+          {
+            "title": "parallel",
+            "type": "composite",
+            "name": "parallel",
+            "parameters": {
+              "fail": {"value": -1},
+              "success": {"value": -1}
+            },
+            "children": [
+              {
+                "title": "runner",
+                "type": "action",
+                "name": "runner",
+                "parameters": {}
+              },
+              {
+                "title": "controlParameters",
+                "type": "action",
+                "name": "controlParameters",
+                "parameters": {
+                  "parameters": {"value": {"gravityEnabled": true}}
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "setDirection",
+        "type": "action",
+        "name": "setDirection",
+        "parameters": {},
+        "output": {
+          "direction": "flyDir"
+        }
+      },
+      {
+        "title": "setNumber",
+        "type": "action",
+        "name": "setNumber",
+        "parameters": {
+          "number": {"value": 1}
+        },
+        "output": {
+          "number": "flyY"
+        }
+      },
+      {
+        "title": "setAnimationState",
+        "type": "action",
+        "name": "setAnimationState",
+        "parameters": {
+          "state": {"value": "fly"},
+          "type": {"value": "movement"}
+        }
+      },
+      {
+        "title": "dynamic",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "inverter",
+                "type": "decorator",
+                "name": "inverter",
+                "parameters": {},
+                "child": {
+                  "title": "visibleToPlayer",
+                  "type": "action",
+                  "name": "visibleToPlayer",
+                  "parameters": {}
+                }
+              },
+              {
+                "title": "suicide",
+                "type": "action",
+                "name": "suicide",
+                "parameters": {}
+              }
+            ]
+          },
+          {
+            "title": "cooldown",
+            "type": "decorator",
+            "name": "cooldown",
+            "parameters": {
+              "cooldown": {"value": 0.2},
+              "onFail": {"value": false}
+            },
+            "child": {
+              "title": "selector",
+              "type": "composite",
+              "name": "selector",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "sequence",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "lineTileCollision",
+                      "type": "action",
+                      "name": "lineTileCollision",
+                      "parameters": {
+                        "collisionType": {"value": ["Null", "Block", "Dynamic"]},
+                        "offset": {"value": ["flyDir", 0]},
+                        "position": {"key": "self"}
+                      }
+                    },
+                    {
+                      "title": "failer",
+                      "type": "decorator",
+                      "name": "failer",
+                      "parameters": {},
+                      "child": {
+                        "title": "reverseDirection",
+                        "type": "action",
+                        "name": "reverseDirection",
+                        "parameters": {
+                          "direction": {"key": "flyDir"}
+                        },
+                        "output": {
+                          "direction": "flyDir"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "title": "lineTileCollision",
+                  "type": "action",
+                  "name": "lineTileCollision",
+                  "parameters": {
+                    "collisionType": {"value": ["Null", "Block", "Dynamic"]},
+                    "offset": {"value": [0, 1]},
+                    "position": {"key": "self"}
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "title": "parallel",
+            "type": "composite",
+            "name": "parallel",
+            "parameters": {
+              "fail": {"value": -1},
+              "success": {"value": -1}
+            },
+            "children": [
+              {
+                "title": "sequence",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "inverter",
+                    "type": "decorator",
+                    "name": "inverter",
+                    "parameters": {},
+                    "child": {
+                      "title": "greaterThan",
+                      "type": "action",
+                      "name": "greaterThan",
+                      "parameters": {
+                        "first": {"key": "flyY"},
+                        "second": {"value": 15}
+                      }
+                    }
+                  },
+                  {
+                    "title": "multiply",
+                    "type": "action",
+                    "name": "multiply",
+                    "parameters": {
+                      "factor": {"value": 1.5},
+                      "number": {"key": "flyY"}
+                    },
+                    "output": {
+                      "result": "flyY"
+                    }
+                  }
+                ]
+              },
+              {
+                "title": "multiply",
+                "type": "action",
+                "name": "multiply",
+                "parameters": {
+                  "factor": {"value": 15},
+                  "number": {"key": "flyDir"}
+                },
+                "output": {
+                  "result": "flyX"
+                }
+              },
+              {
+                "title": "controlFly",
+                "type": "action",
+                "name": "controlFly",
+                "parameters": {
+                  "vector": {"value": ["flyX", "flyY"]}
+                }
+              },
+              {
+                "title": "runner",
+                "type": "action",
+                "name": "runner",
+                "parameters": {}
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

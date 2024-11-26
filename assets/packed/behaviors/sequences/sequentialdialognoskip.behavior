@@ -1,0 +1,100 @@
+{
+  "name": "sequentialdialognoskip",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/dialog.lua",
+    "/scripts/actions/time.lua"
+  ],
+  "parameters": {
+    "dialogWaitTime": 4,
+    "dialogEndWait": 2,
+    "dialogKey": "converse",
+    "dialogTarget": ""
+  },
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "getDialog",
+        "type": "action",
+        "name": "getDialog",
+        "parameters": {
+          "dialogType": {"value": "<dialogKey>"},
+          "entity": {"key": "<dialogTarget>"}
+        }
+      },
+      {
+        "title": "sayNext",
+        "type": "action",
+        "name": "sayNext",
+        "parameters": {
+          "drawMoreIndicator": {"value": false},
+          "tags": {"value": {}}
+        }
+      },
+      {
+        "title": "repeater",
+        "type": "decorator",
+        "name": "repeater",
+        "parameters": {
+          "maxLoops": {"value": -1},
+          "untilSuccess": {"value": true}
+        },
+        "child": {
+          "title": "inverter",
+          "type": "decorator",
+          "name": "inverter",
+          "parameters": {},
+          "child": {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": "<dialogWaitTime>"}
+                }
+              },
+              {
+                "title": "halt",
+                "type": "action",
+                "name": "halt",
+                "parameters": {}
+              },
+              {
+                "title": "sayNext",
+                "type": "action",
+                "name": "sayNext",
+                "parameters": {
+                  "drawMoreIndicator": {"value": false},
+                  "tags": {"value": {}}
+                }
+              },
+              {
+                "title": "hasMoreDialog",
+                "type": "action",
+                "name": "hasMoreDialog",
+                "parameters": {}
+              }
+            ]
+          }
+        }
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": "<dialogEndWait>"}
+        }
+      }
+    ]
+  }
+}

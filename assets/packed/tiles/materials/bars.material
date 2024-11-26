@@ -1,0 +1,25 @@
+{
+  "materialId" : 55,
+  "materialName" : "bars",
+  "particleColor" : [148, 148, 148, 255],
+  "itemDrop" : "bars",
+  "description" : "Thick metal bars. Still strong, though decaying with rust.",
+  "shortdescription" : "Metal Bars",
+  "glitchDescription" : "Distressed. Metal bars like this can be found in Glitch dungeons.",
+  "floranDescription" : "Sstrong metal barsss.",
+  "novakidDescription" : "Some strong lookin' metal bars.",
+  "footstepSound" : "/sfx/blocks/footstep_lightmetal.ogg",
+  "health" : 8,
+  "category" : "materials",
+  "blocksLiquidFlow" : false,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "bars.png",
+    "variants" : 1,
+    "lightTransparent" : true,
+    "multiColored" : true,
+    "occludesBelow" : false,
+    "zLevel" : 540
+  }
+}

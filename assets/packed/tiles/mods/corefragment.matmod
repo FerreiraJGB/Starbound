@@ -1,0 +1,21 @@
+{
+  "modId" : 50,
+  "modName" : "corefragment",
+  "itemDrop" : "corefragmentore",
+  "description" : "Core Fragment.",
+  "health" : 10,
+  "harvestLevel" : 3,
+  "breaksWithTile" : true,
+
+  "miningSounds" : [ "/sfx/tools/pickaxe_ore.ogg", "/sfx/tools/pickaxe_ore2.ogg" ],
+  "miningParticle" : "orespark",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "corefragment.png",
+    "variants" : 8,
+    "multiColored" : false,
+    "zLevel" : 0,
+    "radiantLight" : [115, 44, 0]
+  }
+}

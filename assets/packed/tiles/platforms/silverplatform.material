@@ -1,0 +1,23 @@
+{
+  "materialId" : 1392,
+  "materialName" : "silverplatform",
+  "collisionKind" : "platform",
+  "itemDrop" : "silverplatform",
+  "shortdescription" : "Silver Platform",
+  "description" : "A polished platform crafted from pure silver.",
+  "glitchDescription" : "Delighted. I can see my reflection in these silver platforms.",
+  "floranDescription" : "Platformss made from ssilver.",
+  "novakidDescription" : "I'll reckon this platform is worth its weight in silver.",
+  "footstepSound" : "/sfx/blocks/footstep_composite.ogg",
+  "category" : "Supports",
+
+  "renderTemplate" : "/tiles/platformtemplate.config",
+  "renderParameters" : {
+    "texture" : "silverplatform.png",
+    "variants" : 1,
+    "lightTransparent" : true,
+    "occludesBelow" : false,
+    "multiColored" : true,
+    "zLevel" : 0
+  }
+}

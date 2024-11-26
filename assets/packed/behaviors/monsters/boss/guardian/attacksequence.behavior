@@ -1,0 +1,43 @@
+{
+  "name": "attacksequence",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/status.lua",
+    "/scripts/actions/builders.lua"
+  ],
+  "parameters": {
+    "actions": [],
+    "maxHealth": 1
+  },
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "inverter",
+        "type": "decorator",
+        "name": "inverter",
+        "parameters": {},
+        "child": {
+          "title": "resourcePercentage",
+          "type": "action",
+          "name": "resourcePercentage",
+          "parameters": {
+            "percentage": {"key": "<maxHealth>"},
+            "resource": {"value": "health"}
+          }
+        }
+      },
+      {
+        "title": "sequenceActions",
+        "type": "action",
+        "name": "sequenceActions",
+        "parameters": {
+          "actions": {"key": "<actions>"}
+        }
+      }
+    ]
+  }
+}

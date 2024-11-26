@@ -1,0 +1,16 @@
+{
+  "modId" : 15,
+  "modName" : "crystal",
+  "itemDrop" : "crystal",
+  "description" : "Crystal.",
+  "health" : 10,
+  "breaksWithTile" : true,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "crystal.png",
+    "variants" : 8,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

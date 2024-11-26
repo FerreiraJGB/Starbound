@@ -1,0 +1,24 @@
+{
+  "materialId" : 357,
+  "materialName" : "logblock",
+  "particleColor" : [89, 89, 89, 255],
+  "itemDrop" : "logblock",
+  "shortdescription" : "Wooden Log",
+  "description" : "A wooden log. Good for building simple structures.",
+  "glitchDescription" : "Impressed. These logs fit together closely and are effective for building.",
+  "floranDescription" : "Floran likess wooden log wallss.",
+  "novakidDescription" : "Ain't uncommon to see logs laid like this in cabins.",
+  "footstepSound" : "/sfx/blocks/footstep_wood.ogg",
+  "health" : 4,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/rowtemplate.config",
+  "renderParameters" : {
+    "texture" : "log.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : false,
+    "multiColored" : true,
+    "zLevel" : 3350
+  }
+}

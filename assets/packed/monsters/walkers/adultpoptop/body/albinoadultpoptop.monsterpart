@@ -1,0 +1,9 @@
+{
+  "name" : "adultpoptop",
+  "category" : "albinoadultpoptop",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "albinoadultpoptop.png"
+  }
+}

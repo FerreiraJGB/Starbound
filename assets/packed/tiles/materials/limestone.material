@@ -1,0 +1,26 @@
+{
+  "materialId" : 146,
+  "materialName" : "limestone",
+  "frames" : "rock01.png",
+  "particleColor" : [133, 122, 109, 255],
+  "variants" : 5,
+  "itemDrop" : "limestone",
+  "description" : "Rough, unrefined limestone.",
+  "shortdescription" : "Limestone",
+  "glitchDescription" : "Perceptive. This limestone has a chalky consistency.",
+  "floranDescription" : "Dussty limesstone rockss.",
+  "novakidDescription" : "Some chalky lookin' limestone.",
+  "footstepSound" : "/sfx/blocks/footstep_stone.ogg",
+  "health" : 8,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "limestone.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 1590
+  }
+}

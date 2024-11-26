@@ -1,0 +1,14 @@
+{
+  "modId" : 2144,
+  "modName" : "ceilingsnow",
+  "description" : "Snow so cold it's stuck to the ceiling.",
+  "health" : 0,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "ceilingsnow.png",
+    "variants" : 5,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "tar",
+  "priority": 10,
+
+  "colonyTagCriteria": {
+    "light": 1,
+    "door": 1,
+    "tar": 18
+  },
+
+  "tenants": [
+    {
+      "spawn": "npc",
+      "species": ["human", "apex"],
+      "type": "tar",
+      "overrides": {
+       }
+     }
+   ],
+
+  "rent": {
+    "periodRange": [600.0, 1800.0],
+    "pool": "tarGift"
+  }
+}

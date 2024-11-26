@@ -1,0 +1,261 @@
+{
+  // ==============================================================================================
+  //                                         SMASHABLES
+  // ==============================================================================================
+
+  // ================================
+  //      Capsules, Vases, Pots
+  // ================================
+
+  "capsule" : [
+    [0, {
+      "pool" : [
+        {"weight" : 0.4, "item" : ["money", 3]},
+        {"weight" : 0.4, "item" : ["money", 4]},
+        {"weight" : 0.03, "item" : "salve" },
+        {"weight" : 0.02, "item" : "bandage" },
+        {"weight" : 0.05, "item" : "climbingrope" },
+        {"weight" : 0.05, "item" : "flare" },
+        {"weight" : 0.05, "item" : "torch" }
+      ]
+    }],
+    [3.9, {
+      "pool" : [
+        {"weight" : 0.4, "item" : ["money", 5]},
+        {"weight" : 0.4, "item" : ["money", 6]},
+        {"weight" : 0.03, "item" : "medkit" },
+        {"weight" : 0.02, "item" : "nanowrap" },
+        {"weight" : 0.05, "item" : "climbingrope" },
+        {"weight" : 0.05, "item" : "flare" },
+        {"weight" : 0.05, "item" : "torch" }
+      ]
+    }]
+  ],
+
+  "smashMoney" : [
+    [0, {
+      "poolRounds" : [[0.2, 1], [0.6, 2], [0.2, 3]],
+      "pool" : [
+        {"weight" : 0.2, "item" : ["money", 1]},
+        {"weight" : 0.6, "item" : ["money", 2]},
+        {"weight" : 0.2, "item" : ["money", 3]}
+      ]
+    }],
+    [1.9, {
+      "poolRounds" : [[0.2, 1], [0.6, 2], [0.2, 3]],
+      "pool" : [
+        {"weight" : 0.2, "item" : ["money", 2]},
+        {"weight" : 0.6, "item" : ["money", 3]},
+        {"weight" : 0.2, "item" : ["money", 4]}
+      ]
+    }],
+    [2.9, {
+      "poolRounds" : [[0.2, 1], [0.6, 2], [0.2, 3]],
+      "pool" : [
+        {"weight" : 0.2, "item" : ["money", 3]},
+        {"weight" : 0.6, "item" : ["money", 4]},
+        {"weight" : 0.2, "item" : ["money", 5]}
+      ]
+    }],
+    [3.9, {
+      "poolRounds" : [[0.2, 1], [0.6, 2], [0.2, 3]],
+      "pool" : [
+        {"weight" : 0.2, "item" : ["money", 4]},
+        {"weight" : 0.6, "item" : ["money", 5]},
+        {"weight" : 0.2, "item" : ["money", 6]}
+      ]
+    }],
+    [4.9, {
+      "poolRounds" : [[0.2, 1], [0.6, 2], [0.2, 3]],
+      "pool" : [
+        {"weight" : 0.2, "item" : ["money", 5]},
+        {"weight" : 0.6, "item" : ["money", 6]},
+        {"weight" : 0.2, "item" : ["money", 7]}
+      ]
+    }],
+    [5.9, {
+      "poolRounds" : [[0.2, 1], [0.6, 2], [0.2, 3]],
+      "pool" : [
+        {"weight" : 0.2, "item" : ["money", 6]},
+        {"weight" : 0.6, "item" : ["money", 7]},
+        {"weight" : 0.2, "item" : ["money", 8]}
+      ]
+    }],
+    [6.9, {
+      "poolRounds" : [[0.2, 1], [0.6, 2], [0.2, 3]],
+      "pool" : [
+        {"weight" : 0.2, "item" : ["money", 7]},
+        {"weight" : 0.6, "item" : ["money", 8]},
+        {"weight" : 0.2, "item" : ["money", 9]}
+      ]
+    }]
+  ],
+
+  "ancientPotSmall" : [
+    [0, {
+      "pool" : [
+        {"weight" : 1.0, "item" : ["essence", 1]}
+      ]
+    }]
+  ],
+
+  "ancientPotMedium" : [
+    [0, {
+      "pool" : [
+        {"weight" : 0.5, "item" : ["essence", 1]},
+        {"weight" : 0.5, "item" : ["essence", 2]}
+      ]
+    }]
+  ],
+
+  "ancientPotLarge" : [
+    [0, {
+      "pool" : [
+        {"weight" : 0.5, "item" : ["essence", 2]},
+        {"weight" : 0.5, "item" : ["essence", 3]}
+      ]
+    }]
+  ],
+
+  // ================================
+  //              Misc
+  // ================================
+
+  "birdsnest" : [
+    [0, {
+      "poolRounds" : [
+        [0.2, 0],
+        [0.8, 1]
+      ],
+      "pool" : [
+        {"weight" : 0.9, "item" : "egg"}
+      ]
+    }]
+  ],
+
+  "smashGeode" : [
+    [0, {
+      "poolRounds" : [
+        [0.25, 3],
+        [0.75, 2]
+      ],
+      "pool" : [
+        {"weight" : 0.9, "item" : "geode"}
+      ]
+    }]
+  ],
+
+  "flowerBush" : [
+    [0, {
+      "poolRounds" : [
+        [0.3, 1],
+        [0.4, 2],
+        [0.3, 3]
+      ],
+      "pool" : [
+        {"weight" : 0.33, "item" : "petalyellow"},
+        {"weight" : 0.33, "item" : "petalblue"},
+        {"weight" : 0.33, "item" : "petalred"}
+      ]
+    }]
+  ],
+
+  // ================================
+  //            Ore Rocks
+  // ================================
+
+  "copperRockSmall" : [
+    [1, {
+      "pool" : [
+        {"weight" : 1.0, "item" : "copperore"}
+      ],
+      "poolRounds" : [
+        [0.25, 5],
+        [0.50, 6],
+        [0.25, 7]
+      ]
+    }]
+  ],
+  "copperRock" : [
+    [1, {
+      "pool" : [
+        {"weight" : 1.0, "item" : "copperore"}
+      ],
+      "poolRounds" : [
+        [0.25, 8],
+        [0.50, 10],
+        [0.25, 12]
+      ]
+    }]
+  ],
+  "silverRockSmall" : [
+    [1, {
+      "pool" : [
+        {"weight" : 1.0, "item" : "silverore"}
+      ],
+      "poolRounds" : [
+        [0.25, 5],
+        [0.50, 6],
+        [0.25, 7]
+      ]
+    }]
+  ],
+  "silverRock" : [
+    [1, {
+      "pool" : [
+        {"weight" : 1.0, "item" : "silverore"}
+      ],
+      "poolRounds" : [
+        [0.25, 8],
+        [0.50, 10],
+        [0.25, 12]
+      ]
+    }]
+  ],
+  "goldRockSmall" : [
+    [1, {
+      "pool" : [
+        {"weight" : 1.0, "item" : "goldore"}
+      ],
+      "poolRounds" : [
+        [0.25, 5],
+        [0.50, 6],
+        [0.25, 7]
+      ]
+    }]
+  ],
+  "goldRock" : [
+    [1, {
+      "pool" : [
+        {"weight" : 1.0, "item" : "goldore"}
+      ],
+      "poolRounds" : [
+        [0.25, 8],
+        [0.50, 10],
+        [0.25, 12]
+      ]
+    }]
+  ],
+  "diamondRockSmall" : [
+    [1, {
+      "pool" : [
+        {"weight" : 1.0, "item" : "diamond"}
+      ],
+      "poolRounds" : [
+        [0.50, 1],
+        [0.50, 2]
+      ]
+    }]
+  ],
+  "diamondRock" : [
+    [1, {
+      "pool" : [
+        {"weight" : 1.0, "item" : "diamond"}
+      ],
+      "poolRounds" : [
+        [0.50, 3],
+        [0.50, 4]
+      ]
+    }]
+  ]
+}

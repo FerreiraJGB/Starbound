@@ -1,0 +1,23 @@
+{
+  "projectileName" : "wallmelt",
+  "damageKindImage" : "icon.png",
+  "image" : "wallmelt.png",
+  "animationCycle" : 0.2,
+  "frameNumber" : 1,
+  "fullbright" : true,
+  
+  "timeToLive" : 10.0,
+
+  "physics" : "laser",
+  "movementSettings" : {
+    "collisionEnabled" : false
+  },
+  "speed" : 0.0,
+  "bounces" : -1,
+  "piercing" : true,
+  "damagePoly" : [ ],
+
+  "renderLayer" : "ForegroundTile+10",
+
+  "emitters" : [ "firesparks", "smokefront" ]
+}

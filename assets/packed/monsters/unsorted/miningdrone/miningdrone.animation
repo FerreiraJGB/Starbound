@@ -1,0 +1,110 @@
+{
+  "animatedParts" : {
+    "stateTypes" : {
+      "body" : {
+        "priority" : 0,
+        "default" : "fly",
+        "states" : {
+          "fly" : {
+            "frames" : 4,
+            "cycle" : 0.25,
+            "mode" : "loop",
+            "properties" : {
+              "persistentSound" : "/sfx/npc/monsters/mandraflora_spinning.ogg"
+            }
+          }
+        }
+      },
+      "damage" : {
+        "priority" : 3,
+        "default" : "none",
+        "states" : {
+          "none" : {},
+          "stunned" : {}
+        }
+      }
+    },
+
+    "parts" : {
+      "body" : {
+        "properties" : {
+          "zLevel" : 1,
+          "beamSource" : [0.125, -0.375]
+        },
+        "partStates" : {
+          "body" : {
+            "fly" : {
+              "properties" : {
+                "image" : "/monsters/unsorted/miningdrone/miningdrone.png:fly.<frame>"
+              }
+            }
+          }
+        }
+      },
+      "bodyfullbright" : {
+        "properties" : {
+          "zLevel" : 2,
+          "anchorPart" : "body",
+          "fullbright" : true
+        },
+        "partStates" : {
+          "body" : {
+            "fly" : {
+              "properties" : {
+                "image" : "/monsters/unsorted/miningdrone/miningdrone.png:fly.<frame>"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "effects" : {
+    "blink" : {
+      "type" : "flash",
+      "time" : 0,
+      "directives" : "fade=ffffff;0.5"
+    }
+  },
+
+  "lights" : {
+    "glow" : {
+      "active" : true,
+      "position" : [0, 0],
+      "color" : [140, 140, 140],
+      "pointLight" : true
+    }
+  },
+
+  "particleEmitters" : {
+    "deathPoof" : {
+      "offsetRegion" : [-0.25, -0.25, 0.25, 0.25],
+      "burstCount" : 5,
+      "particles" : [
+        { "particle" : "dust2" },
+        { "particle" : "metalshard", "count" : 4 },
+        {
+          "particle" : {
+            "type" : "ember",
+            "position" : [1.0, 0],
+            "size" : 2.0,
+            "color" : [255, 255, 255, 0],
+            "light" : [150, 150, 150],
+            "initialVelocity" : [0.0, 0.0],
+            "finalVelocity" : [0.0, 0.0],
+            "approach" : [0, 0],
+            "timeToLive" : 1.0,
+            "layer" : "middle"
+          }
+        }
+      ]
+    }
+  },
+
+  "sounds" : {
+    "aggroHop" : [ "/sfx/npc/monsters/monster_surprise.ogg" ],
+    "deathPuff" : [ "/sfx/melee/kill_robotic1.ogg" ],
+    "zap" : [ "/sfx/projectiles/electrical_barrier_break3.ogg" ]
+  }
+}

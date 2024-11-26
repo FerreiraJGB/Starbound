@@ -1,0 +1,8 @@
+{
+  "frames" : "watersplash.png",
+  "variants" : 1,
+  "loops" : 20.0,
+  "frameNumber" : 4,
+  "animationCycle" : 0.05,
+  "offset" : [0, 0]
+}

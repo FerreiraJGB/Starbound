@@ -1,0 +1,187 @@
+{
+  "name": "quest-escort_trade-questGiver-notification",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/quests.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/notification.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/npc.lua",
+    "/scripts/actions/time.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "limiter",
+    "type": "decorator",
+    "name": "limiter",
+    "parameters": {
+      "limit": {"value": 1}
+    },
+    "child": {
+      "title": "sequence",
+      "type": "composite",
+      "name": "sequence",
+      "parameters": {},
+      "children": [
+        {
+          "title": "questEntity",
+          "type": "action",
+          "name": "questEntity",
+          "parameters": {
+            "parameterName": {"value": "target"},
+            "quest": {"key": "override"}
+          },
+          "output": {
+            "entity": "target"
+          }
+        },
+        {
+          "title": "entityInRange",
+          "type": "action",
+          "name": "entityInRange",
+          "parameters": {
+            "entity": {"key": "target"},
+            "position": {"key": "self"},
+            "range": {"value": 20}
+          }
+        },
+        {
+          "title": "sendNotification",
+          "type": "action",
+          "name": "sendNotification",
+          "parameters": {
+            "entity": {"key": "target"},
+            "type": {"value": "escortTradePrepare"}
+          }
+        },
+        {
+          "title": "faceEntity",
+          "type": "action",
+          "name": "faceEntity",
+          "parameters": {
+            "entity": {"key": "target"}
+          }
+        },
+        {
+          "title": "emote",
+          "type": "action",
+          "name": "emote",
+          "parameters": {
+            "emote": {"value": "happy"}
+          }
+        },
+        {
+          "title": "succeeder",
+          "type": "decorator",
+          "name": "succeeder",
+          "parameters": {},
+          "child": {
+            "title": "parallel",
+            "type": "composite",
+            "name": "parallel",
+            "parameters": {
+              "fail": {"value": 1},
+              "success": {"value": -1}
+            },
+            "children": [
+              {
+                "title": "entityPosition",
+                "type": "action",
+                "name": "entityPosition",
+                "parameters": {
+                  "entity": {"key": "target"}
+                },
+                "output": {
+                  "position": "targetPosition"
+                }
+              },
+              {
+                "title": "inverter",
+                "type": "decorator",
+                "name": "inverter",
+                "parameters": {},
+                "child": {
+                  "title": "entityInRange",
+                  "type": "action",
+                  "name": "entityInRange",
+                  "parameters": {
+                    "entity": {"key": "target"},
+                    "position": {"key": "self"},
+                    "range": {"value": 5}
+                  }
+                }
+              },
+              {
+                "title": "moveToPosition",
+                "type": "action",
+                "name": "moveToPosition",
+                "parameters": {
+                  "avoidLiquid": {"value": true},
+                  "groundPosition": {"value": true},
+                  "maxGround": {"value": 5},
+                  "minGround": {"value": -5},
+                  "pathOptions": {"value": {}},
+                  "position": {"key": "targetPosition"},
+                  "run": {"value": false}
+                },
+                "output": {
+                  "pathfinding": "isPathfinding"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "title": "faceEntity",
+          "type": "action",
+          "name": "faceEntity",
+          "parameters": {
+            "entity": {"key": "target"}
+          }
+        },
+        {
+          "title": "sayQuestDialog",
+          "type": "action",
+          "name": "sayQuestDialog",
+          "parameters": {
+            "dialogType": {"value": "escort_trade.collectDelivery"},
+            "entity": {"key": "target"},
+            "extraTags": {"value": {}},
+            "quest": {"key": "override"}
+          }
+        },
+        {
+          "title": "sendNotification",
+          "type": "action",
+          "name": "sendNotification",
+          "parameters": {
+            "entity": {"key": "target"},
+            "type": {"value": "escortTrade"}
+          }
+        },
+        {
+          "title": "timer",
+          "type": "action",
+          "name": "timer",
+          "parameters": {
+            "time": {"value": 4}
+          }
+        },
+        {
+          "title": "fireQuestEvent",
+          "type": "action",
+          "name": "fireQuestEvent",
+          "parameters": {
+            "eventName": {"value": "escortComplete"}
+          }
+        },
+        {
+          "title": "reaction-jumpforjoy",
+          "type": "module",
+          "name": "reaction-jumpforjoy",
+          "parameters": {}
+        }
+      ]
+    }
+  }
+}

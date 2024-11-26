@@ -1,0 +1,17 @@
+{
+  "name" : "swansong",
+  "category" : "swansong",
+  "type" : "swansong",
+
+  "frames" : {
+    "body" : "body/body.png",
+    "bodyfullbright" : "body/bodyfullbright.png",
+    "lefthand" : "lefthand/lefthand.png",
+    "lefthandfullbright" : "lefthand/lefthandfullbright.png",
+    "chargeswoosh" : "chargeswoosh/chargeswoosh.png",
+    "righthand" : "righthand/righthand.png",
+    "righthandfullbright" : "righthand/righthandfullbright.png",
+    "wings" : "wings/wings.png",
+    "wingsfullbright" : "wings/wingsfullbright.png"
+  }
+}

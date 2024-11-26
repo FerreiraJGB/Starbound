@@ -1,0 +1,132 @@
+  // ==============================================================================================
+  //                                      FOSSIL GAME REWARDS
+  // ==============================================================================================
+{
+  "fossilshallow1" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.4, "pool" : "smallfossil"},
+        {"weight" : 0.35, "pool" : "humanoidfossil"},
+        {"weight" : 0.25, "pool" : "largefossil"}
+      ]
+    }]
+  ],
+
+  "fossilshallow2" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.4, "pool" : "smallfossil"},
+        {"weight" : 0.35, "pool" : "humanoidfossil"},
+        {"weight" : 0.25, "pool" : "largefossil"}
+      ]
+    }]
+  ],
+
+  "fossilBonusTreasure" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.25, "item" : "manipulatormodule"},
+        {"weight" : 0.15, "item" : "techcard"},
+        {"weight" : 0.15, "item" : "upgrademodule"},
+        {"weight" : 0.15, "item" : "teleportercore"},
+        {"weight" : 0.15, "item" : "autochip"},
+        {"weight" : 0.025, "pool" : "augments"},
+        {"weight" : 0.025, "pool" : "petcollars"},
+        {"weight" : 0.025, "pool" : "instrument"},
+        {"weight" : 0.025, "pool" : "costume"}
+      ]
+    }]
+  ],
+
+  "fossilRareBonusTreasure" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.10, "item" : "manipulatormodule"},
+        {"weight" : 0.20, "item" : "techcard"},
+        {"weight" : 0.10, "item" : "upgrademodule"},
+        {"weight" : 0.10, "item" : "teleportercore"},
+        {"weight" : 0.10, "item" : "autochip"},
+        {"weight" : 0.10, "pool" : "augments"},
+        {"weight" : 0.10, "pool" : "petcollars"},
+        {"weight" : 0.10, "pool" : "instrument"},
+        {"weight" : 0.10, "pool" : "costume"}
+      ]
+    }]
+  ],
+
+  "smallfossil" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.1, "item" : "amberfossil"},
+        {"weight" : 0.1, "item" : "ammonitefossil"},
+        {"weight" : 0.1, "item" : "eggfossil"},
+        {"weight" : 0.1, "item" : "fernfossil"},
+        {"weight" : 0.1, "item" : "fishfossil"},
+        {"weight" : 0.1, "item" : "mysteriousalienfossil"},
+        {"weight" : 0.1, "item" : "penguinfossil"},
+        {"weight" : 0.1, "item" : "sabertoothfossil"},
+        {"weight" : 0.1, "item" : "trackfossil"},
+        {"weight" : 0.1, "item" : "trilobitefossil"}
+      ]
+    }]
+  ],
+
+  "humanoidfossil" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.40, "item" : "apexfossil1"},
+        {"weight" : 0.30, "item" : "apexfossil2"},
+        {"weight" : 0.30, "item" : "apexfossil3"},
+        {"weight" : 0.40, "item" : "avianfossil1"},
+        {"weight" : 0.30, "item" : "avianfossil2"},
+        {"weight" : 0.30, "item" : "avianfossil3"},
+        {"weight" : 0.40, "item" : "floranfossil1"},
+        {"weight" : 0.30, "item" : "floranfossil2"},
+        {"weight" : 0.30, "item" : "floranfossil3"},
+        {"weight" : 0.40, "item" : "glitchfossil1"},
+        {"weight" : 0.30, "item" : "glitchfossil2"},
+        {"weight" : 0.30, "item" : "glitchfossil3"},
+        {"weight" : 0.40, "item" : "humanfossil1"},
+        {"weight" : 0.30, "item" : "humanfossil2"},
+        {"weight" : 0.30, "item" : "humanfossil3"},
+        {"weight" : 0.40, "item" : "hylotlfossil1"},
+        {"weight" : 0.30, "item" : "hylotlfossil2"},
+        {"weight" : 0.30, "item" : "hylotlfossil3"},
+        {"weight" : 0.40, "item" : "alpacafossil1"},
+        {"weight" : 0.30, "item" : "alpacafossil2"},
+        {"weight" : 0.30, "item" : "alpacafossil3"},
+        {"weight" : 0.40, "item" : "avioscalefossil1"},
+        {"weight" : 0.30, "item" : "avioscalefossil2"},
+        {"weight" : 0.30, "item" : "avioscalefossil3"},
+        {"weight" : 0.40, "item" : "froggfossil1"},
+        {"weight" : 0.30, "item" : "froggfossil2"},
+        {"weight" : 0.30, "item" : "froggfossil3"},
+        {"weight" : 0.40, "item" : "mysteriousfossil1"},
+        {"weight" : 0.30, "item" : "mysteriousfossil2"},
+        {"weight" : 0.30, "item" : "mysteriousfossil3"}
+      ]
+    }]
+  ],
+
+  "largefossil" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.1, "item" : "ixodoomfossil1"},
+        {"weight" : 0.1, "item" : "ixodoomfossil2"},
+        {"weight" : 0.1, "item" : "ixodoomfossil3"},
+        {"weight" : 0.1, "item" : "ixodoomfossil4"},
+        {"weight" : 0.1, "item" : "ixodoomfossil5"},
+        {"weight" : 0.1, "item" : "ophidauntfossil1"},
+        {"weight" : 0.1, "item" : "ophidauntfossil2"},
+        {"weight" : 0.1, "item" : "ophidauntfossil3"},
+        {"weight" : 0.1, "item" : "ophidauntfossil4"},
+        {"weight" : 0.1, "item" : "ophidauntfossil5"},
+        {"weight" : 0.1, "item" : "trexfossil1"},
+        {"weight" : 0.1, "item" : "trexfossil2"},
+        {"weight" : 0.1, "item" : "trexfossil3"},
+        {"weight" : 0.1, "item" : "trexfossil4"},
+        {"weight" : 0.1, "item" : "trexfossil5"}
+      ]
+    }]
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "modId" : 2,
+  "modName" : "crystalgrass",
+  "description" : "Small crystals appear to be poking through the ground.",
+  "footstepSound" : "/sfx/blocks/footstep_crystal.ogg",
+  "health" : 0,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "crystalgrass.png",
+    "variants" : 5,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

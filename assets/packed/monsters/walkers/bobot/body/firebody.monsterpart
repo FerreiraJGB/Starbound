@@ -1,0 +1,10 @@
+{
+  "name" : "bobot",
+  "category" : "firebobot",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "firebobot.png",
+    "bodynobright" : "firebobotnobright.png"
+  }
+}

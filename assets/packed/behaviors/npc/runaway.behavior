@@ -1,0 +1,111 @@
+{
+  "name": "Run Away",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/world.lua",
+    "/scripts/actions/entity.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/time.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "dynamic",
+    "type": "composite",
+    "name": "dynamic",
+    "parameters": {},
+    "children": [
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": 1},
+          "success": {"value": 3}
+        },
+        "children": [
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "entityExists",
+                "type": "action",
+                "name": "entityExists",
+                "parameters": {
+                  "entity": {"key": "fleeTarget"}
+                }
+              },
+              {
+                "title": "entityInRange",
+                "type": "action",
+                "name": "entityInRange",
+                "parameters": {
+                  "entity": {"key": "fleeTarget"},
+                  "position": {"key": "self"},
+                  "range": {"value": 20}
+                }
+              },
+              {
+                "title": "entityInSight",
+                "type": "action",
+                "name": "entityInSight",
+                "parameters": {
+                  "entity": {"key": "fleeTarget"}
+                }
+              },
+              {
+                "title": "entityDirection",
+                "type": "action",
+                "name": "entityDirection",
+                "parameters": {
+                  "target": {"key": "fleeTarget"}
+                },
+                "output": {
+                  "direction": "moveDirection"
+                }
+              },
+              {
+                "title": "reverseDirection",
+                "type": "action",
+                "name": "reverseDirection",
+                "parameters": {
+                  "direction": {"key": "moveDirection"}
+                },
+                "output": {
+                  "direction": "moveDirection"
+                }
+              }
+            ]
+          },
+          {
+            "title": "",
+            "type": "action",
+            "name": "move",
+            "parameters": {
+              "direction": {"key": "moveDirection"},
+              "run": {"value": true}
+            }
+          },
+          {
+            "title": "",
+            "type": "action",
+            "name": "openDoors",
+            "parameters": {
+              "direction": {"key": "moveDirection"}
+            }
+          }
+        ]
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 5}
+        }
+      }
+    ]
+  }
+}

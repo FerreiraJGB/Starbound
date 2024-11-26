@@ -1,0 +1,33 @@
+{
+  "input" : [
+    { "item" : "peacecredit", "count" : 20 }
+  ],
+  "output" : {
+    "item" : "filledcapturepod",
+    "count" : 1,
+    "parameters" : {
+      "shortdescription" : "Peacekeeper Drone",
+      "description" : "A deployable automated drone that fires explosive rounds.",
+      "tooltipFields" : {
+        "subtitle" : "Peacekeeper Drone",
+        "objectImage" : "/monsters/ghosts/peacekeeperdrone/body/peacekeeperdrone.png:windup.1"
+      },
+      "pets" : [
+        {
+          "name" : "Drone",
+          "portrait" : [
+            {"image" : "/monsters/ghosts/peacekeeperdrone/body/peacekeeperdrone.png:windup.1"}
+          ],
+          "config" : {
+            "type" : "peacekeeperdrone",
+            "parameters" : {
+              "level" : 6,
+              "aggressive" : true
+            }
+          }
+        }
+      ]
+    }
+  },
+  "groups" : [ "peacekeeper4" ]
+}

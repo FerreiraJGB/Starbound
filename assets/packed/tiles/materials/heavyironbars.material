@@ -1,0 +1,25 @@
+{
+  "materialId" : 300,
+  "materialName" : "heavyironbars",
+  "particleColor" : [148, 148, 148, 255],
+  "itemDrop" : "heavyironbars",
+  "description" : "Thick iron bars. Still strong, though decaying with rust.",
+  "shortdescription" : "Heavy Iron Bars",
+  "glitchDescription" : "Distressed. Seeing metal rusting in this manner is unsettling.",
+  "floranDescription" : "Russsty old barss.",
+  "novakidDescription" : "These rusty ol' bars have seen better days.",
+  "footstepSound" : "/sfx/blocks/footstep_lightmetal.ogg",
+  "health" : 8,
+  "category" : "materials",
+  "blocksLiquidFlow" : false,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "heavyironbars.png",
+    "variants" : 5,
+    "lightTransparent" : true,
+    "occludesBelow" : false,
+    "multiColored" : true,
+    "zLevel" : 550
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "materialId" : 61,
+  "materialName" : "tombbrick2",
+  "particleColor" : [120, 127, 154, 255],
+  "itemDrop" : "tombbrick2",
+  "shortdescription" : "Unmarked Tomb Brick",
+  "description" : "These bricks have worn smooth with age.",
+  "glitchDescription" : "Impressed. These bricks have held up well considering their age.",
+  "floranDescription" : "Floran likess smooth brickss.",
+  "novakidDescription" : "Some smooth lookin' bricks.",
+  "footstepSound" : "/sfx/blocks/footstep_stone.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "tombbrick2.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 2660
+  }
+}

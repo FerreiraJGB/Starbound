@@ -1,0 +1,24 @@
+{
+  "materialId" : 36,
+  "materialName" : "obsidian",
+  "particleColor" : [92, 90, 87, 255],
+  "itemDrop" : "obsidian",
+  "description" : "Solid obsidian. It is naturally black.",
+  "shortdescription" : "Obsidian",
+  "glitchDescription" : "Astounded. This obsidian is extremely dense and strong.",
+  "floranDescription" : "Obsssidian. Sstrong black rockss.",
+  "novakidDescription" : "Some black lookin' obsidian rocks.",
+  "footstepSound" : "/sfx/blocks/footstep_stone3.ogg",
+  "health" : 24,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "obsidian.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 1500
+  }
+}

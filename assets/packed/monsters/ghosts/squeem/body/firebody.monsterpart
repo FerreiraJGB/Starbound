@@ -1,0 +1,10 @@
+{
+  "name" : "squeem",
+  "category" : "firesqueem",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "firesqueem.png",
+    "bodynobright" : "firesqueemnobright.png"
+  }
+}

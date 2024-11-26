@@ -1,0 +1,9 @@
+{
+  "name" : "anglure",
+  "category" : "electricanglure",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "electricanglure.png"
+  }
+}

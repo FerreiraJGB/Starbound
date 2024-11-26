@@ -1,0 +1,24 @@
+{
+  "materialId" : 175,
+  "materialName" : "candyblock",
+  "particleColor" : [89, 127, 52, 255],
+  "itemDrop" : "candyblock",
+  "description" : "Sweet-smelling rock candy!",
+  "shortdescription" : "Candy Block",
+  "glitchDescription" : "Delighted. This appears to be a giant piece of hard candy.",
+  "floranDescription" : "Candy hass colourful sstripess.",
+  "novakidDescription" : "A big ol' piece of rock candy.",
+  "footstepSound" : "/sfx/blocks/footstep_ice.ogg",
+  "health" : 4,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "candyblock.png",
+    "variants" : 1,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 1540
+  }
+}

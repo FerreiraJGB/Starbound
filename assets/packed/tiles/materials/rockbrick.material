@@ -1,0 +1,24 @@
+{
+  "materialId" : 20,
+  "materialName" : "rockbrick",
+  "particleColor" : [114, 112, 110, 255],
+  "itemDrop" : "rockbrickmaterial",
+  "description" : "A crudely produced set of rock bricks.",
+  "shortdescription" : "Rock Bricks",
+  "glitchDescription" : "Unimpressed. These are simply rocks stacked like bricks",
+  "floranDescription" : "Sstacked rockss.",
+  "novakidDescription" : "This ain't nothin' more'n a pile of rocks.",
+  "footstepSound" : "/sfx/blocks/footstep_stone3.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "rockbrick.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 1620
+  }
+}

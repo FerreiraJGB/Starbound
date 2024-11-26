@@ -1,0 +1,10 @@
+{
+  "name" : "capricoat",
+  "category" : "electriccapricoat",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "electriccapricoat.png",
+    "bodynobright" : "electriccapricoatnobright.png"
+  }
+}

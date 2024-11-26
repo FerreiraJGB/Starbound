@@ -1,0 +1,24 @@
+{
+  "materialId" : 285,
+  "materialName" : "ridgebrick",
+  "particleColor" : [71, 66, 57, 255],
+  "itemDrop" : "ridgebrick",
+  "description" : "Stone bricks with a ridge carved near the top.",
+  "shortdescription" : "Ridged Block",
+  "glitchDescription" : "Interested. These ridged construction blocks are simple, yet effective.",
+  "floranDescription" : "Ridged stone blocksss.",
+  "novakidDescription" : "These stone blocks carved up mighty nice.",
+  "footstepSound" : "/sfx/blocks/footstep_stone.ogg",
+  "health" : 20,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "ridgebrick.png",
+    "variants" : 8,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 2768
+  }
+}

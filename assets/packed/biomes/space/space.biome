@@ -1,0 +1,16 @@
+{
+  "name" : "space",
+  "friendlyName" : "space",
+  "airless" : true,
+
+  "parallax" : "/parallax/space/space.parallax",
+
+  "spawnProfile" : {
+    "groups" : [],
+    "monsterParameters" : {}
+  },
+
+  "statusEffects" : [ "biomeairless" ],
+
+  "hueShiftOptions" : [0]
+}

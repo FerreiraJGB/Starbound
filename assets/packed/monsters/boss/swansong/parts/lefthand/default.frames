@@ -1,0 +1,14 @@
+{
+  "frameGrid" : {
+    "size" : [32, 80],
+    "dimensions" : [8, 5],
+
+    "names" : [
+      [null, "spawn.1", "spawn.2", "spawn.3", "spawn.4", "spawn.5", null, "idle.1"],
+      ["idle.2", "idle.3", "idle.4", null, "swordwindup.1", "swordwindup.2", "swordwindup.3", "swordwindup.4"],
+      ["swordwindup.5", "swordwindup.6", "swordwindup.7", "swordwindup.8", null, "swordloop.1", "swordloop.2", "swordloop.3"],
+      ["swordloop.4", null, "swordwinddown.1", "swordwinddown.2", "swordwinddown.3", "swordwinddown.4", null, "boost.1"],
+      ["boost.2", "boost.3", "boost.4"]
+    ]
+  }
+}

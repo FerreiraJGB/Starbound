@@ -1,0 +1,26 @@
+{
+  "materialId" : 43,
+  "materialName" : "smoothmetal",
+  "frames" : "smoothmetal.png",
+  "particleColor" : [214, 214, 214, 255],
+  "variants" : 5,
+  "itemDrop" : "smoothmetal",
+  "description" : "Smooth metal, cold to the touch.",
+  "shortdescription" : "Smooth Metal",
+  "glitchDescription" : "Impressed. Metal polished as smooth as a Glitch chassis.",
+  "floranDescription" : "Sssmooth metal.",
+  "novakidDescription" : "These metal panels feel mighty smooth.",
+  "footstepSound" : "/sfx/blocks/footstep_composite.ogg",
+  "health" : 8,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "smoothmetal.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3000
+  }
+}

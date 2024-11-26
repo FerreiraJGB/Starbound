@@ -1,0 +1,27 @@
+{
+  "materialId" : 120,
+  "materialName" : "bookpiles",
+  "particleColor" : [103, 103, 103, 255],
+  "itemDrop" : "bookpiles",
+  "shortdescription" : "Pile of Books",
+  "description" : "A pile of dusty old books, they're full of tales of dragons and knights.",
+  "glitchDescription" : "Entertained. There are wonderful stories recorded inside these books.",
+  "floranDescription" : "Greatnesss not found in bookss.",
+  "novakidDescription" : "Some dusty books. Who doesn't love t'hear a good story?",
+  "footstepSound" : "/sfx/blocks/footstep_wood.ogg",
+  "falling" : true,
+  "cascading" : true,
+  "health" : 1,
+  "category" : "materials",
+  "damageTable" : "/tiles/flammableDamage.config",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "bookpiles.png",
+    "variants" : 25,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : false,
+    "zLevel" : 460
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "materialId" : 2573,
+  "materialName" : "silverscrew",
+  "particleColor" : [89, 89, 89, 255],
+  "itemDrop" : "silverscrew",
+  "shortdescription" : "Silver Screw",
+  "description" : "A giant screw crafted from silver.",
+  "glitchDescription" : "Confused. What purpose could a screw this large serve?",
+  "floranDescription" : "Shiny sscrew made from ssilver.",
+  "novakidDescription" : "A big ol' screw outta silver.",
+  "footstepSound" : "/sfx/blocks/footstep_composite.ogg",
+  "health" : 8,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/screwtemplate.config",
+  "renderParameters" : {
+    "texture" : "silverscrew.png",
+    "variants" : 1,
+    "lightTransparent" : false,
+    "occludesBelow" : false,
+    "multiColored" : true,
+    "zLevel" : 2771
+  }
+}

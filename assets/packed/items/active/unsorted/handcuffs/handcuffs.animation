@@ -1,0 +1,68 @@
+{
+  "globalTagDefaults" : {
+    "directives" : ""
+  },
+
+  "animatedParts" : {
+    "stateTypes" : {
+      "cuffState" : {
+        "default" : "beamIn",
+        "states" : {
+          "beamIn" : {},
+          "active" : {
+            "frames" : 2,
+            "cycle" : 1.0,
+            "mode" : "loop"
+          }
+        }
+      }
+    },
+
+    "parts" : {
+      "cuffs" : {
+        "properties" : {
+          "centered" : true,
+          "offset" : [-0.25, 0.0]
+        },
+
+        "partStates" : {
+          "cuffState" : {
+            "beamIn" : {
+              "properties" : {
+                "image" : "handcuffs.png:beamin<directives>"
+              }
+            },
+            "active" : {
+              "properties" : {
+                "image" : "handcuffs.png:active.<frame><directives>"
+              }
+            }
+          }
+        }
+      },
+      "cuffsFullbright" : {
+        "properties" : {
+          "centered" : true,
+          "offset" : [-0.25, 0.0],
+          "fullbright" : true,
+          "zLevel" : 1
+        },
+
+        "partStates" : {
+          "cuffState" : {
+            "beamIn" : {
+              "properties" : {
+                "image" : "handcuffsfullbright.png:beamin<directives>"
+              }
+            },
+            "active" : {
+              "properties" : {
+                "image" : "handcuffsfullbright.png:active.<frame><directives>"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

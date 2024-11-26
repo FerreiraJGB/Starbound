@@ -1,0 +1,27 @@
+{
+  "materialId" : 1433,
+  "materialName" : "waste",
+  "particleColor" : [111, 94, 74, 255],
+  "itemDrop" : "waste",
+  "description" : "Disgusting, faintly glowing toxic waste.",
+  "shortdescription" : "Waste",
+  "glitchDescription" : "Repulsed. The chemicals in this waste are so toxic it is glowing.",
+  "floranDescription" : "Ssstinky toxic messs. Vile poisson.",
+  "novakidDescription" : "Buncha glowin' toxic chemical waste.",
+  "footstepSound" : "/sfx/blocks/footstep_brains.ogg",
+  "falling" : true,
+  "cascading" : true,
+  "health" : 1,
+  "category" : "materials",
+  
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "waste.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : false,
+    "zLevel" : 1718,
+    "radiantLight" : [25, 110, 30]
+  }
+}

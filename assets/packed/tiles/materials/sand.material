@@ -1,0 +1,26 @@
+{
+  "materialId" : 21,
+  "materialName" : "sand",
+  "particleColor" : [209, 204, 135, 255],
+  "itemDrop" : "sand",
+  "description" : "It's Silt. It's very silty.",
+  "shortdescription" : "Loose Silt",
+  "glitchDescription" : "Uncomfortable. It is difficult to keep silt from seeping into my components.",
+  "floranDescription" : "Silt. It's so dussty.",
+  "novakidDescription" : "Big ol' pile of dusty silt.",
+  "footstepSound" : "/sfx/blocks/footstep_sand.ogg",
+  "falling" : true,
+  "cascading" : true,
+  "health" : 1,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "sand.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 430
+  }
+}

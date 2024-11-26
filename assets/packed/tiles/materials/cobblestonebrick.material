@@ -1,0 +1,24 @@
+{
+  "materialId" : 132,
+  "materialName" : "cobblestonebrick",
+  "particleColor" : [149, 149, 149, 255],
+  "itemDrop" : "cobblestonebrick",
+  "shortdescription" : "Cobblestone Brick",
+  "description" : "Small bricks made from cobblestone.",
+  "glitchDescription" : "Observant. These bricks are made from cobblestone.",
+  "floranDescription" : "Ssmooth cobblessstone brickss.",
+  "novakidDescription" : "Bricks made outta cobblestone.",
+  "footstepSound" : "/sfx/blocks/footstep_stone3.ogg",
+  "health" : 4,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "cobblestonebrick.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 2850
+  }
+}

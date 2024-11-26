@@ -1,0 +1,25 @@
+{
+  "materialId" : 107,
+  "materialName" : "thatch",
+  "particleColor" : [225, 191, 150, 255],
+  "itemDrop" : "thatch",
+  "description" : "Traditional thatched roofing.",
+  "shortdescription" : "Thatch",
+  "glitchDescription" : "Delighted. This thatch reminds me of a more simple time.",
+  "floranDescription" : "Dry sstraw roofing.",
+  "novakidDescription" : "A layered roofing piece made outta straw.",
+  "footstepSound" : "/sfx/blocks/footstep_tallgrass.ogg",
+  "health" : 2,
+  "category" : "materials",
+  "damageTable" : "/tiles/flammableDamage.config",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "thatch.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3520
+  }
+}

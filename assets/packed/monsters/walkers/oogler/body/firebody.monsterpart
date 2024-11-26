@@ -1,0 +1,9 @@
+{
+  "name" : "oogler",
+  "category" : "fireoogler",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "fireoogler.png"
+  }
+}

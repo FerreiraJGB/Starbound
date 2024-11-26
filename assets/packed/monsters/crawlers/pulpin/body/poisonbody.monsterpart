@@ -1,0 +1,9 @@
+{
+  "name" : "pulpin",
+  "category" : "poisonpulpin",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "poisonpulpin.png"
+  }
+}

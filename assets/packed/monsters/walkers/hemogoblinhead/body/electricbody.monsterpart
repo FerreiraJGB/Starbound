@@ -1,0 +1,9 @@
+{
+  "name" : "hemogoblinhead",
+  "category" : "electrichemogoblinhead",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "electrichemogoblinhead.png"
+  }
+}

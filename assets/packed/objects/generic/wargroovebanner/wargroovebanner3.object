@@ -1,0 +1,31 @@
+{
+  "objectName" : "wargroovebanner3",
+  "colonyTags" : ["combat"],
+  "rarity" : "Common",
+  "category" : "decorative",
+  "price" : 50,
+  "description" : "An elegant yellow banner from some faraway nation.",
+  "shortdescription" : "Heavensong Banner",
+  "race" : "generic",
+
+  "apexDescription" : "This finely-made banner inspires a sense of pride.",
+  "avianDescription" : "What a well made banner!",
+  "floranDescription" : "Floran wantsss to stab wall thing.",
+  "glitchDescription" : "Curious. I wonder what kingdom this banner hails from?",
+  "humanDescription" : "I wonder where this banner is from? Whoever made it must have been talented.",
+  "hylotlDescription" : "What a simple banner this is.",
+  "novakidDescription" : "Some sorta nation seems to be represented by this.",
+
+  "inventoryIcon" : "wargroovebanner3icon.png",
+  "orientations" : [
+    {
+      "image" : "wargroovebanner3.png:<color>",
+      "imagePosition" : [-8, 0],
+      
+      "direction" : "right",
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "background" ]
+    }
+  ]
+}

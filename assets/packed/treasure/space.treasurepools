@@ -1,0 +1,581 @@
+{
+  // reusables
+
+  "salvageComponent" : [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : "salvagearm"},
+        {"weight" : 1, "item" : "salvagelegs"},
+        {"weight" : 1, "item" : "salvagebody"},
+        {"weight" : 1, "item" : "salvagebooster"}
+      ]
+    }],
+    [2.9, {
+      "pool" : [
+        {"weight" : 2, "item" : "salvagearm"},
+        {"weight" : 1, "item" : "salvagelegs"},
+        {"weight" : 2, "item" : "salvagebody"},
+        {"weight" : 1, "item" : "salvagebooster"},
+        {"weight" : 3, "item" : "salvagetier4"}
+      ]
+    }],
+    [3.9, {
+      "pool" : [
+        {"weight" : 2.5, "item" : "salvagearm"},
+        {"weight" : 1, "item" : "salvagelegs"},
+        {"weight" : 1.5, "item" : "salvagebody"},
+        {"weight" : 1, "item" : "salvagebooster"},
+        {"weight" : 3, "item" : "salvagetier5"}
+      ]
+    }],
+    [4.9, {
+      "pool" : [
+        {"weight" : 3, "item" : "salvagearm"},
+        {"weight" : 1, "item" : "salvagelegs"},
+        {"weight" : 2, "item" : "salvagebody"},
+        {"weight" : 1, "item" : "salvagebooster"},
+        {"weight" : 3.5, "item" : "salvagetier6"}
+      ]
+    }]
+  ],
+
+  "mechPartBlueprint" : [
+    [0, {
+      "pool" : []
+    }],
+    [2.9, {
+      "pool" : [
+        {"weight" : 1, "item" : "mechblueprint3"}
+        // {"weight" : 1, "item" : "mechbodypirate-recipe"},
+        // {"weight" : 1, "item" : "mechbodyreactor-recipe"},
+        // {"weight" : 1, "item" : "mechbodymilitary-recipe"},
+        // {"weight" : 1, "item" : "mechbodybad-recipe"},
+        // {"weight" : 1, "item" : "mechboosterzed-recipe"},
+        // {"weight" : 1, "item" : "mechboosterstalwart-recipe"},
+        // {"weight" : 1, "item" : "mechboosterastro-recipe"},
+        // {"weight" : 1, "item" : "mechlegstwinjet-recipe"},
+        // {"weight" : 1, "item" : "mechlegshopper-recipe"},
+        // {"weight" : 1, "item" : "mechlegsarc-recipe"},
+        // {"weight" : 1, "item" : "mecharmheatrifle-recipe"},
+        // {"weight" : 1, "item" : "mecharmtommygun-recipe"}
+      ]
+    }],
+    [3.9, {
+      "pool" : [
+        {"weight" : 1, "item" : "mechblueprint4"}
+        // {"weight" : 1, "item" : "mechboostersleek-recipe"},
+        // {"weight" : 1, "item" : "mechlegssleek-recipe"},
+        // {"weight" : 1, "item" : "mecharmcannon-recipe"},
+        // {"weight" : 1, "item" : "mecharmgatling-recipe"},
+        // {"weight" : 1, "item" : "mecharmchainsaw-recipe"},
+        // {"weight" : 1, "item" : "mecharmhomingmissile-recipe"},
+        // {"weight" : 1, "item" : "mecharmplasmadrone-recipe"},
+        // {"weight" : 1, "item" : "mecharmclustermine-recipe"},
+        // {"weight" : 1, "item" : "mecharmwobbleshot-recipe"}
+      ]
+    }],
+    [4.9, {
+      "pool" : [
+        {"weight" : 1, "item" : "mechblueprint5"}
+        // {"weight" : 1, "item" : "mechbodyhero-recipe"},
+        // {"weight" : 1, "item" : "mechbodyskull-recipe"},
+        // {"weight" : 1, "item" : "mechbodyshark-recipe"},
+        // {"weight" : 1, "item" : "mechboostergallant-recipe"},
+        // {"weight" : 1, "item" : "mechboosterzero-recipe"},
+        // {"weight" : 1, "item" : "mechboosterhammer-recipe"},
+        // {"weight" : 1, "item" : "mechlegsronin-recipe"},
+        // {"weight" : 1, "item" : "mechlegsintrepid-recipe"},
+        // {"weight" : 1, "item" : "mechlegshermes-recipe"},
+        // {"weight" : 1, "item" : "mecharmenergyrifle-recipe"},
+        // {"weight" : 1, "item" : "mecharmdualrifle-recipe"},
+        // {"weight" : 1, "item" : "mecharmenergyblade-recipe"},
+        // {"weight" : 1, "item" : "mecharmguidedmissiles-recipe"},
+        // {"weight" : 1, "item" : "mecharmshielddrone-recipe"},
+        // {"weight" : 1, "item" : "mecharmspikefist-recipe"},
+        // {"weight" : 1, "item" : "mecharmbeamdrill-recipe"}
+      ]
+    }],
+    [5.9, {
+      "pool" : [
+        {"weight" : 0.7, "item" : "mechblueprint5"},
+        {"weight" : 0.3, "item" : "mechblueprint6"}
+        // {"weight" : 1, "item" : "mechbodyhero-recipe"},
+        // {"weight" : 1, "item" : "mechbodyskull-recipe"},
+        // {"weight" : 1, "item" : "mechbodyshark-recipe"},
+        // {"weight" : 1, "item" : "mechboostergallant-recipe"},
+        // {"weight" : 1, "item" : "mechboosterzero-recipe"},
+        // {"weight" : 1, "item" : "mechboosterhammer-recipe"},
+        // {"weight" : 1, "item" : "mechlegsronin-recipe"},
+        // {"weight" : 1, "item" : "mechlegsintrepid-recipe"},
+        // {"weight" : 1, "item" : "mechlegshermes-recipe"},
+        // {"weight" : 1, "item" : "mecharmenergyrifle-recipe"},
+        // {"weight" : 1, "item" : "mecharmdualrifle-recipe"},
+        // {"weight" : 1, "item" : "mecharmenergyblade-recipe"},
+        // {"weight" : 1, "item" : "mecharmguidedmissiles-recipe"},
+        // {"weight" : 1, "item" : "mecharmshielddrone-recipe"},
+        // {"weight" : 1, "item" : "mecharmspikefist-recipe"},
+        // {"weight" : 1, "item" : "mecharmbeamdrill-recipe"},
+        // {"weight" : 1, "item" : "mechbodyexodus-recipe"},
+        // {"weight" : 1, "item" : "mechbodyiris-recipe"},
+        // {"weight" : 1, "item" : "mecharmmultidrone-recipe"},
+        // {"weight" : 1, "item" : "mecharmbeamsniper-recipe"},
+        // {"weight" : 1, "item" : "mecharmgravitymine-recipe"},
+        // {"weight" : 1, "item" : "mecharmteslastream-recipe"}
+      ]
+    }]
+  ],
+
+  "mechHorn" : [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : "mechhornairhorn"},
+        {"weight" : 1, "item" : "mechhornbull"},
+        {"weight" : 1, "item" : "mechhorncharge"},
+        {"weight" : 1, "item" : "mechhornclownhorn"},
+        {"weight" : 1, "item" : "mechhornfoghorn"},
+        {"weight" : 1, "item" : "mechhornsteamwhistle"},
+        {"weight" : 1, "item" : "mechhorntrain"},
+        {"weight" : 1, "item" : "mechhorntoy"},
+        {"weight" : 1, "item" : "mechhornsportshorn"},
+        {"weight" : 1, "item" : "mechhorntruck"},
+        {"weight" : 1, "item" : "mechhornlacucha"},
+        {"weight" : 1, "item" : "mechhornrobotvoice"},
+        {"weight" : 1, "item" : "mechhornrubberduck"},
+        {"weight" : 1, "item" : "mechhornbikebell"}
+      ]
+    }]
+  ],
+
+  "spaceWeapon" : [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : "electrobaton"},
+        {"weight" : 1, "item" : "raygun"}
+      ]
+    }],
+    [5.9, {
+      "pool" : [
+        {"weight" : 0.5, "item" : "electrobaton"},
+        {"weight" : 0.5, "item" : "raygun"},
+        {"weight" : 1, "item" : "spaceplasmarifle"},
+        {"weight" : 1, "item" : "drillspear"}
+      ]
+    }]
+  ],
+
+  "spaceObject" : [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : "telescope"},
+        {"weight" : 1, "item" : "solarpanel"}
+      ]
+    }],
+    [5.9, {
+      "pool" : [
+        {"weight" : 1, "item" : "telescope"},
+        {"weight" : 1, "item" : "solarpanel"},
+        {"weight" : 1, "item" : "lunarlander"},
+        {"weight" : 1, "item" : "spaceslideshow"}
+      ]
+    }]
+  ],
+
+  "spaceCostume" : [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : "industrialcrewhead"},
+        {"weight" : 1, "item" : "spacebirdhead"},
+        {"weight" : 1, "item" : "mechpilothead"}
+      ]
+    }],
+    [5.9, {
+      "pool" : [
+        {"weight" : 1, "item" : "industrialcrewhead"},
+        {"weight" : 1, "item" : "spacebirdhead"},
+        {"weight" : 1, "item" : "mechpilothead"},
+        {"weight" : 1, "item" : "premierhead"},
+        {"weight" : 1, "item" : "premierchest"},
+        {"weight" : 1, "item" : "premierpants"}
+      ]
+    }]
+  ],
+
+  "spaceInstrument" : [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : "squarewave"},
+        {"weight" : 1, "item" : "spaceorgan"}
+      ]
+    }]
+  ],
+
+  "slopedMaterial" : [
+    [0, {
+      "pool" : [
+        {"weight" : 0.25, "item" : ["slopedinsetpanel", 50]},
+        {"weight" : 0.25, "item" : ["slopedhullpanel", 50]},
+        {"weight" : 0.25, "item" : ["slopedscrappanel", 50]},
+        {"weight" : 0.25, "item" : ["slopedglasspanel", 50]},
+        {"weight" : 0.25, "item" : ["slopedrustypanel", 50]}
+      ]
+    }]
+  ],
+
+  "commonSpaceItem" : [
+    [0, {
+      "pool" : [
+        {"weight" : 0.75, "pool" : "salvageComponent"},
+        {"weight" : 0.20, "pool" : "nonTieredRichOre"},
+        {"weight" : 0.05, "pool" : "slopedMaterial"}
+      ]
+    }]
+  ],
+
+  "rareSpaceItem" : [
+    [0, {
+      "pool" : [
+        {"weight" : 0.10, "item" : ["slopedinsetpanel", 200]},
+        {"weight" : 0.10, "item" : ["slopedhullpanel", 200]},
+        {"weight" : 0.10, "item" : ["slopedscrappanel", 200]},
+        {"weight" : 0.10, "item" : ["slopedrustypanel", 200]},
+        {"weight" : 0.15, "item" : "techcard"},
+        {"weight" : 0.10, "item" : "manipulatormodule"},
+        {"weight" : 0.10, "item" : ["manipulatormodule", 2]},
+        {"weight" : 0.10, "item" : "upgrademodule"},
+        {"weight" : 0.05, "item" : "teleportercore"},
+        {"weight" : 0.03, "pool" : "mechHorn"},
+        {"weight" : 0.02, "pool" : "augments"},
+        {"weight" : 0.02, "pool" : "spaceWeapon"},
+        {"weight" : 0.01, "pool" : "spaceObject"},
+        {"weight" : 0.01, "pool" : "spaceInstrument"},
+        {"weight" : 0.01, "pool" : "spaceCostume"}
+      ]
+    }],
+    [2.9, {
+      "pool" : [
+        {"weight" : 0.50, "pool" : "mechPartBlueprint"},
+        {"weight" : 0.03, "pool" : "mechHorn"},
+        {"weight" : 0.13, "item" : "techcard"},
+        {"weight" : 0.07, "item" : "manipulatormodule"},
+        {"weight" : 0.08, "item" : ["manipulatormodule", 2]},
+        {"weight" : 0.10, "item" : "upgrademodule"},
+        {"weight" : 0.02, "item" : "teleportercore"},
+        {"weight" : 0.02, "pool" : "augments"},
+        {"weight" : 0.02, "pool" : "spaceWeapon"},
+        {"weight" : 0.01, "pool" : "spaceObject"},
+        {"weight" : 0.01, "pool" : "spaceInstrument"},
+        {"weight" : 0.01, "pool" : "spaceCostume"}
+      ]
+    }]
+  ],
+
+  // general containers
+
+  "spaceTrash" : [
+    [0, {
+      "poolRounds" : [
+        [0.3, 0],
+        [0.4, 1],
+        [0.3, 2]
+      ],
+      "pool" : [
+        {"weight" : 1, "item" : ["slopedinsetpanel", 25]},
+        {"weight" : 1, "item" : ["slopedhullpanel", 25]},
+        {"weight" : 1, "item" : ["slopedscrappanel", 25]},
+        {"weight" : 1, "item" : ["slopedrustypanel", 25]},
+        {"weight" : 1, "item" : ["meteoriterock", 25]},
+        {"weight" : 1, "item" : ["moonrock", 25]},
+        {"weight" : 1, "item" : ["moondust", 25]},
+        {"weight" : 3, "item" : "soggypaper"},
+        {"weight" : 3, "pool" : "money"}
+      ]
+    }]
+  ],
+
+  "capsulespace" : [
+    [0, {
+      "fill" : [
+        {"pool" : "salvageComponent"},
+        {"pool" : "salvageComponent"}
+      ],
+      "poolRounds" : [
+        [0.3, 0],
+        [0.4, 1],
+        [0.3, 2]
+      ],
+      "pool" : [
+        {"weight" : 0.4, "pool" : "chestMoney"},
+        {"weight" : 0.5, "pool" : "commonSpaceItem"},
+        {"weight" : 0.1, "pool" : "mechPartBlueprint"}
+      ],
+      "allowDuplication" : true
+    }]
+  ],
+
+  "basicSpaceTreasure" : [
+    [0, {
+      "poolRounds" : [
+        [0.4, 1],
+        [0.3, 2],
+        [0.3, 3]
+      ],
+      "pool" : [
+        {"weight" : 0.33, "pool" : "chestMoney"},
+        {"weight" : 0.60, "pool" : "commonSpaceItem"},
+        {"weight" : 0.07, "pool" : "rareSpaceItem"}
+      ],
+      "allowDuplication" : true
+    }]
+  ],
+
+  "spaceChestTreasure" : [
+    [0, {
+      "fill" : [
+        {"pool" : "rareSpaceItem"}
+      ],
+      "poolRounds" : [
+        [0.2, 1],
+        [0.5, 2],
+        [0.2, 3],
+        [0.1, 4]
+      ],
+      "pool" : [
+        {"weight" : 0.32, "pool" : "chestMoney"},
+        {"weight" : 0.65, "pool" : "commonSpaceItem"},
+        {"weight" : 0.03, "pool" : "rareSpaceItem"}
+      ],
+      "allowDuplication" : false
+    }]
+  ],
+
+  // encounter-specific containers
+
+  "industrialcargoCanister" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.33, "item" : [ "liquidfuel", 10]},
+        {"weight" : 0.33, "item" : [ "liquidfuel", 25]},
+        {"weight" : 0.33, "item" : [ "liquidfuel", 5]}
+      ],
+      "poolRounds" : [
+        [0.50, 1],
+        [0.30, 2],
+        [0.20, 3]
+      ],
+      "allowDuplication" : true
+    }]
+  ],
+
+  "industrialLargeCargoCanister" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.33, "item" : [ "liquidfuel", 400]},
+        {"weight" : 0.33, "item" : [ "liquidfuel", 500]},
+        {"weight" : 0.33, "item" : [ "liquidfuel", 550]}
+      ],
+      "poolRounds" : [
+        [1.0, 1]
+      ],
+      "allowDuplication" : true
+    }]
+  ],
+  "humanspacecodex" : [
+    [1, {
+      "fill" : [
+        {"item" : [ "humanspace1-codex", 1]}
+      ]
+    }]
+  ],
+
+  "hylotlspacecodex" : [
+    [1, {
+      "fill" : [
+        {"item" : [ "hylotlspace1-codex", 1]}
+      ]
+    }]
+  ],
+
+  "apexspacecodex" : [
+    [1, {
+      "fill" : [
+        {"item" : [ "apexspace1-codex", 1]}
+      ]
+    }]
+  ],
+
+  "dinerChest" : [
+    [1, {
+      "fill" : [
+        {"item" : [ "spacebarbottom", 1]}
+      ]
+    }]
+  ],
+
+  "cultistshipChest" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.85, "item" : [ "mechbodycultist-recipe", 1]},
+        {"weight" : 0.1, "pool" : "commonSpaceItem"},
+        {"weight" : 0.05, "pool" : "rareSpaceItem"}
+      ],
+      "poolRounds" : [
+        [0.50, 2],
+        [0.30, 3],
+        [0.20, 4]
+      ],
+      "allowDuplication" : false
+    }],
+    [5.9, {
+      "pool" : [
+        {"weight" : 0.85, "item" : [ "mechbodycultist2-recipe", 1]},
+        {"weight" : 0.1, "pool" : "commonSpaceItem"},
+        {"weight" : 0.05, "pool" : "rareSpaceItem"}
+      ],
+      "poolRounds" : [
+        [0.50, 2],
+        [0.30, 3],
+        [0.20, 4]
+      ],
+      "allowDuplication" : false
+    }]
+  ],
+
+  "miniknogshipChest" : [
+    [1, {
+      "fill" : [
+        {"weight" : 0.95, "pool" : "commonSpaceItem"},
+        {"weight" : 0.05, "pool" : "rareSpaceItem"}
+      ],
+      "poolRounds" : [
+        [0.50, 2],
+        [0.30, 3],
+        [0.20, 4]
+      ],
+      "allowDuplication" : false
+    }],
+    [5.9, {
+      "fill" : [
+        {"weight" : 0.85, "item" : [ "mechbodyminiknog-recipe", 1]},
+        {"weight" : 0.1, "pool" : "commonSpaceItem"},
+        {"weight" : 0.05, "pool" : "rareSpaceItem"}
+      ],
+      "poolRounds" : [
+        [0.50, 2],
+        [0.30, 3],
+        [0.20, 4]
+      ],
+      "allowDuplication" : false
+    }]
+  ],
+
+  "protectorateshipChest" : [
+    [1, {
+      "fill" : [
+        {"weight" : 0.95, "pool" : "commonSpaceItem"},
+        {"weight" : 0.05, "pool" : "rareSpaceItem"}
+      ],
+      "poolRounds" : [
+        [0.50, 2],
+        [0.30, 3],
+        [0.20, 4]
+      ],
+      "allowDuplication" : false
+    }],
+    [5.9, {
+      "fill" : [
+        {"weight" : 0.95, "item" : [ "mechbodyprotector-recipe", 1]},
+        {"weight" : 0.05, "pool" : "commonSpaceItem"},
+        {"weight" : 0.05, "pool" : "rareSpaceItem"}
+      ],
+      "poolRounds" : [
+        [0.50, 3],
+        [0.30, 4],
+        [0.20, 5]
+      ],
+      "allowDuplication" : false
+    }]
+  ],
+
+  "penguinshipChest" : [
+    [1, {
+      "fill" : [
+        {"item" : [ "mechbodypenguin-recipe", 1]},
+        {"pool" : "penguinshipCodex"},
+        {"pool" : "commonSpaceItem"}
+      ],
+      "allowDuplication" : false
+    }]
+  ],
+
+  "penguinshipCodex" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.1, "item" : [ "castleking01-codex", 1]},
+        {"weight" : 0.1, "item" : [ "castleking02-codex", 1]},
+        {"weight" : 0.1, "item" : [ "castleking03-codex", 1]},
+        {"weight" : 0.1, "item" : [ "castleking04-codex", 1]},
+        {"weight" : 0.1, "item" : [ "castleking05-codex", 1]},
+        {"weight" : 0.1, "item" : [ "castleking06-codex", 1]}
+      ],
+      "poolRounds" : [
+        [1, 1]
+      ],
+      "allowDuplication" : false
+    }]
+  ],
+
+  // monsters
+
+  "spaceRobotPassive" : [
+    [0, {}],
+    [2.9, {
+      "pool" : [
+        {"weight" : 0.35, "pool" : "money"},
+        {"weight" : 0.05, "item" : "stickofram"},
+        {"weight" : 0.05, "item" : "siliconboard"},
+        {"weight" : 0.05, "item" : "wire"},
+        {"weight" : 0.5, "pool" : "salvageComponent"}
+      ],
+      "poolRounds" : [
+        [0.75, 0],
+        [0.25, 1]
+      ],
+      "allowDuplication" : true
+    }]
+  ],
+
+  "spaceRobot" : [
+    [0, {}],
+    [2.9, {
+      "pool" : [
+        {"weight" : 0.10, "pool" : "money"},
+        {"weight" : 0.05, "item" : "stickofram"},
+        {"weight" : 0.05, "item" : "siliconboard"},
+        {"weight" : 0.05, "item" : "wire"},
+        {"weight" : 0.75, "pool" : "salvageComponent"}
+      ],
+      "poolRounds" : [
+        [0.25, 0],
+        [0.75, 1]
+      ],
+      "allowDuplication" : true
+    }]
+  ],
+
+  "spaceRock" : [
+    [0, {}],
+    [2.9, {
+      "pool" : [
+        {"weight" : 0.5, "pool" : "money"},
+        {"weight" : 0.25, "pool" : "nonTieredOre"},
+        {"weight" : 0.25, "item" : ["meteoriterock", 5]}
+      ],
+      "poolRounds" : [
+        [0.20, 0],
+        [0.80, 1]
+      ],
+      "allowDuplication" : true
+    }]
+  ]
+}
+

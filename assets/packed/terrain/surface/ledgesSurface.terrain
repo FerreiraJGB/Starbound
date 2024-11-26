@@ -1,0 +1,50 @@
+{
+  "name" : "ledgesSurface",
+
+  //jaggy ledges
+  "type" : "displacement",
+  "xType" : "perlin",
+  "xOctaves" : 2,
+  "xFreq" : 0.08,
+  "xAmp" : 30,
+  "xXInfluence" : 0.1,
+  "yType" : "perlin",
+  "yOctaves" : 1,
+  "yFreq" : 0.1,
+  "yAmp" : 0,
+  "yYInfluence" : 0,
+
+  "source" : {
+    //slightly shakey hills
+    "type" : "displacement",
+    "xType" : "perlin",
+    "xOctaves" : 1,
+    "xFreq" : 0.02,
+    "xAmp" : 10,
+    "yType" : "perlin",
+    "yOctaves" : 2,
+    "yFreq" : 0.012,
+    "yAmp" : 60,
+    "yYInfluence" : 0.2,
+
+    "source" : {
+      //base terrain height variation
+      "type" : "displacement",
+      "xType" : "perlin",
+      "xOctaves" : 2,
+      "xFreq" : 0.02,
+      "xAmp" : 0,
+      "yType" : "perlin",
+      "yOctaves" : 1,
+      "yFreq" : 0.001,
+      "yAmp" : 70,
+      "yYInfluence" : 0,
+
+      "source" : {
+        "type" : "flatSurface",
+
+        "adjustment" : 20
+      }
+    }
+  }
+}

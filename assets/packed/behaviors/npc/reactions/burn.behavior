@@ -1,0 +1,51 @@
+{
+  "name": "reaction-burn",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/status.lua",
+    "/scripts/actions/npc.lua",
+    "/scripts/behavior.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "addEphemeralEffect",
+        "type": "action",
+        "name": "addEphemeralEffect",
+        "parameters": {
+          "name": {"value": "burning"}
+        }
+      },
+      {
+        "title": "emote",
+        "type": "action",
+        "name": "emote",
+        "parameters": {
+          "emote": {"value": "oooh"}
+        }
+      },
+      {
+        "title": "setEntity",
+        "type": "action",
+        "name": "setEntity",
+        "parameters": {
+          "entity": {"key": "reactTarget"}
+        },
+        "output": {
+          "entity": "fleeTarget"
+        }
+      },
+      {
+        "title": "/behaviors/npc/runaway.behavior",
+        "type": "module",
+        "name": "Run Away",
+        "parameters": {}
+      }
+    ]
+  }
+}

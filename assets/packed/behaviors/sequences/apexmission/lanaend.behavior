@@ -1,0 +1,480 @@
+{
+  "name": "lanaend",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/notification.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/query.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/dialog.lua",
+    "/scripts/actions/npc.lua",
+    "/scripts/actions/status.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "dynamic",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": "receivedNotification",
+            "type": "action",
+            "name": "receivedNotification",
+            "parameters": {
+              "type": {"value": "playerArrived"}
+            }
+          },
+          {
+            "title": "runner",
+            "type": "action",
+            "name": "runner",
+            "parameters": {}
+          }
+        ]
+      },
+      {
+        "title": "succeeder",
+        "type": "decorator",
+        "name": "succeeder",
+        "parameters": {},
+        "child": {
+          "title": "parallel",
+          "type": "composite",
+          "name": "parallel",
+          "parameters": {
+            "fail": {"value": 1},
+            "success": {"value": -1}
+          },
+          "children": [
+            {
+              "title": "succeeder",
+              "type": "decorator",
+              "name": "succeeder",
+              "parameters": {},
+              "child": {
+                "title": "openDoors",
+                "type": "action",
+                "name": "openDoors",
+                "parameters": {
+                  "direction": {"value": 1},
+                  "distance": {"value": 3}
+                }
+              }
+            },
+            {
+              "title": "move",
+              "type": "action",
+              "name": "move",
+              "parameters": {
+                "direction": {"value": 1},
+                "run": {"value": true}
+              }
+            },
+            {
+              "title": "inverter",
+              "type": "decorator",
+              "name": "inverter",
+              "parameters": {},
+              "child": {
+                "title": "findObject",
+                "type": "action",
+                "name": "findObject",
+                "parameters": {
+                  "name": {"value": "apexartifactaltar"},
+                  "orderBy": {"value": "nearest"},
+                  "position": {"key": "self"},
+                  "range": {"value": 3}
+                },
+                "output": {
+                  "entity": "altar"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": -1},
+          "success": {"value": 1}
+        },
+        "children": [
+          {
+            "title": "failer",
+            "type": "decorator",
+            "name": "failer",
+            "parameters": {},
+            "child": {
+              "title": "controlMove",
+              "type": "action",
+              "name": "controlMove",
+              "parameters": {
+                "direction": {"value": 1},
+                "run": {"value": false}
+              }
+            }
+          },
+          {
+            "title": "succeeder",
+            "type": "decorator",
+            "name": "succeeder",
+            "parameters": {},
+            "child": {
+              "title": "timer",
+              "type": "action",
+              "name": "timer",
+              "parameters": {
+                "time": {"value": 0.5}
+              }
+            }
+          }
+        ]
+      },
+      {
+        "title": "faceDirection",
+        "type": "action",
+        "name": "faceDirection",
+        "parameters": {
+          "direction": {"value": -1}
+        }
+      },
+      {
+        "title": "dynamic",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": "queryEntity",
+            "type": "action",
+            "name": "queryEntity",
+            "parameters": {
+              "entityTypes": {"value": ["player"]},
+              "orderBy": {"value": "nearest"},
+              "position": {"key": "self"},
+              "range": {"value": 10},
+              "withoutEntity": {"key": "self"}
+            },
+            "output": {
+              "entity": "player"
+            }
+          },
+          {
+            "title": "runner",
+            "type": "action",
+            "name": "runner",
+            "parameters": {}
+          }
+        ]
+      },
+      {
+        "title": "entityDirection",
+        "type": "action",
+        "name": "entityDirection",
+        "parameters": {
+          "entity": {"key": "self"},
+          "target": {"key": "player"}
+        },
+        "output": {
+          "direction": "direction"
+        }
+      },
+      {
+        "title": "faceDirection",
+        "type": "action",
+        "name": "faceDirection",
+        "parameters": {
+          "direction": {"key": "direction"}
+        }
+      },
+      {
+        "title": "sequentialdialog",
+        "type": "module",
+        "name": "sequentialdialog",
+        "parameters": {
+          "dialogWaitTime": {"value": 4},
+          "dialogEndWait": {"value": 2},
+          "dialogKey": {"value": "dialog.lana.end"},
+          "dialogTarget": {"key": "player"}
+        }
+      },
+      {
+        "title": "dynamic",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": "cooldown",
+            "type": "decorator",
+            "name": "cooldown",
+            "parameters": {
+              "cooldown": {"value": 1},
+              "onFail": {"value": true},
+              "onSuccess": {"value": true}
+            },
+            "child": {
+              "title": "sendEntityMessage",
+              "type": "action",
+              "name": "sendEntityMessage",
+              "parameters": {
+                "entity": {"key": "altar"},
+                "message": {"value": "setInteractive"}
+              }
+            }
+          },
+          {
+            "title": "runner",
+            "type": "action",
+            "name": "runner",
+            "parameters": {}
+          }
+        ]
+      },
+      {
+        "title": "dynamic",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": "receivedNotification",
+            "type": "action",
+            "name": "receivedNotification",
+            "parameters": {
+              "type": {"value": "artifactTaken"}
+            }
+          },
+          {
+            "title": "runner",
+            "type": "action",
+            "name": "runner",
+            "parameters": {}
+          }
+        ]
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 1}
+        }
+      },
+      {
+        "title": "findObject",
+        "type": "action",
+        "name": "findObject",
+        "parameters": {
+          "name": {"value": "arkteleporter"},
+          "orderBy": {"value": "nearest"},
+          "position": {"key": "self"},
+          "range": {"value": 30}
+        },
+        "output": {
+          "entity": "arkteleporter"
+        }
+      },
+      {
+        "title": "entityPosition",
+        "type": "action",
+        "name": "entityPosition",
+        "parameters": {
+          "entity": {"key": "arkteleporter"}
+        },
+        "output": {
+          "position": "arkteleporter"
+        }
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": -1},
+          "success": {"value": 1}
+        },
+        "children": [
+          {
+            "title": "succeeder",
+            "type": "decorator",
+            "name": "succeeder",
+            "parameters": {},
+            "child": {
+              "title": "moveToPosition",
+              "type": "action",
+              "name": "moveToPosition",
+              "parameters": {
+                "avoidLiquid": {"value": true},
+                "groundPosition": {"value": true},
+                "maxGround": {"value": 5},
+                "minGround": {"value": -5},
+                "pathOptions": {"value": {}},
+                "position": {"key": "arkteleporter"},
+                "run": {"value": false}
+              },
+              "output": {
+                "pathfinding": "isPathfinding"
+              }
+            }
+          },
+          {
+            "title": "failer",
+            "type": "decorator",
+            "name": "failer",
+            "parameters": {},
+            "child": {
+              "title": "openDoors",
+              "type": "action",
+              "name": "openDoors",
+              "parameters": {
+                "direction": {"key": "facingDirection"},
+                "distance": {"value": 3},
+                "openLocked": {"value": true}
+              }
+            }
+          }
+        ]
+      },
+      {
+        "title": "reverseDirection",
+        "type": "action",
+        "name": "reverseDirection",
+        "parameters": {
+          "direction": {"key": "facingDirection"}
+        },
+        "output": {
+          "direction": "back"
+        }
+      },
+      {
+        "title": "faceDirection",
+        "type": "action",
+        "name": "faceDirection",
+        "parameters": {
+          "direction": {"key": "back"}
+        }
+      },
+      {
+        "title": "dynamic",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": "queryEntity",
+            "type": "action",
+            "name": "queryEntity",
+            "parameters": {
+              "entityTypes": {"value": ["player"]},
+              "orderBy": {"value": "nearest"},
+              "position": {"key": "self"},
+              "range": {"value": 10},
+              "withoutEntity": {"key": "self"}
+            },
+            "output": {
+              "entity": "player"
+            }
+          },
+          {
+            "title": "runner",
+            "type": "action",
+            "name": "runner",
+            "parameters": {}
+          }
+        ]
+      },
+      {
+        "title": "sayToEntity",
+        "type": "action",
+        "name": "sayToEntity",
+        "parameters": {
+          "dialogType": {"value": "dialog.lana.teleporter"},
+          "entity": {"key": "player"},
+          "tags": {"value": {}}
+        }
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 3}
+        }
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "playersInWorld",
+            "type": "action",
+            "name": "playersInWorld",
+            "parameters": {},
+            "output": {
+              "list": "players"
+            }
+          },
+          {
+            "title": "each",
+            "type": "decorator",
+            "name": "each",
+            "parameters": {
+              "list": {"key": "players"},
+              "type": {"value": "entity"}
+            },
+            "child": {
+              "title": "succeeder",
+              "type": "decorator",
+              "name": "succeeder",
+              "parameters": {},
+              "child": {
+                "title": "sendEntityMessage",
+                "type": "action",
+                "name": "sendEntityMessage",
+                "parameters": {
+                  "arguments": {"value": ["/cinematics/story/lanaatoutpost.cinematic", true]},
+                  "entity": {"key": "eachItem"},
+                  "message": {"value": "playCinematic"}
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "title": "setDeathParticleBurst",
+        "type": "action",
+        "name": "setDeathParticleBurst",
+        "parameters": {}
+      },
+      {
+        "title": "addEphemeralEffect",
+        "type": "action",
+        "name": "addEphemeralEffect",
+        "parameters": {
+          "name": {"value": "beamoutanddie"}
+        }
+      },
+      {
+        "title": "runner",
+        "type": "action",
+        "name": "runner",
+        "parameters": {}
+      }
+    ]
+  }
+}

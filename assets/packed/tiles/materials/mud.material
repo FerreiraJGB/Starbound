@@ -1,0 +1,26 @@
+{
+  "materialId" : 53,
+  "materialName" : "mud",
+  "particleColor" : [127, 121, 102, 255],
+  "itemDrop" : "mud",
+  "description" : "Thick and sticky mud.",
+  "shortdescription" : "Mud",
+  "glitchDescription" : "Disgusted. This mud is thick and sticky.",
+  "floranDescription" : "Floran likess muddy messsss.",
+  "novakidDescription" : "Looks t'me like a buncha mud.",
+  "footstepSound" : "/sfx/blocks/footstep_mud.ogg",
+  "tillableMod" : 31,
+  "soil" : true,
+  "health" : 1,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "mud.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 1820
+  }
+}

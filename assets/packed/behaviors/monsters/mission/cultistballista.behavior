@@ -1,0 +1,736 @@
+{
+  "name": "cultistballista",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/world.lua",
+    "/scripts/behavior.lua",
+    "/scripts/actions/query.lua",
+    "/scripts/actions/position.lua",
+    "/scripts/behavior/bdata.lua",
+    "/scripts/actions/math.lua",
+    "/scripts/actions/animator.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/projectiles.lua"
+  ],
+  "parameters": {
+    "cannonRotationCenter": [0, 1.5],
+    "projectileSpawnOffset": [4, 1.5],
+    "rotationSpeed": 0.1,
+    "minFireAngle": 0.25,
+    "maxFireAngle": 0.9
+  },
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "loadUniqueEntity",
+        "type": "action",
+        "name": "loadUniqueEntity",
+        "parameters": {
+          "uniqueId": {"value": "ballistafireposition"}
+        },
+        "output": {
+          "entity": "stagehand"
+        }
+      },
+      {
+        "title": "entityPosition",
+        "type": "action",
+        "name": "entityPosition",
+        "parameters": {
+          "entity": {"key": "stagehand"}
+        },
+        "output": {
+          "position": "firePosition"
+        }
+      },
+      {
+        "title": "setNumber",
+        "type": "action",
+        "name": "setNumber",
+        "parameters": {
+          "number": {"value": 0}
+        },
+        "output": {
+          "number": "angle"
+        }
+      },
+      {
+        "title": "repeater",
+        "type": "decorator",
+        "name": "repeater",
+        "parameters": {
+          "maxLoops": {"value": -1},
+          "untilSuccess": {"value": false}
+        },
+        "child": {
+          "title": "sequence",
+          "type": "composite",
+          "name": "sequence",
+          "parameters": {},
+          "children": [
+            {
+              "title": "dynamic",
+              "type": "composite",
+              "name": "dynamic",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "parallel",
+                  "type": "composite",
+                  "name": "parallel",
+                  "parameters": {
+                    "fail": {"value": 1},
+                    "success": {"value": -1}
+                  },
+                  "children": [
+                    {
+                      "title": "selector",
+                      "type": "composite",
+                      "name": "selector",
+                      "parameters": {},
+                      "children": [
+                        {
+                          "title": "findNpc",
+                          "type": "action",
+                          "name": "findNpc",
+                          "parameters": {
+                            "orderBy": {"value": "nearest"},
+                            "position": {"key": "self"},
+                            "range": {"value": 8},
+                            "type": {"value": "cultistknight"}
+                          }
+                        },
+                        {
+                          "title": "findNpc",
+                          "type": "action",
+                          "name": "findNpc",
+                          "parameters": {
+                            "orderBy": {"value": "nearest"},
+                            "position": {"key": "self"},
+                            "range": {"value": 8},
+                            "type": {"value": "cultistarcher"}
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "title": "dynamic",
+                      "type": "composite",
+                      "name": "dynamic",
+                      "parameters": {},
+                      "children": [
+                        {
+                          "title": "sequence",
+                          "type": "composite",
+                          "name": "sequence",
+                          "parameters": {},
+                          "children": [
+                            {
+                              "title": "distance",
+                              "type": "action",
+                              "name": "distance",
+                              "parameters": {
+                                "from": {"key": "self"},
+                                "to": {"key": "firePosition"}
+                              },
+                              "output": {
+                                "vector": "toFirePosition"
+                              }
+                            },
+                            {
+                              "title": "breakVector",
+                              "type": "action",
+                              "name": "breakVector",
+                              "parameters": {
+                                "vector": {"key": "toFirePosition"}
+                              },
+                              "output": {
+                                "x": "fireX"
+                              }
+                            },
+                            {
+                              "title": "greaterThan",
+                              "type": "action",
+                              "name": "greaterThan",
+                              "parameters": {
+                                "first": {"key": "fireX"},
+                                "second": {"value": 0}
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "title": "sequence",
+                          "type": "composite",
+                          "name": "sequence",
+                          "parameters": {},
+                          "children": [
+                            {
+                              "title": "setAnimationState",
+                              "type": "action",
+                              "name": "setAnimationState",
+                              "parameters": {
+                                "state": {"value": "move"},
+                                "type": {"value": "body"}
+                              }
+                            },
+                            {
+                              "title": "move",
+                              "type": "action",
+                              "name": "move",
+                              "parameters": {
+                                "direction": {"value": -1},
+                                "run": {"value": false}
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "title": "sequence",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "setNumber",
+                      "type": "action",
+                      "name": "setNumber",
+                      "parameters": {
+                        "number": {"key": "angle"}
+                      },
+                      "output": {
+                        "number": "startAngle"
+                      }
+                    },
+                    {
+                      "title": "parallel",
+                      "type": "composite",
+                      "name": "parallel",
+                      "parameters": {
+                        "fail": {"value": -1},
+                        "success": {"value": -1}
+                      },
+                      "children": [
+                        {
+                          "title": "timer",
+                          "type": "action",
+                          "name": "timer",
+                          "parameters": {
+                            "time": {"value": 0.5}
+                          },
+                          "output": {
+                            "ratio": "angleFactor"
+                          }
+                        },
+                        {
+                          "title": "sequence",
+                          "type": "composite",
+                          "name": "sequence",
+                          "parameters": {},
+                          "children": [
+                            {
+                              "title": "lerp",
+                              "type": "action",
+                              "name": "lerp",
+                              "parameters": {
+                                "max": {"key": "startAngle"},
+                                "min": {"value": 0},
+                                "ratio": {"key": "angleFactor"}
+                              },
+                              "output": {
+                                "number": "angle"
+                              }
+                            },
+                            {
+                              "title": "resetTransformationGroup",
+                              "type": "action",
+                              "name": "resetTransformationGroup",
+                              "parameters": {
+                                "transformationGroup": {"value": "cannon"}
+                              }
+                            },
+                            {
+                              "title": "rotateTransformationGroup",
+                              "type": "action",
+                              "name": "rotateTransformationGroup",
+                              "parameters": {
+                                "angle": {"key": "angle"},
+                                "rotationCenter": {"key": "<cannonRotationCenter>"},
+                                "transformationGroup": {"value": "cannon"}
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "title": "setAnimationState",
+                      "type": "action",
+                      "name": "setAnimationState",
+                      "parameters": {
+                        "state": {"value": "idle"},
+                        "type": {"value": "body"}
+                      }
+                    },
+                    {
+                      "title": "runner",
+                      "type": "action",
+                      "name": "runner",
+                      "parameters": {}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "setAnimationState",
+              "type": "action",
+              "name": "setAnimationState",
+              "parameters": {
+                "state": {"value": "idle"},
+                "type": {"value": "body"}
+              }
+            },
+            {
+              "title": "setNumber",
+              "type": "action",
+              "name": "setNumber",
+              "parameters": {
+                "number": {"key": "angle"}
+              },
+              "output": {
+                "number": "startAngle"
+              }
+            },
+            {
+              "title": "setAnimationState",
+              "type": "action",
+              "name": "setAnimationState",
+              "parameters": {
+                "state": {"value": "load"},
+                "type": {"value": "cannon"}
+              }
+            },
+            {
+              "title": "timer",
+              "type": "action",
+              "name": "timer",
+              "parameters": {
+                "time": {"value": 0.5}
+              }
+            },
+            {
+              "title": "dynamic",
+              "type": "composite",
+              "name": "dynamic",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "parallel",
+                  "type": "composite",
+                  "name": "parallel",
+                  "parameters": {
+                    "fail": {"value": 1},
+                    "success": {"value": -1}
+                  },
+                  "children": [
+                    {
+                      "title": "selector",
+                      "type": "composite",
+                      "name": "selector",
+                      "parameters": {},
+                      "children": [
+                        {
+                          "title": "findNpc",
+                          "type": "action",
+                          "name": "findNpc",
+                          "parameters": {
+                            "orderBy": {"value": "nearest"},
+                            "position": {"key": "self"},
+                            "range": {"value": 8},
+                            "type": {"value": "cultistknight"}
+                          }
+                        },
+                        {
+                          "title": "findNpc",
+                          "type": "action",
+                          "name": "findNpc",
+                          "parameters": {
+                            "orderBy": {"value": "nearest"},
+                            "position": {"key": "self"},
+                            "range": {"value": 8},
+                            "type": {"value": "cultistarcher"}
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "title": "cooldown",
+                      "type": "decorator",
+                      "name": "cooldown",
+                      "parameters": {
+                        "cooldown": {"value": 1},
+                        "onFail": {"value": false},
+                        "onSuccess": {"value": true}
+                      },
+                      "child": {
+                        "title": "sequence",
+                        "type": "composite",
+                        "name": "sequence",
+                        "parameters": {},
+                        "children": [
+                          {
+                            "title": "sequence",
+                            "type": "composite",
+                            "name": "sequence",
+                            "parameters": {},
+                            "children": [
+                              {
+                                "title": "random",
+                                "type": "action",
+                                "name": "random",
+                                "parameters": {
+                                  "max": {"key": "<maxFireAngle>"},
+                                  "min": {"key": "<minFireAngle>"}
+                                },
+                                "output": {
+                                  "number": "fireAngle"
+                                }
+                              },
+                              {
+                                "title": "dynamic",
+                                "type": "composite",
+                                "name": "dynamic",
+                                "parameters": {},
+                                "children": [
+                                  {
+                                    "title": "greaterThan",
+                                    "type": "action",
+                                    "name": "greaterThan",
+                                    "parameters": {
+                                      "first": {"key": "angle"},
+                                      "second": {"key": "fireAngle"}
+                                    }
+                                  },
+                                  {
+                                    "title": "parallel",
+                                    "type": "composite",
+                                    "name": "parallel",
+                                    "parameters": {
+                                      "fail": {"value": -1},
+                                      "success": {"value": -1}
+                                    },
+                                    "children": [
+                                      {
+                                        "title": "sequence",
+                                        "type": "composite",
+                                        "name": "sequence",
+                                        "parameters": {},
+                                        "children": [
+                                          {
+                                            "title": "multiply",
+                                            "type": "action",
+                                            "name": "multiply",
+                                            "parameters": {
+                                              "factor": {"key": "<rotationSpeed>"},
+                                              "number": {"key": "dt"}
+                                            },
+                                            "output": {
+                                              "result": "rotation"
+                                            }
+                                          },
+                                          {
+                                            "title": "add",
+                                            "type": "action",
+                                            "name": "add",
+                                            "parameters": {
+                                              "addend": {"key": "rotation"},
+                                              "number": {"key": "angle"}
+                                            },
+                                            "output": {
+                                              "result": "angle"
+                                            }
+                                          },
+                                          {
+                                            "title": "sequence",
+                                            "type": "composite",
+                                            "name": "sequence",
+                                            "parameters": {},
+                                            "children": [
+                                              {
+                                                "title": "resetTransformationGroup",
+                                                "type": "action",
+                                                "name": "resetTransformationGroup",
+                                                "parameters": {
+                                                  "transformationGroup": {"value": "cannon"}
+                                                }
+                                              },
+                                              {
+                                                "title": "rotateTransformationGroup",
+                                                "type": "action",
+                                                "name": "rotateTransformationGroup",
+                                                "parameters": {
+                                                  "angle": {"key": "angle"},
+                                                  "rotationCenter": {"key": "<cannonRotationCenter>"},
+                                                  "transformationGroup": {"value": "cannon"}
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "title": "runner",
+                                        "type": "action",
+                                        "name": "runner",
+                                        "parameters": {}
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "title": "sequence",
+                                "type": "composite",
+                                "name": "sequence",
+                                "parameters": {},
+                                "children": [
+                                  {
+                                    "title": "vecRotate",
+                                    "type": "action",
+                                    "name": "vecRotate",
+                                    "parameters": {
+                                      "angle": {"key": "angle"},
+                                      "vector": {"key": "<projectileSpawnOffset>"}
+                                    },
+                                    "output": {
+                                      "vector": "spawnOffset"
+                                    }
+                                  },
+                                  {
+                                    "title": "vecAdd",
+                                    "type": "action",
+                                    "name": "vecAdd",
+                                    "parameters": {
+                                      "first": {"key": "spawnOffset"},
+                                      "second": {"key": "<cannonRotationCenter>"}
+                                    },
+                                    "output": {
+                                      "vector": "spawnOffset"
+                                    }
+                                  },
+                                  {
+                                    "title": "vecMultiply",
+                                    "type": "action",
+                                    "name": "vecMultiply",
+                                    "parameters": {
+                                      "first": {"key": "spawnOffset"},
+                                      "second": {"value": ["facingDirection", 1]}
+                                    },
+                                    "output": {
+                                      "vector": "spawnOffset"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "title": "sequence",
+                                "type": "composite",
+                                "name": "sequence",
+                                "parameters": {},
+                                "children": [
+                                  {
+                                    "title": "vecRotate",
+                                    "type": "action",
+                                    "name": "vecRotate",
+                                    "parameters": {
+                                      "angle": {"key": "angle"},
+                                      "vector": {"value": [1, 0]}
+                                    },
+                                    "output": {
+                                      "vector": "aimVector"
+                                    }
+                                  },
+                                  {
+                                    "title": "vecMultiply",
+                                    "type": "action",
+                                    "name": "vecMultiply",
+                                    "parameters": {
+                                      "first": {"key": "aimVector"},
+                                      "second": {"value": ["facingDirection", 1]}
+                                    },
+                                    "output": {
+                                      "vector": "aimVector"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "title": "setAnimationState",
+                                "type": "action",
+                                "name": "setAnimationState",
+                                "parameters": {
+                                  "state": {"value": "fire"},
+                                  "type": {"value": "cannon"}
+                                }
+                              },
+                              {
+                                "title": "timer",
+                                "type": "action",
+                                "name": "timer",
+                                "parameters": {
+                                  "time": {"value": 0.2}
+                                },
+                                "output": {
+                                  "ratio": "angleFactor"
+                                }
+                              },
+                              {
+                                "title": "spawnProjectile",
+                                "type": "action",
+                                "name": "spawnProjectile",
+                                "parameters": {
+                                  "aimVector": {"key": "aimVector"},
+                                  "angle": {"value": 0},
+                                  "offset": {"key": "spawnOffset"},
+                                  "position": {"key": "self"},
+                                  "projectileConfig": {"value": {}},
+                                  "projectileType": {"value": "ballistabolt"},
+                                  "scalePower": {"value": true},
+                                  "sourceEntity": {"key": "self"},
+                                  "trackSource": {"value": false}
+                                }
+                              },
+                              {
+                                "title": "setVelocity",
+                                "type": "action",
+                                "name": "setVelocity",
+                                "parameters": {
+                                  "velocity": {"value": [20, 20]}
+                                }
+                              },
+                              {
+                                "title": "succeeder",
+                                "type": "decorator",
+                                "name": "succeeder",
+                                "parameters": {},
+                                "child": {
+                                  "title": "sequence",
+                                  "type": "composite",
+                                  "name": "sequence",
+                                  "parameters": {},
+                                  "children": [
+                                    {
+                                      "title": "loadUniqueEntity",
+                                      "type": "action",
+                                      "name": "loadUniqueEntity",
+                                      "parameters": {
+                                        "uniqueId": {"value": "missionmanager"}
+                                      },
+                                      "output": {
+                                        "entity": "manager"
+                                      }
+                                    },
+                                    {
+                                      "title": "sendEntityMessage",
+                                      "type": "action",
+                                      "name": "sendEntityMessage",
+                                      "parameters": {
+                                        "entity": {"key": "manager"},
+                                        "message": {"value": "wallAttacked"}
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "title": "runner",
+                  "type": "action",
+                  "name": "runner",
+                  "parameters": {}
+                }
+              ]
+            },
+            {
+              "title": "parallel",
+              "type": "composite",
+              "name": "parallel",
+              "parameters": {
+                "fail": {"value": -1},
+                "success": {"value": -1}
+              },
+              "children": [
+                {
+                  "title": "timer",
+                  "type": "action",
+                  "name": "timer",
+                  "parameters": {
+                    "time": {"value": 0.5}
+                  },
+                  "output": {
+                    "ratio": "angleFactor"
+                  }
+                },
+                {
+                  "title": "sequence",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "lerp",
+                      "type": "action",
+                      "name": "lerp",
+                      "parameters": {
+                        "max": {"key": "startAngle"},
+                        "min": {"value": 0},
+                        "ratio": {"key": "angleFactor"}
+                      },
+                      "output": {
+                        "number": "angle"
+                      }
+                    },
+                    {
+                      "title": "resetTransformationGroup",
+                      "type": "action",
+                      "name": "resetTransformationGroup",
+                      "parameters": {
+                        "transformationGroup": {"value": "cannon"}
+                      }
+                    },
+                    {
+                      "title": "rotateTransformationGroup",
+                      "type": "action",
+                      "name": "rotateTransformationGroup",
+                      "parameters": {
+                        "angle": {"key": "angle"},
+                        "rotationCenter": {"key": "<cannonRotationCenter>"},
+                        "transformationGroup": {"value": "cannon"}
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

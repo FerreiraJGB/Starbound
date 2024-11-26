@@ -1,0 +1,25 @@
+{
+  "materialId" : 134,
+  "materialName" : "plantmatter",
+  "particleColor" : [13, 39, 7, 255],
+  "itemDrop" : "plantmatter",
+  "description" : "A block made of packed plant matter.",
+  "shortdescription" : "Plant Matter",
+  "glitchDescription" : "Interested. Plant matter has somehow been compressed into this block.",
+  "floranDescription" : "Floran likess plantss.",
+  "novakidDescription" : "Buncha plants and leaves all mashed together.",
+  "footstepSound" : "/sfx/blocks/footstep_tallgrass.ogg",
+  "health" : 2,
+  "category" : "materials",
+  "damageTable" : "/tiles/flammableDamage.config",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "plantmatter.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3960
+  }
+}

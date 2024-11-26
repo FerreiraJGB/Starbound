@@ -1,0 +1,541 @@
+{
+  "name": "quest-kill_npc-enemy-notification",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/math.lua",
+    "/scripts/behavior.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/query.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/quests.lua",
+    "/scripts/actions/npc.lua",
+    "/scripts/actions/entity.lua",
+    "/scripts/actions/position.lua",
+    "/scripts/actions/tenant.lua"
+  ],
+  "parameters": {
+    "friendlyNpcTypes": ["villager", "crewmember"]
+  },
+  "root": {
+    "title": "dynamic",
+    "type": "composite",
+    "name": "dynamic",
+    "parameters": {},
+    "children": [
+      {
+        "title": "limiter",
+        "type": "decorator",
+        "name": "limiter",
+        "parameters": {
+          "limit": {"value": 1}
+        },
+        "child": {
+          "title": "selector",
+          "type": "composite",
+          "name": "selector",
+          "parameters": {},
+          "children": [
+            {
+              "title": "sequence",
+              "type": "composite",
+              "name": "sequence",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "chance",
+                  "type": "action",
+                  "name": "chance",
+                  "parameters": {
+                    "chance": {"value": 0.5}
+                  }
+                },
+                {
+                  "title": "setFlag",
+                  "type": "action",
+                  "name": "setFlag",
+                  "parameters": {
+                    "name": {"value": "willSurrender"}
+                  }
+                },
+                {
+                  "title": "selector",
+                  "type": "composite",
+                  "name": "selector",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "sequence",
+                      "type": "composite",
+                      "name": "sequence",
+                      "parameters": {},
+                      "children": [
+                        {
+                          "title": "chance",
+                          "type": "action",
+                          "name": "chance",
+                          "parameters": {
+                            "chance": {"value": 0.5}
+                          }
+                        },
+                        {
+                          "title": "setFlag",
+                          "type": "action",
+                          "name": "setFlag",
+                          "parameters": {
+                            "name": {"value": "willBetray"}
+                          }
+                        },
+                        {
+                          "title": "selector",
+                          "type": "composite",
+                          "name": "selector",
+                          "parameters": {},
+                          "children": [
+                            {
+                              "title": "sequence",
+                              "type": "composite",
+                              "name": "sequence",
+                              "parameters": {},
+                              "children": [
+                                {
+                                  "title": "chance",
+                                  "type": "action",
+                                  "name": "chance",
+                                  "parameters": {
+                                    "chance": {"value": 0.5}
+                                  }
+                                },
+                                {
+                                  "title": "setFlag",
+                                  "type": "action",
+                                  "name": "setFlag",
+                                  "parameters": {
+                                    "name": {"value": "willSpawnBackup"}
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "title": "unsetFlag",
+                              "type": "action",
+                              "name": "unsetFlag",
+                              "parameters": {
+                                "name": {"value": "willSpawnBackup"}
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "title": "unsetFlag",
+                      "type": "action",
+                      "name": "unsetFlag",
+                      "parameters": {
+                        "name": {"value": "willBetray"}
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "unsetFlag",
+              "type": "action",
+              "name": "unsetFlag",
+              "parameters": {
+                "name": {"value": "willSurrender"}
+              }
+            }
+          ]
+        }
+      },
+      {
+        "title": "limiter",
+        "type": "decorator",
+        "name": "limiter",
+        "parameters": {
+          "limit": {"value": 1}
+        },
+        "child": {
+          "title": "sequence",
+          "type": "composite",
+          "name": "sequence",
+          "parameters": {},
+          "children": [
+            {
+              "title": "entityHealthPercentage",
+              "type": "action",
+              "name": "entityHealthPercentage",
+              "parameters": {
+                "entity": {"key": "self"}
+              },
+              "output": {
+                "number": "health"
+              }
+            },
+            {
+              "title": "greaterThan",
+              "type": "action",
+              "name": "greaterThan",
+              "parameters": {
+                "first": {"value": 0.5},
+                "second": {"key": "health"}
+              }
+            },
+            {
+              "title": "hasFlag",
+              "type": "action",
+              "name": "hasFlag",
+              "parameters": {
+                "name": {"key": "willSurrender"}
+              }
+            },
+            {
+              "title": "queryEntity",
+              "type": "action",
+              "name": "queryEntity",
+              "parameters": {
+                "entityTypes": {"value": ["player"]},
+                "orderBy": {"value": "nearest"},
+                "position": {"key": "self"},
+                "range": {"value": 30},
+                "withoutEntity": {"key": "self"}
+              },
+              "output": {
+                "entity": "player"
+              }
+            },
+            {
+              "title": "faceEntity",
+              "type": "action",
+              "name": "faceEntity",
+              "parameters": {
+                "entity": {"key": "player"}
+              }
+            },
+            {
+              "title": "sayQuestDialog",
+              "type": "action",
+              "name": "sayQuestDialog",
+              "parameters": {
+                "dialogType": {"value": "kill_npc.surrender"},
+                "entity": {"key": "player"},
+                "extraTags": {"value": {}},
+                "quest": {"key": "override"}
+              }
+            },
+            {
+              "title": "succeeder",
+              "type": "decorator",
+              "name": "succeeder",
+              "parameters": {},
+              "child": {
+                "title": "parallel",
+                "type": "composite",
+                "name": "parallel",
+                "parameters": {
+                  "fail": {"value": 1},
+                  "success": {"value": -1}
+                },
+                "children": [
+                  {
+                    "title": "succeeder",
+                    "type": "decorator",
+                    "name": "succeeder",
+                    "parameters": {},
+                    "child": {
+                      "title": "sequence",
+                      "type": "composite",
+                      "name": "sequence",
+                      "parameters": {},
+                      "children": [
+                        {
+                          "title": "entityHoldingWeapon",
+                          "type": "action",
+                          "name": "entityHoldingWeapon",
+                          "parameters": {
+                            "entity": {"key": "self"}
+                          }
+                        },
+                        {
+                          "title": "swapItemSlots",
+                          "type": "action",
+                          "name": "swapItemSlots",
+                          "parameters": {}
+                        },
+                        {
+                          "title": "setItemSlot",
+                          "type": "action",
+                          "name": "setItemSlot",
+                          "parameters": {
+                            "slot": {"value": "primary"}
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "title": "inverter",
+                    "type": "decorator",
+                    "name": "inverter",
+                    "parameters": {},
+                    "child": {
+                      "title": "wasDamaged",
+                      "type": "action",
+                      "name": "wasDamaged",
+                      "parameters": {}
+                    }
+                  },
+                  {
+                    "title": "entityHoldingWeapon",
+                    "type": "action",
+                    "name": "entityHoldingWeapon",
+                    "parameters": {
+                      "entity": {"key": "player"}
+                    }
+                  },
+                  {
+                    "title": "sequence",
+                    "type": "composite",
+                    "name": "sequence",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "faceEntity",
+                        "type": "action",
+                        "name": "faceEntity",
+                        "parameters": {
+                          "entity": {"key": "player"}
+                        }
+                      },
+                      {
+                        "title": "dance",
+                        "type": "action",
+                        "name": "dance",
+                        "parameters": {
+                          "dance": {"value": "panic"}
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "title": "runner",
+                    "type": "action",
+                    "name": "runner",
+                    "parameters": {}
+                  }
+                ]
+              }
+            },
+            {
+              "title": "entityExists",
+              "type": "action",
+              "name": "entityExists",
+              "parameters": {
+                "entity": {"key": "player"}
+              }
+            },
+            {
+              "title": "inverter",
+              "type": "decorator",
+              "name": "inverter",
+              "parameters": {},
+              "child": {
+                "title": "wasDamaged",
+                "type": "action",
+                "name": "wasDamaged",
+                "parameters": {}
+              }
+            },
+            {
+              "title": "selector",
+              "type": "composite",
+              "name": "selector",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "sequence",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "hasFlag",
+                      "type": "action",
+                      "name": "hasFlag",
+                      "parameters": {
+                        "name": {"key": "willBetray"}
+                      }
+                    },
+                    {
+                      "title": "sayQuestDialog",
+                      "type": "action",
+                      "name": "sayQuestDialog",
+                      "parameters": {
+                        "dialogType": {"value": "kill_npc.betray"},
+                        "entity": {"key": "player"},
+                        "extraTags": {"value": {}},
+                        "quest": {"key": "override"}
+                      }
+                    },
+                    {
+                      "title": "dance",
+                      "type": "action",
+                      "name": "dance",
+                      "parameters": {}
+                    },
+                    {
+                      "title": "succeeder",
+                      "type": "decorator",
+                      "name": "succeeder",
+                      "parameters": {},
+                      "child": {
+                        "title": "sequence",
+                        "type": "composite",
+                        "name": "sequence",
+                        "parameters": {},
+                        "children": [
+                          {
+                            "title": "hasFlag",
+                            "type": "action",
+                            "name": "hasFlag",
+                            "parameters": {
+                              "name": {"key": "willSpawnBackup"}
+                            }
+                          },
+                          {
+                            "title": "offsetPosition",
+                            "type": "action",
+                            "name": "offsetPosition",
+                            "parameters": {
+                              "offset": {"value": [-10, 0]},
+                              "position": {"key": "self"}
+                            },
+                            "output": {
+                              "position": "position"
+                            }
+                          },
+                          {
+                            "title": "repeater",
+                            "type": "decorator",
+                            "name": "repeater",
+                            "parameters": {
+                              "maxLoops": {"value": 5},
+                              "untilSuccess": {"value": false}
+                            },
+                            "child": {
+                              "title": "succeeder",
+                              "type": "decorator",
+                              "name": "succeeder",
+                              "parameters": {},
+                              "child": {
+                                "title": "sequence",
+                                "type": "composite",
+                                "name": "sequence",
+                                "parameters": {},
+                                "children": [
+                                  {
+                                    "title": "succeeder",
+                                    "type": "decorator",
+                                    "name": "succeeder",
+                                    "parameters": {},
+                                    "child": {
+                                      "title": "sequence",
+                                      "type": "composite",
+                                      "name": "sequence",
+                                      "parameters": {},
+                                      "children": [
+                                        {
+                                          "title": "inverter",
+                                          "type": "decorator",
+                                          "name": "inverter",
+                                          "parameters": {},
+                                          "child": {
+                                            "title": "inRange",
+                                            "type": "action",
+                                            "name": "inRange",
+                                            "parameters": {
+                                              "position": {"key": "self"},
+                                              "range": {"value": 2},
+                                              "target": {"key": "position"}
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "title": "groundPosition",
+                                          "type": "action",
+                                          "name": "groundPosition",
+                                          "parameters": {
+                                            "avoidLiquid": {"value": false},
+                                            "maxHeight": {"value": 5},
+                                            "minHeight": {"value": -5},
+                                            "position": {"key": "position"}
+                                          },
+                                          "output": {
+                                            "position": "adjustedPosition"
+                                          }
+                                        },
+                                        {
+                                          "title": "spawnNpc",
+                                          "type": "action",
+                                          "name": "spawnNpc",
+                                          "parameters": {
+                                            "position": {"key": "adjustedPosition"},
+                                            "type": {"value": "bandit"}
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    "title": "offsetPosition",
+                                    "type": "action",
+                                    "name": "offsetPosition",
+                                    "parameters": {
+                                      "offset": {"value": [5, 0]},
+                                      "position": {"key": "position"}
+                                    },
+                                    "output": {
+                                      "position": "position"
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "title": "sequence",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "replaceNpc",
+                      "type": "action",
+                      "name": "replaceNpc",
+                      "parameters": {
+                        "npcType": {"value": "<friendlyNpcTypes>"}
+                      }
+                    },
+                    {
+                      "title": "runner",
+                      "type": "action",
+                      "name": "runner",
+                      "parameters": {}
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

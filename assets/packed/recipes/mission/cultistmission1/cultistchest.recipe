@@ -1,0 +1,9 @@
+{
+  "input" : [
+    { "item" : "titaniumbar", "count" : 2 },
+    { "item" : "smallbattery", "count" : 1 },
+    { "item" : "purpledye", "count" : 1 }
+  ],
+  "output" : { "item" : "cultistchestlarge", "count" : 1 },
+  "groups" : [ "craftingfurniture2", "storage", "all" ]
+}

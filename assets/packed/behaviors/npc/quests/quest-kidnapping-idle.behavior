@@ -1,0 +1,16 @@
+{
+  "name": "quest-kidnapping-idle",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/npc.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "emote",
+    "type": "action",
+    "name": "emote",
+    "parameters": {
+      "emote": {"value": "sad"}
+    }
+  }
+}

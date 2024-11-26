@@ -1,0 +1,9 @@
+{
+  "name" : "agrobat",
+  "category" : "iceagrobat",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "iceagrobat.png"
+  }
+}

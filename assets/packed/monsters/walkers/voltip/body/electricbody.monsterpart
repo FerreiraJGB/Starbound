@@ -1,0 +1,10 @@
+{
+  "name" : "voltip",
+  "category" : "electricvoltip",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "electricvoltip.png",
+    "bodynobright" : "electricvoltipnobright.png"
+  }
+}

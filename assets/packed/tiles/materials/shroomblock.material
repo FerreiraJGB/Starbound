@@ -1,0 +1,25 @@
+{
+  "materialId" : 162,
+  "materialName" : "shroomblock",
+  "particleColor" : [159, 61, 49, 255],
+  "itemDrop" : "shroomblock",
+  "description" : "A block made of soft fungus.",
+  "shortdescription" : "Mushroom Block",
+  "glitchDescription" : "Intrigued. Although assembled as a block, this mushroom is alive.",
+  "floranDescription" : "Lovely mushroomss.",
+  "novakidDescription" : "Ain't that somethin'. Seems this block is made from mushrooms.",
+  "footstepSound" : "/sfx/blocks/footstep_brains.ogg",
+  "health" : 2,
+  "category" : "materials",
+  "damageTable" : "/tiles/flammableDamage.config",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "shroomblock.png",
+    "variants" : 14,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3400
+  }
+}

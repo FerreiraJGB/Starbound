@@ -1,0 +1,24 @@
+{
+  "materialId" : 186,
+  "materialName" : "ancientblock",
+  "particleColor" : [71, 66, 57, 255],
+  "itemDrop" : "ancientblock",
+  "description" : "These bricks have certainly survived the test of time.",
+  "shortdescription" : "Ancient Block",
+  "glitchDescription" : "Amazed. These blocks are evidently very old.",
+  "floranDescription" : "Ancient blocksss.",
+  "novakidDescription" : "These blocks are older'n dirt.",
+  "footstepSound" : "/sfx/blocks/footstep_stone.ogg",
+  "health" : 20,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "ancientblock.png",
+    "variants" : 10,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 1450
+  }
+}

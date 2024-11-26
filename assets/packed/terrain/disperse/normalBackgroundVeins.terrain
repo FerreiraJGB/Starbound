@@ -1,0 +1,17 @@
+{
+  "name" : "normalBackgroundVeins",
+
+  "type" : "wormcave",
+
+  "sectorSize" : 64,
+  "sectorRadius" : 1,
+  "numberOfWormsPerSectorRange" : [2.0, 2.0],
+  "wormSpeed" : 1.0,
+
+  "wormSizeRange" : [2.0, 2.0],
+  "wormLengthRange" : [4, 6],
+  "wormTaperDistance" : 1.5,
+  "wormAngleRange" : [0, 6.283],
+  "wormTurnChance" : 0.5,
+  "wormTurnRate" : 0.2
+}

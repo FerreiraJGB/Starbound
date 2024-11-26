@@ -1,0 +1,364 @@
+{
+  "name": "reactionchat",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/reaction.lua",
+    "/scripts/behavior.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/behavior/bgroup.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/npc.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "getPersonality",
+        "type": "action",
+        "name": "getPersonality",
+        "parameters": {
+          "target": {"key": "chatfriend"}
+        },
+        "output": {
+          "influence": "influence"
+        }
+      },
+      {
+        "title": "succeeder",
+        "type": "decorator",
+        "name": "succeeder",
+        "parameters": {},
+        "child": {
+          "title": "selector",
+          "type": "composite",
+          "name": "selector",
+          "parameters": {},
+          "children": [
+            {
+              "title": "sequence",
+              "type": "composite",
+              "name": "sequence",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "entityRelationship",
+                  "type": "action",
+                  "name": "entityRelationship",
+                  "parameters": {
+                    "converse": {"value": false},
+                    "relationship": {"value": "fears"},
+                    "target": {"key": "chatfriend"}
+                  }
+                },
+                {
+                  "title": "setInfluence",
+                  "type": "action",
+                  "name": "setInfluence",
+                  "parameters": {
+                    "influence": {"value": "fearsrelation"}
+                  },
+                  "output": {
+                    "influence": "influence"
+                  }
+                }
+              ]
+            },
+            {
+              "title": "sequence",
+              "type": "composite",
+              "name": "sequence",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "entityRelationship",
+                  "type": "action",
+                  "name": "entityRelationship",
+                  "parameters": {
+                    "converse": {"value": false},
+                    "relationship": {"value": "likes"},
+                    "target": {"key": "chatfriend"}
+                  }
+                },
+                {
+                  "title": "setInfluence",
+                  "type": "action",
+                  "name": "setInfluence",
+                  "parameters": {
+                    "influence": {"value": "likesrelation"}
+                  },
+                  "output": {
+                    "influence": "influence"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "title": "setEntity",
+        "type": "action",
+        "name": "setEntity",
+        "parameters": {
+          "entity": {"key": "chatfriend"}
+        },
+        "output": {
+          "entity": "reactTarget"
+        }
+      },
+      {
+        "title": "faceEntity",
+        "type": "action",
+        "name": "faceEntity",
+        "parameters": {
+          "entity": {"key": "reactTarget"}
+        }
+      },
+      {
+        "title": "resetReaction",
+        "type": "action",
+        "name": "resetReaction",
+        "parameters": {},
+        "output": {
+          "reaction": "reaction"
+        }
+      },
+      {
+        "title": "dynamic",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": "cooldown",
+            "type": "decorator",
+            "name": "cooldown",
+            "parameters": {
+              "cooldown": {"value": 2},
+              "onFail": {"value": true},
+              "onSuccess": {"value": true}
+            },
+            "child": {
+              "title": "parallel",
+              "type": "composite",
+              "name": "parallel",
+              "parameters": {
+                "fail": {"value": 1},
+                "success": {"value": -1}
+              },
+              "children": [
+                {
+                  "title": "task",
+                  "type": "action",
+                  "name": "task",
+                  "parameters": {
+                    "groupId": {"value": "chat"},
+                    "maxMembers": {"value": 1},
+                    "minMembers": {"value": 1},
+                    "taskId": {"value": "react"}
+                  }
+                },
+                {
+                  "title": "sequence",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "chooseReaction",
+                      "type": "action",
+                      "name": "chooseReaction",
+                      "parameters": {
+                        "influence": {"key": "influence"},
+                        "target": {"key": "reactTarget"}
+                      },
+                      "output": {
+                        "reaction": "reaction"
+                      }
+                    },
+                    {
+                      "title": "selector",
+                      "type": "composite",
+                      "name": "selector",
+                      "parameters": {},
+                      "children": [
+                        {
+                          "title": "sequence",
+                          "type": "composite",
+                          "name": "sequence",
+                          "parameters": {},
+                          "children": [
+                            {
+                              "title": "isFinalReaction",
+                              "type": "action",
+                              "name": "isFinalReaction",
+                              "parameters": {
+                                "reaction": {"key": "reaction"}
+                              }
+                            },
+                            {
+                              "title": "sendInfluenceNotification",
+                              "type": "action",
+                              "name": "sendInfluenceNotification",
+                              "parameters": {
+                                "reaction": {"key": "reaction"},
+                                "target": {"key": "chatfriend"}
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "title": "sequence",
+                          "type": "composite",
+                          "name": "sequence",
+                          "parameters": {},
+                          "children": [
+                            {
+                              "title": "timer",
+                              "type": "action",
+                              "name": "timer",
+                              "parameters": {
+                                "time": {"value": 1}
+                              }
+                            },
+                            {
+                              "title": "succeeder",
+                              "type": "decorator",
+                              "name": "succeeder",
+                              "parameters": {},
+                              "child": {
+                                "title": "selector",
+                                "type": "composite",
+                                "name": "selector",
+                                "parameters": {},
+                                "children": [
+                                  {
+                                    "title": "playSimpleReaction",
+                                    "type": "action",
+                                    "name": "playSimpleReaction",
+                                    "parameters": {
+                                      "reaction": {"key": "reaction"}
+                                    }
+                                  },
+                                  {
+                                    "title": "playBehaviorReaction",
+                                    "type": "action",
+                                    "name": "playBehaviorReaction",
+                                    "parameters": {
+                                      "reaction": {"key": "reaction"}
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "title": "sendInfluenceNotification",
+                              "type": "action",
+                              "name": "sendInfluenceNotification",
+                              "parameters": {
+                                "reaction": {"key": "reaction"},
+                                "target": {"key": "chatfriend"}
+                              }
+                            },
+                            {
+                              "title": "failer",
+                              "type": "decorator",
+                              "name": "failer",
+                              "parameters": {},
+                              "child": {
+                                "title": "resetReaction",
+                                "type": "action",
+                                "name": "resetReaction",
+                                "parameters": {},
+                                "output": {
+                                  "reaction": "reaction"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": 0.5}
+                }
+              },
+              {
+                "title": "entityInRange",
+                "type": "action",
+                "name": "entityInRange",
+                "parameters": {
+                  "entity": {"key": "reactTarget"},
+                  "position": {"key": "self"},
+                  "xRange": {"value": 5}
+                }
+              },
+              {
+                "title": "faceEntity",
+                "type": "action",
+                "name": "faceEntity",
+                "parameters": {
+                  "entity": {"key": "reactTarget"}
+                }
+              },
+              {
+                "title": "emote",
+                "type": "action",
+                "name": "emote",
+                "parameters": {
+                  "emote": {"value": "blabbering"}
+                }
+              },
+              {
+                "title": "parallel",
+                "type": "composite",
+                "name": "parallel",
+                "parameters": {
+                  "fail": {"value": -1},
+                  "success": {"value": -1}
+                },
+                "children": [
+                  {
+                    "title": "receivedInfluenceNotification",
+                    "type": "action",
+                    "name": "receivedInfluenceNotification",
+                    "parameters": {},
+                    "output": {
+                      "influence": "influence"
+                    }
+                  },
+                  {
+                    "title": "runner",
+                    "type": "action",
+                    "name": "runner",
+                    "parameters": {}
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

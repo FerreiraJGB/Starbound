@@ -1,0 +1,23 @@
+{
+  "materialId" : 333,
+  "materialName" : "protectorateplatform",
+  "collisionKind" : "platform",
+  "itemDrop" : "protectorateplatform",
+  "shortdescription" : "Protectorate Platform",
+  "description" : "A simple looking platform.",
+  "glitchDescription" : "Impressed. These platforms can easily support my weight.",
+  "floranDescription" : "Shiny metal platformsss.",
+  "novakidDescription" : "Some fancy lookin' platforms made outta metal.",
+  "footstepSound" : "/sfx/blocks/footstep_lightmetal.ogg",
+  "category" : "Supports",
+
+  "renderTemplate" : "/tiles/platformtemplate.config",
+  "renderParameters" : {
+    "texture" : "protectorateplatform.png",
+    "variants" : 1,
+    "lightTransparent" : true,
+    "occludesBelow" : false,
+    "multiColored" : true,
+    "zLevel" : 0
+  }
+}

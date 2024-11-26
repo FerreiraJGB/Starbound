@@ -1,0 +1,24 @@
+{
+  "materialId" : 56,
+  "materialName" : "fadedblocks",
+  "particleColor" : [243, 242, 215, 255],
+  "itemDrop" : "fadedblocks",
+  "description" : "Soft faded brick.",
+  "shortdescription" : "Soft Brick",
+  "glitchDescription" : "Deductive. These faded bricks have been smoothed by the passage of time.",
+  "floranDescription" : "Ssoft faded bricksss.",
+  "novakidDescription" : "Some smooth lookin' bricks.",
+  "footstepSound" : "/sfx/blocks/footstep_stone2.ogg",
+  "health" : 8,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "fadedblocks.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 2610
+  }
+}

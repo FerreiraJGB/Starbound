@@ -1,0 +1,24 @@
+{
+  "materialId" : 34,
+  "materialName" : "silverblock",
+  "particleColor" : [176, 182, 198, 255],
+  "itemDrop" : "silverblock",
+  "description" : "A whole block of silver.",
+  "shortdescription" : "Silver Block",
+  "glitchDescription" : "Amazed. This block is entirely solid silver.",
+  "floranDescription" : "Ssilver, sso shiny.",
+  "novakidDescription" : "Shiny lookin' blocks made outta pure silver.",
+  "footstepSound" : "/sfx/blocks/footstep_stone.ogg",
+  "health" : 6,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "silverblock.png",
+    "variants" : 1,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3000
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "defaultFluffaloHarvest" : [
+    [1, {
+      "pool" : [
+        {"weight" : 1.0, "item" : "plantfibre"}
+      ],
+      "poolRounds" : [
+        [0.1, 8],
+        [0.2, 10],
+        [0.2, 12],
+        [0.2, 14],
+        [0.1, 16]
+      ]
+    }]
+  ],
+  "fireFluffaloHarvest" : [
+    [1, {
+      "pool" : [
+        {"weight" : 1.0, "item" : "scorchedcore"}
+      ]
+    }]
+  ],
+  "electricFluffaloHarvest" : [
+    [1, {
+      "pool" : [
+        {"weight" : 1.0, "item" : "staticcell"}
+      ]
+    }]
+  ],
+  "iceFluffaloHarvest" : [
+    [1, {
+      "pool" : [
+        {"weight" : 1.0, "item" : "cryonicextract"}
+      ]
+    }]
+  ],
+  "poisonFluffaloHarvest" : [
+    [1, {
+      "pool" : [
+        {"weight" : 1.0, "item" : "venomsample"}
+      ]
+    }]
+  ],
+  "henHarvest" : [
+    [1, {
+      "pool" : [
+        {"weight" : 1.0, "item" : "egg"}
+      ]
+    }]
+  ],
+  "robothenHarvest" : [
+    [1, {
+      "pool" : [
+        {"weight" : 1.0, "item" : "smallbattery"}
+      ]
+    }]
+  ],
+  "mooshiHarvest" : [
+    [1, {
+      "pool" : [
+        {"weight" : 1.0, "item" : "milk"}
+      ]
+    }]
+  ]
+}

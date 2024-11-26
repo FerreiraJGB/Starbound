@@ -1,0 +1,480 @@
+{
+  "name": "bounty-bribe",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/status.lua",
+    "/scripts/behavior.lua",
+    "/scripts/actions/dialog.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/entity.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/npc.lua",
+    "/scripts/actions/bounty.lua",
+    "/scripts/actions/merchant.lua",
+    "/scripts/actions/quests.lua",
+    "/scripts/actions/movement.lua"
+  ],
+  "parameters": {
+    "bribeTitle": "Accept Bribe?",
+    "bribeSubtitle": "You have been offered a bribe",
+    "bribeIcon": "",
+    "bribeHatMessage": "",
+    "bribeMessage": "",
+    "bribeOk": "Accept",
+    "bribeCancel": "Decline"
+  },
+  "root": {
+    "title": "limiter",
+    "type": "decorator",
+    "name": "limiter",
+    "parameters": {
+      "limit": {"value": 1}
+    },
+    "child": {
+      "title": "sequence",
+      "type": "composite",
+      "name": "sequence",
+      "parameters": {},
+      "children": [
+        {
+          "title": "inverter",
+          "type": "decorator",
+          "name": "inverter",
+          "parameters": {},
+          "child": {
+            "title": "resourcePercentage",
+            "type": "action",
+            "name": "resourcePercentage",
+            "parameters": {
+              "percentage": {"value": 0},
+              "resource": {"value": "health"}
+            }
+          }
+        },
+        {
+          "title": "setEntity",
+          "type": "action",
+          "name": "setEntity",
+          "parameters": {
+            "entity": {"key": "target"}
+          },
+          "output": {
+            "entity": "arrestingEntity"
+          }
+        },
+        {
+          "title": "",
+          "type": "action",
+          "name": "sayToEntity",
+          "parameters": {
+            "dialogType": {"value": "dialog.bounty.bribeWait"},
+            "entity": {"key": "arrestingEntity"}
+          }
+        },
+        {
+          "title": "timer",
+          "type": "action",
+          "name": "timer",
+          "parameters": {
+            "time": {"value": 6}
+          }
+        },
+        {
+          "title": "randomize",
+          "type": "composite",
+          "name": "randomize",
+          "parameters": {},
+          "children": [
+            {
+              "title": "sequence",
+              "type": "composite",
+              "name": "sequence",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "",
+                  "type": "action",
+                  "name": "sayToEntity",
+                  "parameters": {
+                    "dialogType": {"value": "dialog.bounty.bribeHat"},
+                    "entity": {"key": "interactionSource"}
+                  }
+                },
+                {
+                  "title": "setFlag",
+                  "type": "action",
+                  "name": "setFlag",
+                  "parameters": {
+                    "name": {"value": "bribeHat"}
+                  }
+                }
+              ]
+            },
+            {
+              "title": "",
+              "type": "action",
+              "name": "sayToEntity",
+              "parameters": {
+                "dialogType": {"value": "dialog.bounty.bribeMysteryItem"},
+                "entity": {"key": "arrestingEntity"}
+              }
+            }
+          ]
+        },
+        {
+          "title": "dynamic",
+          "type": "composite",
+          "name": "dynamic",
+          "parameters": {},
+          "children": [
+            {
+              "title": "selector",
+              "type": "composite",
+              "name": "selector",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "parallel",
+                  "type": "composite",
+                  "name": "parallel",
+                  "parameters": {
+                    "fail": {"value": 1},
+                    "success": {"value": -1}
+                  },
+                  "children": [
+                    {
+                      "title": "Converse",
+                      "type": "composite",
+                      "name": "sequence",
+                      "parameters": {},
+                      "children": [
+                        {
+                          "title": "dynamic",
+                          "type": "composite",
+                          "name": "dynamic",
+                          "parameters": {},
+                          "children": [
+                            {
+                              "title": "wasInteracted",
+                              "type": "action",
+                              "name": "wasInteracted",
+                              "parameters": {}
+                            },
+                            {
+                              "title": "runner",
+                              "type": "action",
+                              "name": "runner",
+                              "parameters": {}
+                            }
+                          ]
+                        },
+                        {
+                          "title": "setDying",
+                          "type": "action",
+                          "name": "setDying",
+                          "parameters": {
+                            "shouldDie": {"value": false}
+                          }
+                        },
+                        {
+                          "title": "selector",
+                          "type": "composite",
+                          "name": "selector",
+                          "parameters": {},
+                          "children": [
+                            {
+                              "title": "sequence",
+                              "type": "composite",
+                              "name": "sequence",
+                              "parameters": {},
+                              "children": [
+                                {
+                                  "title": "hasFlag",
+                                  "type": "action",
+                                  "name": "hasFlag",
+                                  "parameters": {
+                                    "name": {"key": "bribeHat"}
+                                  }
+                                },
+                                {
+                                  "title": "playerConfirm",
+                                  "type": "action",
+                                  "name": "playerConfirm",
+                                  "parameters": {
+                                    "player": {"key": "interactionSource"},
+                                    "title": {"key": "<bribeTitle>"},
+                                    "subtitle": {"key": "<bribeSubtitle>"},
+                                    "icon": {"key": "<bribeIcon>"},
+                                    "message": {"key": "<bribeHatMessage>"},
+                                    "okCaption": {"key": "<bribeOk>"},
+                                    "cancelCaption": {"key": "<bribeCancel>"}
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "title": "sequence",
+                              "type": "composite",
+                              "name": "sequence",
+                              "parameters": {},
+                              "children": [
+                                {
+                                  "title": "inverter",
+                                  "type": "decorator",
+                                  "name": "inverter",
+                                  "parameters": {},
+                                  "child": {
+                                    "title": "hasFlag",
+                                    "type": "action",
+                                    "name": "hasFlag",
+                                    "parameters": {
+                                      "name": {"key": "bribeHat"}
+                                    }
+                                  }
+                                },
+                                {
+                                  "title": "playerConfirm",
+                                  "type": "action",
+                                  "name": "playerConfirm",
+                                  "parameters": {
+                                    "player": {"key": "interactionSource"},
+                                    "title": {"key": "<bribeTitle>"},
+                                    "subtitle": {"key": "<bribeSubtitle>"},
+                                    "icon": {"key": "<bribeIcon>"},
+                                    "message": {"key": "<bribeMessage>"},
+                                    "okCaption": {"key": "<bribeOk>"},
+                                    "cancelCaption": {"key": "<bribeCancel>"}
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "title": "",
+                          "type": "action",
+                          "name": "sayToEntity",
+                          "parameters": {
+                            "dialogType": {"value": "dialog.bounty.bribeAccepted"},
+                            "entity": {"key": "interactionSource"}
+                          }
+                        },
+                        {
+                          "title": "selector",
+                          "type": "composite",
+                          "name": "selector",
+                          "parameters": {},
+                          "children": [
+                            {
+                              "title": "sequence",
+                              "type": "composite",
+                              "name": "sequence",
+                              "parameters": {},
+                              "children": [
+                                {
+                                  "title": "hasFlag",
+                                  "type": "action",
+                                  "name": "hasFlag",
+                                  "parameters": {
+                                    "name": {"key": "bribeHat"}
+                                  }
+                                },
+                                {
+                                  "title": "unequipSlot",
+                                  "type": "action",
+                                  "name": "unequipSlot",
+                                  "parameters": {
+                                    "slot": {"value": "head"}
+                                  }
+                                },
+                                {
+                                  "title": "unequipSlot",
+                                  "type": "action",
+                                  "name": "unequipSlot",
+                                  "parameters": {
+                                    "slot": {"value": "headCosmetic"}
+                                  }
+                                },
+                                {
+                                  "title": "getGangProperties",
+                                  "type": "action",
+                                  "name": "getGangProperties",
+                                  "parameters": {},
+                                  "output": {
+                                    "hat": "bribeItem"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "title": "sequence",
+                              "type": "composite",
+                              "name": "sequence",
+                              "parameters": {},
+                              "children": [
+                                {
+                                  "title": "level",
+                                  "type": "action",
+                                  "name": "level",
+                                  "parameters": {},
+                                  "output": {
+                                    "level": "level"
+                                  }
+                                },
+                                {
+                                  "title": "getItemFromTreasure",
+                                  "type": "action",
+                                  "name": "getItemFromTreasure",
+                                  "parameters": {
+                                    "pool": {"value": "valuableTreasure"},
+                                    "level": {"key": "level"}
+                                  },
+                                  "output": {
+                                    "item": "bribeItem"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "title": "spawnItem",
+                          "type": "action",
+                          "name": "spawnItem",
+                          "parameters": {
+                            "item": {"key": "bribeItem"},
+                            "position": {"key": "self"},
+                            "count": {"value": 1}
+                          }
+                        },
+                        {
+                          "title": "timer",
+                          "type": "action",
+                          "name": "timer",
+                          "parameters": {
+                            "time": {"value": 4}
+                          }
+                        },
+                        {
+                          "title": "fireQuestEvent",
+                          "type": "action",
+                          "name": "fireQuestEvent",
+                          "parameters": {
+                            "eventName": {"value": "escape"}
+                          }
+                        },
+                        {
+                          "title": "setResource",
+                          "type": "action",
+                          "name": "setResource",
+                          "parameters": {
+                            "amount": {"value": 10},
+                            "resource": {"value": "health"}
+                          }
+                        },
+                        {
+                          "title": "addEphemeralEffect",
+                          "type": "action",
+                          "name": "addEphemeralEffect",
+                          "parameters": {
+                            "name": {"value": "beamoutanddie"}
+                          }
+                        },
+                        {
+                          "title": "setDeathParticleBurst",
+                          "type": "action",
+                          "name": "setDeathParticleBurst",
+                          "parameters": {}
+                        },
+                        {
+                          "title": "setDying",
+                          "type": "action",
+                          "name": "setDying",
+                          "parameters": {
+                            "shouldDie": {"value": true}
+                          }
+                        },
+                        {
+                          "title": "runner",
+                          "type": "action",
+                          "name": "runner",
+                          "parameters": {}
+                        }
+                      ]
+                    },
+                    {
+                      "title": "succeeder",
+                      "type": "decorator",
+                      "name": "succeeder",
+                      "parameters": {},
+                      "child": {
+                        "title": "",
+                        "type": "action",
+                        "name": "faceEntity",
+                        "parameters": {
+                          "entity": {"key": "arrestingEntity"}
+                        }
+                      }
+                    },
+                    {
+                      "title": "addEphemeralEffect",
+                      "type": "action",
+                      "name": "addEphemeralEffect",
+                      "parameters": {
+                        "duration": {"value": 10},
+                        "name": {"value": "invulnerable"}
+                      }
+                    }
+                  ]
+                },
+                {
+                  "title": "Converse",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "",
+                      "type": "action",
+                      "name": "sayToEntity",
+                      "parameters": {
+                        "dialogType": {"value": "dialog.bounty.bribeDeclined"},
+                        "entity": {"key": "interactionSource"}
+                      }
+                    },
+                    {
+                      "title": "bounty-arrest",
+                      "type": "module",
+                      "name": "bounty-arrest",
+                      "parameters": {}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "failer",
+              "type": "decorator",
+              "name": "failer",
+              "parameters": {},
+              "child": {
+                "title": "",
+                "type": "action",
+                "name": "faceEntity",
+                "parameters": {
+                  "entity": {"key": "arrestingEntity"}
+                }
+              }
+            },
+            {
+              "title": "runner",
+              "type": "action",
+              "name": "runner",
+              "parameters": {}
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

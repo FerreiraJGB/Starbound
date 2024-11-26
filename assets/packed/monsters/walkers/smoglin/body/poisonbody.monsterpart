@@ -1,0 +1,9 @@
+{
+  "name" : "poisonsmoglin",
+  "category" : "poisonsmoglin",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "poisonsmoglin.png"
+  }
+}

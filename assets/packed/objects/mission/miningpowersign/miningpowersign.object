@@ -1,0 +1,55 @@
+{
+  "objectName" : "miningpowersign",
+  "colonyTags" : ["human","lunarbase","electronic"],
+  "rarity" : "Common",
+  "description" : "A sign that says either offline or online.",
+  "shortdescription" : "Power Sign",
+  "race" : "generic",
+
+  "apexDescription" : "A red glowing sign.",
+  "avianDescription" : "A simplistic electronic",
+  "floranDescription" : "Sssome sort of sssign.",
+  "glitchDescription" : "Observant. This low power sign has two states.",
+  "humanDescription" : "A very informal sign.",
+  "hylotlDescription" : "A soft glowing sign.",
+  "novakidDescription" : "A straight to the point kind o' sign. I can appreciate that.",
+
+  "lightColor" : [77, 21, 21],
+  "lightColorOff" : [77, 21, 21],
+
+  "category" : "light",
+  "price" : 60,
+
+  "inventoryIcon" : "miningpowersignicon.png",
+  "orientations" : [
+    {
+      "image" : "miningpowersign.png:<color>.off",
+      "imagePosition" : [-16, 0],
+      "direction" : "right",
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "background" ]
+    }
+  ],
+
+  "scripts" : [ "/objects/wired/light/light.lua" ],
+  "scriptDelta" : 60,
+
+  "animation" : "/objects/wired/light/lighttogglebgfullbrightturning.animation",
+  "animationCustom" : {
+    "sounds" : {
+      "on" : [ "/sfx/interface/ship_confirm1.ogg" ],
+      "off" : [ "/sfx/interface/ship_confirm2.ogg" ]
+    }
+  },
+
+  "interactive" : false,
+
+  "animationParts" : {
+    "bg" : "miningpowersign.png",
+    "fg" : "miningpowersignlit.png"
+  },
+  "animationPosition" : [-16, 0],
+
+  "inputNodes" : [ [-1, 0] ]
+}

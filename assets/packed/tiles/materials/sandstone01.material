@@ -1,0 +1,24 @@
+{
+  "materialId" : 23,
+  "materialName" : "sandstone01",
+  "particleColor" : [215, 204, 137, 255],
+  "itemDrop" : "sandstonematerial",
+  "description" : "Tough natural sandstone.",
+  "shortdescription" : "Sandstone",
+  "glitchDescription" : "Observant. This sandstone is made from fine particles of rock.",
+  "floranDescription" : "Ssandy ssandstone rockss.",
+  "novakidDescription" : "Some sandy lookin' rocks.",
+  "footstepSound" : "/sfx/blocks/footstep_stone.ogg",
+  "health" : 4,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "sandstone01.png",
+    "variants" : 4,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 1850
+  }
+}

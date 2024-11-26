@@ -1,0 +1,25 @@
+{
+  "materialId" : 22,
+  "materialName" : "sand2",
+  "particleColor" : [200, 183, 120, 255],
+  "itemDrop" : "sand2",
+  "description" : "Soft and warm sand.",
+  "shortdescription" : "Sand",
+  "glitchDescription" : "Curious. This sand is so fine it seems smooth to touch.",
+  "floranDescription" : "Dussty sand.",
+  "novakidDescription" : "Some mighty soft lookin' sand.",
+  "footstepSound" : "/sfx/blocks/footstep_sand2.ogg",
+  "health" : 1,
+  "category" : "materials",
+  "soil" : true,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "sand2.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 1830
+  }
+}

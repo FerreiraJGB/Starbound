@@ -1,0 +1,21 @@
+{
+  "name" : "spacedustshower",
+
+  "projectiles" : [
+    {
+      "projectile" : "spacedust1",
+      "parameters" : {
+        "power" : 0
+      },
+      "velocity" : [0, -15],
+      "ratePerX" : 0.015,
+      "spawnAboveRegion" : 30,
+      "spawnHorizontalPad" : 30,
+      "windAffectAmount" : 1.0
+    }
+  ],
+
+  "duration" : [50, 400],
+  "maximumWind" : 15.0,
+  "weatherNoises" : [ "/sfx/weather/rain_medium.ogg" ]
+}

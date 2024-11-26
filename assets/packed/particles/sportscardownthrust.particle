@@ -1,0 +1,20 @@
+{
+  "kind" : "sportscardownthrust",
+  "definition" : {
+    "type" : "ember",
+    "size" : 0.8,
+    "fullbright" : true,
+    "color" : [249, 21, 207, 255],
+    "fade" : 1,
+    "initialVelocity" : [0.0, -10],
+    "finalVelocity" : [0.0, -0.5],
+    "approach" : [0, 50.0],
+    "timeToLive" : 0.2,
+    "layer" : "back",
+    "collidesLiquid" : false,
+    "variance" : {
+      "finalVelocity" : [0.5, 1.5],
+      "size" : 0.4
+    }
+  }
+}

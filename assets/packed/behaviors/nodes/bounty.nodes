@@ -1,0 +1,47 @@
+{
+  "resistArrest": {
+    "type": "action",
+    "name": "resistArrest",
+    "title": "",
+    "properties": {
+      "arrestingEntity": {"type": "entity", "value": null}
+    },
+    "category": "bounty",
+    "script": "/scripts/actions/bounty.lua",
+    "output": {}
+  },
+  "arrested": {
+    "type": "action",
+    "name": "arrested",
+    "title": "",
+    "properties": {},
+    "category": "bounty",
+    "script": "/scripts/actions/bounty.lua",
+    "output": {}
+  },
+  "getGangProperties": {
+    "type": "action",
+    "name": "getGangProperties",
+    "title": "",
+    "properties": {},
+    "category": "bounty",
+    "script": "/scripts/actions/bounty.lua",
+    "output": {
+      "name": {"type": "string", "key": null},
+      "hat": {"type": "table", "key": null}
+    }
+  },
+  "sayBountyClueDialog": {
+    "type": "action",
+    "name": "sayBountyClueDialog",
+    "title": "",
+    "properties": {
+      "dialog": {"type": "string", "value": null},
+      "quest": {"type": "string", "value": null},
+      "domain": {"type": "string", "value": null}
+    },
+    "category": "bounty",
+    "script": "/scripts/actions/bounty.lua",
+    "output": {}
+  }
+}

@@ -1,0 +1,214 @@
+{
+  "name" : "bugs",
+  "title" : "Bugs",
+  "type" : "item",
+
+  "collectables" : {
+
+    // TIER 1
+    // GARDEN
+    "butterbee" : {
+      "order" : 1,
+      "item" : "butterbee"
+    },
+    "fawnfly" : {
+      "order" : 2,
+      "item" : "fawnfly"
+    },
+    "mudstag" : {
+      "order" : 3,
+      "item" : "mudstag"
+    },
+
+    // TIER 2
+    // DESERT
+    "goldbuck" : {
+      "order" : 4,
+      "item" : "goldbuck"
+    },
+    "sandclown" : {
+      "order" : 5,
+      "item" : "sandclown"
+    },
+    "sunskipper" : {
+      "order" : 6,
+      "item" : "sunskipper"
+    },
+
+    // FOREST
+    "blueback" : {
+      "order" : 7,
+      "item" : "blueback"
+    },
+    "greentip" : {
+      "order" : 8,
+      "item" : "greentip"
+    },
+    "redwing" : {
+      "order" : 9,
+      "item" : "redwing"
+    },
+
+    // TIER 3
+    // OCEAN
+    "seahornet" : {
+      "order" : 10,
+      "item" : "seahornet"
+    },
+    "tidefly" : {
+      "order" : 11,
+      "item" : "tidefly"
+    },
+    "wavebird" : {
+      "order" : 12,
+      "item" : "wavebird"
+    },
+
+    // SAVANNAH
+    "dewhopper" : {
+      "order" : 13,
+      "item" : "dewhopper"
+    },
+    "dustmoth" : {
+      "order" : 14,
+      "item" : "dustmoth"
+    },
+    "muddancer" : {
+      "order" : 15,
+      "item" : "muddancer"
+    },
+
+    // SNOW
+    "frostfleck" : {
+      "order" : 16,
+      "item" : "frostfleck"
+    },
+    "frostfly" : {
+      "order" : 17,
+      "item" : "frostfly"
+    },
+    "icetip" : {
+      "order" : 18,
+      "item" : "icetip"
+    },
+
+    // TIER 4
+    // ALIEN
+    "hivehog" : {
+      "order" : 19,
+      "item" : "hivehog"
+    },
+    "shellcreep" : {
+      "order" : 20,
+      "item" : "shellcreep"
+    },
+    "xenofly" : {
+      "order" : 21,
+      "item" : "xenofly"
+    },
+
+    // JUNGLE
+    "brightstripe" : {
+      "order" : 22,
+      "item" : "brightstripe"
+    },
+    "thornbee" : {
+      "order" : 23,
+      "item" : "thornbee"
+    },
+    "vineclimber" : {
+      "order" : 24,
+      "item" : "vineclimber"
+    },
+
+    // TOXIC
+    "gasgiant" : {
+      "order" : 25,
+      "item" : "gasgiant"
+    },
+    "scuttleploom" : {
+      "order" : 26,
+      "item" : "scuttleploom"
+    },
+    "stinkjack" : {
+      "order" : 27,
+      "item" : "stinkjack"
+    },
+
+
+    // TIER 5
+    // ARCTIC
+    "orphanfly" : {
+      "order" : 28,
+      "item" : "orphanfly"
+    },
+    "polarmoth" : {
+      "order" : 29,
+      "item" : "polarmoth"
+    },
+    "snowskater" : {
+      "order" : 30,
+      "item" : "snowskater"
+    },
+
+    // MIDNIGHT
+    // CURRENLTY NONE
+
+    // TUNDRA
+    "aurorabee" : {
+      "order" : 31,
+      "item" : "aurorabee"
+    },
+    "driftbell" : {
+      "order" : 32,
+      "item" : "driftbell"
+    },
+    "shardwing" : {
+      "order" : 33,
+      "item" : "shardwing"
+    },
+
+    // TIER 6
+    // MAGMA
+    "fireygiant" : {
+      "order" : 34,
+      "item" : "fireygiant"
+    },
+    "flameroach" : {
+      "order" : 35,
+      "item" : "flameroach"
+    },
+    "lavahopper" : {
+      "order" : 36,
+      "item" : "lavahopper"
+    },
+
+    // SCORCHED CITY
+    "ashsprite" : {
+      "order" : 37,
+      "item" : "ashsprite"
+    },
+    "cinderfly" : {
+      "order" : 38,
+      "item" : "cinderfly"
+    },
+    "shadowmoth" : {
+      "order" : 39,
+      "item" : "shadowmoth"
+    },
+
+    // VOLCANIC
+    "glowbug" : {
+      "order" : 40,
+      "item" : "glowbug"
+    },
+    "heathugger" : {
+      "order" : 41,
+      "item" : "heathugger"
+    },
+    "phoenixfly" : {
+      "order" : 42,
+      "item" : "phoenixfly"
+    }
+  }
+}

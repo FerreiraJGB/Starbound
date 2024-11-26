@@ -1,0 +1,487 @@
+{
+  "name": "crewmember-notifications",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/notification.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/dialog.lua",
+    "/scripts/behavior.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/reaction.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "dynamic",
+    "type": "composite",
+    "name": "dynamic",
+    "parameters": {},
+    "children": [
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "receivedNotification",
+            "type": "action",
+            "name": "receivedNotification",
+            "parameters": {
+              "type": {"value": "shipImprovementApplied"}
+            },
+            "output": {
+              "source": "player"
+            }
+          },
+          {
+            "title": "succeeder",
+            "type": "decorator",
+            "name": "succeeder",
+            "parameters": {},
+            "child": {
+              "title": "sequence",
+              "type": "composite",
+              "name": "sequence",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "entityPosition",
+                  "type": "action",
+                  "name": "entityPosition",
+                  "parameters": {
+                    "entity": {"key": "player"}
+                  },
+                  "output": {
+                    "position": "playerPosition"
+                  }
+                },
+                {
+                  "title": "moveToPosition",
+                  "type": "action",
+                  "name": "moveToPosition",
+                  "parameters": {
+                    "avoidLiquid": {"value": true},
+                    "groundPosition": {"value": true},
+                    "maxGround": {"value": 5},
+                    "minGround": {"value": -20},
+                    "pathOptions": {"value": {}},
+                    "position": {"key": "playerPosition"},
+                    "run": {"value": true}
+                  },
+                  "output": {
+                    "pathfinding": "isPathfinding"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "title": "faceEntity",
+            "type": "action",
+            "name": "faceEntity",
+            "parameters": {
+              "entity": {"key": "player"}
+            }
+          },
+          {
+            "title": "sayToEntity",
+            "type": "action",
+            "name": "sayToEntity",
+            "parameters": {
+              "dialogType": {"value": "dialog.crewmember.shipImprovementApplied"},
+              "entity": {"key": "player"},
+              "tags": {"value": {}}
+            }
+          }
+        ]
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "receivedNotification",
+            "type": "action",
+            "name": "receivedNotification",
+            "parameters": {
+              "type": {"value": "firstTimeOnShip"}
+            },
+            "output": {
+              "source": "player"
+            }
+          },
+          {
+            "title": "randomize",
+            "type": "composite",
+            "name": "randomize",
+            "parameters": {},
+            "children": [
+              {
+                "title": "setNumber",
+                "type": "action",
+                "name": "setNumber",
+                "parameters": {
+                  "number": {"value": 1}
+                },
+                "output": {
+                  "number": "direction"
+                }
+              },
+              {
+                "title": "setNumber",
+                "type": "action",
+                "name": "setNumber",
+                "parameters": {
+                  "number": {"value": -1}
+                },
+                "output": {
+                  "number": "direction"
+                }
+              }
+            ]
+          },
+          {
+            "title": "succeeder",
+            "type": "decorator",
+            "name": "succeeder",
+            "parameters": {},
+            "child": {
+              "title": "parallel",
+              "type": "composite",
+              "name": "parallel",
+              "parameters": {
+                "fail": {"value": 1},
+                "success": {"value": -1}
+              },
+              "children": [
+                {
+                  "title": "succeeder",
+                  "type": "decorator",
+                  "name": "succeeder",
+                  "parameters": {},
+                  "child": {
+                    "title": "selector",
+                    "type": "composite",
+                    "name": "selector",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "move",
+                        "type": "action",
+                        "name": "move",
+                        "parameters": {
+                          "direction": {"key": "direction"},
+                          "run": {"value": false}
+                        }
+                      },
+                      {
+                        "title": "reverseDirection",
+                        "type": "action",
+                        "name": "reverseDirection",
+                        "parameters": {
+                          "direction": {"key": "direction"}
+                        },
+                        "output": {
+                          "direction": "direction"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "title": "failer",
+                  "type": "decorator",
+                  "name": "failer",
+                  "parameters": {},
+                  "child": {
+                    "title": "timer",
+                    "type": "action",
+                    "name": "timer",
+                    "parameters": {
+                      "time": {"value": 1}
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "title": "faceEntity",
+            "type": "action",
+            "name": "faceEntity",
+            "parameters": {
+              "entity": {"key": "player"}
+            }
+          },
+          {
+            "title": "sayToEntity",
+            "type": "action",
+            "name": "sayToEntity",
+            "parameters": {
+              "dialogType": {"value": "dialog.crewmember.roleDescription"},
+              "entity": {"key": "player"},
+              "tags": {"value": {}}
+            }
+          },
+          {
+            "title": "setEntity",
+            "type": "action",
+            "name": "setEntity",
+            "parameters": {
+              "entity": {"key": "player"}
+            },
+            "output": {
+              "entity": "reactTarget"
+            }
+          },
+          {
+            "title": "setInfluence",
+            "type": "action",
+            "name": "setInfluence",
+            "parameters": {
+              "influence": {"value": "firsttimeonship"}
+            },
+            "output": {
+              "influence": "influence"
+            }
+          },
+          {
+            "title": "react",
+            "type": "module",
+            "name": "react",
+            "parameters": {
+              "sendInfluence": {"value": false},
+              "faceReactTarget": {"value": true}
+            }
+          },
+          {
+            "title": "finalreact",
+            "type": "module",
+            "name": "finalreact",
+            "parameters": {}
+          }
+        ]
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "receivedNotification",
+            "type": "action",
+            "name": "receivedNotification",
+            "parameters": {
+              "type": {"value": "respawned"}
+            },
+            "output": {
+              "source": "player"
+            }
+          },
+          {
+            "title": "faceEntity",
+            "type": "action",
+            "name": "faceEntity",
+            "parameters": {
+              "entity": {"key": "player"}
+            }
+          },
+          {
+            "title": "sayToEntity",
+            "type": "action",
+            "name": "sayToEntity",
+            "parameters": {
+              "dialogType": {"value": "dialog.crewmember.respawned"},
+              "entity": {"key": "player"},
+              "tags": {"value": {}}
+            }
+          }
+        ]
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "receivedNotification",
+            "type": "action",
+            "name": "receivedNotification",
+            "parameters": {
+              "type": {"value": "unfollow"}
+            },
+            "output": {
+              "source": "player"
+            }
+          },
+          {
+            "title": "faceEntity",
+            "type": "action",
+            "name": "faceEntity",
+            "parameters": {
+              "entity": {"key": "player"}
+            }
+          },
+          {
+            "title": "sayToEntity",
+            "type": "action",
+            "name": "sayToEntity",
+            "parameters": {
+              "dialogType": {"value": "dialog.crewmember.unfollow"},
+              "entity": {"key": "player"},
+              "tags": {"value": {}}
+            }
+          }
+        ]
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "receivedNotification",
+            "type": "action",
+            "name": "receivedNotification",
+            "parameters": {
+              "type": {"value": "follow"}
+            },
+            "output": {
+              "source": "player"
+            }
+          },
+          {
+            "title": "faceEntity",
+            "type": "action",
+            "name": "faceEntity",
+            "parameters": {
+              "entity": {"key": "player"}
+            }
+          },
+          {
+            "title": "sayToEntity",
+            "type": "action",
+            "name": "sayToEntity",
+            "parameters": {
+              "dialogType": {"value": "dialog.crewmember.follow"},
+              "entity": {"key": "player"},
+              "tags": {"value": {}}
+            }
+          }
+        ]
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "receivedNotification",
+            "type": "action",
+            "name": "receivedNotification",
+            "parameters": {
+              "type": {"value": "recruited"}
+            },
+            "output": {
+              "source": "reactTarget"
+            }
+          },
+          {
+            "title": "faceEntity",
+            "type": "action",
+            "name": "faceEntity",
+            "parameters": {
+              "entity": {"key": "reactTarget"}
+            }
+          },
+          {
+            "title": "setInfluence",
+            "type": "action",
+            "name": "setInfluence",
+            "parameters": {
+              "influence": {"key": "recruited"}
+            },
+            "output": {
+              "influence": "influence"
+            }
+          },
+          {
+            "title": "react",
+            "type": "module",
+            "name": "react",
+            "parameters": {
+              "sendInfluence": {"value": false},
+              "faceReactTarget": {"value": true}
+            }
+          },
+          {
+            "title": "finalreact",
+            "type": "module",
+            "name": "finalreact",
+            "parameters": {}
+          }
+        ]
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "receivedNotification",
+            "type": "action",
+            "name": "receivedNotification",
+            "parameters": {
+              "type": {"value": "recruitDeclined"}
+            },
+            "output": {
+              "source": "reactTarget"
+            }
+          },
+          {
+            "title": "faceEntity",
+            "type": "action",
+            "name": "faceEntity",
+            "parameters": {
+              "entity": {"key": "reactTarget"}
+            }
+          },
+          {
+            "title": "setInfluence",
+            "type": "action",
+            "name": "setInfluence",
+            "parameters": {
+              "influence": {"value": "recruitdeclined"}
+            },
+            "output": {
+              "influence": "influence"
+            }
+          },
+          {
+            "title": "react",
+            "type": "module",
+            "name": "react",
+            "parameters": {
+              "sendInfluence": {"value": false},
+              "faceReactTarget": {"value": true}
+            }
+          },
+          {
+            "title": "finalreact",
+            "type": "module",
+            "name": "finalreact",
+            "parameters": {}
+          }
+        ]
+      }
+    ]
+  }
+}

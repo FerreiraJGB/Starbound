@@ -1,0 +1,15 @@
+{
+  "modId" : 8,
+  "modName" : "tar",
+  "description" : "Thick tar covers the ground here.",
+  "footstepSound" : "/sfx/blocks/footstep_mud.ogg",
+  "health" : 0,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "tar.png",
+    "variants" : 5,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

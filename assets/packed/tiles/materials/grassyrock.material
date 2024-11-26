@@ -1,0 +1,24 @@
+{
+  "materialId" : 89,
+  "materialName" : "grassyrock",
+  "particleColor" : [140, 149, 148, 255],
+  "itemDrop" : "grassyrock",
+  "description" : "Rough, grassy stone.",
+  "shortdescription" : "Grassy Rock",
+  "glitchDescription" : "Observant. Grass is growing in the crevices of this rock.",
+  "floranDescription" : "Grassssy rocksss.",
+  "novakidDescription" : "Some rocks with growin' grass.",
+  "footstepSound" : "/sfx/blocks/footstep_stone2.ogg",
+  "health" : 12,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "grassyrock.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 1600
+  }
+}

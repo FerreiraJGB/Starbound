@@ -1,0 +1,809 @@
+{
+  "name": "tonauacstart",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/query.lua",
+    "/scripts/actions/entity.lua",
+    "/scripts/behavior.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/status.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/position.lua",
+    "/scripts/actions/npc.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "dynamic",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "queryEntity",
+                "type": "action",
+                "name": "queryEntity",
+                "parameters": {
+                  "entityTypes": {"value": ["player"]},
+                  "orderBy": {"value": "nearest"},
+                  "position": {"key": "self"},
+                  "range": {"value": 20},
+                  "withoutEntity": {"key": "self"}
+                },
+                "output": {
+                  "list": "players"
+                }
+              },
+              {
+                "title": "filter",
+                "type": "decorator",
+                "name": "filter",
+                "parameters": {
+                  "list": {"key": "players"},
+                  "type": {"value": "entity"}
+                },
+                "child": {
+                  "title": "entityInSight",
+                  "type": "action",
+                  "name": "entityInSight",
+                  "parameters": {
+                    "entity": {"key": "filterItem"}
+                  }
+                }
+              },
+              {
+                "title": "listGet",
+                "type": "action",
+                "name": "listGet",
+                "parameters": {
+                  "list": {"key": "players"}
+                },
+                "output": {
+                  "entity": "player"
+                }
+              }
+            ]
+          },
+          {
+            "title": "parallel",
+            "type": "composite",
+            "name": "parallel",
+            "parameters": {
+              "fail": {"value": -1},
+              "success": {"value": -1}
+            },
+            "children": [
+              {
+                "title": "controlCrouch",
+                "type": "action",
+                "name": "controlCrouch",
+                "parameters": {}
+              },
+              {
+                "title": "sequence",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "addEphemeralEffect",
+                    "type": "action",
+                    "name": "addEphemeralEffect",
+                    "parameters": {
+                      "duration": {"value": 5},
+                      "name": {"value": "bored"}
+                    }
+                  },
+                  {
+                    "title": "timer",
+                    "type": "action",
+                    "name": "timer",
+                    "parameters": {
+                      "time": {"value": 5}
+                    }
+                  }
+                ]
+              },
+              {
+                "title": "runner",
+                "type": "action",
+                "name": "runner",
+                "parameters": {}
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "removeEphemeralEffect",
+        "type": "action",
+        "name": "removeEphemeralEffect",
+        "parameters": {
+          "name": {"value": "bored"}
+        }
+      },
+      {
+        "title": "setVelocity",
+        "type": "action",
+        "name": "setVelocity",
+        "parameters": {
+          "velocity": {"value": [0, 15]}
+        }
+      },
+      {
+        "title": "sequentialdialog",
+        "type": "module",
+        "name": "sequentialdialog",
+        "parameters": {
+          "dialogWaitTime": {"value": 4},
+          "dialogEndWait": {"value": 2},
+          "dialogKey": {"value": "dialog.tonauac.start"},
+          "dialogTarget": {"key": ""}
+        }
+      },
+      {
+        "title": "dynamic",
+        "type": "composite",
+        "name": "dynamic",
+        "parameters": {},
+        "children": [
+          {
+            "title": "inverter",
+            "type": "decorator",
+            "name": "inverter",
+            "parameters": {},
+            "child": {
+              "title": "move",
+              "type": "action",
+              "name": "move",
+              "parameters": {
+                "direction": {"value": 1},
+                "run": {"value": false}
+              }
+            }
+          },
+          {
+            "title": "runner",
+            "type": "action",
+            "name": "runner",
+            "parameters": {}
+          }
+        ]
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "findObject",
+            "type": "action",
+            "name": "findObject",
+            "parameters": {
+              "name": {"value": "bardoor3"},
+              "orderBy": {"value": "nearest"},
+              "position": {"key": "self"},
+              "range": {"value": 10}
+            },
+            "output": {
+              "entity": "bardoor"
+            }
+          },
+          {
+            "title": "succeeder",
+            "type": "decorator",
+            "name": "succeeder",
+            "parameters": {},
+            "child": {
+              "title": "callScriptedEntity",
+              "type": "action",
+              "name": "callScriptedEntity",
+              "parameters": {
+                "entity": {"key": "bardoor"},
+                "func": {"value": "openDoor"}
+              }
+            }
+          }
+        ]
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": -1},
+          "success": {"value": 1}
+        },
+        "children": [
+          {
+            "title": "move",
+            "type": "action",
+            "name": "move",
+            "parameters": {
+              "direction": {"value": 1},
+              "run": {"value": false}
+            }
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "sequentialdialog",
+                "type": "module",
+                "name": "sequentialdialog",
+                "parameters": {
+                  "dialogWaitTime": {"value": 4},
+                  "dialogEndWait": {"value": 2},
+                  "dialogKey": {"value": "dialog.tonauac.continue"},
+                  "dialogTarget": {"key": ""}
+                }
+              },
+              {
+                "title": "runner",
+                "type": "action",
+                "name": "runner",
+                "parameters": {}
+              }
+            ]
+          },
+          {
+            "title": "cooldown",
+            "type": "decorator",
+            "name": "cooldown",
+            "parameters": {
+              "cooldown": {"value": 0.5},
+              "onFail": {"value": true},
+              "onSuccess": {"value": true}
+            },
+            "child": {
+              "title": "findObject",
+              "type": "action",
+              "name": "findObject",
+              "parameters": {
+                "name": {"value": "mask6"},
+                "orderBy": {"value": "nearest"},
+                "position": {"key": "self"},
+                "range": {"value": 20}
+              },
+              "output": {
+                "entity": "mask"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "entityPosition",
+            "type": "action",
+            "name": "entityPosition",
+            "parameters": {
+              "entity": {"key": "mask"}
+            },
+            "output": {
+              "position": "maskPosition"
+            }
+          },
+          {
+            "title": "offsetPosition",
+            "type": "action",
+            "name": "offsetPosition",
+            "parameters": {
+              "offset": {"value": [-5, 0]},
+              "position": {"key": "maskPosition"}
+            },
+            "output": {
+              "position": "maskPosition"
+            }
+          },
+          {
+            "title": "moveToPosition",
+            "type": "action",
+            "name": "moveToPosition",
+            "parameters": {
+              "avoidLiquid": {"value": true},
+              "groundPosition": {"value": true},
+              "maxGround": {"value": 5},
+              "minGround": {"value": -5},
+              "position": {"key": "maskPosition"},
+              "run": {"value": false}
+            }
+          },
+          {
+            "title": "sequentialdialog",
+            "type": "module",
+            "name": "sequentialdialog",
+            "parameters": {
+              "dialogWaitTime": {"value": 4},
+              "dialogEndWait": {"value": 2},
+              "dialogKey": {"value": "dialog.tonauac.maskDescription"},
+              "dialogTarget": {"key": ""}
+            }
+          }
+        ]
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": -1},
+          "success": {"value": 1}
+        },
+        "children": [
+          {
+            "title": "move",
+            "type": "action",
+            "name": "move",
+            "parameters": {
+              "direction": {"value": 1},
+              "run": {"value": false}
+            }
+          },
+          {
+            "title": "cooldown",
+            "type": "decorator",
+            "name": "cooldown",
+            "parameters": {
+              "cooldown": {"value": 0.5},
+              "onFail": {"value": true},
+              "onSuccess": {"value": true}
+            },
+            "child": {
+              "title": "findObject",
+              "type": "action",
+              "name": "findObject",
+              "parameters": {
+                "name": {"value": "sacrificialaltar"},
+                "orderBy": {"value": "nearest"},
+                "position": {"key": "self"},
+                "range": {"value": 30}
+              },
+              "output": {
+                "entity": "altar"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "entityPosition",
+            "type": "action",
+            "name": "entityPosition",
+            "parameters": {
+              "entity": {"key": "altar"}
+            },
+            "output": {
+              "position": "altarPosition"
+            }
+          },
+          {
+            "title": "offsetPosition",
+            "type": "action",
+            "name": "offsetPosition",
+            "parameters": {
+              "offset": {"value": [-5, 0]},
+              "position": {"key": "altarPosition"}
+            },
+            "output": {
+              "position": "altarPosition"
+            }
+          },
+          {
+            "title": "moveToPosition",
+            "type": "action",
+            "name": "moveToPosition",
+            "parameters": {
+              "avoidLiquid": {"value": true},
+              "groundPosition": {"value": true},
+              "maxGround": {"value": 5},
+              "minGround": {"value": -5},
+              "position": {"key": "altarPosition"},
+              "run": {"value": false}
+            },
+            "output": {
+              "pathfinding": "isPathfinding"
+            }
+          },
+          {
+            "title": "sequentialdialog",
+            "type": "module",
+            "name": "sequentialdialog",
+            "parameters": {
+              "dialogWaitTime": {"value": 4},
+              "dialogEndWait": {"value": 2},
+              "dialogKey": {"value": "dialog.tonauac.altarDescription"},
+              "dialogTarget": {"key": ""}
+            }
+          }
+        ]
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": -1},
+          "success": {"value": 1}
+        },
+        "children": [
+          {
+            "title": "move",
+            "type": "action",
+            "name": "move",
+            "parameters": {
+              "direction": {"value": 1},
+              "run": {"value": false}
+            }
+          },
+          {
+            "title": "cooldown",
+            "type": "decorator",
+            "name": "cooldown",
+            "parameters": {
+              "cooldown": {"value": 0.5},
+              "onFail": {"value": true},
+              "onSuccess": {"value": true}
+            },
+            "child": {
+              "title": "findObject",
+              "type": "action",
+              "name": "findObject",
+              "parameters": {
+                "name": {"value": "tombstatueavian"},
+                "orderBy": {"value": "nearest"},
+                "position": {"key": "self"},
+                "range": {"value": 40}
+              },
+              "output": {
+                "entity": "statue"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "entityPosition",
+            "type": "action",
+            "name": "entityPosition",
+            "parameters": {
+              "entity": {"key": "statue"}
+            },
+            "output": {
+              "position": "statuePosition"
+            }
+          },
+          {
+            "title": "offsetPosition",
+            "type": "action",
+            "name": "offsetPosition",
+            "parameters": {
+              "offset": {"value": [4, 0]},
+              "position": {"key": "statuePosition"}
+            },
+            "output": {
+              "position": "statuePosition"
+            }
+          },
+          {
+            "title": "moveToPosition",
+            "type": "action",
+            "name": "moveToPosition",
+            "parameters": {
+              "avoidLiquid": {"value": true},
+              "groundPosition": {"value": true},
+              "maxGround": {"value": 5},
+              "minGround": {"value": -5},
+              "position": {"key": "statuePosition"},
+              "run": {"value": false}
+            }
+          },
+          {
+            "title": "faceDirection",
+            "type": "action",
+            "name": "faceDirection",
+            "parameters": {
+              "direction": {"value": -1}
+            }
+          },
+          {
+            "title": "sequentialdialog",
+            "type": "module",
+            "name": "sequentialdialog",
+            "parameters": {
+              "dialogWaitTime": {"value": 4},
+              "dialogEndWait": {"value": 2},
+              "dialogKey": {"value": "dialog.tonauac.statueDescription"},
+              "dialogTarget": {"key": ""}
+            }
+          }
+        ]
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 3}
+        }
+      },
+      {
+        "title": "sequentialdialog",
+        "type": "module",
+        "name": "sequentialdialog",
+        "parameters": {
+          "dialogWaitTime": {"value": 4},
+          "dialogEndWait": {"value": 2},
+          "dialogKey": {"value": "dialog.tonauac.endTour"},
+          "dialogTarget": {"key": ""}
+        }
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": -1},
+          "success": {"value": 1}
+        },
+        "children": [
+          {
+            "title": "move",
+            "type": "action",
+            "name": "move",
+            "parameters": {
+              "direction": {"value": 1},
+              "run": {"value": false}
+            }
+          },
+          {
+            "title": "cooldown",
+            "type": "decorator",
+            "name": "cooldown",
+            "parameters": {
+              "cooldown": {"value": 0.5},
+              "onFail": {"value": true},
+              "onSuccess": {"value": true}
+            },
+            "child": {
+              "title": "findObject",
+              "type": "action",
+              "name": "findObject",
+              "parameters": {
+                "name": {"value": "bardoor2"},
+                "orderBy": {"value": "nearest"},
+                "position": {"key": "self"},
+                "range": {"value": 20}
+              },
+              "output": {
+                "entity": "bardoor"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "entityPosition",
+            "type": "action",
+            "name": "entityPosition",
+            "parameters": {
+              "entity": {"key": "bardoor"}
+            },
+            "output": {
+              "position": "bardoorPosition"
+            }
+          },
+          {
+            "title": "offsetPosition",
+            "type": "action",
+            "name": "offsetPosition",
+            "parameters": {
+              "offset": {"value": [-1, 0]},
+              "position": {"key": "bardoorPosition"}
+            },
+            "output": {
+              "position": "bardoorPosition"
+            }
+          },
+          {
+            "title": "moveToPosition",
+            "type": "action",
+            "name": "moveToPosition",
+            "parameters": {
+              "avoidLiquid": {"value": true},
+              "groundPosition": {"value": true},
+              "maxGround": {"value": 5},
+              "minGround": {"value": -5},
+              "position": {"key": "bardoorPosition"},
+              "run": {"value": false}
+            }
+          },
+          {
+            "title": "faceDirection",
+            "type": "action",
+            "name": "faceDirection",
+            "parameters": {
+              "direction": {"value": 1}
+            }
+          }
+        ]
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "findObject",
+            "type": "action",
+            "name": "findObject",
+            "parameters": {
+              "name": {"value": "bardoor2"},
+              "orderBy": {"value": "nearest"},
+              "position": {"key": "self"},
+              "range": {"value": 10}
+            },
+            "output": {
+              "entity": "bardoor"
+            }
+          },
+          {
+            "title": "dance",
+            "type": "action",
+            "name": "dance",
+            "parameters": {
+              "dance": {"value": "tonauacdoorlifting"}
+            }
+          },
+          {
+            "title": "timer",
+            "type": "action",
+            "name": "timer",
+            "parameters": {
+              "time": {"value": 0.5}
+            }
+          },
+          {
+            "title": "succeeder",
+            "type": "decorator",
+            "name": "succeeder",
+            "parameters": {},
+            "child": {
+              "title": "callScriptedEntity",
+              "type": "action",
+              "name": "callScriptedEntity",
+              "parameters": {
+                "entity": {"key": "bardoor"},
+                "func": {"value": "openDoor"}
+              }
+            }
+          }
+        ]
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 1}
+        }
+      },
+      {
+        "title": "sequentialdialog",
+        "type": "module",
+        "name": "sequentialdialog",
+        "parameters": {
+          "dialogWaitTime": {"value": 4},
+          "dialogEndWait": {"value": 2},
+          "dialogKey": {"value": "dialog.tonauac.feelingTired"},
+          "dialogTarget": {"key": ""}
+        }
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 5}
+        }
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": -1},
+          "success": {"value": -1}
+        },
+        "children": [
+          {
+            "title": "controlCrouch",
+            "type": "action",
+            "name": "controlCrouch",
+            "parameters": {}
+          },
+          {
+            "title": null,
+            "type": "module",
+            "name": "beamout",
+            "parameters": {}
+          },
+          {
+            "title": "repeater",
+            "type": "decorator",
+            "name": "repeater",
+            "parameters": {
+              "maxLoops": {"value": -1},
+              "untilSuccess": {"value": false}
+            },
+            "child": {
+              "title": "sequence",
+              "type": "composite",
+              "name": "sequence",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "addEphemeralEffect",
+                  "type": "action",
+                  "name": "addEphemeralEffect",
+                  "parameters": {
+                    "duration": {"value": 5},
+                    "name": {"value": "bored"}
+                  }
+                },
+                {
+                  "title": "timer",
+                  "type": "action",
+                  "name": "timer",
+                  "parameters": {
+                    "time": {"value": 5}
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

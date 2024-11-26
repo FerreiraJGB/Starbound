@@ -1,0 +1,93 @@
+{
+  "animatedParts" : {
+    "stateTypes" : {
+      "body" : {
+        "priority" : 1,
+        "default" : "spawn",
+        "states" : {
+          "spawn" : {
+            "frames" : 9,
+            "cycle" : 0.75,
+            "mode" : "transition",
+            "transition" : "idle"
+          },
+          "idle" : {
+            "frames" : 6,
+            "cycle" : 0.5,
+            "mode" : "loop"
+          }
+        }
+      },
+      "damage" : {
+        "priority" : 2,
+        "default" : "none",
+        "states" : {
+          "none" : { },
+          "stunned" : { }
+        }
+      }
+    },
+
+    "parts" : {
+      "body" : {
+        "properties" : {
+          "zLevel" : 1,
+          "centered" : true
+        },
+        "partStates" : {
+          "body" : {
+            "spawn" : {
+              "properties" : {
+                "image" : "<partImage>:spawn.<frame>"
+              }
+            },
+            "idle" : {
+              "properties" : {
+                "image" : "<partImage>:idle.<frame>"
+              }
+            }
+          }
+        }
+      },
+      "bodyfullbright" : {
+        "properties" : {
+          "zLevel" : 2,
+          "centered" : true,
+          "anchorPart" : "body",
+          "fullbright" : true
+        },
+        "partStates" : {
+          "body" : {
+            "spawn" : {
+              "properties" : {
+                "image" : "<partImage>:spawn.<frame>"
+              }
+            },
+            "idle" : {
+              "properties" : {
+                "image" : "<partImage>:idle.<frame>"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "particleEmitters" : {
+    "death" : {
+      "offsetRegion" : [-1.5, -1.5, 1.5, 1.5],
+      "burstCount" : 15,
+      "particles" : [
+        { "particle" : "dust2" },
+        { "particle" : "shadowrockshard", "count" : 2 }
+      ]
+    }
+  },
+
+  "sounds" : {
+    "death" : [ "/sfx/melee/blunt_kill_stone1.ogg" ]
+  },
+
+  "effects" : {
+  }
+}

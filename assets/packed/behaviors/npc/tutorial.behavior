@@ -1,0 +1,42 @@
+{
+  "name": "tutorial",
+  "description": "",
+  "scripts": [],
+  "parameters": {
+    "play": true
+  },
+  "root": {
+    "title": "Villager",
+    "type": "composite",
+    "name": "dynamic",
+    "parameters": {},
+    "children": [
+      {
+        "title": "Tenant Baseline Behavior",
+        "type": "module",
+        "name": "Tenant Baseline Behavior",
+        "parameters": {}
+      },
+      {
+        "title": null,
+        "type": "module",
+        "name": "flee",
+        "parameters": {}
+      },
+      {
+        "title": "",
+        "type": "module",
+        "name": "converseseq",
+        "parameters": {}
+      },
+      {
+        "title": "",
+        "type": "module",
+        "name": "NPC Idle",
+        "parameters": {
+          "play": {"value": "<play>"}
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "modId" : 4,
+  "modName" : "sand",
+  "description" : "Scattered sand.",
+  "footstepSound" : "/sfx/blocks/footstep_sand.ogg",
+  "health" : 0,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "sand.png",
+    "variants" : 5,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

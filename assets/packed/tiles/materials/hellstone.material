@@ -1,0 +1,24 @@
+{
+  "materialId" : 12,
+  "materialName" : "hellstone",
+  "particleColor" : [96, 19, 30, 255],
+  "itemDrop" : "hellstonematerial",
+  "description" : "Eww, a fleshy looking material!",
+  "shortdescription" : "Flesh Pile",
+  "glitchDescription" : "Alarmed. This appears to be pulsating flesh.",
+  "floranDescription" : "Sssquishy, sslimy flesh.",
+  "novakidDescription" : "This flesh is pretty nasty lookin'.",
+  "footstepSound" : "/sfx/blocks/footstep_brains.ogg",
+  "health" : 20,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "hellstone.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 0
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "metadata" : {
+    "name" : "undergroundsafehouse",
+    "species" : "generic",
+    "rules" : [
+    ],
+    "anchor" : [ "undergroundsafehouse_1", "undergroundsafehouse_2", "undergroundsafehouse_3", "undergroundsafehouse_4", "undergroundsafehouse_5", "undergroundsafehouse_6", "undergroundsafehouse_7", "undergroundsafehouse_8", "undergroundsafehouse_9", "undergroundsafehouse_10", "undergroundsafehouse_11", "undergroundsafehouse_12", "undergroundsafehouse_13", "undergroundsafehouse_14", "undergroundsafehouse_15", "undergroundsafehouse_16" ],
+    "gravity" : 80,
+    "maxRadius" : 1000000,
+    "maxParts" : 1,
+    "protected" : true
+  },
+
+  "parts" : [
+    {
+      "name" : "undergroundsafehouse_1",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundsafehouse_1.json" ]
+    },
+    {
+      "name" : "undergroundsafehouse_2",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundsafehouse_2.json" ]
+    },
+    {
+      "name" : "undergroundsafehouse_3",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundsafehouse_3.json" ]
+    },
+    {
+      "name" : "undergroundsafehouse_4",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundsafehouse_4.json" ]
+    },
+    {
+      "name" : "undergroundsafehouse_5",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundsafehouse_5.json" ]
+    },
+    {
+      "name" : "undergroundsafehouse_6",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundsafehouse_6.json" ]
+    },
+    {
+      "name" : "undergroundsafehouse_7",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundsafehouse_7.json" ]
+    },
+    {
+      "name" : "undergroundsafehouse_8",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundsafehouse_8.json" ]
+    },
+    {
+      "name" : "undergroundsafehouse_9",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundsafehouse_9.json" ]
+    },
+    {
+      "name" : "undergroundsafehouse_10",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundsafehouse_10.json" ]
+    },
+    {
+      "name" : "undergroundsafehouse_11",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundsafehouse_11.json" ]
+    },
+    {
+      "name" : "undergroundsafehouse_12",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundsafehouse_12.json" ]
+    },
+    {
+      "name" : "undergroundsafehouse_13",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundsafehouse_13.json" ]
+    },
+    {
+      "name" : "undergroundsafehouse_14",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundsafehouse_14.json" ]
+    },
+    {
+      "name" : "undergroundsafehouse_15",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundsafehouse_15.json" ]
+    },
+    {
+      "name" : "undergroundsafehouse_16",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "undergroundsafehouse_16.json" ]
+    }
+  ]
+}

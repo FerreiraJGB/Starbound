@@ -1,0 +1,24 @@
+{
+  "materialId" : 112,
+  "materialName" : "blueneonsymbolblock",
+  "particleColor" : [71, 66, 57, 255],
+  "itemDrop" : "blueneonsymbol",
+  "description" : "A tile with a strange blue glyph engraved in the centre.",
+  "shortdescription" : "Blue Neon Block",
+  "glitchDescription" : "Interested. The meaning of this symbol is unknown.",
+  "floranDescription" : "Floran like glowy ssymbolss.",
+  "novakidDescription" : "A block with some sorta glowin' symbol.",
+  "footstepSound" : "/sfx/blocks/footstep_stone.ogg",
+  "health" : 20,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "blueneonsymbolblock.png",
+    "variants" : 10,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 870
+  }
+}

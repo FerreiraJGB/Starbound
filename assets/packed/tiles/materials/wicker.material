@@ -1,0 +1,25 @@
+{
+  "materialId" : 106,
+  "materialName" : "wicker",
+  "particleColor" : [109, 99, 48, 255],
+  "itemDrop" : "wicker",
+  "shortdescription" : "Wicker Block",
+  "description" : "A roughly woven wicker material.",
+  "glitchDescription" : "Perceptive. This wicker is tightly woven and strong.",
+  "floranDescription" : "Sstrong wicker makess wall.",
+  "novakidDescription" : "Looks t'me like some wicker.",
+  "footstepSound" : "/sfx/blocks/footstep_lightwood.ogg",
+  "health" : 4,
+  "category" : "materials",
+  "damageTable" : "/tiles/flammableDamage.config",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "wicker.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3500
+  }
+}

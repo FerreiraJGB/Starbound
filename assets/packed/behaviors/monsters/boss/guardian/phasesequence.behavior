@@ -1,0 +1,19 @@
+{
+  "name": "guardian-phasesequence",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/builders.lua"
+  ],
+  "parameters": {
+    "actions": []
+  },
+  "root": {
+    "title": "selectorActions",
+    "type": "action",
+    "name": "selectorActions",
+    "parameters": {
+      "actions": {"key": "<actions>"},
+      "dynamic": {"value": false}
+    }
+  }
+}

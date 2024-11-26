@@ -1,0 +1,269 @@
+{
+  "name": "tracking",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/entity.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/behavior.lua",
+    "/scripts/actions/query.lua"
+  ],
+  "parameters": {
+    "queryRange": 50,
+    "trackingRange": 50,
+    "entityTypes": ["player"],
+    "keepInSight": true
+  },
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "selector",
+        "type": "composite",
+        "name": "selector",
+        "parameters": {},
+        "children": [
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "selector",
+                "type": "composite",
+                "name": "selector",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "sequence",
+                    "type": "composite",
+                    "name": "sequence",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "wasDamaged",
+                        "type": "action",
+                        "name": "wasDamaged",
+                        "parameters": {}
+                      },
+                      {
+                        "title": "entityInTypes",
+                        "type": "action",
+                        "name": "entityInTypes",
+                        "parameters": {
+                          "entity": {"key": "damageSource"},
+                          "types": {"key": "<entityTypes>"}
+                        }
+                      },
+                      {
+                        "title": "setEntity",
+                        "type": "action",
+                        "name": "setEntity",
+                        "parameters": {
+                          "entity": {"key": "damageSource"}
+                        },
+                        "output": {
+                          "entity": "newTarget"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "title": "sequence",
+                    "type": "composite",
+                    "name": "sequence",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "inverter",
+                        "type": "decorator",
+                        "name": "inverter",
+                        "parameters": {},
+                        "child": {
+                          "title": "listGet",
+                          "type": "action",
+                          "name": "listGet",
+                          "parameters": {
+                            "list": {"key": "targets"}
+                          }
+                        }
+                      },
+                      {
+                        "title": "cooldown",
+                        "type": "decorator",
+                        "name": "cooldown",
+                        "parameters": {
+                          "cooldown": {"value": 1}
+                        },
+                        "child": {
+                          "title": "queryEntity",
+                          "type": "action",
+                          "name": "queryEntity",
+                          "parameters": {
+                            "entityTypes": {"key": "<entityTypes>"},
+                            "range": {"key": "<queryRange>"}
+                          },
+                          "output": {
+                            "entity": "newTarget"
+                          }
+                        }
+                      },
+                      {
+                        "title": "entityInSight",
+                        "type": "action",
+                        "name": "entityInSight",
+                        "parameters": {
+                          "entity": {"key": "newTarget"}
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "title": "selector",
+                "type": "composite",
+                "name": "selector",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "listContains",
+                    "type": "action",
+                    "name": "listContains",
+                    "parameters": {
+                      "entity": {"key": "newTarget"},
+                      "list": {"key": "targets"}
+                    }
+                  },
+                  {
+                    "title": "listPush",
+                    "type": "action",
+                    "name": "listPush",
+                    "parameters": {
+                      "entity": {"key": "newTarget"},
+                      "list": {"key": "targets"}
+                    },
+                    "output": {
+                      "list": "targets"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "repeater",
+            "type": "decorator",
+            "name": "repeater",
+            "parameters": {
+              "untilSuccess": {"value": true}
+            },
+            "child": {
+              "title": "selector",
+              "type": "composite",
+              "name": "selector",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "sequence",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "listGet",
+                      "type": "action",
+                      "name": "listGet",
+                      "parameters": {
+                        "list": {"key": "targets"}
+                      },
+                      "output": {
+                        "entity": "target"
+                      }
+                    },
+                    {
+                      "title": "entityExists",
+                      "type": "action",
+                      "name": "entityExists",
+                      "parameters": {
+                        "entity": {"key": "target"}
+                      }
+                    },
+                    {
+                      "title": "entityInRange",
+                      "type": "action",
+                      "name": "entityInRange",
+                      "parameters": {
+                        "entity": {"key": "target"},
+                        "range": {"key": "<trackingRange>"}
+                      }
+                    },
+                    {
+                      "title": "inverter",
+                      "type": "decorator",
+                      "name": "inverter",
+                      "parameters": {},
+                      "child": {
+                        "title": "optional",
+                        "type": "decorator",
+                        "name": "optional",
+                        "parameters": {
+                          "shouldRun": {"key": "<keepInSight>"}
+                        },
+                        "child": {
+                          "title": "inverter",
+                          "type": "decorator",
+                          "name": "inverter",
+                          "parameters": {},
+                          "child": {
+                            "title": "entityInSight",
+                            "type": "action",
+                            "name": "entityInSight",
+                            "parameters": {
+                              "entity": {"key": "target"}
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "title": "inverter",
+                  "type": "decorator",
+                  "name": "inverter",
+                  "parameters": {},
+                  "child": {
+                    "title": "listPop",
+                    "type": "action",
+                    "name": "listPop",
+                    "parameters": {
+                      "list": {"key": "targets"}
+                    },
+                    "output": {
+                      "list": "targets"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "title": "",
+        "type": "action",
+        "name": "listGet",
+        "parameters": {
+          "list": {"key": "targets"}
+        },
+        "output": {
+          "entity": "target"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "name": "quest-kill_npcs-assistant-notification",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/quests.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "dynamic",
+    "type": "composite",
+    "name": "dynamic",
+    "parameters": {},
+    "children": [
+      {
+        "title": "limiter",
+        "type": "decorator",
+        "name": "limiter",
+        "parameters": {
+          "limit": {"value": 1}
+        },
+        "child": {
+          "title": "sequence",
+          "type": "composite",
+          "name": "sequence",
+          "parameters": {},
+          "children": [
+            {
+              "title": "sayQuestDialog",
+              "type": "action",
+              "name": "sayQuestDialog",
+              "parameters": {
+                "dialogType": {"value": "kill_npcs.assistantIntro"},
+                "extraTags": {"value": {}},
+                "quest": {"key": "override"}
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

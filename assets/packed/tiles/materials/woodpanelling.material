@@ -1,0 +1,25 @@
+{
+  "materialId" : 105,
+  "materialName" : "woodpanelling",
+  "particleColor" : [154, 133, 90, 255],
+  "itemDrop" : "woodpanelling",
+  "description" : "This wood panelling was fashionable in a distant era.",
+  "shortdescription" : "Wood Panelling",
+  "glitchDescription" : "Confused. It appears these panels of wood are decorative.",
+  "floranDescription" : "Sstrange wood panelss for decoration.",
+  "novakidDescription" : "Wood panels, that's how y'know this place is fancy.",
+  "footstepSound" : "/sfx/blocks/footstep_lightwood.ogg",
+  "health" : 2,
+  "category" : "materials",
+  "damageTable" : "/tiles/flammableDamage.config",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "woodpanelling.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 2710
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "materialId" : 128,
+  "materialName" : "sandstoneblock",
+  "particleColor" : [215, 204, 137, 255],
+  "itemDrop" : "sandstoneblock",
+  "description" : "Bricks made from smoothed sandstone.",
+  "shortdescription" : "Sandstone Bricks",
+  "glitchDescription" : "Perceptive. These bricks are made from a strong sandstone.",
+  "floranDescription" : "Ssturdy ssandstone brickss.",
+  "novakidDescription" : "Some bricks made outta sandstone.",
+  "footstepSound" : "/sfx/blocks/footstep_stone3.ogg",
+  "health" : 4,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "sandstoneblock.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3000
+  }
+}

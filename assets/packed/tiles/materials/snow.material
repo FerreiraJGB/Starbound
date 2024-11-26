@@ -1,0 +1,26 @@
+{
+  "materialId" : 30,
+  "materialName" : "snow",
+  "particleColor" : [245, 249, 250, 255],
+  "itemDrop" : "snow",
+  "shortdescription" : "Snow",
+  "description" : "Soft and fluffy snow.",
+  "glitchDescription" : "Enchanted. This snow looks freshly fallen.",
+  "floranDescription" : "Cold ssnowy sstuff.",
+  "novakidDescription" : "Buncha fresh snow.",
+  "footstepSound" : "/sfx/blocks/footstep_snow.ogg",
+  "health" : 1,
+  "category" : "materials",
+  "soil" : true,
+  "damageTable" : "/tiles/flammableDamage.config",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "snow.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 420
+  }
+}

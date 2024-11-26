@@ -1,0 +1,182 @@
+{
+  "name": "action-invulnerable",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/animator.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/status.lua",
+    "/scripts/actions/builders.lua",
+    "/scripts/actions/math.lua"
+  ],
+  "parameters": {
+    "windupState": "invulnerablewindup",
+    "winddownState": "invulnerablewinddown",
+    "invulnerableState": "invulnerable",
+    "windupTime": 0.25,
+    "invulnerableTime": 2,
+    "winddownTime": 0.25,
+    "invulnerableActions": [],
+    "invulnerableEffect": "invulnerable"
+  },
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "succeeder",
+        "type": "decorator",
+        "name": "succeeder",
+        "parameters": {},
+        "child": {
+          "title": "setAnimationState",
+          "type": "action",
+          "name": "setAnimationState",
+          "parameters": {
+            "state": {"value": "<windupState>"},
+            "type": {"value": "body"}
+          }
+        }
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": "<windupTime>"}
+        }
+      },
+      {
+        "title": "succeeder",
+        "type": "decorator",
+        "name": "succeeder",
+        "parameters": {},
+        "child": {
+          "title": "setAnimationState",
+          "type": "action",
+          "name": "setAnimationState",
+          "parameters": {
+            "state": {"value": "<invulnerableState>"},
+            "type": {"value": "body"}
+          }
+        }
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": -1},
+          "success": {"value": 1}
+        },
+        "children": [
+          {
+            "title": "parallel",
+            "type": "composite",
+            "name": "parallel",
+            "parameters": {
+              "fail": {"value": -1},
+              "success": {"value": -1}
+            },
+            "children": [
+              {
+                "title": "addEphemeralEffect",
+                "type": "action",
+                "name": "addEphemeralEffect",
+                "parameters": {
+                  "duration": {"value": 0.5},
+                  "name": {"value": "<invulnerableEffect>"}
+                }
+              },
+              {
+                "title": "failer",
+                "type": "decorator",
+                "name": "failer",
+                "parameters": {},
+                "child": {
+                  "title": "damageTakenActions",
+                  "type": "action",
+                  "name": "selectorActions",
+                  "parameters": {
+                    "actions": {"key": "<invulnerableActions>"}
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "title": "selector",
+            "type": "composite",
+            "name": "selector",
+            "parameters": {},
+            "children": [
+              {
+                "title": "sequence",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "greaterThan",
+                    "type": "action",
+                    "name": "greaterThan",
+                    "parameters": {
+                      "first": {"key": "<invulnerableTime>"},
+                      "second": {"value": 0}
+                    }
+                  },
+                  {
+                    "title": "timer",
+                    "type": "action",
+                    "name": "timer",
+                    "parameters": {
+                      "time": {"value": "<invulnerableTime>"}
+                    }
+                  }
+                ]
+              },
+              {
+                "title": "runner",
+                "type": "action",
+                "name": "runner",
+                "parameters": {}
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "succeeder",
+        "type": "decorator",
+        "name": "succeeder",
+        "parameters": {},
+        "child": {
+          "title": "setAnimationState",
+          "type": "action",
+          "name": "setAnimationState",
+          "parameters": {
+            "state": {"value": "<winddownState>"},
+            "type": {"value": "body"}
+          }
+        }
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": "<winddownTime>"}
+        }
+      },
+      {
+        "title": "removeEphemeralEffect",
+        "type": "action",
+        "name": "removeEphemeralEffect",
+        "parameters": {
+          "name": {"value": "<invulnerableEffect>"}
+        }
+      }
+    ]
+  }
+}

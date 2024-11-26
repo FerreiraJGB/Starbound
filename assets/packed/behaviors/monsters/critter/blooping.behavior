@@ -1,0 +1,235 @@
+{
+  "name": "blooping",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/world.lua",
+    "/scripts/actions/math.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/animator.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "entityPosition",
+        "type": "action",
+        "name": "entityPosition",
+        "parameters": {
+          "entity": {"key": "self"}
+        },
+        "output": {
+          "y": "entityY"
+        }
+      },
+      {
+        "title": "succeeder",
+        "type": "decorator",
+        "name": "succeeder",
+        "parameters": {},
+        "child": {
+          "title": "sequence",
+          "type": "composite",
+          "name": "sequence",
+          "parameters": {},
+          "children": [
+            {
+              "title": "selector",
+              "type": "composite",
+              "name": "selector",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "limiter",
+                  "type": "decorator",
+                  "name": "limiter",
+                  "parameters": {
+                    "limit": {"value": 1}
+                  },
+                  "child": {
+                    "title": "random",
+                    "type": "action",
+                    "name": "random",
+                    "parameters": {
+                      "max": {"value": 1},
+                      "min": {"value": 0}
+                    }
+                  }
+                },
+                {
+                  "title": "inverter",
+                  "type": "decorator",
+                  "name": "inverter",
+                  "parameters": {},
+                  "child": {
+                    "title": "inLiquid",
+                    "type": "action",
+                    "name": "inLiquid",
+                    "parameters": {
+                      "percentage": {"value": 0.5}
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "title": "add",
+              "type": "action",
+              "name": "add",
+              "parameters": {
+                "addend": {"value": 2},
+                "number": {"key": "entityY"}
+              },
+              "output": {
+                "result": "swimMaxY"
+              }
+            },
+            {
+              "title": "add",
+              "type": "action",
+              "name": "add",
+              "parameters": {
+                "addend": {"value": -2},
+                "number": {"key": "entityY"}
+              },
+              "output": {
+                "result": "swimMinY"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "title": "cooldown",
+        "type": "decorator",
+        "name": "cooldown",
+        "parameters": {
+          "cooldown": {"value": [0.5, 4]},
+          "onFail": {"value": true}
+        },
+        "child": {
+          "title": "random",
+          "type": "action",
+          "name": "random",
+          "parameters": {
+            "max": {"value": 0.9},
+            "min": {"value": -0.9}
+          },
+          "output": {
+            "number": "swimDir"
+          }
+        }
+      },
+      {
+        "title": "succeeder",
+        "type": "decorator",
+        "name": "succeeder",
+        "parameters": {},
+        "child": {
+          "title": "sequence",
+          "type": "composite",
+          "name": "sequence",
+          "parameters": {},
+          "children": [
+            {
+              "title": "greaterThan",
+              "type": "action",
+              "name": "greaterThan",
+              "parameters": {
+                "first": {"key": "entityY"},
+                "second": {"key": "swimMinY"}
+              }
+            },
+            {
+              "title": "timer",
+              "type": "action",
+              "name": "timer",
+              "parameters": {
+                "time": {"value": [0.5, 2.5]}
+              }
+            }
+          ]
+        }
+      },
+      {
+        "title": "entityPosition",
+        "type": "action",
+        "name": "entityPosition",
+        "parameters": {
+          "entity": {"key": "self"}
+        }
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "inverter",
+            "type": "decorator",
+            "name": "inverter",
+            "parameters": {},
+            "child": {
+              "title": "greaterThan",
+              "type": "action",
+              "name": "greaterThan",
+              "parameters": {
+                "first": {"key": "entityY"},
+                "second": {"key": "swimMaxY"}
+              }
+            }
+          },
+          {
+            "title": "setAnimationState",
+            "type": "action",
+            "name": "setAnimationState",
+            "parameters": {
+              "state": {"value": "bloop"},
+              "type": {"value": "movement"}
+            }
+          },
+          {
+            "title": "timer",
+            "type": "action",
+            "name": "timer",
+            "parameters": {
+              "time": {"value": 0.5}
+            }
+          },
+          {
+            "title": "parallel",
+            "type": "composite",
+            "name": "parallel",
+            "parameters": {
+              "fail": {"value": 1},
+              "success": {"value": 2}
+            },
+            "children": [
+              {
+                "title": "controlFly",
+                "type": "action",
+                "name": "controlFly",
+                "parameters": {
+                  "vector": {"value": ["swimDir", 1]}
+                }
+              },
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": [0.4, 0.6]}
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

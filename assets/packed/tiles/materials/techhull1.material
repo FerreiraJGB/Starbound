@@ -1,0 +1,24 @@
+{
+  "materialId" : 59,
+  "materialName" : "techhull1",
+  "particleColor" : [148, 148, 148, 255],
+  "itemDrop" : "techhull1",
+  "description" : "Wiring hides beneath this reinforced hi-tech plated material.",
+  "shortdescription" : "Reinforced Tech Block",
+  "glitchDescription" : "Envious. This plating covers the wires underneath extremely well.",
+  "floranDescription" : "Floran rip plating off, sslash wires.",
+  "novakidDescription" : "Fancy lookin' panel with a bunch of wires underneath.",
+  "footstepSound" : "/sfx/blocks/footstep_girder.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "techhull1.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 2580
+  }
+}

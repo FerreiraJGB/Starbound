@@ -1,0 +1,26 @@
+{
+  "materialId" : 9,
+  "materialName" : "girder",
+  "frames" : "girder.png",
+  "particleColor" : [171, 74, 40, 255],
+  "variants" : 1,
+  "itemDrop" : "girdermaterial",
+  "description" : "A strong looking metal girder.",
+  "shortdescription" : "Girder",
+  "glitchDescription" : "Impressed. This reinforced metal girder is very strong.",
+  "floranDescription" : "Cold metal girderss.",
+  "novakidDescription" : "A strong lookin' metal girder.",
+  "footstepSound" : "/sfx/blocks/footstep_girder.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/girdertemplate.config",
+  "renderParameters" : {
+    "texture" : "girder.png",
+    "variants" : 1,
+    "lightTransparent" : false,
+    "occludesBelow" : false,
+    "multiColored" : true,
+    "zLevel" : 3320
+  }
+}

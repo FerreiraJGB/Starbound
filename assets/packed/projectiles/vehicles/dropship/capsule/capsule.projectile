@@ -1,0 +1,23 @@
+{
+  "projectileName" : "capsule",
+  "physics" : "default",
+  "image" : "capsule.png",
+  "animationCycle" : 1,
+  "frameNumber" : 1,
+
+  "speed" : 45,
+  "onlyHitTerrain" : true,
+
+  "scripts" : [
+    "capsule.lua"
+  ],
+  "scriptDelta" : 0,
+
+  "actionOnReap" : [
+    {
+      "action" : "config",
+      "file" : "/projectiles/explosions/vsmallregularexplosion/capsuleexplosion.config"
+    }
+  ],
+  "damageKind" : "default"
+}

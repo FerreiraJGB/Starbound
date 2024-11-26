@@ -1,0 +1,76 @@
+{
+  "name" : "cyberspace",
+  "friendlyName" : "Cyberspace",
+
+  "statusEffects" : [ ],
+
+  "hueShiftOptions" : [ 0 ],
+
+  "weather" : [
+    [0, [
+      "/weather.config:clear"
+    ]]
+  ],
+
+  "spawnProfile" : {
+    "groups" : [
+      {
+        "select" : 1,
+        "pool" : [
+          [ 1, "cosmicintruder" ]
+        ]
+      }
+    ]
+  },
+
+  "skyOptions" : [
+    {
+      // pinkish all around
+      "mainColor" : [100, 100, 100],
+
+      "morningColors" : [ [255, 167, 152], [255, 163, 208] ],
+      "dayColors" : [ [228, 152, 169], [243, 205, 193] ],
+      "eveningColors" : [ [0, 186, 235], [0, 73, 121] ],
+      "nightColors" : [ [28, 14, 14, 60], [28, 14, 14, 180] ],
+
+      "morningLightColor" : [195, 156, 149],
+      "dayLightColor" : [197, 184, 182],
+      "eveningLightColor" : [197, 98, 126],
+      "nightLightColor" : [28, 14, 14]
+    }
+  ],
+
+  "mainBlock" : "slopedpolygon",
+  "subBlocks" : [ "slopedpolygon" ],
+  "ores" : "none",
+
+  "parallax" : "/parallax/surface/cyberspace.parallax",
+
+  "ambientNoises" : {
+    "day" : {
+      "tracks" : [ "/sfx/environmental/arid_day.ogg" ]
+    },
+    "night" : {
+      "tracks" : [ "/sfx/environmental/arid_night.ogg" ]
+    }
+  },
+
+  "musicTrack" : {
+    "day" : {
+      "tracks" : [ "/music/the-peacekeepers.ogg" ]
+    },
+    "night" : {
+      "tracks" : [ "/music/the-peacekeepers.ogg" ]
+    }
+  },
+
+  "surfacePlaceables" : {
+    "grassMod" : [ ],
+
+    "items" : [ ]
+  },
+
+  "undergroundPlaceables" : {
+    "items" : [ ]
+  }
+}

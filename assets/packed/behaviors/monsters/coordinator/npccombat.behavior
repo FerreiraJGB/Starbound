@@ -1,0 +1,15 @@
+{
+  "name": "combatcoordinator",
+  "description": "",
+  "scripts": [],
+  "parameters": {},
+  "root": {
+    "title": "runFunction",
+    "type": "action",
+    "name": "runFunction",
+    "parameters": {
+      "func": {"value": "npcCombat"},
+      "script": {"value": "/stagehands/coordinator/npccombat.lua"}
+    }
+  }
+}

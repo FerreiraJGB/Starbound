@@ -1,0 +1,82 @@
+{
+  "name": "reaction-jumpforjoy",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/npc.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/movement.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "emote",
+        "type": "action",
+        "name": "emote",
+        "parameters": {
+          "emote": {"value": "happy"}
+        }
+      },
+      {
+        "title": "repeater",
+        "type": "decorator",
+        "name": "repeater",
+        "parameters": {
+          "maxLoops": {"value": 3},
+          "untilSuccess": {"value": false}
+        },
+        "child": {
+          "title": "repeater",
+          "type": "decorator",
+          "name": "repeater",
+          "parameters": {
+            "maxLoops": {"value": -1},
+            "untilSuccess": {"value": true}
+          },
+          "child": {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": 0.2}
+                }
+              },
+              {
+                "title": "onGround",
+                "type": "action",
+                "name": "onGround",
+                "parameters": {}
+              },
+              {
+                "title": "setVelocity",
+                "type": "action",
+                "name": "setVelocity",
+                "parameters": {
+                  "velocity": {"value": [0, 15]}
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 2}
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,211 @@
+{
+  "name": "override-flee",
+  "description": "",
+  "scripts": [
+    "/scripts/behavior/bdata.lua",
+    "/scripts/behavior.lua",
+    "/scripts/actions/overrides.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/entity.lua",
+    "/scripts/actions/position.lua",
+    "/scripts/actions/math.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "parallel",
+    "type": "composite",
+    "name": "parallel",
+    "parameters": {
+      "fail": {"value": 1},
+      "success": {"value": 2}
+    },
+    "children": [
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "unset",
+            "type": "action",
+            "name": "unset",
+            "parameters": {
+              "key": {"value": "nearestTarget"},
+              "type": {"value": "entity"}
+            }
+          },
+          {
+            "title": "setNumber",
+            "type": "action",
+            "name": "setNumber",
+            "parameters": {
+              "number": {"value": 10000}
+            },
+            "output": {
+              "number": "bestDist"
+            }
+          },
+          {
+            "title": "repeater",
+            "type": "decorator",
+            "name": "repeater",
+            "parameters": {
+              "maxLoops": {"value": -1},
+              "untilSuccess": {"value": true}
+            },
+            "child": {
+              "title": "inverter",
+              "type": "decorator",
+              "name": "inverter",
+              "parameters": {},
+              "child": {
+                "title": "sequence",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "listPop",
+                    "type": "action",
+                    "name": "listPop",
+                    "parameters": {
+                      "list": {"key": "fleeOverrides"}
+                    },
+                    "output": {
+                      "list" : "fleeOverrides",
+                      "table": "fleeOverride"
+                    }
+                  },
+                  {
+                    "title": "succeeder",
+                    "type": "decorator",
+                    "name": "succeeder",
+                    "parameters": {},
+                    "child": {
+                      "title": "sequence",
+                      "type": "composite",
+                      "name": "sequence",
+                      "parameters": {},
+                      "children": [
+                        {
+                          "title": "overrideEntity",
+                          "type": "action",
+                          "name": "overrideEntity",
+                          "parameters": {
+                            "argumentName": {"value": "target"},
+                            "override": {"key": "fleeOverride"}
+                          },
+                          "output": {
+                            "entity": "target"
+                          }
+                        },
+                        {
+                          "title": "entityInRange",
+                          "type": "action",
+                          "name": "entityInRange",
+                          "parameters": {
+                            "entity": {"key": "target"},
+                            "position": {"key": "self"},
+                            "range": {"value": 20}
+                          }
+                        },
+                        {
+                          "title": "entityInSight",
+                          "type": "action",
+                          "name": "entityInSight",
+                          "parameters": {
+                            "entity": {"key": "target"}
+                          }
+                        },
+                        {
+                          "title": "entityPosition",
+                          "type": "action",
+                          "name": "entityPosition",
+                          "parameters": {
+                            "entity": {"key": "target"}
+                          },
+                          "output": {
+                            "position": "targetPos"
+                          }
+                        },
+                        {
+                          "title": "distance",
+                          "type": "action",
+                          "name": "distance",
+                          "parameters": {
+                            "from": {"key": "self"},
+                            "to": {"key": "targetPos"}
+                          },
+                          "output": {
+                            "magnitude": "targetDist"
+                          }
+                        },
+                        {
+                          "title": "greaterThan",
+                          "type": "action",
+                          "name": "greaterThan",
+                          "parameters": {
+                            "first": {"key": "bestDist"},
+                            "second": {"key": "targetDist"}
+                          }
+                        },
+                        {
+                          "title": "setNumber",
+                          "type": "action",
+                          "name": "setNumber",
+                          "parameters": {
+                            "number": {"key": "targetDist"}
+                          },
+                          "output": {
+                            "number": "bestDist"
+                          }
+                        },
+                        {
+                          "title": "setEntity",
+                          "type": "action",
+                          "name": "setEntity",
+                          "parameters": {
+                            "entity": {"key": "target"}
+                          },
+                          "output": {
+                            "entity": "nearestTarget"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "title": "entityExists",
+            "type": "action",
+            "name": "entityExists",
+            "parameters": {
+              "entity": {"key": "nearestTarget"}
+            }
+          },
+          {
+            "title": "setEntity",
+            "type": "action",
+            "name": "setEntity",
+            "parameters": {
+              "entity": {"key": "nearestTarget"}
+            },
+            "output": {
+              "entity": "fleeTarget"
+            }
+          }
+        ]
+      },
+      {
+        "title": "Run Away",
+        "type": "module",
+        "name": "Run Away",
+        "parameters": {}
+      }
+    ]
+  }
+}

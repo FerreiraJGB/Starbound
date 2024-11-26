@@ -1,0 +1,8 @@
+{
+  "frames" : "junkstorm2.png",
+  "variants" : 1,
+  "frameNumber" : 11,
+  "loops" : 10,
+  "animationCycle" : 1.0,
+  "offset" : [0, 0]
+}

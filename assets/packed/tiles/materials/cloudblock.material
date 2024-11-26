@@ -1,0 +1,24 @@
+{
+  "materialId" : 178,
+  "materialName" : "cloudblock",
+  "particleColor" : [255, 255, 255, 255],
+  "itemDrop" : "cloudblock",
+  "description" : "A cloud dense enough to walk on.",
+  "shortdescription" : "Cloud",
+  "glitchDescription" : "Amazed. The density of this cloud could support my weight.",
+  "floranDescription" : "Cloud iss sso fluffy!",
+  "novakidDescription" : "This here cloud is made from some heavy fluff stuff.",
+  "footstepSound" : "/sfx/blocks/footstep_ash.ogg",
+  "health" : 0.01,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "cloudblock.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "multiColored" : true,
+    "occludesBelow" : true,
+    "zLevel" : 0
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "name": "converseseq",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/entity.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/dialog.lua",
+    "/scripts/actions/time.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "Converse",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": null,
+        "type": "action",
+        "name": "wasInteracted",
+        "parameters": {}
+      },
+      {
+        "title": "",
+        "type": "action",
+        "name": "faceEntity",
+        "parameters": {
+          "entity": {"key": "interactionSource"}
+        }
+      },
+      {
+        "title": "selector",
+        "type": "composite",
+        "name": "selector",
+        "parameters": {},
+        "children": [
+          {
+            "title": "sayNext",
+            "type": "action",
+            "name": "sayNext",
+            "parameters": {}
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "getDialog",
+                "type": "action",
+                "name": "getDialog",
+                "parameters": {
+                  "dialogType": {"value": "dialog.converse"}
+                }
+              },
+              {
+                "title": "sayNext",
+                "type": "action",
+                "name": "sayNext",
+                "parameters": {}
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 3}
+        }
+      }
+    ]
+  }
+}

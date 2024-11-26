@@ -1,0 +1,23 @@
+{
+  "config" : {
+    "shipUpgrades" : {
+      "capabilities" : ["teleport", "planetTravel"],
+      "crewSize" : 2
+    }
+  },
+
+  "backgroundOverlays" : [
+    {
+      "image" : "novakidT2.png",
+      "position" : [-24.5, 12.75],
+      "fullbright" : true
+    },
+    {
+      "image" : "novakidT2lit.png",
+      "position" : [-24.5, 12.75]
+    }
+  ],
+
+  "blockKey" : "blockKey.config:blockKey",
+  "blockImage" : "novakidT2blocks.png"
+}

@@ -1,0 +1,23 @@
+{
+  "metadata" : {
+    "name" : "bountylair4",
+    "species" : "generic",
+    "rules" : [
+    ],
+    "anchor" : [ "bountylair4" ],
+    "gravity" : 80,
+    "maxRadius" : 1000000,
+    "maxParts" : 1,
+    "protected" : true
+  },
+
+  "parts" : [
+    {
+      "name" : "bountylair4",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "bountylair4.json" ]
+    }
+  ]
+}

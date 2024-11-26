@@ -1,0 +1,237 @@
+{
+  "name": "wander-fly",
+  "description": null,
+  "scripts": [
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/animator.lua",
+    "/scripts/actions/sensor.lua",
+    "/scripts/actions/math.lua",
+    "/scripts/actions/position.lua",
+    "/scripts/actions/flying.lua",
+    "/scripts/actions/time.lua"
+  ],
+  "parameters": {
+    "wanderTime": 2,
+    "groundDistance": 10,
+    "ceilingDistance": 10,
+    "xVelocity": 8,
+    "yVelocity": 12,
+    "flyState": "fly"
+  },
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "setDirection",
+        "type": "action",
+        "name": "setDirection",
+        "parameters": {},
+        "output": {
+          "direction": "facingDirection"
+        }
+      },
+      {
+        "title": "faceDirection",
+        "type": "action",
+        "name": "faceDirection",
+        "parameters": {
+          "direction": {"key": "facingDirection"}
+        }
+      },
+      {
+        "title": "setAnimationState",
+        "type": "action",
+        "name": "setAnimationState",
+        "parameters": {
+          "state": {"key": "<flyState>"},
+          "type": {"value": "body"}
+        }
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": 1},
+          "success": {"value": 1}
+        },
+        "children": [
+          {
+            "title": "parallel",
+            "type": "composite",
+            "name": "parallel",
+            "parameters": {
+              "fail": {"value": -1},
+              "success": {"value": -1}
+            },
+            "children": [
+              {
+                "title": "failer",
+                "type": "decorator",
+                "name": "failer",
+                "parameters": {},
+                "child": {
+                  "title": "sequence",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "boundsCollision",
+                      "type": "action",
+                      "name": "boundsCollision",
+                      "parameters": {
+                        "dirVector": {"value": ["facingDirection", 0]}
+                      }
+                    },
+                    {
+                      "title": "reverseDirection",
+                      "type": "action",
+                      "name": "reverseDirection",
+                      "parameters": {
+                        "direction": {"key": "facingDirection"}
+                      },
+                      "output": {
+                        "direction": "facingDirection"
+                      }
+                    },
+                    {
+                      "title": "faceDirection",
+                      "type": "action",
+                      "name": "faceDirection",
+                      "parameters": {
+                        "direction": {"key": "facingDirection"}
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "title": "dynamic",
+                "type": "composite",
+                "name": "dynamic",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "sequence",
+                    "type": "composite",
+                    "name": "sequence",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "multiply",
+                        "type": "action",
+                        "name": "multiply",
+                        "parameters": {
+                          "factor": {"value": -2},
+                          "number": {"key": "<groundDistance>"}
+                        },
+                        "output": {
+                          "result": "groundCheckDistance"
+                        }
+                      },
+                      {
+                        "title": "selector",
+                        "type": "composite",
+                        "name": "selector",
+                        "parameters": {},
+                        "children": [
+                          {
+                            "title": "lineTileCollision",
+                            "type": "action",
+                            "name": "lineTileCollision",
+                            "parameters": {
+                              "collisionType": {"value": ["Null", "Block", "Dynamic"]},
+                              "offset": {"value": [0, "groundCheckDistance"]},
+                              "position": {"key": "self"}
+                            }
+                          },
+                          {
+                            "title": "sequence",
+                            "type": "composite",
+                            "name": "sequence",
+                            "parameters": {},
+                            "children": [
+                              {
+                                "title": "offsetPosition",
+                                "type": "action",
+                                "name": "offsetPosition",
+                                "parameters": {
+                                  "offset": {"value": [0, "groundCheckDistance"]},
+                                  "position": {"key": "self"}
+                                },
+                                "output": {
+                                  "position": "groundPoint"
+                                }
+                              },
+                              {
+                                "title": "lineLiquidCollision",
+                                "type": "action",
+                                "name": "lineLiquidCollision",
+                                "parameters": {
+                                  "endLine": {"key": "groundPoint"},
+                                  "startLine": {"key": "self"}
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "title": "flyAlongGround",
+                        "type": "action",
+                        "name": "flyAlongGround",
+                        "parameters": {
+                          "keepCeilingDistance": {"key": "<ceilingDistance>"},
+                          "keepGroundDistance": {"key": "<groundDistance>"},
+                          "maxXVelocity": {"key": "<xVelocity>"},
+                          "maxYVelocity": {"key": "<yVelocity>"}
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "title": "parallel",
+                    "type": "composite",
+                    "name": "parallel",
+                    "parameters": {
+                      "fail": {"value": -1},
+                      "success": {"value": -1}
+                    },
+                    "children": [
+                      {
+                        "title": "controlFly",
+                        "type": "action",
+                        "name": "controlFly",
+                        "parameters": {
+                          "vector": {"value": ["facingDirection", -0.1]}
+                        }
+                      },
+                      {
+                        "title": "runner",
+                        "type": "action",
+                        "name": "runner",
+                        "parameters": {}
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "timer",
+            "type": "action",
+            "name": "timer",
+            "parameters": {
+              "time": {"value": "<wanderTime>"}
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

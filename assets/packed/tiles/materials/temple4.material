@@ -1,0 +1,24 @@
+{
+  "materialId" : 29,
+  "materialName" : "temple4",
+  "particleColor" : [190, 159, 85, 255],
+  "itemDrop" : "temple4",
+  "shortdescription" : "Simple Temple Blocks",
+  "description" : "Old and poorly crafted blocks, crude drawings are scratched into the stone.",
+  "glitchDescription" : "Unimpressed. These carvings are rather crudely done.",
+  "floranDescription" : "Old carvingss in stone brickss.",
+  "novakidDescription" : "Someone's gone and carved a buncha pictures into these bricks.",
+  "footstepSound" : "/sfx/blocks/footstep_stone3.ogg",
+  "health" : 16,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "temple4.png",
+    "variants" : 25,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : true,
+    "zLevel" : 3210
+  }
+}

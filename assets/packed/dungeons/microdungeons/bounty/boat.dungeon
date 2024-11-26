@@ -1,0 +1,79 @@
+{
+  "metadata" : {
+    "name" : "boat",
+    "species" : "generic",
+    "rules" : [
+    ],
+    "anchor" : [ "boat_1", "boat_2", "boat_3", "boat_4", "boat_5", "boat_6", "boat_7", "boat_8", "boat_9" ],
+    "gravity" : 80,
+    "maxRadius" : 1000000,
+    "maxParts" : 1,
+    "protected" : true
+  },
+
+  "parts" : [
+    {
+      "name" : "boat_1",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "boat_1.json" ]
+    },
+    {
+      "name" : "boat_2",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "boat_2.json" ]
+    },
+    {
+      "name" : "boat_3",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "boat_3.json" ]
+    },
+    {
+      "name" : "boat_4",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "boat_4.json" ]
+    },
+    {
+      "name" : "boat_5",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "boat_5.json" ]
+    },
+    {
+      "name" : "boat_6",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "boat_6.json" ]
+    },
+    {
+      "name" : "boat_7",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "boat_7.json" ]
+    },
+    {
+      "name" : "boat_8",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "boat_8.json" ]
+    },
+    {
+      "name" : "boat_9",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "boat_9.json" ]
+    }
+  ]
+}

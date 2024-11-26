@@ -1,0 +1,76 @@
+{
+  "name": "quest-new_stock-questGiver-notification",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/notification.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/npc.lua",
+    "/scripts/actions/quests.lua",
+    "/scripts/actions/merchant.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "receivedNotification",
+        "type": "action",
+        "name": "receivedNotification",
+        "parameters": {
+          "type": {"value": "stockDelivered"}
+        },
+        "output": {
+          "source": "player"
+        }
+      },
+      {
+        "title": "faceEntity",
+        "type": "action",
+        "name": "faceEntity",
+        "parameters": {
+          "entity": {"key": "player"}
+        }
+      },
+      {
+        "title": "emote",
+        "type": "action",
+        "name": "emote",
+        "parameters": {
+          "emote": {"value": "happy"}
+        }
+      },
+      {
+        "title": "questItem",
+        "type": "action",
+        "name": "questItem",
+        "parameters": {
+          "parameterName": {"value": "newItem"},
+          "quest": {"key": "override"}
+        },
+        "output": {
+          "table": "item"
+        }
+      },
+      {
+        "title": "addTradableItem",
+        "type": "action",
+        "name": "addTradableItem",
+        "parameters": {
+          "item": {"key": "item"}
+        }
+      },
+      {
+        "title": "fireQuestEvent",
+        "type": "action",
+        "name": "fireQuestEvent",
+        "parameters": {
+          "eventName": {"value": "stockAccepted"},
+          "source": {"key": "player"}
+        }
+      }
+    ]
+  }
+}
